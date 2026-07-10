@@ -1,17 +1,25 @@
-import sys
-from pathlib import Path
+from scraper.auth import AuthenticationManager
 
-# Fix path issues - remove conflicting paths
-project_root = str(Path(__file__).parent)
-sys.path = [p for p in sys.path if 'calchas' not in p]
-sys.path.insert(0, project_root)
-
-from scraper.sgx_client import SGXClient
 
 def main():
 
-    client = SGXClient()
-    client.print_summary("OILTEK INTERNATIONAL LIMITED")
+    auth = AuthenticationManager()
+
+    token = auth.get_token()
+
+    print()
+
+    print("=" * 60)
+
+    print("Authorization Token")
+
+    print("=" * 60)
+
+    print(token)
+
+    print("=" * 60)
+
 
 if __name__ == "__main__":
+
     main()
