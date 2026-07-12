@@ -75,16 +75,15 @@ class AnnouncementRepository:
     def close(self):
         self.db.close()
 
-    def count(self) -> int:                 #    COUNT
+    def count(self) -> int:
+        """Get total count of announcements"""
         row = self.db.fetchone(
-            """
-            SELECT COUNT(*)
-            FROM announcements
-            """
+            "SELECT COUNT(*) FROM announcements"
         )
         return row[0]
 
     def get_latest(self):
+        """Get latest announcement"""
         row = self.db.fetchone(
             """
             SELECT *
@@ -93,15 +92,15 @@ class AnnouncementRepository:
             LIMIT 1
             """
         )
-        return row
-
-    # to get companny annoucnement 
+        if row is None:
+            return None
+        return self._row_to_announcement(row)
 
     def get_company_announcement(
         self,
         stock_code: str
     ):
-
+        """Get announcements for a specific company"""
         rows = self.db.fetchall(
             """
             SELECT *
@@ -111,22 +110,47 @@ class AnnouncementRepository:
             """,
             (stock_code,)
         )
-        return rows
-
-    # -----------------to get by category 
+        return [
+            self._row_to_announcement(row)
+            for row in rows
+        ]
 
     def get_by_category(
         self,
         category: str
     ):
+        """Get announcements by category"""
+        rows = self.db.fetchall(
+            """
+            SELECT *
+            FROM announcements
+            WHERE category = ?
+            ORDER BY submission_timestamp DESC
+            """,
+            (category,)
+        )
+        return [
+            self._row_to_announcement(row)
+            for row in rows
+        ]
 
-        return self.db.fetchall(
-        """
-        SELECT *
-        FROM announcements
-        WHERE category = ?
-        ORDER BY submission_timestamp DESC
-        """,
-
-        (category,)
-    )
+    def _row_to_announcement(
+        self,
+        row
+    ) -> Announcement:
+        """Convert SQLite Row into Announcement object"""
+        return Announcement(
+            announcement_id=row["announcement_id"],
+            ref_id=row["ref_id"],
+            company_name=row["company_name"],
+            stock_code=row["stock_code"],
+            isin_code=row["isin_code"],
+            title=row["title"],
+            category=row["category"],
+            category_code=row["category_code"],
+            subcategory_code=row["subcategory_code"],
+            announcement_url=row["announcement_url"],
+            submission_date=row["submission_date"],
+            submission_timestamp=row["submission_timestamp"],
+            submitted_by=row["submitted_by"]
+        )
