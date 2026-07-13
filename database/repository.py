@@ -96,6 +96,20 @@ class AnnouncementRepository:
             return None
         return self._row_to_announcement(row)
 
+    def get_latest_timestamp(self):
+        """Get latest announcement timestamp"""
+        row = self.db.fetchone(
+            """
+            SELECT submission_timestamp
+            FROM announcements
+            ORDER BY submission_timestamp DESC 
+            LIMIT 1
+            """
+        )
+        if row is None:
+            return None
+        return row["submission_timestamp"]
+
     def get_company_announcement(
         self,
         stock_code: str
