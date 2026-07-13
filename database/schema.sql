@@ -44,3 +44,24 @@ CREATE TABLE IF NOT EXISTS announcements (
 -- and created time -> when our database inserted it
 
 
+CREATE TABLE IF NOT EXISTS attachments (
+
+    attachment_id TEXT PRIMARY KEY,
+
+    announcement_id TEXT NOT NULL,
+
+    filename TEXT,
+
+    download_url TEXT,
+
+    file_size TEXT,
+
+    local_path TEXT,
+
+    downloaded INTEGER DEFAULT 0,
+
+    created_at TEXT,
+
+    FOREIGN KEY (announcement_id)
+        REFERENCES announcements(announcement_id)
+);
