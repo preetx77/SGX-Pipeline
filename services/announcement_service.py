@@ -4,52 +4,73 @@
 from datetime import datetime, timedelta
 from scraper.client import SGXClient
 from database.repository import AnnouncementRepository
-
+from services.attachment_service import AttachmentService
 
 class AnnouncementService:
 
     def __init__(self):
         self.client = SGXClient()
         self.repository = AnnouncementRepository()
+        self.attachment_service = AttachmentService()
 
-    def sync_company(
-        self,
-        company_name,
-        period_start=None,
-        period_end=None
-    ):
+    def sync_company(self, company_name, stock_code):
         """Sync announcements for a single company"""
         
-        # If dates not provided, use defaults
-        if period_start is None or period_end is None:
-            end_date = datetime.now()
-            start_date = end_date - timedelta(days=90)
-            
-            period_start = start_date.strftime("%Y%m%d_%H%M%S")
-            period_end = end_date.strftime("%Y%m%d_%H%M%S")
-
+        latest_timestamp = self.repository.get_latest_timestamp(stock_code)
+        
+        end = datetime.now()
+        
+        if latest_timestamp:
+            # latest_timestamp is in milliseconds, convert to seconds
+            from datetime import datetime as dt
+            latest_date = dt.fromtimestamp(latest_timestamp / 1000)
+            start = latest_date - timedelta(days=1)
+        else:
+            start = end - timedelta(days=90)
+        
+        period_start = start.strftime("%Y%m%d_000000")
+        period_end = end.strftime("%Y%m%d_235959")
+        
         announcements = self.client.get_company_announcement(
             company_name,
             period_start=period_start,
             period_end=period_end
         )
-
+        
         inserted = 0
         skipped = 0
-
+        attachment_discovered = 0
+        attachment_inserted = 0
+        attachment_downloaded = 0
+        attachment_skipped = 0
+        
         for announcement in announcements:
-            if self.repository.insert(announcement):
+            is_new = self.repository.insert(announcement)
+            
+            if is_new:
                 inserted += 1
             else:
                 skipped += 1
-
+            
+            attachment_result = self.attachment_service.process_announcement(announcement)
+            
+            attachment_discovered += attachment_result["attachments"]
+            attachment_inserted += attachment_result["inserted"]
+            attachment_downloaded += attachment_result["downloaded"]
+            attachment_skipped += attachment_result["skipped"]
+        
         return {
             "company": company_name,
+            "stock_code": stock_code,
             "period_start": period_start,
             "period_end": period_end,
-            "fetched": len(announcements),
-            "inserted": inserted,
-            "skipped": skipped
+            "announcements_fetched": len(announcements),
+            "announcements_inserted": inserted,
+            "announcements_skipped": skipped,
+            "attachments_discovered": attachment_discovered,
+            "attachments_inserted": attachment_inserted,
+            "attachments_downloaded": attachment_downloaded,
+            "attachments_skipped": attachment_skipped
         }
 
     def sync_watchlist(
@@ -80,22 +101,21 @@ class AnnouncementService:
             try:
                 result = self.sync_company(
                     company_name,
-                    period_start=period_start,
-                    period_end=period_end
+                    stock_code
                 )
                 
                 # Update totals
-                summary["total_fetched"] += result["fetched"]
-                summary["total_inserted"] += result["inserted"]
-                summary["total_skipped"] += result["skipped"]
+                summary["total_fetched"] += result["announcements_fetched"]
+                summary["total_inserted"] += result["announcements_inserted"]
+                summary["total_skipped"] += result["announcements_skipped"]
                 
                 # Add company result
                 summary["companies"].append({
                     "company": company_name,
                     "stock_code": stock_code,
-                    "fetched": result["fetched"],
-                    "inserted": result["inserted"],
-                    "skipped": result["skipped"]
+                    "fetched": result["announcements_fetched"],
+                    "inserted": result["announcements_inserted"],
+                    "skipped": result["announcements_skipped"]
                 })
                 
             except Exception as e:
@@ -109,3 +129,4 @@ class AnnouncementService:
 
     def close(self):
         self.repository.close()
+        self.attachment_service.close()
