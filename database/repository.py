@@ -96,19 +96,29 @@ class AnnouncementRepository:
             return None
         return self._row_to_announcement(row)
 
-    def get_latest_timestamp(self):
-        """Get latest announcement timestamp"""
-        row = self.db.fetchone(
-            """
+    def get_latest_timestamp(self, stock_code=None):
+        """Get latest announcement timestamp, optionally filtered by stock_code"""
+        if stock_code:
+            query = """
             SELECT submission_timestamp
             FROM announcements
+            WHERE stock_code = ?
             ORDER BY submission_timestamp DESC 
             LIMIT 1
             """
-        )
+            row = self.db.fetchone(query, (stock_code,))
+        else:
+            row = self.db.fetchone(
+                """
+                SELECT submission_timestamp
+                FROM announcements
+                ORDER BY submission_timestamp DESC 
+                LIMIT 1
+                """
+            )
         if row is None:
             return None
-        return row["submission_timestamp"]
+        return row[0] if isinstance(row, tuple) else row["submission_timestamp"]
 
     def get_company_announcement(
         self,
