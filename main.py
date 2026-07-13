@@ -1,52 +1,102 @@
-from datetime import datetime, timedelta
 from services.announcement_service import AnnouncementService
 
 
-# Watchlist of companies to sync
 WATCHLIST = [
+
     ("OILTEK INTERNATIONAL LIMITED", "HQU"),
+
     ("HYPHENS PHARMA INTERNATIONAL LIMITED", "HPI"),
+
     ("CNMC GOLDMINE HOLDINGS LIMITED", "CGH"),
-    ("TREK 2000 INTERNATIONAL LTD", "T2K"),
+
+    ("TREK 2000 INTERNATIONAL LTD", "T2K")
+
 ]
 
 
 def main():
 
     service = AnnouncementService()
-    
-    # Get announcements from last 90 days
-    end_date = datetime.now()
-    start_date = end_date - timedelta(days=90)
 
-    summary = service.sync_watchlist(
-        WATCHLIST,
-        period_start=start_date.strftime("%Y%m%d_000000"),
-        period_end=end_date.strftime("%Y%m%d_235959")
-    )
+    total_announcements = 0
+
+    total_documents = 0
+
+    total_downloaded = 0
 
     print()
-    print("=" * 70)
-    print("Watchlist Sync Report")
-    print("=" * 70)
-    print(f"Total Companies: {summary['total_companies']}")
-    print(f"Total Fetched:   {summary['total_fetched']}")
-    print(f"Total Inserted:  {summary['total_inserted']}")
-    print(f"Total Skipped:   {summary['total_skipped']}")
-    print("=" * 70)
+
+    print("=" * 90)
+
+    print("SGX PIPELINE")
+
+    print("=" * 90)
+
     print()
 
-    for company_result in summary['companies']:
-        print(f"[{company_result.get('stock_code', 'N/A')}] {company_result['company']}")
-        if 'error' in company_result:
-            print(f"  ERROR: {company_result['error']}")
-        else:
-            print(f"  Fetched: {company_result['fetched']} | Inserted: {company_result['inserted']} | Skipped: {company_result['skipped']}")
-    
-    print()
+    for company, code in WATCHLIST:
+
+        result = service.sync_company(
+
+            company,
+
+            code
+
+        )
+
+        total_announcements += result["announcements_fetched"]
+
+        total_documents += result["attachments_discovered"]
+
+        total_downloaded += result["attachments_downloaded"]
+
+        print(f"[{code}] {company}")
+
+        print(
+
+            f"Announcements : "
+
+            f"{result['announcements_fetched']}"
+
+        )
+
+        print(
+
+            f"Documents     : "
+
+            f"{result['attachments_discovered']}"
+
+        )
+
+        print(
+
+            f"Downloaded    : "
+
+            f"{result['attachments_downloaded']}"
+
+        )
+
+        print()
+
+    print("=" * 90)
+
+    print("SUMMARY")
+
+    print("=" * 90)
+
+    print(f"Companies      : {len(WATCHLIST)}")
+
+    print(f"Announcements  : {total_announcements}")
+
+    print(f"Documents      : {total_documents}")
+
+    print(f"New Downloads  : {total_downloaded}")
+
+    print("=" * 90)
 
     service.close()
 
 
 if __name__ == "__main__":
+
     main()
