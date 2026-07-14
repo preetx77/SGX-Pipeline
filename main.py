@@ -1,100 +1,88 @@
-from services.announcement_service import AnnouncementService
+from database.repository import AnnouncementRepository
+from database.attachment_repository import AttachmentRepository
+from database.document_repository import DocumentRepository
 
+from extractors.pdf_extractor import PDFExtractor
+from classifiers.document_classifier import DocumentClassifier
 
-WATCHLIST = [
-
-    ("OILTEK INTERNATIONAL LIMITED", "HQU"),
-
-    ("HYPHENS PHARMA INTERNATIONAL LIMITED", "HPI"),
-
-    ("CNMC GOLDMINE HOLDINGS LIMITED", "CGH"),
-
-    ("TREK 2000 INTERNATIONAL LTD", "T2K")
-
-]
+from models.attachment import Attachment
 
 
 def main():
 
-    service = AnnouncementService()
+    announcement_repo = AnnouncementRepository()
 
-    total_announcements = 0
+    attachment_repo = AttachmentRepository()
 
-    total_documents = 0
+    document_repo = DocumentRepository()
 
-    total_downloaded = 0
+    extractor = PDFExtractor()
+
+    classifier = DocumentClassifier()
+
+    announcement = announcement_repo.get_latest()
+
+    row = attachment_repo.db.fetchone("""
+
+        SELECT *
+
+        FROM attachments
+
+        WHERE downloaded = 1
+
+        LIMIT 1
+
+    """)
+
+    attachment = Attachment(
+
+        attachment_id=row["attachment_id"],
+
+        announcement_id=row["announcement_id"],
+
+        filename=row["filename"],
+
+        download_url=row["download_url"],
+
+        local_path=row["local_path"],
+
+        downloaded=bool(row["downloaded"])
+
+    )
+
+    document = extractor.extract(
+
+        attachment,
+
+        announcement
+
+    )
+
+    document.document_type = classifier.classify(document)
+
+    inserted = document_repo.insert(document)
 
     print()
 
-    print("=" * 90)
+    print("=" * 70)
 
-    print("SGX PIPELINE")
+    print("Document Repository Test")
 
-    print("=" * 90)
+    print("=" * 70)
 
-    print()
+    print(f"Inserted : {inserted}")
 
-    for company, code in WATCHLIST:
+    print(f"Type     : {document.document_type.value}")
 
-        result = service.sync_company(
+    print(f"Words    : {document.word_count()}")
 
-            company,
+    print("=" * 70)
 
-            code
+    announcement_repo.close()
 
-        )
+    attachment_repo.close()
 
-        total_announcements += result["announcements_fetched"]
-
-        total_documents += result["attachments_discovered"]
-
-        total_downloaded += result["attachments_downloaded"]
-
-        print(f"[{code}] {company}")
-
-        print(
-
-            f"Announcements : "
-
-            f"{result['announcements_fetched']}"
-
-        )
-
-        print(
-
-            f"Documents     : "
-
-            f"{result['attachments_discovered']}"
-
-        )
-
-        print(
-
-            f"Downloaded    : "
-
-            f"{result['attachments_downloaded']}"
-
-        )
-
-        print()
-
-    print("=" * 90)
-
-    print("SUMMARY")
-
-    print("=" * 90)
-
-    print(f"Companies      : {len(WATCHLIST)}")
-
-    print(f"Announcements  : {total_announcements}")
-
-    print(f"Documents      : {total_documents}")
-
-    print(f"New Downloads  : {total_downloaded}")
-
-    print("=" * 90)
-
-    service.close()
+    document_repo.close()
 
 
 if __name__ == "__main__":
