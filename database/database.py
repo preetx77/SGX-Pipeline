@@ -1,4 +1,6 @@
 # this file should never know sgx exists, only job is to SQLITE
+# if we move from SQLITE to POSTGRE : only this file changes
+
 
 import sqlite3
 from pathlib import Path
@@ -61,5 +63,33 @@ class DatabaseManager:
     def close(self):
         self.connection.close()
 
+# ----------------- Incremental Synchronization ------------ 
 
-# if we move from SQLITE to POSTGRE : only this file changes
+    def get_latest_timestamp(self, stock_code: str) -> int | None:
+        """
+        Returns the newest submission timestamp
+        for a company.
+        """
+        query = """
+            SELECT submission_timestamp
+            FROM announcements
+            WHERE stock_code = ?
+            ORDER BY submission_timestamp DESC
+            LIMIT 1
+        """
+        row = self.fetchone(query, (stock_code,))
+        if row is None:
+            return None
+        return row[0]
+
+        row = self.db.fetchone(
+        """
+        SELECT MAX(submission_timestamp)
+        FROM announcements
+        WHERE stock_code = ?
+        """,
+            (stock_code,)
+        )
+        if row is None:
+            return None
+        return row[0]
