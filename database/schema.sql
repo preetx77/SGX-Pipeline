@@ -65,3 +65,37 @@ CREATE TABLE IF NOT EXISTS attachments (
     FOREIGN KEY (announcement_id)
         REFERENCES announcements(announcement_id)
 );
+
+-- why second table : 
+-- because one announcement can have multiple attachments
+
+CREATE TABLE IF NOT EXISTS documents (
+
+    attachment_id TEXT PRIMARY KEY,
+
+    announcement_id TEXT,
+
+    company_name TEXT,
+
+    stock_code TEXT,
+
+    announcement_title TEXT,
+
+    announcement_category TEXT,
+
+    filename TEXT,
+
+    local_path TEXT,
+
+    page_count INTEGER,
+
+    word_count INTEGER,
+
+    document_type TEXT,
+
+    extracted INTEGER,
+
+    extracted_text TEXT,
+
+    created_at TEXT
+);

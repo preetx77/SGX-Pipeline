@@ -81,15 +81,3 @@ class DatabaseManager:
         if row is None:
             return None
         return row[0]
-
-        row = self.db.fetchone(
-        """
-        SELECT MAX(submission_timestamp)
-        FROM announcements
-        WHERE stock_code = ?
-        """,
-            (stock_code,)
-        )
-        if row is None:
-            return None
-        return row[0]
