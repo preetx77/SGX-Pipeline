@@ -110,3 +110,19 @@ class AttachmentRepository:
                 attachment_id
         )
     )
+
+    def get_downloaded_attachment(self):
+
+        row = self.db.fetchone(
+            """
+            SELECT *
+
+            FROM attachments
+
+            WHERE downloaded = 1
+
+            LIMIT 1
+            """
+        )
+
+        return row

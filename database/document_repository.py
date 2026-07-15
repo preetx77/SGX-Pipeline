@@ -106,7 +106,6 @@ class DocumentRepository:
                 document.text,
 
                 now
-
             )
 
         )
