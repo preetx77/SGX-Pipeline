@@ -1,90 +1,70 @@
-from database.repository import AnnouncementRepository
+from database.announcement_repository import AnnouncementRepository
 from database.attachment_repository import AttachmentRepository
-from database.document_repository import DocumentRepository
-
-from extractors.pdf_extractor import PDFExtractor
-from classifiers.document_classifier import DocumentClassifier
 
 from models.attachment import Attachment
+
+from services.document_service import DocumentService
 
 
 def main():
 
     announcement_repo = AnnouncementRepository()
-
     attachment_repo = AttachmentRepository()
+    service = DocumentService()
 
-    document_repo = DocumentRepository()
-
-    extractor = PDFExtractor()
-
-    classifier = DocumentClassifier()
-
-    announcement = announcement_repo.get_latest()
-
-    row = attachment_repo.db.fetchone("""
-
-        SELECT *
-
-        FROM attachments
-
-        WHERE downloaded = 1
-
-        LIMIT 1
-
-    """)
+    row = attachment_repo.get_downloaded_attachment()
 
     attachment = Attachment(
 
         attachment_id=row["attachment_id"],
-
         announcement_id=row["announcement_id"],
-
         filename=row["filename"],
-
         download_url=row["download_url"],
-
         local_path=row["local_path"],
-
         downloaded=bool(row["downloaded"])
 
     )
 
-    document = extractor.extract(
-
-        attachment,
-
-        announcement
-
+    announcement = announcement_repo.get_by_id(
+        attachment.announcement_id
     )
 
-    document.document_type = classifier.classify(document)
+    print()
+    print("=" * 70)
+    print("Relationship Check")
+    print("=" * 70)
 
-    inserted = document_repo.insert(document)
+    print(f"Attachment Announcement ID : {attachment.announcement_id}")
+    print(f"Announcement ID            : {announcement.announcement_id}")
+    print(f"Company                    : {announcement.company_name}")
+    print(f"Category                   : {announcement.category}")
+    print(f"Title                      : {announcement.title}")
+    print(f"Filename                   : {attachment.filename}")
+
+    print("=" * 70)
+
+    result = service.process(
+        announcement,
+        attachment
+    )
+
+    document = result["document"]
 
     print()
+    print("=" * 70)
+    print("Document Service")
+    print("=" * 70)
+
+    print(f"Predicted Type : {document.document_type.value}")
+    print(f"Words          : {document.word_count()}")
+    print(f"Inserted       : {result['inserted']}")
 
     print("=" * 70)
 
-    print("Document Repository Test")
-
-    print("=" * 70)
-
-    print(f"Inserted : {inserted}")
-
-    print(f"Type     : {document.document_type.value}")
-
-    print(f"Words    : {document.word_count()}")
-
-    print("=" * 70)
-
+    service.close()
     announcement_repo.close()
-
     attachment_repo.close()
-
-    document_repo.close()
 
 
 if __name__ == "__main__":
-
     main()
