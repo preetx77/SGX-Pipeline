@@ -3,7 +3,7 @@
 
 from datetime import datetime, timedelta
 from scraper.client import SGXClient
-from database.repository import AnnouncementRepository
+from database.announcement_repository import AnnouncementRepository
 from services.attachment_service import AttachmentService
 
 class AnnouncementService:
