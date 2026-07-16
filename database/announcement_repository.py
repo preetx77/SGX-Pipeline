@@ -1,7 +1,5 @@
-from datetime import datetime
-
-from database.database import DatabaseManager
 from models.announcement import Announcement
+from database.database import DatabaseManager
 
 
 class AnnouncementRepository:
@@ -10,158 +8,35 @@ class AnnouncementRepository:
 
         self.db = DatabaseManager()
 
-    # ---------------------------------------------------------
-    # Exists
-    # ---------------------------------------------------------
+    # --------------------------------------------------
+    # Convert SQLite Row -> Announcement object
+    # --------------------------------------------------
 
-    def exists(self, announcement_id: str):
+    def _row_to_announcement(self, row):
 
-        row = self.db.fetchone(
+        if row is None:
+            return None
 
-            """
-            SELECT 1
-            FROM announcements
-            WHERE announcement_id = ?
-            """,
+        return Announcement(
 
-            (announcement_id,)
-        )
-
-        return row is not None
-
-    # ---------------------------------------------------------
-    # Insert
-    # ---------------------------------------------------------
-
-    def insert(self, announcement: Announcement):
-
-        if self.exists(announcement.announcement_id):
-            return False
-
-        now = datetime.utcnow().isoformat()
-
-        self.db.execute(
-
-            """
-            INSERT INTO announcements (
-
-                announcement_id,
-                ref_id,
-
-                company_name,
-                stock_code,
-                isin_code,
-
-                title,
-
-                category,
-                category_code,
-                subcategory_code,
-
-                announcement_url,
-
-                submission_timestamp,
-                submission_date,
-
-                local_path,
-
-                downloaded,
-
-                parsed,
-
-                scraped_at
-
-            )
-
-            VALUES
-            (
-                ?,?,?,?,?,?,
-                ?,?,?,?,
-                ?,?,?,?,
-                ?,?
-            )
-            """,
-
-            (
-
-                announcement.announcement_id,
-
-                announcement.ref_id,
-
-                announcement.company_name,
-
-                announcement.stock_code,
-
-                announcement.isin_code,
-
-                announcement.title,
-
-                announcement.category,
-
-                announcement.category_code,
-
-                announcement.subcategory_code,
-
-                announcement.announcement_url,
-
-                announcement.submission_timestamp,
-
-                announcement.submission_date,
-
-                announcement.local_path,
-
-                int(announcement.downloaded),
-
-                int(announcement.parsed),
-
-                now
-
-            )
+            announcement_id=row["announcement_id"],
+            ref_id=row["ref_id"],
+            company_name=row["company_name"],
+            stock_code=row["stock_code"],
+            isin_code=row["isin_code"],
+            title=row["title"],
+            category=row["category"],
+            category_code=row["category_code"],
+            subcategory_code=row["subcategory_code"],
+            announcement_url=row["announcement_url"],
+            submission_timestamp=row["submission_timestamp"],
+            submission_date=row["submission_date"]
 
         )
 
-        return True
-
-    # ---------------------------------------------------------
-    # Count
-    # ---------------------------------------------------------
-
-    def count(self):
-
-        row = self.db.fetchone(
-
-            """
-            SELECT COUNT(*)
-            FROM announcements
-            """
-        )
-
-        return row[0]
-
-    # ---------------------------------------------------------
-    # Latest
-    # ---------------------------------------------------------
-
-    def get_latest(self):
-
-        row = self.db.fetchone(
-
-            """
-            SELECT *
-            FROM announcements
-            ORDER BY submission_timestamp DESC
-            LIMIT 1
-            """
-        )
-
-        return self._row_to_model(row)
-
-    # ---------------------------------------------------------
-    # Latest timestamp
-    # ---------------------------------------------------------
-    # -------------------------------------------------------
-    # Get by ID
-    # -------------------------------------------------------
+    # --------------------------------------------------
+    # Get announcement by ID
+    # --------------------------------------------------
 
     def get_by_id(self, announcement_id):
 
@@ -180,55 +55,53 @@ class AnnouncementRepository:
 
         )
 
-        if row is None:
+        return self._row_to_announcement(row)
 
-            return None
+    # --------------------------------------------------
+    # Latest announcement
+    # --------------------------------------------------
 
-        return self._row_to_model(row)
-
-
-    def get_latest_timestamp(
-
-        self,
-
-        stock_code
-
-    ):
+    def get_latest(self):
 
         row = self.db.fetchone(
 
             """
-            SELECT submission_date
+            SELECT *
 
             FROM announcements
-
-            WHERE stock_code = ?
 
             ORDER BY submission_timestamp DESC
 
             LIMIT 1
-            """,
+            """
 
-            (stock_code,)
         )
 
-        if row:
+        return self._row_to_announcement(row)
 
-            return row["submission_date"]
+    # --------------------------------------------------
+    # Count
+    # --------------------------------------------------
 
-        return None
+    def count(self):
 
-    # ---------------------------------------------------------
+        row = self.db.fetchone(
+
+            """
+            SELECT COUNT(*)
+
+            FROM announcements
+            """
+
+        )
+
+        return row[0]
+
+    # --------------------------------------------------
     # Company announcements
-    # ---------------------------------------------------------
+    # --------------------------------------------------
 
-    def get_company_announcements(
-
-        self,
-
-        stock_code
-
-    ):
+    def get_company_announcements(self, stock_code):
 
         rows = self.db.fetchall(
 
@@ -243,53 +116,44 @@ class AnnouncementRepository:
             """,
 
             (stock_code,)
+
         )
 
         return [
 
-            self._row_to_model(row)
+            self._row_to_announcement(row)
 
             for row in rows
 
         ]
 
-    # ---------------------------------------------------------
-    # Row → Model
-    # ---------------------------------------------------------
+    # -------------------------------------------------
 
-    def _row_to_model(
+    def get_announcements_by_category(self, stock_code, category):
 
-        self,
-
-        row
-
-    ):
-
-        if row is None:
-
-            return None
-
-        return Announcement(
-
-            announcement_id=row["announcement_id"],
-            ref_id=row["ref_id"],
-            company_name=row["company_name"],
-            stock_code=row["stock_code"],
-            isin_code=row["isin_code"],
-            title=row["title"],
-            category=row["category"],
-            category_code=row["category_code"],
-            subcategory_code=row["subcategory_code"],
-            announcement_url=row["announcement_url"],
-            submission_timestamp=row["submission_timestamp"],
-            submission_date=row["submission_date"],
-            submitted_by=row["submitted_by"]
+        rows = self.db.fetchall(
+            """
+            SELECT *
+            FROM announcements
+            WHERE
+                stock_code = ?
+            AND
+                category = ?
+            ORDER BY submission_timestamp DESC
+            """,
+            (stock_code, category)
         )
+        
+        return [
+            self._row_to_announcement(row)
+            for row in rows
+        ]
 
-    # ---------------------------------------------------------
-    # Close
-    # ---------------------------------------------------------
+    # --------------------------------------------------
 
     def close(self):
 
         self.db.close()
+
+    # ------------------------------------------------
+    
