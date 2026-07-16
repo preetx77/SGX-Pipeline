@@ -1,8 +1,5 @@
-"""
-SGX API Client
 
-Responsible only for communicating with SGX APIs.
-"""
+# SGX API Client : Responsible only for communicating with SGX APIs
 
 import requests
 
@@ -19,45 +16,30 @@ class SGXClient:
     def __init__(self):
 
         self.auth = AuthenticationManager()
-
         self.session = requests.Session()
-
         self.session.headers.update({
 
             "Accept": "application/json",
-
             "User-Agent": USER_AGENT,
-
             "Origin": "https://www.sgx.com",
-
             "Referer": "https://www.sgx.com/",
-
         })
 
         self.base_url = ANNOUNCEMENT_API
-
         self._authenticate()
 
 # instead of headers, inside every API , we auhtneticate once , then every req automatically carries authoirzation 
 
     def _authenticate(self):
-
         token = self.auth.get_token()
-
         self.session.headers.update({
-
             "authorizationToken": token
-
         })
 
     def refresh_authentication(self):
-
         token = self.auth.refresh_token()
-
         self.session.headers.update({
-
             "authorizationToken": token
-
         })
 
     def _get(self, endpoint, params=None):
@@ -75,6 +57,9 @@ class SGXClient:
     def get_company_list(self):
         # Fetch list of all companies
         return self._get("companylist")
+
+
+# ----------------------------------------------------------------------
 
     def get_company_announcement(
         self,
@@ -107,6 +92,54 @@ class SGXClient:
             )
 
         return announcements
+
+    # ----------------------------------------------------------------------------------------
+
+    def get_company_announcement_page(
+        self,
+        company_name,
+        page_start=0,
+        page_size=100,
+        period_start=None,
+        period_end=None
+    ):
+        params = {
+             "periodstart": period_start,
+            "periodend": period_end,
+            "value": company_name,
+            "exactsearch": "true",
+            "pagestart": page_start,
+            "pagesize": page_size
+        }
+
+        response = self._get(
+            "company",
+            params = params
+        )
+        print("\n================ RAW RESPONSE ================")
+        print(type(response))
+        print(response)
+        print("==============================================\n")
+
+        
+        raw_data = response.get("data")
+
+        if not raw_data:
+            raw_data = []
+
+        announcements = [
+            self._json_to_announcement(item)
+            for item in raw_data
+        ]
+        
+        return {
+            "meta": response.get("meta", {}),
+            "announcements" : announcements
+        }
+    
+
+    # --------------------------------------------------------------------------------------
+
 
 # Function would be the heart of client : every sgx json will pass through here exactly once
 # Convert raw SGX API JSON into an Announcement object.
