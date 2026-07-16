@@ -99,3 +99,25 @@ CREATE TABLE IF NOT EXISTS documents (
 
     created_at TEXT
 );
+
+CREATE TABLE IF NOT EXISTS financial_metrics (
+
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    announcement_id TEXT,
+
+    stock_code TEXT,
+
+    company_name TEXT,
+
+    metric_name TEXT,
+
+    metric_value REAL,
+
+    reporting_period TEXT,
+
+    currency TEXT,
+
+    created_at TEXT
+
+);
