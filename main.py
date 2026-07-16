@@ -1,69 +1,69 @@
-from database.announcement_repository import AnnouncementRepository
-from database.attachment_repository import AttachmentRepository
+from configs import (
+    WATCHLIST,
+    BACKFILL_START,
+    BACKFILL_END
+)
 
-from models.attachment import Attachment
-
-from services.document_service import DocumentService
+from scraper.client import SGXClient
 
 
 def main():
 
-    announcement_repo = AnnouncementRepository()
-    attachment_repo = AttachmentRepository()
-    service = DocumentService()
+    client = SGXClient()
 
-    row = attachment_repo.get_downloaded_attachment()
+    result = client.get_company_announcement_page(
 
-    attachment = Attachment(
+        company_name=WATCHLIST[0],
 
-        attachment_id=row["attachment_id"],
-        announcement_id=row["announcement_id"],
-        filename=row["filename"],
-        download_url=row["download_url"],
-        local_path=row["local_path"],
-        downloaded=bool(row["downloaded"])
+        period_start=BACKFILL_START,
+
+        period_end=BACKFILL_END,
+
+        page_start=100,
+        page_size=100
 
     )
 
-    announcement = announcement_repo.get_by_id(
-        attachment.announcement_id
-    )
+    meta = result["meta"]
+
+    announcements = result["announcements"]
 
     print()
-    print("=" * 70)
-    print("Relationship Check")
-    print("=" * 70)
-
-    print(f"Attachment Announcement ID : {attachment.announcement_id}")
-    print(f"Announcement ID            : {announcement.announcement_id}")
-    print(f"Company                    : {announcement.company_name}")
-    print(f"Category                   : {announcement.category}")
-    print(f"Title                      : {announcement.title}")
-    print(f"Filename                   : {attachment.filename}")
 
     print("=" * 70)
 
-    result = service.process(
-        announcement,
-        attachment
-    )
+    print("Historical Backfill Test")
 
-    document = result["document"]
+    print("=" * 70)
+
+    print("Company     :", WATCHLIST[0])
+
+    print("Total Items :", meta["totalItems"])
+
+    print("Total Pages :", meta["totalPages"])
+
+    print("Fetched     :", len(announcements))
 
     print()
-    print("=" * 70)
-    print("Document Service")
+
+    print(f"Fetched : {len(announcements)}")
+    
+    if announcements:
+        print("\nFirst")
+        print("-----")
+        print(announcements[0])
+        
+        print("\nLast")
+        print("----")
+        print(announcements[-1])
+    else:
+        print("\nNo announcements returned.")
+    
     print("=" * 70)
 
-    print(f"Predicted Type : {document.document_type.value}")
-    print(f"Words          : {document.word_count()}")
-    print(f"Inserted       : {result['inserted']}")
+    print()
 
-    print("=" * 70)
-
-    service.close()
-    announcement_repo.close()
-    attachment_repo.close()
+    print(meta)
 
 
 if __name__ == "__main__":
