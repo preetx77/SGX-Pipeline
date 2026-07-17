@@ -28,15 +28,13 @@ class Document:
 
     page_count: int
 
+    word_count: int
+
     document_type: DocumentType = DocumentType.UNKNOWN
 
     extracted: bool = False
 
     metadata: dict = field(default_factory=dict)
-
-    def word_count(self) -> int:
-
-        return len(self.text.split())
 
     def __str__(self):
 

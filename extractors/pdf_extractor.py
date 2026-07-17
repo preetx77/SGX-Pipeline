@@ -19,6 +19,7 @@ class PDFExtractor:
 
         pdf.close()
         text = "\n".join(pages)
+        word_count = len(text.split())
 
         return Document(
             attachment_id=attachment.attachment_id,
@@ -31,5 +32,6 @@ class PDFExtractor:
             local_path=attachment.local_path,
             text=text,
             page_count=len(pages),
+            word_count=word_count,
             extracted=True
         )
