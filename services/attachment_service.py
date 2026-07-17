@@ -22,38 +22,74 @@ class AttachmentService:
     ):
 
         attachments = self.parser.parse(announcement)
-        discovered = len(attachments)
-        inserted = 0
-        downloaded = 0
-        skipped = 0
+        
+        new_attachments = []
+        existing_attachments = []
+        downloaded = []
+        failed = []
 
         for attachment in attachments:
             is_new = self.repository.insert(
                 attachment
             )
             if not is_new:
-                skipped += 1
+                # Get the attachment from database to check if it has been downloaded
+                db_attachment = self.repository.get_by_id(
+                    attachment.attachment_id
+                )
+                existing_attachments.append(db_attachment)
+                
+                # Also attempt to download existing attachments that don't have a path yet
+                if not db_attachment.downloaded or db_attachment.local_path is None:
+                    try:
+                        path = self.downloader.download(
+                            attachment,
+                            announcement.stock_code,
+                            announcement.submission_date
+                        )
+
+                        self.repository.mark_downloaded(
+                            attachment.attachment_id,
+                            path
+                        )
+                        
+                        db_attachment.local_path = path
+                        db_attachment.downloaded = True
+                        downloaded.append(db_attachment)
+                    except Exception as e:
+                        failed.append({
+                            "attachment": attachment,
+                            "error": str(e)
+                        })
                 continue
-            inserted += 1
+            
+            new_attachments.append(attachment)
 
-            path = self.downloader.download(
-                attachment,
-                announcement.stock_code,
-                announcement.submission_date
-            )
+            try:
+                path = self.downloader.download(
+                    attachment,
+                    announcement.stock_code,
+                    announcement.submission_date
+                )
 
-            self.repository.mark_downloaded(
-                attachment.attachment_id,
-                path
-            )
+                self.repository.mark_downloaded(
+                    attachment.attachment_id,
+                    path
+                )
+                
+                downloaded.append(attachment)
+            except Exception as e:
+                failed.append({
+                    "attachment": attachment,
+                    "error": str(e)
+                })
 
-            downloaded += 1
         return {
-            "announcement": announcement.title,
-            "attachments": discovered,
-            "inserted": inserted,
+            "attachments": attachments,
+            "new": new_attachments,
+            "existing": existing_attachments,
             "downloaded": downloaded,
-            "skipped": skipped
+            "failed": failed
         }
 
     def close(self):
