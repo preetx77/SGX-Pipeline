@@ -9,6 +9,76 @@ class AnnouncementRepository:
         self.db = DatabaseManager()
 
     # --------------------------------------------------
+    # Check if announcement exists
+    # --------------------------------------------------
+
+    def exists(self, announcement_id):
+
+        row = self.db.fetchone(
+
+            """
+            SELECT 1
+
+            FROM announcements
+
+            WHERE announcement_id = ?
+
+            """,
+
+            (announcement_id,)
+
+        )
+
+        return row is not None
+
+    # --------------------------------------------------
+    # Insert announcement
+    # --------------------------------------------------
+
+    def insert(self, announcement):
+
+        self.db.execute(
+
+            """
+            INSERT INTO announcements (
+
+                announcement_id,
+                ref_id,
+                company_name,
+                stock_code,
+                isin_code,
+                title,
+                category,
+                category_code,
+                subcategory_code,
+                announcement_url,
+                submission_timestamp,
+                submission_date
+
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+
+            (
+
+                announcement.announcement_id,
+                announcement.ref_id,
+                announcement.company_name,
+                announcement.stock_code,
+                announcement.isin_code,
+                announcement.title,
+                announcement.category,
+                announcement.category_code,
+                announcement.subcategory_code,
+                announcement.announcement_url,
+                announcement.submission_timestamp,
+                announcement.submission_date
+
+            )
+
+        )
+
+    # --------------------------------------------------
     # Convert SQLite Row -> Announcement object
     # --------------------------------------------------
 
@@ -30,7 +100,8 @@ class AnnouncementRepository:
             subcategory_code=row["subcategory_code"],
             announcement_url=row["announcement_url"],
             submission_timestamp=row["submission_timestamp"],
-            submission_date=row["submission_date"]
+            submission_date=row["submission_date"],
+            submitted_by=row["submitted_by"]
 
         )
 

@@ -126,3 +126,33 @@ class AttachmentRepository:
         )
 
         return row
+
+    def get_by_id(self, attachment_id: str):
+        """Retrieve attachment by ID"""
+        row = self.db.fetchone(
+            """
+            SELECT *
+            FROM attachments
+            WHERE attachment_id = ?
+            """,
+            (attachment_id,)
+        )
+        
+        if row is None:
+            return None
+        
+        return self._row_to_attachment(row)
+    
+    def _row_to_attachment(self, row):
+        """Convert database row to Attachment object"""
+        from models.attachment import Attachment
+        
+        return Attachment(
+            attachment_id=row[0],
+            announcement_id=row[1],
+            filename=row[2],
+            download_url=row[3],
+            file_size=row[4],
+            local_path=row[5],
+            downloaded=bool(row[6])
+        )
