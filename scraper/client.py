@@ -140,6 +140,38 @@ class SGXClient:
 
     # --------------------------------------------------------------------------------------
 
+    def iter_company_announcements(
+        self,
+        company_name,
+        period_start,
+        period_end,
+        page_size=100
+    ):
+
+        page_start = 0
+        
+        while True:
+            result = self.get_company_announcement_page(
+                company_name = company_name,
+                page_start = page_start,
+                page_size = page_size,
+                period_start = period_start,
+                period_end = period_end
+            )
+            announcements = result["announcements"]
+
+            if not announcements:
+                break
+            for announcement in announcements:
+                yield announcement
+
+            if len(announcements) < page_size:
+                break
+        
+            page_start += page_size
+
+
+    # ------------------------------------------------------------------------------------
 
 # Function would be the heart of client : every sgx json will pass through here exactly once
 # Convert raw SGX API JSON into an Announcement object.
