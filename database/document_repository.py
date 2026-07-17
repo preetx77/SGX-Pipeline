@@ -11,6 +11,45 @@ class DocumentRepository:
         self.db = DatabaseManager()
 
     # ---------------------------------------------------------
+    # SQLite Row -> Document
+    # ---------------------------------------------------------
+
+    def _row_to_document(self, row):
+
+        if row is None:
+            return None
+
+        from models.document_type import DocumentType
+
+        return Document(
+
+            attachment_id=row["attachment_id"],
+
+            announcement_id=row["announcement_id"],
+
+            announcement_title=row["announcement_title"],
+
+            announcement_category=row["announcement_category"],
+
+            company_name=row["company_name"],
+
+            stock_code=row["stock_code"],
+
+            filename=row["filename"],
+
+            local_path=row["local_path"],
+
+            text=row["extracted_text"],
+
+            page_count=row["page_count"],
+
+            word_count=row["word_count"],
+
+            document_type=DocumentType(row["document_type"]),
+
+            extracted=bool(row["extracted"])
+        )
+    # ---------------------------------------------------------
     # Exists
     # ---------------------------------------------------------
 
@@ -97,7 +136,7 @@ class DocumentRepository:
 
                 document.page_count,
 
-                document.word_count(),
+                document.word_count,
 
                 document.document_type.value,
 
@@ -146,27 +185,29 @@ class DocumentRepository:
             LIMIT 1
             """
         )
+        return self._row_to_document(row)
 
-    # ---------------------------------------------------------
-    # By Type
-    # ---------------------------------------------------------
+    # --------------------------------------------------
+    # Get documents by type
+    # --------------------------------------------------
 
-    def get_by_type(self, document_type):
+    def get_documents_by_type(self, document_type):
 
-        return self.db.fetchall(
-
+        rows = self.db.fetchall(
             """
             SELECT *
-
             FROM documents
-
             WHERE document_type = ?
-
             ORDER BY created_at DESC
             """,
-
             (document_type,)
         )
+
+        return [
+            self._row_to_document(row)
+            for row in rows
+        ]
+
 
     # ---------------------------------------------------------
     # By Company
@@ -194,6 +235,9 @@ class DocumentRepository:
 
             (stock_code,)
         )
+        return [self._row_to_document(row)
+        for row in rows 
+    ]
 
     # ---------------------------------------------------------
     # Close
