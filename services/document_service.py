@@ -24,10 +24,6 @@ class DocumentService:
         # Extract PDF
         document = self.extractor.extract(attachment, announcement)
 
-        print("\n Debug")
-        print("title :" , document.announcement_title)
-        print("Categoty :", document.announcement_category)
-
         document.document_type = self.classifier.classify(document)
 
         # Save
