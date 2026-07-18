@@ -235,9 +235,25 @@ class DocumentRepository:
 
             (stock_code,)
         )
-        return [self._row_to_document(row)
-        for row in rows 
-    ]
+
+    def get_financial_statements(self):
+        """Get only actual financial statement documents, excluding press releases"""
+        rows = self.db.fetchall(
+            """
+            SELECT *
+            FROM documents
+            WHERE document_type = ?
+            AND (
+                filename LIKE '%financial statement%'
+                OR filename LIKE '%interim financial%'
+                OR filename LIKE '%financial statements%'
+            )
+            ORDER BY created_at DESC
+            """,
+            ("Financial Results",)
+        )
+        
+        return [self._row_to_document(row) for row in rows]
 
     # ---------------------------------------------------------
     # Close
