@@ -150,6 +150,23 @@ class AnnouncementRepository:
 
         return self._row_to_announcement(row)
 
+    def latest(self, limit=10):
+        """Get latest N announcements"""
+        rows = self.db.fetchall(
+            """
+            SELECT *
+            FROM announcements
+            ORDER BY submission_timestamp DESC
+            LIMIT ?
+            """,
+            (limit,)
+        )
+        
+        return [
+            self._row_to_announcement(row)
+            for row in rows
+        ]
+
     # --------------------------------------------------
     # Count
     # --------------------------------------------------
