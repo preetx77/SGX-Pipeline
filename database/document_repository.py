@@ -173,15 +173,12 @@ class DocumentRepository:
 
     def latest(self):
 
-        return self.db.fetchone(
+        row =  self.db.fetchone(
 
             """
             SELECT *
-
             FROM documents
-
             ORDER BY created_at DESC
-
             LIMIT 1
             """
         )
@@ -213,28 +210,22 @@ class DocumentRepository:
     # By Company
     # ---------------------------------------------------------
 
-    def get_company_documents(
+    def get_company_documents(self, stock_code):
 
-        self,
-
-        stock_code
-
-    ):
-
-        return self.db.fetchall(
-
+        rows = self.db.fetchall(
             """
             SELECT *
-
             FROM documents
-
             WHERE stock_code = ?
-
             ORDER BY created_at DESC
             """,
-
             (stock_code,)
         )
+
+        return [
+            self._row_to_document(row)
+            for row in rows
+        ]
 
     def get_financial_statements(self):
         """Get only actual financial statement documents, excluding press releases"""
@@ -254,6 +245,28 @@ class DocumentRepository:
         )
         
         return [self._row_to_document(row) for row in rows]
+
+
+    # ---------------------------------------------------------
+    # By Announcement
+    # ---------------------------------------------------------
+
+    def get_documents_by_announcement(self, announcement_id):
+
+        rows = self.db.fetchall(
+            """
+            SELECT *
+            FROM documents
+            WHERE announcement_id = ?
+            ORDER BY created_at DESC
+            """,
+            (announcement_id,)
+        )
+
+        return [
+            self._row_to_document(row)
+            for row in rows
+        ]
 
     # ---------------------------------------------------------
     # Close
