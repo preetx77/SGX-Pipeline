@@ -11,3 +11,26 @@ USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko) "
     "Chrome/137.0.0.0 Safari/537.36"
 )
+
+# =============================================================================
+# Environment Configuration
+# =============================================================================
+
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+
+
+CHAT_IDS = [
+
+    int(chat.strip())
+
+    for chat in os.getenv("CHAT_IDS", "").split(",")
+
+    if chat.strip()
+
+]
