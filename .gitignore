@@ -45,3 +45,8 @@ Thumbs.db
 # Data
 data/raw/
 data/processed/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
