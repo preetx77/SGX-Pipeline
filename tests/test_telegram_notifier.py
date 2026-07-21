@@ -11,16 +11,13 @@ from services.signals.insider_signal_generator import InsiderSignalGenerator
 from notifications.telegram_notifier import TelegramNotifier
 
 
-CHAT_ID = 1257229548
-
-
 announcement_repo = AnnouncementRepository()
 document_repo = DocumentRepository()
 
 extractor = DirectorDealingsExtractor()
 generator = InsiderSignalGenerator()
 
-notifier = TelegramNotifier(chat_id=CHAT_ID)
+notifier = TelegramNotifier()
 
 
 announcements = announcement_repo.latest(50)
