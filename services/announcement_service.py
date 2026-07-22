@@ -36,6 +36,20 @@ class AnnouncementService:
             period_start=period_start,
             period_end=period_end
         )
+
+        print(f"\n===== {company_name} =====")
+        print(f"Period Start : {period_start}")
+        print(f"Period End   : {period_end}")
+        print(f"Announcements Returned : {len(announcements)}\n")
+
+        for announcement in announcements:
+            print(
+                f"{announcement.submission_date} | "
+                f"{announcement.announcement_id} | "
+                f"{announcement.title}"
+            )
+
+        print("=" * 60)
         
         inserted = 0
         skipped = 0
@@ -54,10 +68,21 @@ class AnnouncementService:
             
             attachment_result = self.attachment_service.process_announcement(announcement)
             
-            attachment_discovered += attachment_result["attachments"]
-            attachment_inserted += attachment_result["inserted"]
-            attachment_downloaded += attachment_result["downloaded"]
-            attachment_skipped += attachment_result["skipped"]
+            attachment_discovered += len(
+                attachment_result["attachments"]
+            )
+
+            attachment_inserted += len(
+                attachment_result["new"]
+            )
+
+            attachment_downloaded += len(
+                attachment_result["downloaded"]
+            )
+
+            attachment_skipped += len(
+                attachment_result["existing"]
+            )
         
         return {
             "company": company_name,

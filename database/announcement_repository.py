@@ -36,9 +36,18 @@ class AnnouncementRepository:
     # --------------------------------------------------
 
     def insert(self, announcement):
+        """
+        Insert an announcement if it does not already exist.
+
+        Returns:
+            True  -> inserted
+            False -> already exists
+        """
+
+        if self.exists(announcement.announcement_id):
+            return False
 
         self.db.execute(
-
             """
             INSERT INTO announcements (
 
@@ -53,12 +62,12 @@ class AnnouncementRepository:
                 subcategory_code,
                 announcement_url,
                 submission_timestamp,
-                submission_date
+                submission_date,
+                submitted_by
 
             )
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
-
             (
 
                 announcement.announcement_id,
@@ -72,11 +81,13 @@ class AnnouncementRepository:
                 announcement.subcategory_code,
                 announcement.announcement_url,
                 announcement.submission_timestamp,
-                announcement.submission_date
+                announcement.submission_date,
+                announcement.submitted_by,
 
             )
-
         )
+
+        return True
 
     # --------------------------------------------------
     # Convert SQLite Row -> Announcement object
@@ -149,6 +160,34 @@ class AnnouncementRepository:
         )
 
         return self._row_to_announcement(row)
+
+    # --------------------------------------------------
+    # Latest timestamp for a company
+    # --------------------------------------------------
+
+    def get_latest_timestamp(self, stock_code):
+
+        row = self.db.fetchone(
+            """
+            SELECT MAX(submission_timestamp) AS latest_timestamp
+            FROM announcements
+            WHERE stock_code = ?
+            """,
+            (stock_code,)
+        )
+
+        if row is None:
+            print(f"\nLatest timestamp for {stock_code}: None (no row returned)")
+            return None
+
+        timestamp = row["latest_timestamp"]
+
+        print(f"\nLatest timestamp for {stock_code}: {timestamp}")
+
+        return timestamp
+    # --------------------------------------------------
+    # Latest announcements
+    # --------------------------------------------------
 
     def latest(self, limit=10):
         """Get latest N announcements"""
