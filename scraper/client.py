@@ -43,17 +43,27 @@ class SGXClient:
         })
 
     def _get(self, endpoint, params=None):
-        """Generic GET request handler"""
         url = f"{self.base_url}/{endpoint}"
+
+        print("\n===================================")
+        print("GET REQUEST")
+        print("URL:", url)
+        print("PARAMS:", params)
+        print("===================================\n")
+
         response = self.session.get(
             url,
             params=params,
             timeout=30
         )
+
         print(f"Status Code : {response.status_code}")
+
         response.raise_for_status()
+
         return response.json()
 
+        
     def get_company_list(self):
         # Fetch list of all companies
         return self._get("companylist")
@@ -74,7 +84,6 @@ class SGXClient:
             "periodstart" : period_start,
             "periodend" : period_end,
             "value" : company_name,
-            "exactsearch": "true",
             "pagestart" : page_start,
             "pagesize" : page_size
         }
@@ -107,7 +116,6 @@ class SGXClient:
              "periodstart": period_start,
             "periodend": period_end,
             "value": company_name,
-            "exactsearch": "true",
             "pagestart": page_start,
             "pagesize": page_size
         }
