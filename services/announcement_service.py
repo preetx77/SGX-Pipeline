@@ -16,7 +16,7 @@ class AnnouncementService:
     def sync_company(self, company_name, stock_code):
         """Sync announcements for a single company"""
         
-        latest_timestamp = self.repository.get_latest_timestamp(stock_code)
+        latest_timestamp = self.repository.get_latest_timestamp(company.code)
         
         end = datetime.now()
         
@@ -32,7 +32,7 @@ class AnnouncementService:
         period_end = end.strftime("%Y%m%d_235959")
         
         announcements = self.client.get_company_announcement(
-            company_name,
+            company.name,
             period_start=period_start,
             period_end=period_end
         )
@@ -85,8 +85,8 @@ class AnnouncementService:
             )
         
         return {
-            "company": company_name,
-            "stock_code": stock_code,
+            "company": company.name,
+            "stock_code": company.code,
             "period_start": period_start,
             "period_end": period_end,
             "announcements_fetched": len(announcements),
@@ -122,11 +122,11 @@ class AnnouncementService:
             "companies": []
         }
         
-        for company_name, stock_code in watchlist:
+        for company in watchlist:
             try:
                 result = self.sync_company(
-                    company_name,
-                    stock_code
+                    company.name,
+                    company.code
                 )
                 
                 # Update totals
@@ -136,8 +136,8 @@ class AnnouncementService:
                 
                 # Add company result
                 summary["companies"].append({
-                    "company": company_name,
-                    "stock_code": stock_code,
+                    "company": company.name,
+                    "stock_code": company.code,
                     "fetched": result["announcements_fetched"],
                     "inserted": result["announcements_inserted"],
                     "skipped": result["announcements_skipped"]
@@ -145,8 +145,8 @@ class AnnouncementService:
                 
             except Exception as e:
                 summary["companies"].append({
-                    "company": company_name,
-                    "stock_code": stock_code,
+                    "company": company.name,
+                    "stock_code": company.code,
                     "error": str(e)
                 })
         
