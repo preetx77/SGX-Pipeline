@@ -93,15 +93,21 @@ class SGXClient:
             params=params
         )
 
+        data = response.get("data") or []
+
         announcements = []
 
-        for item in response.get("data", []):
-            announcements.append(
-                self._json_to_announcement(item)
-            )
+        for item in data:
+            try:
+                announcements.append(
+                    self._json_to_announcement(item)
+                )
+            except Exception:
+                logging.exception(
+                    "Failed parsing announcement."
+                )
 
         return announcements
-
     # ----------------------------------------------------------------------------------------
 
     def get_company_announcement_page(
@@ -120,29 +126,21 @@ class SGXClient:
             "pagesize": page_size
         }
 
-        response = self._get(
-            "company",
-            params = params
-        )
-        print("\n================ RAW RESPONSE ================")
-        print(type(response))
-        print(response)
-        print("==============================================\n")
+        response = self._get("company", params = params)
 
-        
-        raw_data = response.get("data")
+        if response is None:
+            return {"meta" : {}, "announcements" : []}
 
-        if not raw_data:
-            raw_data = []
+        raw_data = response.get("data") or []
 
         announcements = [
             self._json_to_announcement(item)
-            for item in raw_data
+            for items in raw_data
         ]
-        
+
         return {
             "meta": response.get("meta", {}),
-            "announcements" : announcements
+            "announcement" : announcements
         }
     
 
@@ -186,7 +184,9 @@ class SGXClient:
     
     def _json_to_announcement(self, item: dict) -> Announcement:
 
-        issuer = item.get("issuers", [{}])[0]  # Get first issuer from list
+        issuers = item.get("issuers") or []
+        issuer = issuers[0] if issuers else {}  # Get first issuer from list
+        
         return Announcement(
             announcement_id=item.get("id"),
             ref_id=item.get("ref_id"),

@@ -1,6 +1,7 @@
 # announcement service
 # coordinates the SGX client and repository
 
+import logging
 from datetime import datetime, timedelta
 from scraper.client import SGXClient
 from database.announcement_repository import AnnouncementRepository
@@ -13,7 +14,7 @@ class AnnouncementService:
         self.repository = AnnouncementRepository()
         self.attachment_service = AttachmentService()
 
-    def sync_company(self, company_name, stock_code):
+    def sync_company(self, company):
         """Sync announcements for a single company"""
         
         latest_timestamp = self.repository.get_latest_timestamp(company.code)
@@ -37,7 +38,7 @@ class AnnouncementService:
             period_end=period_end
         )
 
-        print(f"\n===== {company_name} =====")
+        print(f"\n===== {company.name} =====")
         print(f"Period Start : {period_start}")
         print(f"Period End   : {period_end}")
         print(f"Announcements Returned : {len(announcements)}\n")
@@ -124,10 +125,7 @@ class AnnouncementService:
         
         for company in watchlist:
             try:
-                result = self.sync_company(
-                    company.name,
-                    company.code
-                )
+                result = self.sync_company(company)
                 
                 # Update totals
                 summary["total_fetched"] += result["announcements_fetched"]
@@ -143,11 +141,17 @@ class AnnouncementService:
                     "skipped": result["announcements_skipped"]
                 })
                 
-            except Exception as e:
+            except Exception:
+                logging.exception(
+                    "Failed syncing %s (%s)",
+                    company.name,
+                    company.code
+                )
+
                 summary["companies"].append({
                     "company": company.name,
                     "stock_code": company.code,
-                    "error": str(e)
+                    "error": "Sync failed"
                 })
         
         return summary
