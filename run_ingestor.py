@@ -2,13 +2,14 @@ import time
 
 from config.watchlist import WATCHLIST
 from services.market_ingestor import MarketIngestor
+from utils.logger import setup_logger
 
 
 def main():
 
-    ingestor = MarketIngestor()
+    setup_logger()
 
-    print("SGX Market Ingestor Started")
+    ingestor = MarketIngestor()
 
     try:
 
@@ -16,14 +17,11 @@ def main():
 
             ingestor.run_once(WATCHLIST)
 
-
-            print("\nSleeping for 60 seconds...\n")
-
             time.sleep(60)
 
     except KeyboardInterrupt:
 
-        print("\nStopping Market Ingestor...")
+        print("\nStopping...")
 
     finally:
 
@@ -31,5 +29,4 @@ def main():
 
 
 if __name__ == "__main__":
-
     main()

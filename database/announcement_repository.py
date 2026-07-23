@@ -251,7 +251,6 @@ class AnnouncementRepository:
             self._row_to_announcement(row)
 
             for row in rows
-
         ]
 
     # -------------------------------------------------
@@ -277,6 +276,53 @@ class AnnouncementRepository:
         ]
 
     # --------------------------------------------------
+
+    def get_after(self, last_announcement_id):
+
+        if last_announcement_id is None:
+            return self.latest(50)
+
+        return self.db.fetchall(
+            """
+            SELECT *
+            FROM announcements
+            WHERE submission_timestamp >
+            (
+                SELECT submission_timestamp
+                FROM announcements
+                WHERE announcement_id = ?
+            )
+            ORDER BY submission_timestamp ASC
+            """,
+            (last_announcement_id,)
+        )
+
+    def get_after(self, last_announcement_id):
+
+        if last_announcement_id is None:
+            return self.latest(50)
+
+        rows = self.db.fetchall(
+            """
+            SELECT *
+            FROM announcements
+            WHERE submission_timestamp >
+            (
+                SELECT submission_timestamp
+                FROM announcements
+                WHERE announcement_id = ?
+            )
+            ORDER BY submission_timestamp ASC
+            """,
+            (last_announcement_id,)
+        )
+
+        return [
+            self._row_to_announcement(row)
+            for row in rows
+        ]        
+
+    # ------------------------------------------------
 
     def close(self):
 
