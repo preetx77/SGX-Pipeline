@@ -97,10 +97,10 @@ class AnnouncementService:
 
             # Always process if it's an Insider Dealings announcement
             # (temporarily, while testing)
-            if announcement.category != "Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer":
+            if "disclosure of interest" not in announcement.category.lower():
                 continue
 
-            attachment_result = self.attachment_service.process(announcement)
+            attachment_result = self.attachment_service.process_announcement(announcement)
 
             attachments = (
                 attachment_result["downloaded"] +
