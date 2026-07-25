@@ -1,6 +1,9 @@
 #represents one SGX announcement : 
 
-from dataclasses import dataclass 
+from dataclasses import dataclass, field
+from typing import Optional
+
+from core.classifier import Classification
 
 @dataclass(slots=True)
 class Announcement:
@@ -18,6 +21,7 @@ class Announcement:
     submission_timestamp: int
     submission_date: str
     submitted_by: str
+
 
     def __str__(self):
 
