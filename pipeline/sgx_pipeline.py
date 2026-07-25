@@ -8,8 +8,8 @@ from services.signals.insider_signal_generator import (
     InsiderSignalGenerator,
 )
 
-from notifications.telegram_notifier import (
-    TelegramNotifier,
+from pipeline.announcement_router import (
+    AnnouncementRouter,
 )
 
 
@@ -23,23 +23,50 @@ class SGXPipeline:
 
     def process(self, announcement):
 
+        print("=" * 60)
+        print(f"Company   : {announcement.company_name}")
+        print(f"Category  : {announcement.category}")
+        print(f"Title     : {announcement.title}")
+
+        if not AnnouncementRouter.is_insider(announcement):
+            print("Router    : SKIPPED")
+            return None
+
+        print("Router    : PASSED")
+
+        documents = self.document_repo.get_documents_by_announcement(
+            announcement.announcement_id
+        )
+
+        print(f"Documents : {len(documents)}")
+
+        # Step 1 : Ignore non-insider announcements
+        if not AnnouncementRouter.is_insider(announcement):
+            print(f"[Pipeline] Skipping: {announcement.category}")
+            return None
+
+        print(f"[Pipeline] Processing Insider: {announcement.title}")
+
+        # Step 2 : Get PDF
         documents = self.document_repo.get_documents_by_announcement(
             announcement.announcement_id
         )
 
         if not documents:
-            return
+            print("[Pipeline] No documents found.")
+            return None
 
         document = documents[0]
 
+        # Step 3 : Extract
         dealing = self.extractor.extract(
             announcement,
             document,
         )
 
+        # Step 4 : Generate Signal
         signal = self.signal_generator.generate(
             dealing
         )
 
         return signal
-        

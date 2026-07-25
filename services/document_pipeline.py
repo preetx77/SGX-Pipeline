@@ -2,7 +2,7 @@
 # Document Service : Coordinates document extraction, classification and storage.
 
 
-from extractors.pdf_extractor import PDFExtractor
+from extractors.pdf.pdf_extractor import PDFExtractor
 from classifiers.document_classifier import DocumentClassifier
 from database.document_repository import DocumentRepository
 
@@ -23,6 +23,8 @@ class DocumentService:
 
         # Extract PDF
         document = self.extractor.extract(attachment, announcement)
+
+        print("Document extracted :", attachment.filename)
 
         document.document_type = self.classifier.classify(document)
 
