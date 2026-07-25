@@ -6,6 +6,11 @@ from datetime import datetime, timedelta
 from scraper.client import SGXClient
 from database.announcement_repository import AnnouncementRepository
 from services.attachment_service import AttachmentService
+from core.classifier import classify
+from core.analysis import AnnouncementAnalysis
+from services.insider_pipeline import InsiderPipeline
+from services.document_pipeline import DocumentService
+
 
 class AnnouncementService:
 
@@ -13,6 +18,9 @@ class AnnouncementService:
         self.client = SGXClient()
         self.repository = AnnouncementRepository()
         self.attachment_service = AttachmentService()
+        self.insider_pipeline = InsiderPipeline()
+        self.document_service = DocumentService()
+
 
     def sync_company(self, company):
         """Sync announcements for a single company"""
@@ -60,15 +68,50 @@ class AnnouncementService:
         attachment_skipped = 0
         
         for announcement in announcements:
+
+            # -------------------------
+            # Classify announcement
+            # -------------------------
+            classification = classify(announcement)
+
+            analysis = AnnouncementAnalysis(classification = classification)
+
+            # Debug (temporary)
+            print("\n" + "=" * 60)
+            print(f"Company    : {company.name}")
+            print(f"Title      : {announcement.title}")
+            print(f"Event Type : {analysis.classification.event_type.value}")
+            print(f"Priority   : {analysis.classification.priority.label}")
+            print(f"Stars      : {analysis.classification.priority.stars}")
+            print("=" * 60)
+
+            # Save announcement
             is_new = self.repository.insert(announcement)
-            
+
             if is_new:
                 inserted += 1
             else:
                 skipped += 1
+
+            # Process attachments
+            attachment_result = self.attachment_service.process_announcement(
+                announcement
+            )
+
+            print("Downloaded:", len(attachment_result["downloaded"]))
+            print("Existing :", len(attachment_result["existing"]))
+
             
-            attachment_result = self.attachment_service.process_announcement(announcement)
-            
+            attachments = (attachment_result["downloaded"] + attachment_result["existing"])
+
+            print("Total attachments :", len(attachments))
+
+            for attachment in attachments:
+
+                document_result = self.document_service.process(announcement, attachment)
+
+                self.insider_pipeline.process(announcement, [document_result["document"]])
+
             attachment_discovered += len(
                 attachment_result["attachments"]
             )

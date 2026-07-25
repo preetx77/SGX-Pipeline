@@ -1,9 +1,9 @@
 import asyncio
 
 from telegram import Bot
-
 from config.settings import TELEGRAM_TOKEN, CHAT_IDS
 from notifications.message_builder import MessageBuilder
+from notifications.announcement_builder import AnnouncementBuilder
 
 
 class TelegramNotifier:
@@ -18,6 +18,7 @@ class TelegramNotifier:
         self.bot = Bot(token=TELEGRAM_TOKEN)
         self.chat_ids = CHAT_IDS
         self.builder = MessageBuilder()
+        self.announcement_builder = AnnouncementBuilder()
 
         # Create one event loop for this notifier
         self.loop = asyncio.new_event_loop()
@@ -37,6 +38,17 @@ class TelegramNotifier:
 
     def notify(self, signal):
         message = self.builder.build(signal)
+        self.loop.run_until_complete(
+            self._send(message)
+        )
+
+    def notify_announcement(self, company, announcement):
+
+        message = self.announcement_builder.build(
+            company,
+            announcement
+        )
+
         self.loop.run_until_complete(
             self._send(message)
         )
