@@ -51,6 +51,7 @@ class DirectorDealingsExtractor:
 
         return lines[0]
 
+
     def extract_direct_interest_after(self, text):
 
         match = re.search(
@@ -115,7 +116,11 @@ class DirectorDealingsExtractor:
         """
         
         text = document.text if document else ""
+
+        print("\n" + "=" * 100)
+        print("DIRECTOR DEALINGS PDF")
         
+
         # Classify transaction type
         transaction_type = self.classifier.classify(text)
         

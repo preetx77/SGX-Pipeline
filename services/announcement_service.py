@@ -10,7 +10,8 @@ from core.classifier import classify
 from core.analysis import AnnouncementAnalysis
 from services.insider_pipeline import InsiderPipeline
 from services.document_pipeline import DocumentService
-
+from core.event_type import EventType
+from models.document import DocumentType
 
 class AnnouncementService:
 
@@ -88,46 +89,46 @@ class AnnouncementService:
             # Save announcement
             is_new = self.repository.insert(announcement)
 
-            if is_new:
-                inserted += 1
-            else:
+            if not is_new:
                 skipped += 1
+                continue
 
-            # Process attachments
-            attachment_result = self.attachment_service.process_announcement(
-                announcement
+            inserted += 1
+
+            # Always process if it's an Insider Dealings announcement
+            # (temporarily, while testing)
+            if announcement.category != "Disclosure of Interest/ Changes in Interest of Director/ Chief Executive Officer":
+                continue
+
+            attachment_result = self.attachment_service.process(announcement)
+
+            attachments = (
+                attachment_result["downloaded"] +
+                attachment_result["existing"]
             )
-
-            print("Downloaded:", len(attachment_result["downloaded"]))
-            print("Existing :", len(attachment_result["existing"]))
-
-            
-            attachments = (attachment_result["downloaded"] + attachment_result["existing"])
-
-            print("Total attachments :", len(attachments))
 
             for attachment in attachments:
 
-                document_result = self.document_service.process(announcement, attachment)
+                document_result = self.document_service.process(
+                    announcement,
+                    attachment
+                )
 
-                self.insider_pipeline.process(announcement, [document_result["document"]])
+                document = document_result["document"]
 
-            attachment_discovered += len(
-                attachment_result["attachments"]
-            )
+                if document.document_type != DocumentType.DIRECTOR_DEALINGS:
+                    continue
 
-            attachment_inserted += len(
-                attachment_result["new"]
-            )
+                self.insider_pipeline.process(
+                    announcement,
+                    [document]
+                )
 
-            attachment_downloaded += len(
-                attachment_result["downloaded"]
-            )
+            attachment_discovered += len(attachment_result["attachments"])
+            attachment_inserted += len(attachment_result["new"])
+            attachment_downloaded += len(attachment_result["downloaded"])
+            attachment_skipped += len(attachment_result["existing"])
 
-            attachment_skipped += len(
-                attachment_result["existing"]
-            )
-        
         return {
             "company": company.name,
             "stock_code": company.code,

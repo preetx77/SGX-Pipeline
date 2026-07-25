@@ -121,3 +121,29 @@ CREATE TABLE IF NOT EXISTS financial_metrics (
     created_at TEXT
 
 );
+
+CREATE TABLE IF NOT EXISTS insider_signals (
+
+    signal_id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+    announcement_id TEXT NOT NULL UNIQUE,
+
+    company_name TEXT,
+
+    stock_code TEXT,
+
+    signal INTEGER,
+
+    signal_type TEXT,
+
+    direction TEXT,
+
+    decision TEXT,
+
+    confidence REAL,
+
+    created_at TEXT,
+
+    FOREIGN KEY (announcement_id)
+        REFERENCES announcements(announcement_id)
+);

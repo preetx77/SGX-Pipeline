@@ -1,54 +1,35 @@
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent))
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from database.announcement_repository import AnnouncementRepository
-from database.document_repository import DocumentRepository
+from database.insider_signal_repository import InsiderSignalRepository
+from models.insider_signal import InsiderSignal
+from datetime import datetime
 
-from extractors.insider.director_dealings_extractor import DirectorDealingsExtractor
-from services.signals.insider_signal_generator import InsiderSignalGenerator
+repo = InsiderSignalRepository()
 
+signal = InsiderSignal(
+    announcement_id="TEST123456",
+    company_name="TEST COMPANY",
+    stock_code="TEST",
+    director_name="John Doe",
+    signal=True,
+    signal_type="BUY",
+    direction="BULLISH",
+    importance=5,
+    confidence=95.5,
+    reason="Repository Test",
+    transaction_type="MARKET_PURCHASE",
+    shares=10000,
+    price=1.25,
+    value=12500,
+    decision="BUY",
+    market_impact="Positive",
+    summary="Testing repository insert.",
+    created_at=datetime.now().isoformat()
+)
 
-announcement_repo = AnnouncementRepository()
-document_repo = DocumentRepository()
+repo.insert(signal)
 
-extractor = DirectorDealingsExtractor()
-generator = InsiderSignalGenerator()
-
-announcements = announcement_repo.latest(50)
-
-for announcement in announcements:
-
-    if "interest" not in announcement.title.lower():
-        continue
-
-    documents = document_repo.get_documents_by_announcement(
-        announcement.announcement_id
-    )
-
-    if not documents:
-        continue
-
-    dealing = extractor.extract(
-        announcement,
-        documents[0]
-    )
-
-    signal = generator.generate(dealing)
-
-    print("=" * 80)
-    print("INSIDER SIGNAL")
-    print("=" * 80)
-
-    print("Company       :", signal.company_name)
-    print("Director      :", signal.director_name)
-    print("Transaction   :", signal.transaction_type)
-    print("Signal        :", signal.signal)
-    print("Signal Type   :", signal.signal_type)
-    print("Direction     :", signal.direction)
-    print("Importance    :", signal.importance)
-    print("Confidence    :", signal.confidence)
-    print("Reason        :", signal.reason)
-
-    break
+print("Insert successful.")

@@ -80,6 +80,8 @@ class InsiderSignalGenerator:
             )
 
         return InsiderSignal(
+            
+            announcement_id=dealing.announcement_id,
 
             company_name=dealing.company_name,
 
@@ -106,6 +108,7 @@ class InsiderSignalGenerator:
             price=dealing.price,
 
             value=dealing.value,
+            
         )
 
     def confidence(self, dealing):

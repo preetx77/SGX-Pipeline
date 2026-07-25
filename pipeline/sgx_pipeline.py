@@ -40,18 +40,6 @@ class SGXPipeline:
 
         print(f"Documents : {len(documents)}")
 
-        # Step 1 : Ignore non-insider announcements
-        if not AnnouncementRouter.is_insider(announcement):
-            print(f"[Pipeline] Skipping: {announcement.category}")
-            return None
-
-        print(f"[Pipeline] Processing Insider: {announcement.title}")
-
-        # Step 2 : Get PDF
-        documents = self.document_repo.get_documents_by_announcement(
-            announcement.announcement_id
-        )
-
         if not documents:
             print("[Pipeline] No documents found.")
             return None

@@ -1,6 +1,7 @@
 import logging
 import threading
 import time
+import atexit
 
 from config.watchlist import WATCHLIST
 from services.market_ingestor import MarketIngestor
@@ -11,9 +12,29 @@ from watchers.sgx_watcher import SGXWatcher
 INGEST_INTERVAL = 60
 WATCH_INTERVAL = 5
 
+ingestor = None
+watcher = None
+
+
+def cleanup():
+    """Clean up resources on shutdown"""
+    global ingestor, watcher
+    
+    logging.info("Cleaning up resources...")
+    
+    if ingestor:
+        ingestor.close()
+    
+    if watcher:
+        try:
+            watcher.repo.close()
+        except:
+            pass
+
 
 def ingestor_loop():
 
+    global ingestor
     ingestor = MarketIngestor()
 
     while True:
@@ -29,6 +50,7 @@ def ingestor_loop():
 
 def watcher_loop():
 
+    global watcher
     watcher = SGXWatcher()
 
     while True:
@@ -45,6 +67,9 @@ def watcher_loop():
 def main():
 
     setup_logger()
+    
+    # Register cleanup function
+    atexit.register(cleanup)
 
     logging.info("Starting SGX Monitoring System...")
 
@@ -66,6 +91,7 @@ def main():
     except KeyboardInterrupt:
 
         logging.info("Stopping system...")
+        cleanup()
 
 
 if __name__ == "__main__":

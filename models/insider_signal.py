@@ -1,14 +1,11 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from datetime import datetime
 
 
 @dataclass
 class InsiderSignal:
-    """
-    Final intelligence generated from a DirectorDealing.
 
-    This is the object consumed by notifiers,
-    dashboards and future ranking engines.
-    """
+    announcement_id: str
 
     company_name: str
 
@@ -41,3 +38,5 @@ class InsiderSignal:
     market_impact: str = "Neutral"
 
     summary: str = ""
+
+    created_at: str = field(default_factory=lambda: datetime.now().isoformat())

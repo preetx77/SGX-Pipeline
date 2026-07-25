@@ -22,7 +22,7 @@ class SGXWatcher:
 
         logging.info(
             "Last checkpoint: %s",
-            last_processed
+            last_processed or "None (first run)"
         )
 
         announcements = self.repo.get_after(last_processed)
