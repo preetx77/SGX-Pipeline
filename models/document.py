@@ -3,9 +3,6 @@
 from dataclasses import dataclass, field
 from models.document_type import DocumentType
 
-
-
-
 @dataclass(slots=True)
 class Document:
     attachment_id: str
