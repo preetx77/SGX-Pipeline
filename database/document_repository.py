@@ -190,6 +190,9 @@ class DocumentRepository:
 
     def get_documents_by_type(self, document_type):
 
+        # Convert enum to string value if needed
+        type_value = document_type.value if hasattr(document_type, 'value') else document_type
+
         rows = self.db.fetchall(
             """
             SELECT *
@@ -197,7 +200,7 @@ class DocumentRepository:
             WHERE document_type = ?
             ORDER BY created_at DESC
             """,
-            (document_type,)
+            (type_value,)
         )
 
         return [

@@ -28,8 +28,8 @@ def cleanup():
     if watcher:
         try:
             watcher.repo.close()
-        except:
-            pass
+        except Exception as e:
+            logging.warning(f"Failed to close watcher repository: {e}")
 
 
 def ingestor_loop():

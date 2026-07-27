@@ -48,7 +48,7 @@ if not documents:
 
 document = documents[0]
 print(f"✓ Document type: {document.document_type}")
-print(f"  Content length: {len(document.content) if document.content else 0} chars")
+print(f"  Content length: {len(document.text) if document.text else 0} chars")
 
 # Step 3: Extract dealing from document
 print("\n[Step 3] Extracting director dealing...")
