@@ -1,4 +1,5 @@
 import asyncio
+import logging
 
 from telegram import Bot
 from config.settings import TELEGRAM_TOKEN, CHAT_IDS
@@ -10,10 +11,13 @@ class TelegramNotifier:
 
     def __init__(self):
 
-        print("TelegramNotifier created:", id(self))
+        logging.info(f"Initializing TelegramNotifier")
         
         if not TELEGRAM_TOKEN:
-            raise ValueError("Telegram token not configured.")
+            raise ValueError("Telegram token not configured in .env (TELEGRAM_BOT_TOKEN)")
+
+        if not CHAT_IDS:
+            logging.warning("No chat IDs configured (CHAT_IDS empty)")
 
         self.bot = Bot(token=TELEGRAM_TOKEN)
         self.chat_ids = CHAT_IDS
@@ -26,32 +30,69 @@ class TelegramNotifier:
 
     async def _send(self, message: str):
 
+        success_count = 0
+        fail_count = 0
+
         for chat_id in self.chat_ids:
             try:
                 await self.bot.send_message(
                     chat_id=chat_id,
                     text=message
                 )
+                success_count += 1
+                logging.info(f"Telegram sent successfully to {chat_id}")
 
             except Exception as e:
-                print(f"Failed to send to {chat_id}: {e}")
+                fail_count += 1
+                logging.error(f"Failed to send Telegram to {chat_id}: {e}")
+
+        if fail_count > 0:
+            logging.warning(
+                f"Telegram notification: {success_count} succeeded, {fail_count} failed"
+            )
+        
+        return success_count > 0
 
     def notify(self, signal):
-        message = self.builder.build(signal)
-        self.loop.run_until_complete(
-            self._send(message)
-        )
+        """Send signal notification via Telegram"""
+        try:
+            message = self.builder.build(signal)
+            result = self.loop.run_until_complete(
+                self._send(message)
+            )
+            if result:
+                logging.info(f"Signal notification sent for {signal.announcement_id}")
+            else:
+                logging.warning(f"Signal notification failed for {signal.announcement_id}")
+            return result
+        except Exception as e:
+            logging.error(f"Failed to build/send signal notification: {e}")
+            raise
 
     def notify_announcement(self, company, announcement):
+        """Send announcement notification via Telegram"""
+        try:
+            message = self.announcement_builder.build(
+                company,
+                announcement
+            )
 
-        message = self.announcement_builder.build(
-            company,
-            announcement
-        )
-
-        self.loop.run_until_complete(
-            self._send(message)
-        )
+            result = self.loop.run_until_complete(
+                self._send(message)
+            )
+            if result:
+                logging.info(f"Announcement notification sent for {announcement.announcement_id}")
+            else:
+                logging.warning(f"Announcement notification failed for {announcement.announcement_id}")
+            return result
+        except Exception as e:
+            logging.error(f"Failed to build/send announcement notification: {e}")
+            raise
 
     def close(self):
-        self.loop.close()
+        """Close the event loop and cleanup resources"""
+        try:
+            self.loop.close()
+            logging.info("TelegramNotifier closed")
+        except Exception as e:
+            logging.warning(f"Error closing TelegramNotifier: {e}")
