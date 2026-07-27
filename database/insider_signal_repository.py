@@ -75,3 +75,7 @@ class InsiderSignalRepository:
         """
 
         return self.db.fetchall(query)
+
+    def close(self):
+        """Close database connection"""
+        self.db.close()

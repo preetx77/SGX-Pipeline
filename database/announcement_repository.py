@@ -1,5 +1,6 @@
 from models.announcement import Announcement
 from database.database import DatabaseManager
+import logging
 
 
 class AnnouncementRepository:
@@ -177,12 +178,12 @@ class AnnouncementRepository:
         )
 
         if row is None:
-            print(f"\nLatest timestamp for {stock_code}: None (no row returned)")
+            logging.debug(f"Latest timestamp for {stock_code}: None (no row returned)")
             return None
 
         timestamp = row["latest_timestamp"]
 
-        print(f"\nLatest timestamp for {stock_code}: {timestamp}")
+        logging.debug(f"Latest timestamp for {stock_code}: {timestamp}")
 
         return timestamp
     # --------------------------------------------------
@@ -276,26 +277,6 @@ class AnnouncementRepository:
         ]
 
     # --------------------------------------------------
-
-    def get_after(self, last_announcement_id):
-
-        if last_announcement_id is None:
-            return self.latest(50)
-
-        return self.db.fetchall(
-            """
-            SELECT *
-            FROM announcements
-            WHERE submission_timestamp >
-            (
-                SELECT submission_timestamp
-                FROM announcements
-                WHERE announcement_id = ?
-            )
-            ORDER BY submission_timestamp ASC
-            """,
-            (last_announcement_id,)
-        )
 
     def get_after(self, last_announcement_id):
 
