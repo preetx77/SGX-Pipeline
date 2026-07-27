@@ -2,6 +2,7 @@
 # SGX API Client : Responsible only for communicating with SGX APIs
 
 import requests
+import logging
 
 from models.announcement import Announcement
 from scraper.auth import AuthenticationManager
@@ -45,23 +46,43 @@ class SGXClient:
     def _get(self, endpoint, params=None):
         url = f"{self.base_url}/{endpoint}"
 
-        print("\n===================================")
-        print("GET REQUEST")
-        print("URL:", url)
-        print("PARAMS:", params)
-        print("===================================\n")
+        logging.debug(f"GET request to {url} with params: {params}")
 
-        response = self.session.get(
-            url,
-            params=params,
-            timeout=30
-        )
+        try:
+            response = self.session.get(
+                url,
+                params=params,
+                timeout=30
+            )
 
-        print(f"Status Code : {response.status_code}")
+            logging.debug(f"Response status: {response.status_code}")
 
-        response.raise_for_status()
+            # Handle specific error codes
+            if response.status_code == 404:
+                logging.error(f"Endpoint not found: {url}")
+                raise requests.HTTPError(f"404 Not Found: {url}", response=response)
+            elif response.status_code == 429:
+                logging.warning(f"Rate limited (429) on {url}")
+                raise requests.HTTPError(f"429 Too Many Requests", response=response)
+            elif response.status_code >= 500:
+                logging.error(f"Server error ({response.status_code}) on {url}")
+                raise requests.HTTPError(f"Server error {response.status_code}", response=response)
 
-        return response.json()
+            response.raise_for_status()
+            return response.json()
+
+        except requests.exceptions.Timeout:
+            logging.error(f"Timeout fetching {url}")
+            raise
+        except requests.exceptions.ConnectionError:
+            logging.error(f"Connection error fetching {url}")
+            raise
+        except ValueError as e:
+            logging.error(f"Failed to parse JSON response from {url}: {e}")
+            raise
+        except requests.RequestException as e:
+            logging.error(f"Request failed for {url}: {e}")
+            raise
 
         
     def get_company_list(self):
