@@ -4,6 +4,7 @@ Coordinates parsing, persistence and downloading
 for announcement attachments.
 """
 
+import logging
 from scraper.parser import AnnouncementParser
 from scraper.downloader import PDFDownloader
 from database.attachment_repository import AttachmentRepository
@@ -22,6 +23,7 @@ class AttachmentService:
     ):
 
         attachments = self.parser.parse(announcement)
+        logging.debug(f"Found {len(attachments)} attachments in {announcement.announcement_id}")
         
         new_attachments = []
         existing_attachments = []
@@ -42,6 +44,7 @@ class AttachmentService:
                 # Also attempt to download existing attachments that don't have a path yet
                 if not db_attachment.downloaded or db_attachment.local_path is None:
                     try:
+                        logging.info(f"Re-downloading existing attachment {attachment.filename}")
                         path = self.downloader.download(
                             attachment,
                             announcement.stock_code,
@@ -57,6 +60,7 @@ class AttachmentService:
                         db_attachment.downloaded = True
                         downloaded.append(db_attachment)
                     except Exception as e:
+                        logging.error(f"Failed to download {attachment.filename}: {e}")
                         failed.append({
                             "attachment": attachment,
                             "error": str(e)
@@ -66,6 +70,7 @@ class AttachmentService:
             new_attachments.append(attachment)
 
             try:
+                logging.info(f"Downloading new attachment {attachment.filename}")
                 path = self.downloader.download(
                     attachment,
                     announcement.stock_code,
@@ -79,10 +84,14 @@ class AttachmentService:
                 
                 downloaded.append(attachment)
             except Exception as e:
+                logging.error(f"Failed to download {attachment.filename}: {e}")
                 failed.append({
                     "attachment": attachment,
                     "error": str(e)
                 })
+
+        if failed:
+            logging.warning(f"{len(failed)} attachment(s) failed to download")
 
         return {
             "attachments": attachments,

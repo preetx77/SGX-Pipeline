@@ -41,25 +41,29 @@ class AnnouncementService:
         period_start = start.strftime("%Y%m%d_000000")
         period_end = end.strftime("%Y%m%d_235959")
         
-        announcements = self.client.get_company_announcement(
-            company.name,
-            period_start=period_start,
-            period_end=period_end
-        )
-
-        print(f"\n===== {company.name} =====")
-        print(f"Period Start : {period_start}")
-        print(f"Period End   : {period_end}")
-        print(f"Announcements Returned : {len(announcements)}\n")
-
-        for announcement in announcements:
-            print(
-                f"{announcement.submission_date} | "
-                f"{announcement.announcement_id} | "
-                f"{announcement.title}"
+        logging.info(f"Syncing {company.name} ({company.code})")
+        logging.info(f"Period: {period_start} to {period_end}")
+        
+        try:
+            announcements = self.client.get_company_announcement(
+                company.name,
+                period_start=period_start,
+                period_end=period_end
             )
+        except Exception as e:
+            logging.error(f"Failed to fetch announcements for {company.name}: {e}")
+            return {
+                "company": company.name,
+                "stock_code": company.code,
+                "period_start": period_start,
+                "period_end": period_end,
+                "announcements_fetched": 0,
+                "announcements_inserted": 0,
+                "announcements_skipped": 0,
+                "error": str(e)
+            }
 
-        print("=" * 60)
+        logging.info(f"Fetched {len(announcements)} announcements for {company.name}")
         
         inserted = 0
         skipped = 0
@@ -77,14 +81,11 @@ class AnnouncementService:
 
             analysis = AnnouncementAnalysis(classification = classification)
 
-            # Debug (temporary)
-            print("\n" + "=" * 60)
-            print(f"Company    : {company.name}")
-            print(f"Title      : {announcement.title}")
-            print(f"Event Type : {analysis.classification.event_type.value}")
-            print(f"Priority   : {analysis.classification.priority.label}")
-            print(f"Stars      : {analysis.classification.priority.stars}")
-            print("=" * 60)
+            logging.debug(
+                f"[{company.name}] {announcement.title} | "
+                f"Type: {analysis.classification.event_type.value} | "
+                f"Priority: {analysis.classification.priority.label}"
+            )
 
             # Save announcement
             is_new = self.repository.insert(announcement)
@@ -94,40 +95,56 @@ class AnnouncementService:
                 continue
 
             inserted += 1
+            logging.info(f"New announcement: {announcement.announcement_id}")
 
             # Always process if it's an Insider Dealings announcement
             # (temporarily, while testing)
             if "disclosure of interest" not in announcement.category.lower():
+                logging.debug(f"Skipping {announcement.announcement_id} - not insider disclosure")
                 continue
 
-            attachment_result = self.attachment_service.process_announcement(announcement)
+            try:
+                attachment_result = self.attachment_service.process_announcement(announcement)
 
-            attachments = (
-                attachment_result["downloaded"] +
-                attachment_result["existing"]
-            )
-
-            for attachment in attachments:
-
-                document_result = self.document_service.process(
-                    announcement,
-                    attachment
+                attachments = (
+                    attachment_result["downloaded"] +
+                    attachment_result["existing"]
                 )
 
-                document = document_result["document"]
+                for attachment in attachments:
 
-                if document.document_type != DocumentType.DIRECTOR_DEALINGS:
-                    continue
+                    try:
+                        document_result = self.document_service.process(
+                            announcement,
+                            attachment
+                        )
 
-                self.insider_pipeline.process(
-                    announcement,
-                    [document]
-                )
+                        document = document_result["document"]
 
-            attachment_discovered += len(attachment_result["attachments"])
-            attachment_inserted += len(attachment_result["new"])
-            attachment_downloaded += len(attachment_result["downloaded"])
-            attachment_skipped += len(attachment_result["existing"])
+                        if document.document_type != DocumentType.DIRECTOR_DEALINGS:
+                            continue
+
+                        self.insider_pipeline.process(
+                            announcement,
+                            [document]
+                        )
+                    except Exception as e:
+                        logging.error(f"Failed to process document {attachment.filename}: {e}")
+
+                attachment_discovered += len(attachment_result["attachments"])
+                attachment_inserted += len(attachment_result["new"])
+                attachment_downloaded += len(attachment_result["downloaded"])
+                attachment_skipped += len(attachment_result["existing"])
+
+            except Exception as e:
+                logging.error(f"Failed to process attachments for {announcement.announcement_id}: {e}")
+
+        logging.info(
+            f"Completed {company.name}: "
+            f"Inserted={inserted}, Skipped={skipped}, "
+            f"Attachments discovered={attachment_discovered}, "
+            f"Downloaded={attachment_downloaded}"
+        )
 
         return {
             "company": company.name,
