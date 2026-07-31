@@ -97,47 +97,54 @@ class AnnouncementService:
             inserted += 1
             logging.info(f"New announcement: {announcement.announcement_id}")
 
-            # Always process if it's an Insider Dealings announcement
-            # (temporarily, while testing)
-            if "disclosure of interest" not in announcement.category.lower():
-                logging.debug(f"Skipping {announcement.announcement_id} - not insider disclosure")
-                continue
+            # Process insider dealings (director disclosures)
+            if "disclosure of interest" in announcement.category.lower():
+                try:
+                    attachment_result = self.attachment_service.process_announcement(announcement)
 
-            try:
-                attachment_result = self.attachment_service.process_announcement(announcement)
+                    attachments = (
+                        attachment_result["downloaded"] +
+                        attachment_result["existing"]
+                    )
 
-                attachments = (
-                    attachment_result["downloaded"] +
-                    attachment_result["existing"]
-                )
+                    for attachment in attachments:
 
-                for attachment in attachments:
+                        try:
+                            document_result = self.document_service.process(
+                                announcement,
+                                attachment
+                            )
 
-                    try:
-                        document_result = self.document_service.process(
-                            announcement,
-                            attachment
-                        )
+                            document = document_result["document"]
 
-                        document = document_result["document"]
+                            if document.document_type != DocumentType.DIRECTOR_DEALINGS:
+                                continue
 
-                        if document.document_type != DocumentType.DIRECTOR_DEALINGS:
-                            continue
+                            self.insider_pipeline.process(
+                                announcement,
+                                [document]
+                            )
+                        except Exception as e:
+                            logging.error(f"Failed to process document {attachment.filename}: {e}")
 
-                        self.insider_pipeline.process(
-                            announcement,
-                            [document]
-                        )
-                    except Exception as e:
-                        logging.error(f"Failed to process document {attachment.filename}: {e}")
+                    attachment_discovered += len(attachment_result["attachments"])
+                    attachment_inserted += len(attachment_result["new"])
+                    attachment_downloaded += len(attachment_result["downloaded"])
+                    attachment_skipped += len(attachment_result["existing"])
 
-                attachment_discovered += len(attachment_result["attachments"])
-                attachment_inserted += len(attachment_result["new"])
-                attachment_downloaded += len(attachment_result["downloaded"])
-                attachment_skipped += len(attachment_result["existing"])
-
-            except Exception as e:
-                logging.error(f"Failed to process attachments for {announcement.announcement_id}: {e}")
+                except Exception as e:
+                    logging.error(f"Failed to process attachments for {announcement.announcement_id}: {e}")
+            
+            # Process corporate events (special meetings, voluntary announcements)
+            elif any(keyword in announcement.category.lower() for keyword in 
+                    ["extraordinary", "special general meeting", "voluntary announcement", 
+                     "circular", "notice"]):
+                try:
+                    logging.info(f"Corporate event detected: {announcement.category}")
+                    # Create a corporate event notification
+                    self._notify_corporate_event(announcement)
+                except Exception as e:
+                    logging.error(f"Failed to process corporate event: {e}")
 
         logging.info(
             f"Completed {company.name}: "
@@ -159,6 +166,41 @@ class AnnouncementService:
             "attachments_downloaded": attachment_downloaded,
             "attachments_skipped": attachment_skipped
         }
+
+    def _notify_corporate_event(self, announcement):
+        """Send notification for corporate events"""
+        from notifications.telegram_notifier import TelegramNotifier
+        
+        try:
+            notifier = TelegramNotifier()
+            
+            # Format corporate event message
+            message = f"""📢 SGX CORPORATE EVENT
+
+┌─ {announcement.stock_code} ─────────────────────┐
+
+{announcement.company_name}
+
+Event: {announcement.category}
+
+Title: {announcement.title}
+
+Date: {announcement.submission_date}
+
+└────────────────────────────────────┘"""
+            
+            # Send to all chat IDs
+            for chat_id in notifier.chat_ids:
+                try:
+                    import asyncio
+                    asyncio.run(notifier._send(message))
+                    logging.info(f"Corporate event notification sent to {chat_id}")
+                except Exception as e:
+                    logging.error(f"Failed to send corporate event notification: {e}")
+                    
+            notifier.close()
+        except Exception as e:
+            logging.error(f"Failed to initialize notifier for corporate event: {e}")
 
     def sync_watchlist(
         self,
