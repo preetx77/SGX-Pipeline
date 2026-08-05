@@ -2,6 +2,7 @@ import logging
 import threading
 import time
 import atexit
+from pathlib import Path
 
 from config.watchlist import WATCHLIST
 from services.market_ingestor import MarketIngestor
@@ -30,6 +31,12 @@ def cleanup():
             watcher.repo.close()
         except Exception as e:
             logging.warning(f"Failed to close watcher repository: {e}")
+    
+    # Remove process start file on clean shutdown
+    try:
+        Path("state/process_started.txt").unlink()
+    except:
+        pass
 
 
 def ingestor_loop():
@@ -67,6 +74,12 @@ def watcher_loop():
 def main():
 
     setup_logger()
+    
+    # Write process start time immediately
+    from datetime import datetime
+    process_start_file = Path("state/process_started.txt")
+    process_start_file.parent.mkdir(parents=True, exist_ok=True)
+    process_start_file.write_text(datetime.now().isoformat())
     
     # Register cleanup function
     atexit.register(cleanup)

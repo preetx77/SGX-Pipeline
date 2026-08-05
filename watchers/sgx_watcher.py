@@ -36,6 +36,10 @@ class SGXWatcher:
         if not announcements:
 
             logging.info("No new announcements.")
+            # Update checkpoint even if no new announcements (for heartbeat tracking)
+            if last_processed:
+                self.state.save_last_id(last_processed)
+                logging.debug("Checkpoint refreshed (no new announcements).")
 
             return
 

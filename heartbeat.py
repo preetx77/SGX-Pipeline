@@ -11,6 +11,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 import psutil
 
+from utils.logger import setup_logger
 from database.announcement_repository import AnnouncementRepository
 from database.insider_signal_repository import InsiderSignalRepository
 from notifications.telegram_notifier import TelegramNotifier
@@ -18,31 +19,24 @@ from config.watchlist import WATCHLIST
 
 
 def get_uptime():
-    """Get system uptime"""
+    """Get actual process uptime from process_started.txt"""
     try:
-        log_file = Path("logs/sgx_pipeline.log")
-        if not log_file.exists():
-            return "Unknown"
+        start_file = Path("state/process_started.txt")
         
-        with open(log_file, "r") as f:
-            first_line = f.readline()
-            if first_line:
-                try:
-                    timestamp_str = first_line.split(" | ")[0]
-                    start_time = datetime.fromisoformat(timestamp_str)
-                    uptime = datetime.now() - start_time
-                    
-                    days = uptime.days
-                    hours = int((uptime.total_seconds() % 86400) / 3600)
-                    
-                    if days > 0:
-                        return f"{days}d {hours}h"
-                    else:
-                        return f"{hours}h"
-                except:
-                    return "Unknown"
+        if not start_file.exists():
+            return "Unknown (not running)"
         
-        return "Unknown"
+        start_time_str = start_file.read_text().strip()
+        start_time = datetime.fromisoformat(start_time_str)
+        uptime = datetime.now() - start_time
+        
+        days = uptime.days
+        hours = int((uptime.total_seconds() % 86400) / 3600)
+        
+        if days > 0:
+            return f"{days}d {hours}h"
+        else:
+            return f"{hours}h"
     except:
         return "Unknown"
 
@@ -164,6 +158,8 @@ def build_heartbeat_message():
 
 def main():
     """Send heartbeat"""
+    setup_logger()
+    
     print("Sending operational heartbeat...\n")
     
     try:

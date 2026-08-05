@@ -10,43 +10,37 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 import psutil
-import os
 
+from utils.logger import setup_logger
 from database.announcement_repository import AnnouncementRepository
 from database.insider_signal_repository import InsiderSignalRepository
 from state.state_manager import StateManager
 
 
 def get_uptime():
-    """Get process uptime by checking log file modification time"""
+    """Get actual process uptime from process_started.txt"""
     try:
-        log_file = Path("logs/sgx_pipeline.log")
-        if not log_file.exists():
-            return "Unknown", None
+        start_file = Path("state/process_started.txt")
         
-        # Get first log line timestamp
-        with open(log_file, "r") as f:
-            first_line = f.readline()
-            if first_line:
-                # Parse timestamp: "2026-08-05 08:39:14"
-                try:
-                    timestamp_str = first_line.split(" | ")[0]
-                    start_time = datetime.fromisoformat(timestamp_str)
-                    uptime = datetime.now() - start_time
-                    
-                    hours = uptime.total_seconds() / 3600
-                    days = uptime.days
-                    
-                    if days > 0:
-                        return f"{days}d {int(hours % 24)}h", uptime
-                    else:
-                        return f"{int(hours)}h {int((uptime.total_seconds() % 3600) / 60)}m", uptime
-                except:
-                    return "Unknown", None
+        if not start_file.exists():
+            return "Unknown (not running)"
         
-        return "Unknown", None
+        start_time_str = start_file.read_text().strip()
+        start_time = datetime.fromisoformat(start_time_str)
+        uptime = datetime.now() - start_time
+        
+        days = uptime.days
+        hours = int((uptime.total_seconds() % 86400) / 3600)
+        minutes = int((uptime.total_seconds() % 3600) / 60)
+        
+        if days > 0:
+            return f"{days}d {hours}h"
+        elif hours > 0:
+            return f"{hours}h {minutes}m"
+        else:
+            return f"{minutes}m"
     except Exception as e:
-        return f"Error: {e}", None
+        return f"Error: {e}"
 
 
 def get_announcements_count():
@@ -170,12 +164,14 @@ def format_metric(label, value, color=None):
 
 def main():
     """Display system status"""
+    setup_logger()
+    
     print("\n" + "="*50)
     print("SYSTEM STATUS DASHBOARD")
     print("="*50 + "\n")
     
     # Uptime
-    uptime_str, _ = get_uptime()
+    uptime_str = get_uptime()
     format_metric("Running", uptime_str)
     
     # Counts
