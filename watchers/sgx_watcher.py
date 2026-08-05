@@ -3,6 +3,7 @@ from notifications.telegram_notifier import TelegramNotifier
 from services.insider_pipeline import InsiderPipeline
 from events.event_engine import EventEngine
 from state.state_manager import StateManager
+from core.classifier import classify
 
 import logging
 
@@ -50,6 +51,13 @@ class SGXWatcher:
                 announcement.company_name
             )
 
+            # Classify announcement
+            classification = classify(announcement)
+            logging.info(
+                f"Classification: {classification.event_type.value} | "
+                f"Priority: {classification.priority.label} {classification.priority.stars}"
+            )
+
             # Process insider dealings
             signal = self.insider_pipeline.process(announcement)
 
@@ -65,6 +73,27 @@ class SGXWatcher:
                 )
                 # Events are logged; extend this to notify/persist as needed
                 # self.notifier.notify(event)  # Example: if notifier supports events
+
+            # Notify based on classification priority
+            if classification.priority.notify:
+                message = (
+                    f"📊 SGX ANNOUNCEMENT\n\n"
+                    f"Stock: {announcement.stock_code}\n"
+                    f"Company: {announcement.company_name}\n"
+                    f"Type: {classification.event_type.value}\n"
+                    f"Priority: {classification.priority.label} {classification.priority.stars}\n"
+                    f"Title: {announcement.title}\n"
+                    f"Date: {announcement.submission_date}"
+                )
+                try:
+                    self.notifier.notify(message)
+                    logging.info(
+                        f"Notification sent for {announcement.announcement_id}"
+                    )
+                except Exception as e:
+                    logging.error(
+                        f"Failed to send notification for {announcement.announcement_id}: {e}"
+                    )
 
             newest_id = announcement.announcement_id
 
