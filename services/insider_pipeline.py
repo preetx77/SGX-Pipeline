@@ -21,10 +21,17 @@ class InsiderPipeline:
         announcement,
         documents,
     ):
+        """
+        Process insider dealing announcement.
+        
+        Returns:
+            True if a notification was successfully sent
+            False otherwise (no documents, extraction failed, not actionable, etc.)
+        """
 
         if not documents:
             logging.warning(f"No documents provided for {announcement.announcement_id}")
-            return
+            return False
 
         document = documents[0]
         logging.info(f"Processing director dealing document: {document.filename}")
@@ -36,7 +43,7 @@ class InsiderPipeline:
             )
         except Exception as e:
             logging.error(f"Failed to extract dealing from {document.filename}: {e}")
-            return
+            return False
         
         logging.info(f"Director dealing extracted: {dealing.director_name if dealing else 'None'}")
 
@@ -44,7 +51,7 @@ class InsiderPipeline:
             signal = self.generator.generate(dealing)
         except Exception as e:
             logging.error(f"Failed to generate signal: {e}")
-            return
+            return False
 
         logging.info(f"Signal generated: {signal.signal}, Type: {signal.signal_type}")
 
@@ -53,14 +60,14 @@ class InsiderPipeline:
             logging.warning(
                 f"Signal already exists for announcement {signal.announcement_id}, skipping"
             )
-            return
+            return False
 
         try:
             self.repository.insert(signal)
             logging.info(f"Signal stored: {signal.announcement_id}")
         except Exception as e:
             logging.error(f"Failed to store signal: {e}")
-            return
+            return False
 
         # Only notify if signal is actionable
         if signal.signal:
@@ -68,8 +75,10 @@ class InsiderPipeline:
                 logging.info(f"Sending Telegram notification for {announcement.announcement_id}")
                 self.notifier.notify(signal)
                 logging.info(f"Notification sent successfully")
+                return True  # Successfully sent detailed notification
             except Exception as e:
                 logging.error(f"Failed to send Telegram notification: {e}")
-                # Don't return - signal was still stored successfully
+                return False
         else:
             logging.debug(f"Signal not actionable, skipping notification")
+            return False

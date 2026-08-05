@@ -5,6 +5,7 @@ from services.insider_pipeline import InsiderPipeline
 from events.event_engine import EventEngine
 from state.state_manager import StateManager
 from core.classifier import classify
+from core.event_type import EventType
 
 import logging
 
@@ -61,13 +62,14 @@ class SGXWatcher:
             )
 
             # Process insider dealings with documents
+            signal_sent = False
             documents = self.doc_repo.get_documents_by_announcement(
                 announcement.announcement_id
             )
             
             if documents:
                 try:
-                    self.insider_pipeline.process(announcement, documents)
+                    signal_sent = self.insider_pipeline.process(announcement, documents)
                 except Exception as e:
                     logging.error(
                         f"Failed to process insider pipeline for {announcement.announcement_id}: {e}"
@@ -82,20 +84,25 @@ class SGXWatcher:
                 )
 
             # Notify based on classification priority
+            # Skip generic notification if detailed insider signal was already sent
             if classification.priority.notify:
-                try:
-                    # Use notify_announcement for generic announcements
-                    self.notifier.notify_announcement(
-                        announcement.company_name,
-                        announcement
-                    )
+                if classification.event_type == EventType.INSIDER and signal_sent:
                     logging.info(
-                        f"Announcement notification sent for {announcement.announcement_id}"
+                        f"Detailed insider signal already sent, skipping generic notification"
                     )
-                except Exception as e:
-                    logging.error(
-                        f"Failed to send announcement notification for {announcement.announcement_id}: {e}"
-                    )
+                else:
+                    try:
+                        self.notifier.notify_announcement(
+                            announcement.company_name,
+                            announcement
+                        )
+                        logging.info(
+                            f"Announcement notification sent for {announcement.announcement_id}"
+                        )
+                    except Exception as e:
+                        logging.error(
+                            f"Failed to send announcement notification for {announcement.announcement_id}: {e}"
+                        )
 
             newest_id = announcement.announcement_id
 
