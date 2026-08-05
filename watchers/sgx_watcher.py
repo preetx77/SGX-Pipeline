@@ -1,6 +1,6 @@
 from database.announcement_repository import AnnouncementRepository
 from notifications.telegram_notifier import TelegramNotifier
-from pipeline.sgx_pipeline import SGXPipeline
+from services.insider_pipeline import InsiderPipeline
 from state.state_manager import StateManager
 
 import logging
@@ -10,7 +10,7 @@ class SGXWatcher:
     def __init__(self):
 
         self.repo = AnnouncementRepository()
-        self.pipeline = SGXPipeline()
+        self.pipeline = InsiderPipeline()
         self.state = StateManager()
         self.notifier = TelegramNotifier()
 

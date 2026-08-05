@@ -1,3 +1,8 @@
+"""
+PDF Downloader with retry logic and comprehensive error handling.
+"""
+
+
 import requests
 import logging
 from pathlib import Path
