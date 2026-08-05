@@ -172,7 +172,7 @@ class SGXClient:
 
         announcements = [
             self._json_to_announcement(item)
-            for items in raw_data
+            for item in raw_data
         ]
 
         return {
