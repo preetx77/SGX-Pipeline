@@ -38,7 +38,7 @@ class SGXClient:
         })
 
     def refresh_authentication(self):
-        token = self.auth.refresh_token()
+        token = self.auth.refresh_tokens()
         self.session.headers.update({
             "authorizationToken": token
         })
@@ -56,6 +56,22 @@ class SGXClient:
             )
 
             logging.debug(f"Response status: {response.status_code}")
+
+            # Handle 403 Forbidden with token refresh retry
+            if response.status_code == 403:
+                logging.warning(f"Received 403 Forbidden, attempting token refresh...")
+                try:
+                    self.refresh_authentication()
+                    logging.info(f"Token refreshed, retrying request...")
+                    response = self.session.get(
+                        url,
+                        params=params,
+                        timeout=30
+                    )
+                    logging.debug(f"Retry response status: {response.status_code}")
+                except Exception as e:
+                    logging.error(f"Token refresh failed: {e}")
+                    raise
 
             # Handle specific error codes
             if response.status_code == 404:
