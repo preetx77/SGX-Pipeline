@@ -1,6 +1,7 @@
 from database.announcement_repository import AnnouncementRepository
 from notifications.telegram_notifier import TelegramNotifier
 from services.insider_pipeline import InsiderPipeline
+from events.event_engine import EventEngine
 from state.state_manager import StateManager
 
 import logging
@@ -10,7 +11,8 @@ class SGXWatcher:
     def __init__(self):
 
         self.repo = AnnouncementRepository()
-        self.pipeline = InsiderPipeline()
+        self.insider_pipeline = InsiderPipeline()
+        self.event_engine = EventEngine()
         self.state = StateManager()
         self.notifier = TelegramNotifier()
 
@@ -48,10 +50,21 @@ class SGXWatcher:
                 announcement.company_name
             )
 
-            signal = self.pipeline.process(announcement)
+            # Process insider dealings
+            signal = self.insider_pipeline.process(announcement)
 
             if signal is not None:
                 self.notifier.notify(signal)
+
+            # Process corporate events
+            events = self.event_engine.process(announcement)
+
+            for event in events:
+                logging.info(
+                    f"Corporate event detected: {event.event_type} - {event.title}"
+                )
+                # Events are logged; extend this to notify/persist as needed
+                # self.notifier.notify(event)  # Example: if notifier supports events
 
             newest_id = announcement.announcement_id
 
