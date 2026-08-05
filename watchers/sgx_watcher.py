@@ -1,4 +1,5 @@
 from database.announcement_repository import AnnouncementRepository
+from database.document_repository import DocumentRepository
 from notifications.telegram_notifier import TelegramNotifier
 from services.insider_pipeline import InsiderPipeline
 from events.event_engine import EventEngine
@@ -12,6 +13,7 @@ class SGXWatcher:
     def __init__(self):
 
         self.repo = AnnouncementRepository()
+        self.doc_repo = DocumentRepository()
         self.insider_pipeline = InsiderPipeline()
         self.event_engine = EventEngine()
         self.state = StateManager()
@@ -58,11 +60,18 @@ class SGXWatcher:
                 f"Priority: {classification.priority.label} {classification.priority.stars}"
             )
 
-            # Process insider dealings
-            signal = self.insider_pipeline.process(announcement)
-
-            if signal is not None:
-                self.notifier.notify(signal)
+            # Process insider dealings with documents
+            documents = self.doc_repo.get_documents_by_announcement(
+                announcement.announcement_id
+            )
+            
+            if documents:
+                try:
+                    self.insider_pipeline.process(announcement, documents)
+                except Exception as e:
+                    logging.error(
+                        f"Failed to process insider pipeline for {announcement.announcement_id}: {e}"
+                    )
 
             # Process corporate events
             events = self.event_engine.process(announcement)
@@ -71,28 +80,21 @@ class SGXWatcher:
                 logging.info(
                     f"Corporate event detected: {event.event_type} - {event.title}"
                 )
-                # Events are logged; extend this to notify/persist as needed
-                # self.notifier.notify(event)  # Example: if notifier supports events
 
             # Notify based on classification priority
             if classification.priority.notify:
-                message = (
-                    f"📊 SGX ANNOUNCEMENT\n\n"
-                    f"Stock: {announcement.stock_code}\n"
-                    f"Company: {announcement.company_name}\n"
-                    f"Type: {classification.event_type.value}\n"
-                    f"Priority: {classification.priority.label} {classification.priority.stars}\n"
-                    f"Title: {announcement.title}\n"
-                    f"Date: {announcement.submission_date}"
-                )
                 try:
-                    self.notifier.notify(message)
+                    # Use notify_announcement for generic announcements
+                    self.notifier.notify_announcement(
+                        announcement.company_name,
+                        announcement
+                    )
                     logging.info(
-                        f"Notification sent for {announcement.announcement_id}"
+                        f"Announcement notification sent for {announcement.announcement_id}"
                     )
                 except Exception as e:
                     logging.error(
-                        f"Failed to send notification for {announcement.announcement_id}: {e}"
+                        f"Failed to send announcement notification for {announcement.announcement_id}: {e}"
                     )
 
             newest_id = announcement.announcement_id
