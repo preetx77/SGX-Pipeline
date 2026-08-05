@@ -164,7 +164,15 @@ def format_metric(label, value, color=None):
 
 def main():
     """Display system status"""
+    import logging
+    
+    # Suppress logging before setup
+    logging.disable(logging.CRITICAL)
     setup_logger()
+    logging.disable(logging.NOTSET)
+    
+    # Then suppress again for display
+    logging.getLogger().setLevel(logging.CRITICAL)
     
     print("\n" + "="*50)
     print("SYSTEM STATUS DASHBOARD")

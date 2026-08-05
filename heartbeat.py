@@ -158,7 +158,15 @@ def build_heartbeat_message():
 
 def main():
     """Send heartbeat"""
+    import logging
+    
+    # Suppress logging before setup
+    logging.disable(logging.CRITICAL)
     setup_logger()
+    logging.disable(logging.NOTSET)
+    
+    # Then suppress again for display
+    logging.getLogger().setLevel(logging.CRITICAL)
     
     print("Sending operational heartbeat...\n")
     
