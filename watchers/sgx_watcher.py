@@ -88,12 +88,29 @@ class SGXWatcher:
                 )
 
             # Notify based on classification priority
-            # Skip generic notification if detailed insider signal was already sent
-            if classification.priority.notify and not signal_sent and classification.event_type != EventType.INSIDER:
-                # Generic notification currently disabled - announce_builder expects different data structure
-                logging.info(
-                    f"Classification priority notify=True but generic notification skipped (needs data model fix)"
-                )
+            # Fallback: send generic notification if insider signal wasn't sent
+            if classification.priority.notify and not signal_sent:
+                try:
+                    # Simple direct notification for non-insider high-priority events
+                    message = (
+                        f"[{classification.event_type.value.upper()}] "
+                        f"{announcement.stock_code}\n\n"
+                        f"Company: {announcement.company_name}\n"
+                        f"Title: {announcement.title}\n"
+                        f"Priority: {classification.priority.label}\n"
+                        f"Date: {announcement.submission_date}"
+                    )
+                    self.notifier.loop.run_until_complete(
+                        self.notifier._send(message)
+                    )
+                    logging.info(
+                        f"Generic notification sent for {announcement.announcement_id} "
+                        f"({classification.event_type.value})"
+                    )
+                except Exception as e:
+                    logging.error(
+                        f"Failed to send generic notification for {announcement.announcement_id}: {e}"
+                    )
 
             newest_id = announcement.announcement_id
 
