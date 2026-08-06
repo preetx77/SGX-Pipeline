@@ -62,7 +62,7 @@ class SGXWatcher:
             classification = classify(announcement)
             logging.info(
                 f"Classification: {classification.event_type.value} | "
-                f"Priority: {classification.priority.label} {classification.priority.stars}"
+                f"Priority: {classification.priority.label}"
             )
 
             # Process insider dealings with documents
@@ -89,24 +89,11 @@ class SGXWatcher:
 
             # Notify based on classification priority
             # Skip generic notification if detailed insider signal was already sent
-            if classification.priority.notify:
-                if classification.event_type == EventType.INSIDER and signal_sent:
-                    logging.info(
-                        f"Detailed insider signal already sent, skipping generic notification"
-                    )
-                else:
-                    try:
-                        self.notifier.notify_announcement(
-                            announcement.company_name,
-                            announcement
-                        )
-                        logging.info(
-                            f"Announcement notification sent for {announcement.announcement_id}"
-                        )
-                    except Exception as e:
-                        logging.error(
-                            f"Failed to send announcement notification for {announcement.announcement_id}: {e}"
-                        )
+            if classification.priority.notify and not signal_sent and classification.event_type != EventType.INSIDER:
+                # Generic notification currently disabled - announce_builder expects different data structure
+                logging.info(
+                    f"Classification priority notify=True but generic notification skipped (needs data model fix)"
+                )
 
             newest_id = announcement.announcement_id
 
