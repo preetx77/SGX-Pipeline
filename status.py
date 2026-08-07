@@ -92,34 +92,43 @@ def get_last_poll_time():
 
 
 def get_last_telegram_time():
-    """Get time of last successful Telegram notification"""
+    """Get time of last successful Telegram notification in current process run"""
     try:
         log_file = Path("logs/sgx_pipeline.log")
-        if not log_file.exists():
+        start_file = Path("state/process_started.txt")
+        
+        if not log_file.exists() or not start_file.exists():
             return "Never", None
         
-        # Search backwards for last Telegram notification
+        # Get current process start time
+        start_time_str = start_file.read_text().strip()
+        start_time = datetime.fromisoformat(start_time_str)
+        
+        # Search backwards for last Telegram notification in current run only
         with open(log_file, "r") as f:
             lines = f.readlines()
         
         for line in reversed(lines):
-            if "Telegram sent successfully" in line or "Notification sent successfully" in line:
+            if "Telegram sent successfully" in line or "Notification sent successfully" in line or "Generic notification sent" in line:
                 try:
                     timestamp_str = line.split(" | ")[0]
-                    last_notify = datetime.fromisoformat(timestamp_str)
-                    time_ago = datetime.now() - last_notify
+                    notify_time = datetime.fromisoformat(timestamp_str)
                     
-                    if time_ago.total_seconds() < 60:
-                        return f"{int(time_ago.total_seconds())}s ago", time_ago
-                    elif time_ago.total_seconds() < 3600:
-                        return f"{int(time_ago.total_seconds() / 60)}m ago", time_ago
-                    else:
-                        hours = time_ago.total_seconds() / 3600
-                        return f"{int(hours)}h ago", time_ago
+                    # Only report from current process run
+                    if notify_time >= start_time:
+                        time_ago = datetime.now() - notify_time
+                        
+                        if time_ago.total_seconds() < 60:
+                            return f"{int(time_ago.total_seconds())}s ago", time_ago
+                        elif time_ago.total_seconds() < 3600:
+                            return f"{int(time_ago.total_seconds() / 60)}m ago", time_ago
+                        else:
+                            hours = time_ago.total_seconds() / 3600
+                            return f"{int(hours)}h ago", time_ago
                 except:
                     pass
         
-        return "Never", None
+        return "Never (this run)", None
     except Exception as e:
         return f"Error: {e}", None
 
@@ -135,22 +144,35 @@ def get_database_health():
 
 
 def get_last_error():
-    """Get last error from log file"""
+    """Get last error from current process run"""
     try:
         log_file = Path("logs/sgx_pipeline.log")
-        if not log_file.exists():
+        start_file = Path("state/process_started.txt")
+        
+        if not log_file.exists() or not start_file.exists():
             return "None"
         
-        # Search backwards for last error
+        # Get current process start time
+        start_time_str = start_file.read_text().strip()
+        start_time = datetime.fromisoformat(start_time_str)
+        
+        # Search backwards for last error in current run only
         with open(log_file, "r") as f:
             lines = f.readlines()
         
         for line in reversed(lines):
             if " ERROR " in line or " CRITICAL " in line:
-                # Extract just the error message
-                parts = line.split(" | ")
-                if len(parts) >= 4:
-                    return parts[-1].strip()[:80]  # Truncate to 80 chars
+                try:
+                    timestamp_str = line.split(" | ")[0]
+                    error_time = datetime.fromisoformat(timestamp_str)
+                    
+                    # Only report errors from current process run
+                    if error_time >= start_time:
+                        parts = line.split(" | ")
+                        if len(parts) >= 4:
+                            return parts[-1].strip()[:80]
+                except:
+                    pass
         
         return "None"
     except Exception as e:
