@@ -1,5 +1,6 @@
 import codecs 
 import requests
+import time
 
 from config.settings import CMS_BASE_URL
 from config.settings import CMS_VERSION
@@ -15,6 +16,12 @@ class AuthenticationManager:
                 "Accept" : "application/json",
                 "Origin": "https://www.sgx.com",
                 "Referer": "https://www.sgx.com/",
+                # Akamai WAF bypass headers
+                "Accept-Language": "en-US,en;q=0.9",
+                "Accept-Encoding": "gzip, deflate, br",
+                "Sec-Fetch-Dest": "document",
+                "Sec-Fetch-Mode": "navigate",
+                "Sec-Fetch-Site": "none",
             }
         )
 

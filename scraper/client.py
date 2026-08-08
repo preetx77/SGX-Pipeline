@@ -3,6 +3,7 @@
 
 import requests
 import logging
+import time
 
 from models.announcement import Announcement
 from scraper.auth import AuthenticationManager
@@ -19,14 +20,23 @@ class SGXClient:
         self.auth = AuthenticationManager()
         self.session = requests.Session()
         self.session.headers.update({
-
             "Accept": "application/json",
             "User-Agent": USER_AGENT,
             "Origin": "https://www.sgx.com",
             "Referer": "https://www.sgx.com/",
+            # Akamai WAF bypass headers
+            "Accept-Language": "en-US,en;q=0.9",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Sec-Fetch-Dest": "document",
+            "Sec-Fetch-Mode": "navigate",
+            "Sec-Fetch-Site": "none",
+            "Sec-Fetch-User": "?1",
+            "Cache-Control": "max-age=0",
+            "Pragma": "no-cache",
         })
 
         self.base_url = ANNOUNCEMENT_API
+        self.request_delay = 0.5  # Delay between requests to avoid rate limiting
         self._authenticate()
 
 # instead of headers, inside every API , we auhtneticate once , then every req automatically carries authoirzation 
@@ -49,6 +59,9 @@ class SGXClient:
         logging.debug(f"GET request to {url} with params: {params}")
 
         try:
+            # Add delay between requests to avoid rate limiting
+            time.sleep(self.request_delay)
+            
             response = self.session.get(
                 url,
                 params=params,
