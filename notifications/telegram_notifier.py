@@ -89,6 +89,21 @@ class TelegramNotifier:
             logging.error(f"Failed to build/send announcement notification: {e}")
             raise
 
+    def notify_digest(self, digest_text):
+        """Send plain-text digest notification via Telegram"""
+        try:
+            result = self.loop.run_until_complete(
+                self._send(digest_text)
+            )
+            if result:
+                logging.info("Digest notification sent successfully")
+            else:
+                logging.warning("Digest notification failed")
+            return result
+        except Exception as e:
+            logging.error(f"Failed to send digest notification: {e}")
+            raise
+
     def close(self):
         """Close the event loop and cleanup resources"""
         try:
