@@ -148,6 +148,10 @@ CREATE TABLE IF NOT EXISTS insider_signals (
 
     value REAL,
 
+    direct_interest_before INTEGER,
+
+    direct_interest_after INTEGER,
+
     created_at TEXT,
 
     FOREIGN KEY (announcement_id)

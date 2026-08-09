@@ -22,10 +22,12 @@ class InsiderSignalRepository:
             shares,
             price,
             value,
+            direct_interest_before,
+            direct_interest_after,
             created_at
 
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
 
         self.db.execute(
@@ -42,6 +44,8 @@ class InsiderSignalRepository:
                 signal.shares,
                 signal.price,
                 signal.value,
+                signal.direct_interest_before,
+                signal.direct_interest_after,
                 signal.created_at
             )
         )
