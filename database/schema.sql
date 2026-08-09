@@ -142,6 +142,12 @@ CREATE TABLE IF NOT EXISTS insider_signals (
 
     confidence REAL,
 
+    shares INTEGER,
+
+    price REAL,
+
+    value REAL,
+
     created_at TEXT,
 
     FOREIGN KEY (announcement_id)

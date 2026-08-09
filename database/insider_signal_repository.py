@@ -19,10 +19,13 @@ class InsiderSignalRepository:
             direction,
             decision,
             confidence,
+            shares,
+            price,
+            value,
             created_at
 
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
 
         self.db.execute(
@@ -36,6 +39,9 @@ class InsiderSignalRepository:
                 signal.direction,
                 signal.decision,
                 signal.confidence,
+                signal.shares,
+                signal.price,
+                signal.value,
                 signal.created_at
             )
         )
