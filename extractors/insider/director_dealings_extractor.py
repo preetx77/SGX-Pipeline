@@ -107,6 +107,40 @@ class DirectorDealingsExtractor:
         
 
     def extract_price(self, text):
+        """
+        Extract transaction price from Form 1/Form 3.
+        
+        Looks for patterns like:
+        - "Transaction price per share (SGD): 0.50"
+        - "Price per share: SGD 0.50"
+        - Pattern: any variation with SGD and a decimal number
+        """
+        # Pattern 1: "Transaction price per share (SGD): X.XX" or similar
+        match = re.search(
+            r"(?:Transaction price|Price).*?(?:per share)?.*?:\s*(?:SGD\s*)?([\d.]+)",
+            text,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+        
+        if match:
+            try:
+                return float(match.group(1))
+            except (ValueError, IndexError):
+                pass
+        
+        # Pattern 2: "SGD 0.50" or "SGD0.50"
+        match = re.search(
+            r"SGD\s*([\d.]+)",
+            text,
+            flags=re.IGNORECASE
+        )
+        
+        if match:
+            try:
+                return float(match.group(1))
+            except (ValueError, IndexError):
+                pass
+        
         return None
 
     def extract(self, announcement, document):
@@ -124,6 +158,15 @@ class DirectorDealingsExtractor:
         # Classify transaction type
         transaction_type = self.classifier.classify(text)
         
+        # Extract fields
+        shares = self.extract_shares(text)
+        price = self.extract_price(text)
+        
+        # Calculate value: shares * price if both available
+        value = None
+        if shares is not None and price is not None:
+            value = shares * price
+        
         return DirectorDealing(
             announcement_id=announcement.announcement_id,
             company_name=announcement.company_name,
@@ -132,9 +175,9 @@ class DirectorDealingsExtractor:
             transaction_type=transaction_type,
             action=self.classifier.action(transaction_type),
             importance=self.classifier.importance(transaction_type),
-            shares=self.extract_shares(text),
-            price=self.extract_price(text),
-            value=None,  # Can be calculated from shares * price if needed
+            shares=shares,
+            price=price,
+            value=value,
             currency="SGD",  # Default to SGD for SGX listings
             dealing_date=self.extract_date(text),
             direct_interest_before = self.extract_direct_interest_before(text),
