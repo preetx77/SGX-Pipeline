@@ -108,6 +108,10 @@ class InsiderSignalGenerator:
             price=dealing.price,
 
             value=dealing.value,
+
+            direct_interest_before=dealing.direct_interest_before,
+
+            direct_interest_after=dealing.direct_interest_after,
             
         )
 

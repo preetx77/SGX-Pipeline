@@ -33,6 +33,10 @@ class InsiderSignal:
 
     value: float | None = None
 
+    direct_interest_before: int | None = None
+
+    direct_interest_after: int | None = None
+
     decision: str = "IGNORE"
 
     market_impact: str = "Neutral"
