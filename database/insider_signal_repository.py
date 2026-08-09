@@ -14,6 +14,7 @@ class InsiderSignalRepository:
             announcement_id,
             company_name,
             stock_code,
+            director_name,
             signal,
             signal_type,
             direction,
@@ -27,7 +28,7 @@ class InsiderSignalRepository:
             created_at
 
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """
 
         self.db.execute(
@@ -36,6 +37,7 @@ class InsiderSignalRepository:
                 signal.announcement_id,
                 signal.company_name,
                 signal.stock_code,
+                signal.director_name,
                 int(signal.signal),
                 signal.signal_type,
                 signal.direction,

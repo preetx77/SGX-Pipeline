@@ -67,68 +67,175 @@ class InsiderDigestService:
         return self._format_digest(date, results)
 
     def _format_digest(self, date, results):
-        """Format query results into plain text digest."""
+        """Format query results into plain text digest with proper grouping and totals."""
         
         lines = []
         lines.append(f"SGX INSIDER DIGEST - {date.strftime('%d %b %Y')}")
-        lines.append("=" * 60)
+        lines.append("=" * 70)
         lines.append("")
 
-        # Group by stock code
-        by_stock = {}
-        for company, code, decision, count, total_shares, total_value, anns in results:
-            if code not in by_stock:
-                by_stock[code] = {
-                    'company': company,
-                    'signals': []
-                }
-            
-            by_stock[code]['signals'].append({
-                'decision': decision,
-                'count': count,
-                'shares': total_shares if total_shares else 0,
-                'value': total_value if total_value else 0.0
-            })
+        # Fetch full detail for each signal (need director names)
+        db_results = self.db.fetchall("""
+            SELECT 
+                announcement_id,
+                company_name,
+                stock_code,
+                director_name,
+                decision,
+                signal_type,
+                shares,
+                price,
+                value
+            FROM insider_signals 
+            WHERE DATE(created_at) = ?
+            ORDER BY decision DESC, company_name ASC
+        """, (date,))
 
-        # Format by stock code
-        for code in sorted(by_stock.keys()):
-            stock_info = by_stock[code]
-            company = stock_info['company']
+        if not db_results:
+            return self._format_empty_digest(date)
+
+        # Group by decision first, then by stock
+        buy_signals = []
+        sell_signals = []
+        ignore_signals = []
+
+        for row in db_results:
+            ann_id, company, code, director, decision, sig_type, shares, price, value = row
             
-            # Handle bad company names (e.g., "MULTIPLE")
+            # Handle bad company names
             if not company or company == "MULTIPLE" or company.strip() == "":
                 company = f"[Stock {code}]"
             
-            lines.append(f"📊 {code} - {company}")
+            signal_info = {
+                'announcement_id': ann_id,
+                'company': company,
+                'code': code,
+                'director': director or '[Director Unknown]',
+                'decision': decision,
+                'sig_type': sig_type,
+                'shares': shares,
+                'price': price,
+                'value': value
+            }
             
-            for sig in stock_info['signals']:
-                decision = sig['decision']
-                count = sig['count']
+            if decision == 'BUY':
+                buy_signals.append(signal_info)
+            elif decision == 'SELL':
+                sell_signals.append(signal_info)
+            else:
+                ignore_signals.append(signal_info)
+
+        # Track totals
+        total_buys = len(buy_signals)
+        total_sells = len(sell_signals)
+        total_ignores = len(ignore_signals)
+        total_signals = total_buys + total_sells + total_ignores
+
+        # Format BUY section
+        if buy_signals:
+            lines.append("🟢 BUYS")
+            lines.append("-" * 70)
+            buy_shares = 0
+            buy_value = 0.0
+            for sig in buy_signals:
+                director = sig['director']
+                company = sig['company']
+                code = sig['code']
                 shares = sig['shares']
+                price = sig['price']
                 value = sig['value']
                 
-                # Color-coded marker
-                if decision == 'BUY':
-                    marker = "🟢 BUY"
-                elif decision == 'SELL':
-                    marker = "🔴 SELL"
-                else:
-                    marker = "⚪ IGNORE"
-                
-                # Format line with transaction details if available
+                # Format details
                 details = []
-                if shares > 0:
+                if shares:
                     details.append(f"{shares:,} shares")
-                if value > 0:
-                    details.append(f"SGD {value:,.2f}")
+                    buy_shares += shares
+                if price:
+                    details.append(f"@ SGD {price:.4f}")
+                if value:
+                    details.append(f"= SGD {value:,.2f}")
+                    buy_value += value
                 
-                detail_str = f" ({', '.join(details)})" if details else ""
-                
-                lines.append(f"  {marker} - {count} signal(s){detail_str}")
+                detail_str = " | ".join(details) if details else "(no details)"
+                lines.append(f"  {code} {company}")
+                lines.append(f"    Director: {director}")
+                lines.append(f"    {detail_str}")
+                lines.append("")
             
+            lines.append(f"  Subtotal: {total_buys} buy(s), {buy_shares:,} shares")
+            if buy_value > 0:
+                lines.append(f"  Value: SGD {buy_value:,.2f}")
             lines.append("")
 
-        lines.append("=" * 60)
+        # Format SELL section
+        if sell_signals:
+            lines.append("🔴 SELLS")
+            lines.append("-" * 70)
+            sell_shares = 0
+            sell_value = 0.0
+            for sig in sell_signals:
+                director = sig['director']
+                company = sig['company']
+                code = sig['code']
+                shares = sig['shares']
+                price = sig['price']
+                value = sig['value']
+                
+                # Format details
+                details = []
+                if shares:
+                    details.append(f"{shares:,} shares")
+                    sell_shares += shares
+                if price:
+                    details.append(f"@ SGD {price:.4f}")
+                if value:
+                    details.append(f"= SGD {value:,.2f}")
+                    sell_value += value
+                
+                detail_str = " | ".join(details) if details else "(no details)"
+                lines.append(f"  {code} {company}")
+                lines.append(f"    Director: {director}")
+                lines.append(f"    {detail_str}")
+                lines.append("")
+            
+            lines.append(f"  Subtotal: {total_sells} sell(s), {sell_shares:,} shares")
+            if sell_value > 0:
+                lines.append(f"  Value: SGD {sell_value:,.2f}")
+            lines.append("")
+
+        # Format IGNORE section (if any)
+        if ignore_signals:
+            lines.append("⚪ CORPORATE ACTIONS / NO SIGNAL")
+            lines.append("-" * 70)
+            for sig in ignore_signals:
+                code = sig['code']
+                company = sig['company']
+                sig_type = sig['sig_type']
+                shares = sig['shares']
+                
+                details = []
+                if sig_type:
+                    details.append(f"Type: {sig_type}")
+                if shares:
+                    details.append(f"{shares:,} shares")
+                
+                detail_str = " | ".join(details) if details else ""
+                lines.append(f"  {code} {company}")
+                if detail_str:
+                    lines.append(f"    {detail_str}")
+                lines.append("")
+            
+            lines.append(f"  Subtotal: {total_ignores} action(s)")
+            lines.append("")
+
+        # Summary totals
+        lines.append("=" * 70)
+        lines.append("SUMMARY")
+        lines.append(f"  Buys: {total_buys}")
+        lines.append(f"  Sells: {total_sells}")
+        lines.append(f"  Corporate Actions: {total_ignores}")
+        lines.append(f"  Total: {total_signals} signal(s)")
+        lines.append("")
         lines.append(f"Generated: {datetime.now().strftime('%d %b %Y at %H:%M:%S')}")
 
         return "\n".join(lines)

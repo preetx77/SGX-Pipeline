@@ -132,6 +132,8 @@ CREATE TABLE IF NOT EXISTS insider_signals (
 
     stock_code TEXT,
 
+    director_name TEXT,
+
     signal INTEGER,
 
     signal_type TEXT,
