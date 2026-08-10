@@ -72,10 +72,51 @@ class DirectorDealingsExtractor:
         )
 
     def extract_director(self, text):
-
+        """
+        Extract director name from Form 1/eFORM1.
+        Returns the director name if found, None otherwise.
+        """
         return self._extract_after_label(
             text , "Name of Director/CEO:"
         )
+
+    def extract_substantial_shareholder(self, text):
+        """
+        Extract substantial shareholder name from Form 3/eFORM3.
+        
+        Tries patterns in order:
+        1. "Name of Substantial Shareholder/Unitholder:" with actual name (not blank/checkbox)
+        2. "Name of Individual:" (submitter on behalf of shareholder)
+        
+        Returns the name if found, None otherwise.
+        """
+        # Pattern 1: Try to extract actual shareholder name
+        # Look for the label and then the first real name-like line (skip checkboxes)
+        match = re.search(
+            r"Name of Substantial Shareholder/Unitholder:\s*\n\s*\d+\.\s*\n\s*(.+?)(?:\n|$)",
+            text,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+        
+        if match:
+            name = match.group(1).strip()
+            # Skip if it's a checkbox/form instruction, not a real name
+            if name and not name.startswith("Is ") and len(name) > 3:
+                return name
+        
+        # Pattern 2: Fall back to Individual submitter name
+        match = re.search(
+            r"Name of Individual:\s*\n\s*(.+?)(?:\n|$)",
+            text,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+        
+        if match:
+            name = match.group(1).strip()
+            if name and not name.startswith("(") and len(name) > 2:
+                return name
+        
+        return None
 
     def extract_date(self, text):
 

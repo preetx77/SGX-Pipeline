@@ -134,6 +134,10 @@ CREATE TABLE IF NOT EXISTS insider_signals (
 
     director_name TEXT,
 
+    filer_type TEXT DEFAULT 'DIRECTOR',
+
+    is_corporate_entity INTEGER DEFAULT 0,
+
     signal INTEGER,
 
     signal_type TEXT,

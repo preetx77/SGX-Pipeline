@@ -74,13 +74,15 @@ class InsiderDigestService:
         lines.append("=" * 70)
         lines.append("")
 
-        # Fetch full detail for each signal (need director names)
+        # Fetch full detail for each signal (need director names and filer_type)
         db_results = self.db.fetchall("""
             SELECT 
                 announcement_id,
                 company_name,
                 stock_code,
                 director_name,
+                filer_type,
+                is_corporate_entity,
                 decision,
                 signal_type,
                 shares,
@@ -100,17 +102,29 @@ class InsiderDigestService:
         ignore_signals = []
 
         for row in db_results:
-            ann_id, company, code, director, decision, sig_type, shares, price, value = row
+            ann_id, company, code, director, filer_type, is_corp, decision, sig_type, shares, price, value = row
             
             # Handle bad company names
             if not company or company == "MULTIPLE" or company.strip() == "":
                 company = f"[Stock {code}]"
             
+            # Determine filer label
+            if not filer_type or filer_type == "DIRECTOR":
+                filer_label = "Director"
+            elif filer_type == "SUBSTANTIAL_SHAREHOLDER":
+                if is_corp:
+                    filer_label = "Substantial Shareholder (Corporate)"
+                else:
+                    filer_label = "Substantial Shareholder"
+            else:
+                filer_label = filer_type
+            
             signal_info = {
                 'announcement_id': ann_id,
                 'company': company,
                 'code': code,
-                'director': director or '[Director Unknown]',
+                'director': director or '[Name Unknown]',
+                'filer_label': filer_label,
                 'decision': decision,
                 'sig_type': sig_type,
                 'shares': shares,
@@ -138,9 +152,10 @@ class InsiderDigestService:
             buy_shares = 0
             buy_value = 0.0
             for sig in buy_signals:
-                director = sig['director']
+                filer = sig['director']
                 company = sig['company']
                 code = sig['code']
+                filer_label = sig['filer_label']
                 shares = sig['shares']
                 price = sig['price']
                 value = sig['value']
@@ -158,7 +173,7 @@ class InsiderDigestService:
                 
                 detail_str = " | ".join(details) if details else "(no details)"
                 lines.append(f"  {code} {company}")
-                lines.append(f"    Director: {director}")
+                lines.append(f"    {filer_label}: {filer}")
                 lines.append(f"    {detail_str}")
                 lines.append("")
             
@@ -174,9 +189,10 @@ class InsiderDigestService:
             sell_shares = 0
             sell_value = 0.0
             for sig in sell_signals:
-                director = sig['director']
+                filer = sig['director']
                 company = sig['company']
                 code = sig['code']
+                filer_label = sig['filer_label']
                 shares = sig['shares']
                 price = sig['price']
                 value = sig['value']
@@ -194,7 +210,7 @@ class InsiderDigestService:
                 
                 detail_str = " | ".join(details) if details else "(no details)"
                 lines.append(f"  {code} {company}")
-                lines.append(f"    Director: {director}")
+                lines.append(f"    {filer_label}: {filer}")
                 lines.append(f"    {detail_str}")
                 lines.append("")
             
@@ -205,11 +221,13 @@ class InsiderDigestService:
 
         # Format IGNORE section (if any)
         if ignore_signals:
-            lines.append("⚪ CORPORATE ACTIONS / NO SIGNAL")
+            lines.append("⚪ CORPORATE ACTIONS / SHAREHOLDER FILINGS")
             lines.append("-" * 70)
             for sig in ignore_signals:
                 code = sig['code']
                 company = sig['company']
+                filer = sig['director']
+                filer_label = sig['filer_label']
                 sig_type = sig['sig_type']
                 shares = sig['shares']
                 
@@ -221,6 +239,7 @@ class InsiderDigestService:
                 
                 detail_str = " | ".join(details) if details else ""
                 lines.append(f"  {code} {company}")
+                lines.append(f"    {filer_label}: {filer}")
                 if detail_str:
                     lines.append(f"    {detail_str}")
                 lines.append("")
@@ -233,7 +252,7 @@ class InsiderDigestService:
         lines.append("SUMMARY")
         lines.append(f"  Buys: {total_buys}")
         lines.append(f"  Sells: {total_sells}")
-        lines.append(f"  Corporate Actions: {total_ignores}")
+        lines.append(f"  Corporate Actions/Filings: {total_ignores}")
         lines.append(f"  Total: {total_signals} signal(s)")
         lines.append("")
         lines.append(f"Generated: {datetime.now().strftime('%d %b %Y at %H:%M:%S')}")
