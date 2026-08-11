@@ -85,12 +85,40 @@ class DirectorDealingsExtractor:
         Extract substantial shareholder name from Form 3/eFORM3.
         
         Tries patterns in order:
-        1. "Name of Substantial Shareholder/Unitholder:" with actual name (not blank/checkbox)
-        2. "Name of Individual:" (submitter on behalf of shareholder)
+        1. "Name of Individual:" (submitter, often the actual person/entity)
+        2. Name on separate line immediately before "Name of Substantial Shareholder" (form variant, less common)
+        3. "Name of Substantial Shareholder/Unitholder:" with actual name (primary pattern)
         
         Returns the name if found, None otherwise.
         """
-        # Pattern 1: Try to extract actual shareholder name
+        # Pattern 1 (PRIMARY): Fall back to Individual submitter name first (most reliable)
+        match = re.search(
+            r"Name of Individual:\s*\n\s*(.+?)(?:\n|$)",
+            text,
+            flags=re.IGNORECASE | re.DOTALL
+        )
+        
+        if match:
+            name = match.group(1).strip()
+            if name and not name.startswith("(") and len(name) > 2:
+                return name
+        
+        # Pattern 2 (VARIANT): Form variant where shareholder name appears on its own line right before the label
+        # But only try this if Pattern 1 returned nothing (i.e., name field is empty)
+        # This catches cases like "Lim Sok Cheng Julie" or "Messiah Limited" on their own line
+        match = re.search(
+            r"\n([A-Za-z][^\n]*(?:Limited|Ltd|Fund|Corporation|Company)?)\nName of Substantial Shareholder/Unitholder:",
+            text,
+            flags=re.DOTALL
+        )
+        
+        if match:
+            name = match.group(1).strip()
+            # Validate it's a real name, not form instruction
+            if 3 < len(name) < 120 and not any(x in name.lower() for x in ['part', 'general', 'form', 'please', 'effective date', 'version']):
+                return name
+        
+        # Pattern 3: Try to extract actual shareholder name with the primary pattern
         # Look for the label and then the first real name-like line (skip checkboxes)
         match = re.search(
             r"Name of Substantial Shareholder/Unitholder:\s*\n\s*\d+\.\s*\n\s*(.+?)(?:\n|$)",
@@ -102,18 +130,6 @@ class DirectorDealingsExtractor:
             name = match.group(1).strip()
             # Skip if it's a checkbox/form instruction, not a real name
             if name and not name.startswith("Is ") and len(name) > 3:
-                return name
-        
-        # Pattern 2: Fall back to Individual submitter name
-        match = re.search(
-            r"Name of Individual:\s*\n\s*(.+?)(?:\n|$)",
-            text,
-            flags=re.IGNORECASE | re.DOTALL
-        )
-        
-        if match:
-            name = match.group(1).strip()
-            if name and not name.startswith("(") and len(name) > 2:
                 return name
         
         return None
