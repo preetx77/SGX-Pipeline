@@ -147,34 +147,78 @@ class DirectorDealingsExtractor:
 
 
     def extract_shares(self, text):
-
+        """
+        Extract number of shares from Form 1/Form 3.
+        
+        The form structure shows:
+          5. Number of shares, units, rights, options, warrants...
+             Exercise of 1,019,337 warrants to ordinary shares
+          6. Amount of consideration...
+        
+        The actual count is in the description line, not the immediate next line.
+        Need to extract the largest number in the "Number of shares" section.
+        """
+        import re
+        
+        # Find the "Number of shares" section, up to the next clause (e.g., "6. Amount")
         match = re.search(
-            r"Number of shares.*?\n([\d,]+)",
+            r"5\.\s*Number of shares.*?(?=\n\s*6\.|$)",
             text,
             flags=re.IGNORECASE | re.DOTALL
         )
-
+        
         if not match:
             return None
-
-        return int(
-            match.group(1).replace(",", "")
-        )
+        
+        section = match.group(0)
+        
+        # Find all numbers in this section (must have at least one digit, not just commas)
+        # Pattern: one or more digits, optionally followed by comma-digit groups
+        numbers = re.findall(r'\d{1,3}(?:,\d{3})*|\d+', section)
+        
+        if not numbers:
+            return None
+        
+        # Filter: skip single/double digit numbers (clause numbers), 
+        # return the first substantial number (100+)
+        for num_str in numbers:
+            try:
+                num = int(num_str.replace(",", ""))
+                if num >= 100:  # Likely a real count, not a clause number
+                    return num
+            except ValueError:
+                # Skip malformed numbers
+                continue
+        
+        # Fallback: if no large number found, return largest number found
+        if numbers:
+            try:
+                return int(numbers[-1].replace(",", ""))
+            except ValueError:
+                pass
+        
+        return None
 
         
 
     def extract_price(self, text):
         """
-        Extract transaction price from Form 1/Form 3.
+        Extract transaction price per share from Form 1/Form 3.
+        
+        IMPORTANT: Only extracts UNIT PRICE (per-share prices).
+        Total consideration amounts are NOT extracted here.
         
         Looks for patterns like:
-        - "Transaction price per share (SGD): 0.50"
         - "Price per share: SGD 0.50"
-        - Pattern: any variation with SGD and a decimal number
+        - "Amount of consideration: S$1.31 per share"
+        
+        Note: "Amount of consideration: S$697,248.42" (without "per share") is NOT a unit price
+        and should NOT be returned here. That value will be used directly as transaction value
+        in the business logic, not multiplied by shares.
         """
-        # Pattern 1: "Transaction price per share (SGD): X.XX" or similar
+        # Pattern 1: "Transaction price per share (SGD): X.XX" or "Price per share: ..."
         match = re.search(
-            r"(?:Transaction price|Price).*?(?:per share)?.*?:\s*(?:SGD\s*)?([\d.]+)",
+            r"(?:Transaction price|Price).*?per share.*?:\s*(?:SGD|S\$)?\s*([\d.]+)",
             text,
             flags=re.IGNORECASE | re.DOTALL
         )
@@ -185,11 +229,11 @@ class DirectorDealingsExtractor:
             except (ValueError, IndexError):
                 pass
         
-        # Pattern 2: "SGD 0.50" or "SGD0.50"
+        # Pattern 2: "Amount of consideration: S$X.XX per share" (explicit per-share indicator)
         match = re.search(
-            r"SGD\s*([\d.]+)",
+            r"Amount of consideration.*?(?:S\$|SGD)\s*([\d.]+)\s*per share",
             text,
-            flags=re.IGNORECASE
+            flags=re.IGNORECASE | re.DOTALL
         )
         
         if match:
@@ -197,6 +241,46 @@ class DirectorDealingsExtractor:
                 return float(match.group(1))
             except (ValueError, IndexError):
                 pass
+        
+        # NOTE: Deliberately NOT including Pattern 3 that was matching bare S$ amounts
+        # because that would capture total consideration (S$697,248.42) and treat it as a per-share price
+        
+        return None
+
+    def extract_consideration_amount(self, text):
+        """
+        Extract total consideration amount (not per-share).
+        
+        This extracts total transaction amounts like:
+        - "Amount of consideration: S$697,248.42" (total, not per-share)
+        - Used when price per share is not available
+        
+        Returns the total amount if found, None otherwise.
+        """
+        # Match "Amount of consideration: S$XXX,XXX.XX" where it's NOT followed by "per share"
+        # Can span multiple lines
+        lines = text.split('\n')
+        for i, line in enumerate(lines):
+            if 'Amount of consideration' in line:
+                # Look ahead up to 3 lines to find the amount
+                search_text = '\n'.join(lines[i:min(i+4, len(lines))])
+                
+                # Check if "per share" is present - if so, skip this
+                if 'per share' in search_text.lower():
+                    continue
+                
+                # Find currency amount
+                match = re.search(
+                    r"(?:S\$|SGD)\s*([\d,]+(?:\.\d{2})?)",
+                    search_text,
+                    flags=re.IGNORECASE
+                )
+                
+                if match:
+                    try:
+                        return float(match.group(1).replace(",", ""))
+                    except (ValueError, IndexError):
+                        pass
         
         return None
 
@@ -219,10 +303,16 @@ class DirectorDealingsExtractor:
         shares = self.extract_shares(text)
         price = self.extract_price(text)
         
-        # Calculate value: shares * price if both available
+        # Calculate value: shares * price if both available, otherwise use consideration amount
         value = None
         if shares is not None and price is not None:
+            # Per-share price: value = shares * price
             value = shares * price
+        elif shares is not None:
+            # No per-share price: try to get total consideration amount
+            consideration = self.extract_consideration_amount(text)
+            if consideration is not None:
+                value = consideration
         
         return DirectorDealing(
             announcement_id=announcement.announcement_id,
