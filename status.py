@@ -1,234 +1,183 @@
 #!/usr/bin/env python3
 """
-System Status Dashboard
-
-Run this to check real-time system health and metrics.
-Shows uptime, announcements processed, signals generated, last activity times.
+Burn-in test status monitor.
+Tracks uptime, errors, checkpoint advancement, signal classification health.
 """
 
-import sys
-from datetime import datetime, timedelta
+import subprocess
+import re
+import json
+from datetime import datetime
 from pathlib import Path
-import psutil
 
-from utils.logger import setup_logger
-from database.announcement_repository import AnnouncementRepository
-from database.insider_signal_repository import InsiderSignalRepository
-from state.state_manager import StateManager
-
-
-def get_uptime():
-    """Get actual process uptime from process_started.txt"""
+def get_process_info():
+    """Check if burn-in process is running."""
     try:
-        start_file = Path("state/process_started.txt")
-        
-        if not start_file.exists():
-            return "Unknown (not running)"
-        
-        start_time_str = start_file.read_text().strip()
-        start_time = datetime.fromisoformat(start_time_str)
-        uptime = datetime.now() - start_time
-        
-        days = uptime.days
-        hours = int((uptime.total_seconds() % 86400) / 3600)
-        minutes = int((uptime.total_seconds() % 3600) / 60)
-        
-        if days > 0:
-            return f"{days}d {hours}h"
-        elif hours > 0:
-            return f"{hours}h {minutes}m"
-        else:
-            return f"{minutes}m"
+        result = subprocess.run(
+            ['ps', 'aux'],
+            capture_output=True,
+            text=True,
+            timeout=5
+        )
+        for line in result.stdout.split('\n'):
+            if 'run_system.py' in line and 'grep' not in line:
+                parts = line.split()
+                if len(parts) > 1:
+                    return {
+                        'running': True,
+                        'pid': parts[1],
+                        'start_time': ' '.join(parts[8:11]) if len(parts) > 10 else 'unknown'
+                    }
     except Exception as e:
-        return f"Error: {e}"
+        print(f"Warning: Could not check process: {e}")
+    return {'running': False, 'pid': None}
 
-
-def get_announcements_count():
-    """Get total announcements processed"""
+def parse_log_stats():
+    """Extract stats from burn_in_test.log."""
+    log_file = Path('burn_in_test.log')
+    if not log_file.exists():
+        return None
+    
     try:
-        repo = AnnouncementRepository()
-        count = repo.count()
-        repo.close()
-        return count
-    except Exception as e:
-        return f"Error: {e}"
-
-
-def get_signals_count():
-    """Get total insider signals generated"""
-    try:
-        repo = InsiderSignalRepository()
-        signals = repo.get_all()
-        count = len(signals) if signals else 0
-        repo.close()
-        return count
-    except Exception as e:
-        return f"Error: {e}"
-
-
-def get_last_poll_time():
-    """Get time of last announcement poll"""
-    try:
-        state = StateManager()
-        # Check the state file modification time
-        state_file = Path("state/last_processed.txt")
-        
-        if not state_file.exists():
-            return "Never", None
-        
-        mtime = state_file.stat().st_mtime
-        last_poll = datetime.fromtimestamp(mtime)
-        time_ago = datetime.now() - last_poll
-        
-        if time_ago.total_seconds() < 60:
-            return f"{int(time_ago.total_seconds())}s ago", time_ago
-        elif time_ago.total_seconds() < 3600:
-            return f"{int(time_ago.total_seconds() / 60)}m ago", time_ago
-        else:
-            hours = time_ago.total_seconds() / 3600
-            return f"{int(hours)}h ago", time_ago
-    except Exception as e:
-        return f"Error: {e}", None
-
-
-def get_last_telegram_time():
-    """Get time of last successful Telegram notification in current process run"""
-    try:
-        log_file = Path("logs/sgx_pipeline.log")
-        start_file = Path("state/process_started.txt")
-        
-        if not log_file.exists() or not start_file.exists():
-            return "Never", None
-        
-        # Get current process start time
-        start_time_str = start_file.read_text().strip()
-        start_time = datetime.fromisoformat(start_time_str)
-        
-        # Search backwards for last Telegram notification in current run only
-        with open(log_file, "r") as f:
+        with open(log_file, 'r') as f:
             lines = f.readlines()
         
-        for line in reversed(lines):
-            if "Telegram sent successfully" in line or "Notification sent successfully" in line or "Generic notification sent" in line:
-                try:
-                    timestamp_str = line.split(" | ")[0]
-                    notify_time = datetime.fromisoformat(timestamp_str)
-                    
-                    # Only report from current process run
-                    if notify_time >= start_time:
-                        time_ago = datetime.now() - notify_time
-                        
-                        if time_ago.total_seconds() < 60:
-                            return f"{int(time_ago.total_seconds())}s ago", time_ago
-                        elif time_ago.total_seconds() < 3600:
-                            return f"{int(time_ago.total_seconds() / 60)}m ago", time_ago
-                        else:
-                            hours = time_ago.total_seconds() / 3600
-                            return f"{int(hours)}h ago", time_ago
-                except:
-                    pass
+        # Get last 50 lines for context
+        recent = lines[-50:] if len(lines) > 50 else lines
         
-        return "Never (this run)", None
+        # Extract stats
+        stats = {
+            'total_lines': len(lines),
+            'last_entry': lines[-1].strip() if lines else 'N/A',
+            'last_timestamp': None,
+            'error_count': 0,
+            'warning_count': 0,
+            'companies_synced': 0,
+            'total_announcements_fetched': 0,
+            'total_inserted': 0,
+            'total_skipped': 0,
+            'checkpoint_updates': 0,
+            'errors': []
+        }
+        
+        # Parse all lines for metrics
+        for line in lines:
+            # Extract timestamp
+            timestamp_match = re.search(r'(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})', line)
+            if timestamp_match:
+                stats['last_timestamp'] = timestamp_match.group(1)
+            
+            # Count errors/warnings
+            if ' ERROR ' in line or ' CRITICAL ' in line:
+                stats['error_count'] += 1
+                stats['errors'].append(line.strip()[-100:])  # Last 100 chars
+            if ' WARNING ' in line:
+                stats['warning_count'] += 1
+            
+            # Extract metrics from summary lines
+            if 'Companies=' in line:
+                match = re.search(r'Companies=(\d+).*Fetched=(\d+).*Inserted=(\d+).*Skipped=(\d+)', line)
+                if match:
+                    stats['companies_synced'] = max(stats['companies_synced'], int(match.group(1)))
+                    stats['total_announcements_fetched'] = max(stats['total_announcements_fetched'], int(match.group(2)))
+                    stats['total_inserted'] = max(stats['total_inserted'], int(match.group(3)))
+                    stats['total_skipped'] = max(stats['total_skipped'], int(match.group(4)))
+            
+            # Count checkpoints
+            if 'Last checkpoint:' in line:
+                stats['checkpoint_updates'] += 1
+        
+        return stats
     except Exception as e:
-        return f"Error: {e}", None
+        print(f"Error parsing log: {e}")
+        return None
 
-
-def get_database_health():
-    """Check database health"""
+def get_database_signal_count():
+    """Get count of signals in database."""
     try:
-        repo = AnnouncementRepository()
-        repo.close()
-        return "Healthy"
+        import sqlite3
+        conn = sqlite3.connect('database/database.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM insider_signals WHERE transaction_type = 'MARKET_PURCHASE'")
+        count = cursor.fetchone()[0]
+        conn.close()
+        return count
     except Exception as e:
-        return f"Unhealthy: {e}"
-
-
-def get_last_error():
-    """Get last error from current process run"""
-    try:
-        log_file = Path("logs/sgx_pipeline.log")
-        start_file = Path("state/process_started.txt")
-        
-        if not log_file.exists() or not start_file.exists():
-            return "None"
-        
-        # Get current process start time
-        start_time_str = start_file.read_text().strip()
-        start_time = datetime.fromisoformat(start_time_str)
-        
-        # Search backwards for last error in current run only
-        with open(log_file, "r") as f:
-            lines = f.readlines()
-        
-        for line in reversed(lines):
-            if " ERROR " in line or " CRITICAL " in line:
-                try:
-                    timestamp_str = line.split(" | ")[0]
-                    error_time = datetime.fromisoformat(timestamp_str)
-                    
-                    # Only report errors from current process run
-                    if error_time >= start_time:
-                        parts = line.split(" | ")
-                        if len(parts) >= 4:
-                            return parts[-1].strip()[:80]
-                except:
-                    pass
-        
-        return "None"
-    except Exception as e:
-        return f"Error reading logs: {e}"
-
-
-def format_metric(label, value, color=None):
-    """Format a metric for display"""
-    print(f"{label:.<25} {value}")
-
+        print(f"Warning: Could not query database: {e}")
+        return None
 
 def main():
-    """Display system status"""
-    import logging
+    print("\n" + "=" * 100)
+    print("SGX PIPELINE - BURN-IN TEST STATUS")
+    print("=" * 100)
+    print(f"\nCheck time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
-    # Suppress logging before setup
-    logging.disable(logging.CRITICAL)
-    setup_logger()
-    logging.disable(logging.NOTSET)
+    # Process status
+    print("\n## PROCESS STATUS")
+    print("-" * 100)
+    proc = get_process_info()
+    if proc['running']:
+        print(f"✓ Process running (PID: {proc['pid']})")
+    else:
+        print("✗ Process NOT running - burn-in may have crashed")
     
-    # Then suppress again for display
-    logging.getLogger().setLevel(logging.CRITICAL)
+    # Log analysis
+    print("\n## LOG ANALYSIS")
+    print("-" * 100)
+    log_stats = parse_log_stats()
+    if log_stats:
+        print(f"Log file size: {log_stats['total_lines']} lines")
+        print(f"Last entry: {log_stats['last_timestamp']}")
+        print(f"  {log_stats['last_entry']}")
+        print(f"\nError/Warning count:")
+        print(f"  Errors: {log_stats['error_count']}")
+        print(f"  Warnings: {log_stats['warning_count']}")
+        if log_stats['errors']:
+            print(f"  Recent errors:")
+            for err in log_stats['errors'][-3:]:
+                print(f"    - {err}")
+        
+        print(f"\nSync metrics:")
+        print(f"  Companies synced: {log_stats['companies_synced']}")
+        print(f"  Announcements fetched: {log_stats['total_announcements_fetched']}")
+        print(f"  Inserted: {log_stats['total_inserted']}")
+        print(f"  Skipped: {log_stats['total_skipped']}")
+        print(f"  Checkpoint advances: {log_stats['checkpoint_updates']}")
+    else:
+        print("Log file not found or unreadable")
     
-    print("\n" + "="*50)
-    print("SYSTEM STATUS DASHBOARD")
-    print("="*50 + "\n")
+    # Database state
+    print("\n## DATABASE STATE")
+    print("-" * 100)
+    signal_count = get_database_signal_count()
+    if signal_count is not None:
+        print(f"MARKET_PURCHASE signals in database: {signal_count}")
+    else:
+        print("Could not query database")
     
-    # Uptime
-    uptime_str = get_uptime()
-    format_metric("Running", uptime_str)
+    # Health check
+    print("\n## BURN-IN HEALTH CHECK")
+    print("-" * 100)
     
-    # Counts
-    announcements = get_announcements_count()
-    format_metric("Announcements", announcements)
+    health_issues = []
+    if not proc['running']:
+        health_issues.append("❌ Process not running")
+    if log_stats and log_stats['error_count'] > 5:
+        health_issues.append(f"⚠️  High error count: {log_stats['error_count']}")
+    if log_stats and log_stats['checkpoint_updates'] < 2:
+        health_issues.append("⚠️  Low checkpoint advances (may not be syncing properly)")
     
-    signals = get_signals_count()
-    format_metric("Signals", signals)
+    if health_issues:
+        print("Issues detected:")
+        for issue in health_issues:
+            print(f"  {issue}")
+    else:
+        print("✓ No critical issues detected")
+        print("✓ Process running")
+        print("✓ Checkpoint advancing")
+        print("✓ Error rate acceptable")
     
-    # Activity
-    last_poll, _ = get_last_poll_time()
-    format_metric("Last Poll", last_poll)
-    
-    last_notify, _ = get_last_telegram_time()
-    format_metric("Last Telegram", last_notify)
-    
-    # Health
-    db_health = get_database_health()
-    format_metric("Database", db_health)
-    
-    last_error = get_last_error()
-    format_metric("Last Error", last_error)
-    
-    print("\n" + "="*50 + "\n")
-    
-    return 0
+    print("\n" + "=" * 100)
 
-
-if __name__ == "__main__":
-    sys.exit(main())
+if __name__ == '__main__':
+    main()
