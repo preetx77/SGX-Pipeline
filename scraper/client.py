@@ -53,65 +53,76 @@ class SGXClient:
             "authorizationToken": token
         })
 
-    def _get(self, endpoint, params=None):
+    def _get(self, endpoint, params=None, retries=3):
         url = f"{self.base_url}/{endpoint}"
 
         logging.debug(f"GET request to {url} with params: {params}")
 
-        try:
-            # Add delay between requests to avoid rate limiting
-            time.sleep(self.request_delay)
-            
-            response = self.session.get(
-                url,
-                params=params,
-                timeout=30
-            )
+        # Retry logic for transient network errors (DNS, connection timeouts)
+        for attempt in range(retries):
+            try:
+                # Add delay between requests to avoid rate limiting
+                time.sleep(self.request_delay)
+                
+                response = self.session.get(
+                    url,
+                    params=params,
+                    timeout=30
+                )
 
-            logging.debug(f"Response status: {response.status_code}")
+                logging.debug(f"Response status: {response.status_code}")
 
-            # Handle 403 Forbidden with token refresh retry
-            if response.status_code == 403:
-                logging.warning(f"Received 403 Forbidden, attempting token refresh...")
-                try:
-                    self.refresh_authentication()
-                    logging.info(f"Token refreshed, retrying request...")
-                    response = self.session.get(
-                        url,
-                        params=params,
-                        timeout=30
-                    )
-                    logging.debug(f"Retry response status: {response.status_code}")
-                except Exception as e:
-                    logging.error(f"Token refresh failed: {e}")
+                # Handle 403 Forbidden with token refresh retry
+                if response.status_code == 403:
+                    logging.warning(f"Received 403 Forbidden, attempting token refresh...")
+                    try:
+                        self.refresh_authentication()
+                        logging.info(f"Token refreshed, retrying request...")
+                        response = self.session.get(
+                            url,
+                            params=params,
+                            timeout=30
+                        )
+                        logging.debug(f"Retry response status: {response.status_code}")
+                    except Exception as e:
+                        logging.error(f"Token refresh failed: {e}")
+                        raise
+
+                # Handle specific error codes
+                if response.status_code == 404:
+                    logging.error(f"Endpoint not found: {url}")
+                    raise requests.HTTPError(f"404 Not Found: {url}", response=response)
+                elif response.status_code == 429:
+                    logging.warning(f"Rate limited (429) on {url}")
+                    raise requests.HTTPError(f"429 Too Many Requests", response=response)
+                elif response.status_code >= 500:
+                    logging.error(f"Server error ({response.status_code}) on {url}")
+                    raise requests.HTTPError(f"Server error {response.status_code}", response=response)
+
+                response.raise_for_status()
+                return response.json()
+
+            except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+                # Transient network errors - retry with backoff
+                is_last_attempt = attempt == retries - 1
+                if is_last_attempt:
+                    logging.error(f"Network error after {retries} attempts on {url}: {e}")
                     raise
+                else:
+                    backoff = 2 ** attempt  # Exponential backoff: 1s, 2s, 4s
+                    logging.warning(f"Network error (attempt {attempt + 1}/{retries}), retrying in {backoff}s: {e}")
+                    time.sleep(backoff)
+                    continue
 
-            # Handle specific error codes
-            if response.status_code == 404:
-                logging.error(f"Endpoint not found: {url}")
-                raise requests.HTTPError(f"404 Not Found: {url}", response=response)
-            elif response.status_code == 429:
-                logging.warning(f"Rate limited (429) on {url}")
-                raise requests.HTTPError(f"429 Too Many Requests", response=response)
-            elif response.status_code >= 500:
-                logging.error(f"Server error ({response.status_code}) on {url}")
-                raise requests.HTTPError(f"Server error {response.status_code}", response=response)
+            except ValueError as e:
+                logging.error(f"Failed to parse JSON response from {url}: {e}")
+                raise
+            except requests.RequestException as e:
+                logging.error(f"Request failed for {url}: {e}")
+                raise
 
-            response.raise_for_status()
-            return response.json()
-
-        except requests.exceptions.Timeout:
-            logging.error(f"Timeout fetching {url}")
-            raise
-        except requests.exceptions.ConnectionError:
-            logging.error(f"Connection error fetching {url}")
-            raise
-        except ValueError as e:
-            logging.error(f"Failed to parse JSON response from {url}: {e}")
-            raise
-        except requests.RequestException as e:
-            logging.error(f"Request failed for {url}: {e}")
-            raise
+        # Should not reach here, but just in case
+        raise RuntimeError(f"Failed to get {url} after {retries} attempts")
 
         
     def get_company_list(self):
