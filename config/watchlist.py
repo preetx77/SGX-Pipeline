@@ -83,6 +83,85 @@ WATCHLIST = [
         priority="normal",
         sector="Real Estate",
     ),
+    # Stage 1 expansion: 13 new companies
+    Company(
+        name="DBS GROUP HOLDINGS LIMITED",
+        code="D05",
+        priority="high",
+        sector="Banking",
+    ),
+    Company(
+        name="UNITED OVERSEAS BANK LIMITED",
+        code="U11",
+        priority="high",
+        sector="Banking",
+    ),
+    Company(
+        name="SINGTEL",
+        code="Z74",
+        priority="high",
+        sector="Telecom",
+    ),
+    Company(
+        name="ASCENDAS REAL ESTATE INVESTMENT TRUST",
+        code="A14",
+        priority="normal",
+        sector="Real Estate",
+    ),
+    Company(
+        name="CAPITALAND INTEGRATED COMMERCIAL TRUST",
+        code="C38U",
+        priority="normal",
+        sector="Real Estate",
+    ),
+    Company(
+        name="CapitaLand Investment Limited",
+        code="CCIL",
+        priority="normal",
+        sector="Real Estate",
+    ),
+    Company(
+        name="Keppel Corporation Limited",
+        code="BN4",
+        priority="high",
+        sector="Energy",
+    ),
+    Company(
+        name="Sembcorp Industries Limited",
+        code="U96",
+        priority="normal",
+        sector="Energy",
+    ),
+    Company(
+        name="Wilmar International Limited",
+        code="WSH",
+        priority="normal",
+        sector="Agribusiness",
+    ),
+    Company(
+        name="Thai Beverage Public Company Limited",
+        code="Y92",
+        priority="normal",
+        sector="Consumer",
+    ),
+    Company(
+        name="Singapore Airlines Limited",
+        code="C6L",
+        priority="high",
+        sector="Aviation",
+    ),
+    Company(
+        name="City Developments Limited",
+        code="CIT",
+        priority="normal",
+        sector="Property",
+    ),
+    Company(
+        name="SPH Media Limited",
+        code="SPLH",
+        priority="normal",
+        sector="Media",
+    ),
 ]
  
 WATCHLIST_CODES = {
