@@ -157,11 +157,6 @@ WATCHLIST = [
         sector="Property",
     ),
     Company(
-        name="SPH Media Limited",
-        code="SPLH",
-        priority="normal",
-        sector="Media",
-    ),
 ]
  
 WATCHLIST_CODES = {
