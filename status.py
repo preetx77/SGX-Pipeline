@@ -7,29 +7,48 @@ Tracks uptime, errors, checkpoint advancement, signal classification health.
 import subprocess
 import re
 import json
+import platform
 from datetime import datetime
 from pathlib import Path
 
 def get_process_info():
-    """Check if burn-in process is running."""
+    """Check if burn-in process is running (Windows and Unix compatible)."""
     try:
-        result = subprocess.run(
-            ['ps', 'aux'],
-            capture_output=True,
-            text=True,
-            timeout=5
-        )
-        for line in result.stdout.split('\n'):
-            if 'run_system.py' in line and 'grep' not in line:
-                parts = line.split()
-                if len(parts) > 1:
-                    return {
-                        'running': True,
-                        'pid': parts[1],
-                        'start_time': ' '.join(parts[8:11]) if len(parts) > 10 else 'unknown'
-                    }
+        if platform.system() == 'Windows':
+            # Windows: use tasklist
+            result = subprocess.run(
+                ['tasklist'],
+                capture_output=True,
+                text=True,
+                timeout=5
+            )
+            # Just check if python.exe appears (multiple instances may be running)
+            if 'python.exe' in result.stdout:
+                return {
+                    'running': True,
+                    'pid': 'multiple',
+                    'start_time': 'unknown'
+                }
+        else:
+            # Unix/Linux: use ps aux
+            result = subprocess.run(
+                ['ps', 'aux'],
+                capture_output=True,
+                text=True,
+                timeout=5
+            )
+            for line in result.stdout.split('\n'):
+                if 'run_system.py' in line and 'grep' not in line:
+                    parts = line.split()
+                    if len(parts) > 1:
+                        return {
+                            'running': True,
+                            'pid': parts[1],
+                            'start_time': ' '.join(parts[8:11]) if len(parts) > 10 else 'unknown'
+                        }
     except Exception as e:
         print(f"Warning: Could not check process: {e}")
+    
     return {'running': False, 'pid': None}
 
 def parse_log_stats():
@@ -41,9 +60,6 @@ def parse_log_stats():
     try:
         with open(log_file, 'r') as f:
             lines = f.readlines()
-        
-        # Get last 50 lines for context
-        recent = lines[-50:] if len(lines) > 50 else lines
         
         # Extract stats
         stats = {
@@ -117,9 +133,9 @@ def main():
     print("-" * 100)
     proc = get_process_info()
     if proc['running']:
-        print(f"✓ Process running (PID: {proc['pid']})")
+        print(f"[OK] Process running (PID: {proc['pid']})")
     else:
-        print("✗ Process NOT running - burn-in may have crashed")
+        print("[FAIL] Process NOT running - burn-in may have crashed")
     
     # Log analysis
     print("\n## LOG ANALYSIS")
@@ -161,21 +177,21 @@ def main():
     
     health_issues = []
     if not proc['running']:
-        health_issues.append("❌ Process not running")
+        health_issues.append("[ERROR] Process not running")
     if log_stats and log_stats['error_count'] > 5:
-        health_issues.append(f"⚠️  High error count: {log_stats['error_count']}")
+        health_issues.append(f"[WARN]  High error count: {log_stats['error_count']}")
     if log_stats and log_stats['checkpoint_updates'] < 2:
-        health_issues.append("⚠️  Low checkpoint advances (may not be syncing properly)")
+        health_issues.append("[WARN]  Low checkpoint advances (may not be syncing properly)")
     
     if health_issues:
         print("Issues detected:")
         for issue in health_issues:
             print(f"  {issue}")
     else:
-        print("✓ No critical issues detected")
-        print("✓ Process running")
-        print("✓ Checkpoint advancing")
-        print("✓ Error rate acceptable")
+        print("[OK] No critical issues detected")
+        print("[OK] Process running")
+        print("[OK] Checkpoint advancing")
+        print("[OK] Error rate acceptable")
     
     print("\n" + "=" * 100)
 
