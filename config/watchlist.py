@@ -83,7 +83,6 @@ WATCHLIST = [
         priority="normal",
         sector="Real Estate",
     ),
-    # Stage 1 expansion: 13 new companies
     Company(
         name="DBS GROUP HOLDINGS LIMITED",
         code="D05",
@@ -156,9 +155,8 @@ WATCHLIST = [
         priority="normal",
         sector="Property",
     ),
-    Company(
 ]
- 
+
 WATCHLIST_CODES = {
     company.code
     for company in WATCHLIST
