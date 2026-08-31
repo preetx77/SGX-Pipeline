@@ -1,6 +1,7 @@
 import sys
 import logging
 from pathlib import Path
+from logging.handlers import RotatingFileHandler
 
 # Add parent directory to path so imports work from any location
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -29,8 +30,13 @@ def setup_logger():
     )
     console_handler.setFormatter(console_formatter)
 
-    # File handler (DEBUG level and above)
-    file_handler = logging.FileHandler(log_file)
+    # File handler (DEBUG level and above) with rotation
+    # Rotate when file reaches 50MB, keep 3 backups (150MB total max)
+    file_handler = RotatingFileHandler(
+        log_file,
+        maxBytes=50*1024*1024,  # 50 MB
+        backupCount=3           # Keep 3 backup files
+    )
     file_handler.setLevel(logging.DEBUG)
     file_formatter = logging.Formatter(
         "%(asctime)s | %(levelname)-8s | %(name)s | %(funcName)s | %(message)s",
