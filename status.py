@@ -122,6 +122,20 @@ def get_database_signal_count():
         print(f"Warning: Could not query database: {e}")
         return None
 
+def test_startup():
+    """Test if run_system.py can import all dependencies."""
+    issues = []
+    try:
+        import config.watchlist
+    except SyntaxError as e:
+        issues.append(f"[ERROR] Syntax error in watchlist.py: {e}")
+    except ImportError as e:
+        issues.append(f"[ERROR] Import error: {e}")
+    except Exception as e:
+        issues.append(f"[ERROR] Startup error: {e}")
+    
+    return issues
+
 def main():
     print("\n" + "=" * 100)
     print("SGX PIPELINE - BURN-IN TEST STATUS")
@@ -176,12 +190,27 @@ def main():
     print("-" * 100)
     
     health_issues = []
+    # Test startup/import issues
+    startup_issues = test_startup()
+    health_issues.extend(startup_issues)
     if not proc['running']:
         health_issues.append("[ERROR] Process not running")
     if log_stats and log_stats['error_count'] > 5:
         health_issues.append(f"[WARN]  High error count: {log_stats['error_count']}")
     if log_stats and log_stats['checkpoint_updates'] < 2:
         health_issues.append("[WARN]  Low checkpoint advances (may not be syncing properly)")
+    
+    # Check if log is stale (hasn't been updated in 1+ hours)
+    if log_stats and log_stats['last_timestamp']:
+        try:
+            last_ts = datetime.strptime(log_stats['last_timestamp'], '%Y-%m-%d %H:%M:%S')
+            now = datetime.now()
+            time_diff = (now - last_ts).total_seconds()
+            if time_diff > 3600:  # More than 1 hour
+                hours = int(time_diff / 3600)
+                health_issues.append(f"[WARN]  Log stale for {hours}h - process may have crashed")
+        except:
+            pass  # Timestamp parsing error, skip
     
     if health_issues:
         print("Issues detected:")
