@@ -46,7 +46,7 @@ class PipelineMonitor:
             stats['total_lines'] = len(lines)
             
             # Only check last hour of logs to avoid historic data
-            one_hour_ago = datetime.now() - timedelta(hours=1)
+            lookback_window = datetime.now() - timedelta(hours=12)
             
             for line in lines:
                 # Extract timestamp
@@ -56,7 +56,7 @@ class PipelineMonitor:
                     # Skip lines older than 1 hour
                     try:
                         line_ts = datetime.strptime(ts_match.group(1), '%Y-%m-%d %H:%M:%S')
-                        if line_ts < one_hour_ago:
+                        if line_ts < lookback_window:
                             continue
                     except:
                         pass
