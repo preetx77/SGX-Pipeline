@@ -52,8 +52,8 @@ def get_process_info():
     return {'running': False, 'pid': None}
 
 def parse_log_stats():
-    """Extract stats from burn_in_test.log."""
-    log_file = Path('burn_in_test.log')
+    """Extract stats from current log file (logs/sgx_pipeline.log)."""
+    log_file = Path('logs/sgx_pipeline.log')
     if not log_file.exists():
         return None
     
