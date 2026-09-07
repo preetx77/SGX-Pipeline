@@ -83,8 +83,6 @@ WATCHLIST = [
         priority="high",
         sector="Unknown",
     ),
-
-    # Stage 2 expansion: 13 new companies (25 total)
     Company(
         name="DBS GROUP HOLDINGS LIMITED",
         code="D05",
@@ -162,5 +160,157 @@ WATCHLIST = [
         code="AWX",
         priority="normal",
         sector="Electronics",
+    ),
+    Company(
+        name="UOB S$750M3.58%PERPCAPSEC",
+        code="1N1B",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="SEATRIUM LTD",
+        code="5E2",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="MULTIPLE",
+        code="7J1B",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="MULTIPLE",
+        code="96HB",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="CAPITALAND INVESTMENT LIMITED",
+        code="9CI",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="CAPITALAND ASCENDAS REIT",
+        code="A17U",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="CITY DEVELOPMENTS LIMITED",
+        code="C09",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="SINGAPORE AIRLINES LTD",
+        code="C6L",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="CITY DEVELOPMENTS LTD NCCPS",
+        code="C70",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="JIUTIAN CHEMICAL GROUP LIMITED",
+        code="C8R",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="GUOCOLAND LIMITED",
+        code="F17",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="WILMAR INTERNATIONAL LIMITED",
+        code="F34",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="MULTIPLE",
+        code="FJJB",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="MULTIPLE",
+        code="FJYB",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="SIA CNY1.5B2.38%N310630",
+        code="GURB",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="IX BIOPHARMA LTD. W260718",
+        code="HQXW",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="UOB US$35M Z460625",
+        code="HYXB",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="JUSTCO HOLDINGS LIMITED",
+        code="JCO",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="MAPLETREE INDUSTRIAL TRUST",
+        code="ME8U",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="MULTIPLE",
+        code="VB9B",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="OLAM S$250M5.375% PERPSEC",
+        code="VT0B",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="AEDGE GROUP LIMITED",
+        code="XVG",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="UOB GBP1B F300225",
+        code="XXFB",
+        priority="normal",
+        sector="Unknown",
+    ),
+    Company(
+        name="UOB US$150M F280724",
+        code="XY4B",
+        priority="normal",
+        sector="Unknown",
+    ),
+
+    # Stage 3 expansion: 24 + 1 = 25 new companies (50 total)
+    Company(
+        name="NETLINK NBN TRUST",
+        code="CJLU",
+        priority="normal",
+        sector="Unknown",
     ),
 ]
