@@ -4,6 +4,7 @@
 import requests
 import logging
 import time
+from datetime import datetime
 
 from models.announcement import Announcement
 from scraper.auth import AuthenticationManager
@@ -15,8 +16,14 @@ from config.settings import (
 
 class SGXClient:
 
-    def __init__(self):
-
+    def __init__(self, throttle_delay=1.0):
+        """
+        Initialize SGX client with optional throttling.
+        
+        Args:
+            throttle_delay: Delay (seconds) between consecutive API requests to avoid rate limiting.
+                           Default 1.0 second for Stage 3+ testing.
+        """
         self.auth = AuthenticationManager()
         self.session = requests.Session()
         self.session.headers.update({
@@ -36,10 +43,9 @@ class SGXClient:
         })
 
         self.base_url = ANNOUNCEMENT_API
-        self.request_delay = 0.5  # Delay between requests to avoid rate limiting
+        self.throttle_delay = throttle_delay
+        self._last_request_time = 0
         self._authenticate()
-
-# instead of headers, inside every API , we auhtneticate once , then every req automatically carries authoirzation 
 
     def _authenticate(self):
         token = self.auth.get_token()
@@ -53,16 +59,28 @@ class SGXClient:
             "authorizationToken": token
         })
 
+    def _enforce_throttle(self):
+        """Enforce delay between requests to avoid rate limiting."""
+        elapsed = time.time() - self._last_request_time
+        if elapsed < self.throttle_delay:
+            delay = self.throttle_delay - elapsed
+            time.sleep(delay)
+
     def _get(self, endpoint, params=None, retries=3):
         url = f"{self.base_url}/{endpoint}"
-
+        
+        # Log request with timestamp for correlation analysis
+        request_ts = datetime.now().isoformat()
+        company_code = params.get('value', 'unknown') if params else 'unknown'
+        logging.info(f"REQUEST: {company_code} at {request_ts}")
         logging.debug(f"GET request to {url} with params: {params}")
 
         # Retry logic for transient network errors (DNS, connection timeouts)
         for attempt in range(retries):
             try:
-                # Add delay between requests to avoid rate limiting
-                time.sleep(self.request_delay)
+                # Enforce throttle to avoid burst rate limiting
+                self._enforce_throttle()
+                self._last_request_time = time.time()
                 
                 response = self.session.get(
                     url,
