@@ -23,14 +23,9 @@ def cleanup():
     
     logging.info("Cleaning up resources...")
     
-    if ingestor:
-        ingestor.close()
-    
-    if watcher:
-        try:
-            watcher.repo.close()
-        except Exception as e:
-            logging.warning(f"Failed to close watcher repository: {e}")
+    # Note: We do NOT close repositories here to avoid premature connection closure
+    # while threads might still be using them. Let the process exit normally.
+    # Each DatabaseManager connection will be closed by the OS when the process terminates.
     
     # Remove process start file on clean shutdown
     try:
