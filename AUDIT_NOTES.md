@@ -80,3 +80,69 @@ Reason for delay: Clock-hour alignment with Stage 4 baseline (00:00 UTC match)
 Duration: Exactly 24 hours (00:00-00:00 UTC)
 Comparison: Controlled time-of-day (both runs same UTC hour band)
 Gate criteria: Pre-committed, no post-hoc invention
+
+
+================================================================================
+STAGE 4.5 - DETECTION BUG AUDIT AND CORRECTED BASELINE
+2026-09-21 06:47:56 UTC
+================================================================================
+
+CRITICAL FINDING: Rate-Limit Detection Bug
+  Pattern: '429' in line
+  False positives: 2,373 matches from '.429xxx' timestamp fractions
+  Reality: 0 actual HTTP 429 responses in entire Stage 3/4 history
+  Impact: "2.17/hour baseline" was entirely false
+
+SECONDARY FINDING: Timeout Detection Bug
+  Pattern: 'Timeout' in line
+  Issue: Caught debug traces, connection pool logs, not errors
+  Reality: ~0.02/hour real timeout errors
+
+VERIFIED DETECTION: DNS Failures and Drops
+  DNS: 'getaddrinfo failed' - specific, no false positives
+  Drops: 'Resetting dropped connection' - specific, no false positives
+
+CORRECTED STAGE 4 BASELINE (100 companies, 41.8 hours active)
+  Period: 2026-09-19 18:27:01 to 2026-09-21 12:17:34 UTC
+  Drop rate: 0.74/hour (verified, fresh computation)
+  DNS failures: 3.35/hour (verified)
+  Connection drops: 0.74/hour (verified)
+  Real rate limits: 0.00/hour (API NOT rate-limiting)
+  Timeouts: 0.02/hour (negligible)
+
+STAGE 4.5 EXPECTATIONS (250 companies, if linear scaling 100→250)
+  Drop rate: ~0.93/hour (0.74 * 1.25)
+  DNS failures: ~4.19/hour (3.35 * 1.25)
+  Connection drops: ~0.93/hour (0.74 * 1.25)
+  Rate limits: 0.00/hour (no change, API not rate-limiting)
+
+CORRECTED PRE-COMMITTED GATE CRITERIA FOR STAGE 4.5
+Written 2026-09-21 06:47 UTC, BEFORE Stage 4.5 launch (2026-09-22 00:00 UTC)
+Threshold logic: 1.5x linear maximum for any metric
+
+PASS (proceed to next stage):
+  ✓ Drop rate ≤ 1.2/hour (1.5x linear expectation)
+  ✓ Connection drops ≤ 1.2/hour
+  ✓ DNS failures ≤ 6.0/hour (1.5x linear expectation)
+  ✓ No database errors
+  ✓ No unexpected rate-limiting (0/hour expected and observed)
+
+YELLOW (continue with caution, flag for review):
+  - (Drop 1.2-1.5/h OR Drops 1.2-1.5/h OR DNS 6.0-7.5/h)
+  - AND no other critical failures
+
+PAUSE (investigate before proceeding):
+  - Drop rate > 1.5/hour (super-linear degradation)
+  - OR Connection drops > 1.5/hour
+  - OR DNS failures > 7.5/hour
+  - OR Database errors present
+  - OR Unexpected rate-limiting appears (>0.5/hour would signal new constraint)
+
+KEY CHANGES FROM ORIGINAL CRITERIA:
+  - Removed rate-limit gate (was 3.5/h, now 0/h verified baseline)
+  - Added explicit DNS gate (4.19/h expected, 6.0/h max)
+  - Clarified connection-drop gate (0.74/h expected, 1.2/h max)
+  - Drop rate gate unchanged (0.93/h expected, 1.2/h max)
+
+STAGE 4.5 READY FOR LAUNCH
+================================================================================
