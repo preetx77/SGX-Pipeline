@@ -146,3 +146,53 @@ KEY CHANGES FROM ORIGINAL CRITERIA:
 
 STAGE 4.5 READY FOR LAUNCH
 ================================================================================
+
+
+================================================================================
+STAGE 4.5 LAUNCH DELAY - DISCIPLINED REALIGNMENT
+2026-09-23 07:06:48 UTC
+================================================================================
+
+SITUATION:
+  Stage 4.5 scheduled launch: 2026-09-22 00:00:00 UTC
+  Actual current time: 2026-09-23 07:06:48 UTC
+  Status: Launch window MISSED (31+ hours past deadline)
+  Stage 4 status: Still running (100 companies, 67+ hours continuous)
+
+DECISION: WAIT FOR NEXT ALIGNED WINDOW (Option B)
+  NOT launching misaligned at current time
+  REASON: The entire preceding investigation was about fixing measurement
+  and timing discipline. Launching 31 hours late would defeat that discipline
+  for an 11-hour time savings.
+
+CORRECTED TIMELINE:
+  ✓ Stage 4 continues: 2026-09-23 07:06 UTC to 2026-09-24 00:00 UTC (17 hours)
+  → Stage 4.5 launch: 2026-09-24 00:00:00 UTC (00:00 UTC aligned)
+  → Stage 4.5 window: 2026-09-24 00:00 to 2026-09-25 00:00 UTC (24 hours)
+  → Gate decision: 2026-09-25 00:00:00 UTC
+
+LAUNCH SEQUENCE (2026-09-24 00:00:00 UTC):
+  1. Confirm Stage 4 process running
+  2. Stop run_system.py gracefully
+  3. Backup: cp config/watchlist.py config/watchlist_100_stage4_final.py
+  4. Swap: cp config/watchlist_250.py config/watchlist.py
+  5. Clear: rm state/process_started.txt state/last_processed.txt
+  6. Start: python run_system.py
+  7. VERIFY: Confirm startup at 00:00:00 UTC exactly
+  8. Check: python status.py (confirm 250 companies loaded)
+
+RATIONALE FOR WAITING:
+  - Stage 4 has already collected 67+ hours of data (well beyond minimum)
+  - The design discipline was UTC hour alignment (00:00-00:00) to control time-of-day
+  - Launching misaligned reintroduces the confound we spent effort ruling out
+  - Trustworthy comparison requires matching baseline and test windows
+  - 11-hour delay is acceptable cost for measurement integrity
+  - This is exactly the kind of discipline that prevents false findings
+
+PRE-COMMITTED GATE CRITERIA (unchanged):
+  PASS:   Drop ≤1.2/h AND Drops ≤1.2/h AND DNS ≤6.0/h AND no DB errors
+  YELLOW: Moderate escalation in any metric
+  PAUSE:  Drop >1.5/h OR Drops >1.5/h OR DNS >7.5/h OR DB errors
+
+Stage 4.5 READY FOR ALIGNED LAUNCH
+================================================================================
