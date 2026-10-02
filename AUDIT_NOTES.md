@@ -265,3 +265,78 @@ DISCIPLINE NOTES:
 
 STAGE 4.5 READY FOR ALIGNED LAUNCH
 ================================================================================
+
+
+================================================================================
+STAGE 4.5 - WORKLOAD CONFOUND DETECTED, CRITERIA REVISED
+2026-10-02 08:30:00 UTC
+================================================================================
+
+CRITICAL FINDING: The 6-7x error improvement was NOT from system stabilization
+
+Workload analysis revealed:
+  Period 1 (early, active): 275 API requests/hour
+  Period 2 (late, cached): 35 API requests/hour
+  Ratio: 7.8x DROP in workload
+
+Error rate changes:
+  DNS: 4.5x improvement
+  Drops: 2.9x improvement
+  
+But workload dropped 7.8x, which explains MOST of the improvement.
+
+Normalized analysis (errors per request):
+  Period 1: 0.00548 DNS/request, 0.00096 drops/request
+  Period 2: 0.00949 DNS/request, 0.00258 drops/request
+  
+RESULT: Error rate WORSENED per unit of work!
+The improvement was cache saturation (fewer new announcements to fetch),
+not system reliability improvement. The error rate per request actually got worse.
+
+IMPACT ON STAGE 4.5:
+  Stage 4.5 will have 150 NEW companies (fresh announcements, no cache)
+  This means Stage 4.5 will do ACTIVE work similar to Period 1, not Period 2
+  Using Period 2 baseline would cause false PAUSE on workload increase alone
+
+REVISED STAGE 4 BASELINE (using Period 1 - active workload):
+  DNS failures: 1.51/hour (Period 1, not misleading 0.510/h from Period 2)
+  Connection drops: 0.26/hour (Period 1, not misleading 0.116/h from Period 2)
+  Rate limits: 0.00/hour (confirmed across all periods)
+
+REVISED STAGE 4.5 EXPECTATIONS (250 companies, 1.25x from 100):
+  Expected DNS: 1.89/hour (1.51 * 1.25)
+  Expected drops: 0.33/hour (0.26 * 1.25)
+
+REVISED PRE-COMMITTED GATE CRITERIA FOR STAGE 4.5
+Written 2026-10-02 08:30 UTC, BEFORE Stage 4.5 launch
+Threshold logic: 1.5x linear maximum, based on active-workload baseline
+
+PASS (proceed to Stage 5):
+  ✓ DNS failures ≤ 2.8/hour (1.51 * 1.5 * 1.25)
+  ✓ Connection drops ≤ 0.5/hour (0.26 * 1.5 * 1.25)
+  ✓ No database errors
+  ✓ No unexpected rate-limiting (still 0/h)
+
+YELLOW (continue with caution):
+  - (DNS 2.8-3.5/h OR Drops 0.5-0.65/h)
+  - AND no other critical failures
+
+PAUSE (investigate before proceeding):
+  - DNS > 3.5/hour
+  - OR Connection drops > 0.65/hour
+  - OR Database errors
+  - OR Unexpected rate-limiting appears
+
+CRITICAL MONITORING REQUIREMENT:
+  During Stage 4.5, TRACK THE REQUEST RATE
+  If requests drop >5x during the run, errors are expected to drop proportionally
+  Example: If requests drop to 50/hour (cache fills), errors expected to drop ~2x
+  This is NORMAL and does NOT trigger PAUSE
+  
+MEASUREMENT DISCIPLINE:
+  Extract not just error counts, but also REQUEST counts for Stage 4.5
+  Gate decision: Apply error thresholds ONLY if request rate stayed similar to Period 1
+  If request rate differs significantly, evaluate on errors-per-request basis instead
+
+STAGE 4.5 READY FOR ALIGNED LAUNCH WITH CORRECTED CRITERIA
+================================================================================
