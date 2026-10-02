@@ -340,3 +340,77 @@ MEASUREMENT DISCIPLINE:
 
 STAGE 4.5 READY FOR ALIGNED LAUNCH WITH CORRECTED CRITERIA
 ================================================================================
+
+
+================================================================================
+STAGE 4.5 - DECISION RULE MECHANIZED (NOT JUDGMENT CALL)
+2026-10-02 08:45:00 UTC
+================================================================================
+
+GATE DECISION LOGIC - Pre-committed branching rule
+
+At 24-hour mark, extract three numbers:
+  1. DNS failure count (total errors in 24h)
+  2. Connection drop count (total errors in 24h)
+  3. API request count (total GET requests in 24h)
+
+Calculate:
+  - errors_per_hour_dns = DNS / 24
+  - errors_per_hour_drops = drops / 24
+  - errors_per_request_dns = DNS / requests
+  - errors_per_request_drops = drops / requests
+  - request_rate_per_hour = requests / 24
+
+BRANCHING DECISION RULE (apply ONLY ONE branch):
+
+IF request_rate_per_hour is within 30% of Stage 4 Period 1 baseline (275/h):
+  [Request rate is 192-358 requests/hour]
+  BRANCH A: Use errors-per-hour thresholds (workload comparable)
+  
+  PASS if: DNS/h ≤ 2.8 AND Drops/h ≤ 0.5 AND no DB errors AND no rate-limiting
+  YELLOW if: (DNS/h 2.8-3.5 OR Drops/h 0.5-0.65) AND no other failures
+  PAUSE if: DNS/h > 3.5 OR Drops/h > 0.65 OR DB errors
+  
+ELSE IF request_rate_per_hour is <192 or >358 requests/hour:
+  [Workload significantly different from baseline]
+  BRANCH B: Use errors-per-request thresholds (workload-normalized)
+  
+  Stage 4 Period 1 baseline: 0.00548 DNS/request, 0.00096 drops/request
+  Allow 1.5x linear scaling to 250 companies: multiply baselines by 1.5
+  Target: 0.00822 DNS/request, 0.00144 drops/request
+  
+  PASS if: DNS/req ≤ 0.00822 AND Drops/req ≤ 0.00144 AND no DB errors AND no rate-limiting
+  YELLOW if: (DNS/req 0.00822-0.01096 OR Drops/req 0.00144-0.00192) AND no other failures
+  PAUSE if: DNS/req > 0.01096 OR Drops/req > 0.00192 OR DB errors
+
+DOCUMENT THE DECISION CHAIN:
+
+When reporting Stage 4.5 results, MUST include:
+  1. Actual request count and rate (requests/hour)
+  2. Which BRANCH was applied (A or B) and why
+  3. Metric values for BOTH errors/hour AND errors/request
+  4. Applied thresholds (which column was compared)
+  5. Gate decision (PASS/YELLOW/PAUSE) with full reasoning
+  
+This ensures the decision is transparent, reproducible, and defensible.
+
+EXAMPLE OUTCOMES:
+
+Scenario 1: Workload holds steady at ~275 req/h, errors stay low
+  Request rate: 268/h [within 30% of 275] -> BRANCH A
+  DNS: 2.1/hour, Drops: 0.35/hour [both under thresholds]
+  Decision: PASS
+
+Scenario 2: Cache fills, request rate drops to 50/h, errors also drop proportionally
+  Request rate: 50/h [outside 30% of 275] -> BRANCH B
+  DNS: 275 errors / 120k requests = 0.0023 per request [well under 0.00822]
+  Drops: 40 errors / 120k requests = 0.00033 per request [well under 0.00144]
+  Decision: PASS (workload normalized, no real degradation)
+
+Scenario 3: Super-linear degradation
+  Request rate: 300/h [within 30%] -> BRANCH A
+  DNS: 4.2/hour, Drops: 0.8/hour [over 3.5/h and 0.65/h]
+  Decision: PAUSE (regardless of request rate, this is super-linear failure)
+
+STAGE 4.5 READY FOR MECHANIZED DECISION PROCESS
+================================================================================
