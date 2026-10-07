@@ -1,0 +1,69 @@
+========================================================================================================================
+STAGE 4.5 RESULTS EXTRACTION & GATE DECISION (RETROACTIVE)
+========================================================================================================================
+
+[STAGE 4.5 WINDOW]
+------------------------------------------------------------------------------------------------------------------------
+Start: 2026-10-05 13:18:34
+End: 2026-10-06 13:18:34
+Duration: 24 hours
+Read logs/sgx_pipeline.log.1: 327450 lines
+Read logs/sgx_pipeline.log: 288214 lines
+
+Lines in Stage 4.5 window: 92038
+
+[RAW METRICS]
+------------------------------------------------------------------------------------------------------------------------
+Total API requests: 7333
+DNS failures: 9
+Connection drops: 3
+Rate limit (429) errors: 41
+Database errors: 0
+
+[CALCULATED RATES]
+------------------------------------------------------------------------------------------------------------------------
+DNS: 0.38/hour, 0.00123/request
+Drops: 0.12/hour, 0.00041/request
+Requests: 306/hour
+Rate limits: 41 total
+DB errors: 0 total
+
+[BRANCH DECISION LOGIC]
+------------------------------------------------------------------------------------------------------------------------
+Stage 4 Period 1 request rate: 275/hour
+Tolerance: +/-30%
+Acceptable range: 192-358 requests/hour
+Observed rate: 306 requests/hour
+
+DECISION: BRANCH A (workload comparable)
+Reason: Request rate within tolerance of baseline
+Method: Apply errors-per-hour thresholds
+
+[GATE DECISION - BRANCH A]
+------------------------------------------------------------------------------------------------------------------------
+Thresholds (errors/hour):
+  PASS: DNS <= 2.8, Drops <= 0.5
+  YELLOW: DNS 2.8-3.5, Drops 0.5-0.65
+  PAUSE: DNS > 3.5 OR Drops > 0.65
+
+Observed:
+  DNS: 0.38/hour
+  Drops: 0.12/hour
+
+[FINAL DECISION]
+------------------------------------------------------------------------------------------------------------------------
+Gate decision: PASS
+
+Reasoning:
+  DNS (0.38/h) and Drops (0.12/h) both within acceptable limits
+  Request rate (306/h) stable compared to baseline
+  System scaling linearly - safe to proceed
+
+========================================================================================================================
+[EXTRACTION SUMMARY]
+Extracted from: 615664 total log lines across 2 files
+Stage 4.5 window: 2026-10-05 13:18:34 to 2026-10-06 13:18:34
+Matching lines: 92038
+Branch: A
+Gate decision: PASS
+========================================================================================================================
