@@ -4,7 +4,7 @@ import time
 import atexit
 from pathlib import Path
 
-from config.watchlist import WATCHLIST
+from config.watchlist_500 import WATCHLIST
 from services.market_ingestor import MarketIngestor
 from utils.logger import setup_logger
 from watchers.sgx_watcher import SGXWatcher
@@ -32,6 +32,34 @@ def cleanup():
         Path("state/process_started.txt").unlink()
     except:
         pass
+
+
+def validate_startup(watchlist):
+    """Validate that watchlist was loaded with minimum required companies.
+    
+    Raises:
+        ValueError: If fewer than expected companies loaded or duplicates found.
+    """
+    MIN_COMPANIES = len(watchlist)
+    codes = [c.code for c in watchlist]
+    unique_codes = set(codes)
+    
+    logging.info(f"WATCHLIST Configured: {len(watchlist)} Loaded: {len(codes)}")
+    
+    if len(codes) < MIN_COMPANIES:
+        raise ValueError(
+            f"STARTUP VALIDATION FAILED: "
+            f"Configured {MIN_COMPANIES} companies but only loaded {len(codes)}"
+        )
+    
+    if len(codes) != len(unique_codes):
+        duplicates = [c for c in unique_codes if codes.count(c) > 1]
+        raise ValueError(
+            f"STARTUP VALIDATION FAILED: "
+            f"Duplicate company codes detected: {duplicates}"
+        )
+    
+    logging.info(f"Watchlist validation PASSED: {len(unique_codes)} unique codes")
 
 
 def ingestor_loop():
@@ -80,6 +108,21 @@ def main():
     atexit.register(cleanup)
 
     logging.info("Starting SGX Monitoring System...")
+    
+    # Validate watchlist on startup
+    try:
+        validate_startup(WATCHLIST)
+    except ValueError as e:
+        logging.error(str(e))
+        raise
+    
+    # Log instrumentation startup message
+    logging.info(
+        "Comprehensive monitoring enabled: "
+        "request counts, cache metrics, HTTP status distribution, "
+        "error classification (DNS, timeout, connection drop, DB), "
+        "company query coverage tracking"
+    )
 
     threading.Thread(
         target=ingestor_loop,
