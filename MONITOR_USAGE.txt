@@ -1,0 +1,194 @@
+================================================================================
+                    LIVE SYSTEM MONITORING SCRIPT
+           Monitor Stage 5 (500 Companies) SGX Pipeline in Real-Time
+================================================================================
+
+FEATURES:
+---------
+✓ System Status: Check if pipeline is ONLINE or OFFLINE
+✓ Uptime Tracking: How long has it been running
+✓ Last Activity: When was the system last active (for tracking sleep/wake)
+✓ Request Metrics: Total requests, announcements found/cached
+✓ Error Tracking: DNS failures, connection drops, rate limits, DB errors
+✓ Database Size: Monitor database growth
+✓ Telegram Alerts: Send real-time status to your phone via Telegram
+✓ Continuous Monitoring: Watch system with 30-second refresh
+
+
+USAGE COMMANDS:
+---------------
+
+1. CHECK STATUS RIGHT NOW (includes Telegram alert)
+   python monitor_system.py
+
+2. CHECK STATUS WITHOUT SENDING TELEGRAM ALERT
+   python monitor_system.py --no-telegram
+
+3. CONTINUOUS MONITORING (updates every 30 seconds)
+   Press Ctrl+C to stop
+   python monitor_system.py --watch
+
+4. CONTINUOUS WITHOUT TELEGRAM (first iteration only)
+   python monitor_system.py --watch --no-telegram
+
+
+WHAT YOU'LL SEE:
+----------------
+
+SYSTEM STATUS:
+  - Status: [ON] or [OFF] - Is the system currently running?
+  - Started: When the system last started
+  - Uptime: How long it has been running (e.g., 5h 23m)
+  - Last Activity: Last request timestamp (helps detect sleep/wake)
+  - Database Size: Current database file size in MB
+
+VALIDATION & WATCHLIST:
+  - Watchlist status: [OK] or [PENDING]
+  - Companies Synced: How many companies have been processed
+
+ACTIVITY METRICS:
+  - Total Requests: Total API requests made to SGX
+  - Announcements: New ones found + Cached ones (from DB)
+  - Total Errors: Count of all errors in current session
+
+ERROR BREAKDOWN:
+  - DNS: Failed DNS lookups
+  - Drops: Connection drops/resets
+  - 429s: Rate limit responses (HTTP 429)
+  - DB: Database errors
+
+NETWORK:
+  - Telegram: [OK], [FAILED], or [ERROR] status
+
+
+TELEGRAM ALERT FORMAT:
+---------------------
+When you run the script with Telegram enabled, it sends:
+
+    SGX Pipeline Status Report
+    Time: 2026-10-06 23:02:22
+    Status: ONLINE
+    Started: 2026-10-06 22:45:55
+    Uptime: 0h 17m
+    Companies Synced: 16060
+    Requests: 16058
+    Errors: 1
+    Database: 0.00 MB
+
+
+USE CASES FOR INTERMITTENT RUNNING:
+-----------------------------------
+
+Since you can't run 24/7, use the monitor to:
+
+1. BEFORE STARTING:
+   python monitor_system.py --no-telegram
+   - Check if system was running before shutdown
+   - See how long it ran (Uptime)
+   - See what time it stopped (Last Activity)
+
+2. AFTER RESUMING:
+   python monitor_system.py
+   - Confirms system started OK (Status: ONLINE)
+   - Sends Telegram alert with resume time
+   - Shows progress since last session
+
+3. MULTIPLE TIMES PER DAY:
+   python monitor_system.py --no-telegram
+   - Quick status check without alert spam
+   - Track multiple startup sessions
+
+4. OVERNIGHT MONITORING:
+   python monitor_system.py --watch
+   - Continuous 30-second updates
+   - Get full picture while you sleep (if laptop stays on)
+   - Ctrl+C to stop when you wake up
+
+
+CONTINUOUS MONITORING WORKFLOW (--watch):
+-----------------------------------------
+
+Use this if you want to monitor continuously:
+
+   python monitor_system.py --watch
+
+Output:
+   [ITERATION 1] Refresh every 30s. Press Ctrl+C to stop.
+   [Displays full status + sends Telegram alert]
+   
+   [ITERATION 2] Refresh every 30s. Press Ctrl+C to stop.
+   [Displays full status, NO telegram (avoids spam)]
+   
+   [ITERATION 3] ...
+   
+Press Ctrl+C to stop monitoring.
+
+
+ANALYZING OUTPUT FOR INTERMITTENT RUNS:
+---------------------------------------
+
+1. SYSTEM OFFLINE:
+   Status: [OFF] OFFLINE
+   → System has stopped (shutdown, crash, or service stopped)
+   → Note the Last Activity time to see when it stopped
+
+2. SYSTEM ONLINE, NO RECENT ACTIVITY:
+   Status: [ON] ONLINE
+   Started: 2026-10-06 22:45:55
+   Last Activity: 2026-10-06 22:50:00 (12m ago)
+   → System running but hasn't made requests recently
+   → Could be: long cache period, waiting for scheduled task, or stuck
+
+3. ERRORS GROWING:
+   DNS: 5 | Drops: 12 | 429s: 25 | DB: 0
+   → System is working but experiencing network issues
+   → Check internet connection
+
+4. HEALTHY PATTERN:
+   Status: [ON] ONLINE
+   Uptime: 2h 15m
+   Requests: 8500
+   Errors: 0
+   → System running well, no errors detected
+
+
+SCHEDULING FOR STUDENT USE:
+---------------------------
+
+If running on laptop, create a scheduled task to monitor:
+
+Windows Task Scheduler:
+  - Run: python monitor_system.py
+  - Frequency: Every 6 hours (or when you wake up)
+  - This sends you Telegram updates without you checking
+
+Python script auto-monitor (add to cron/scheduler):
+  - Every morning at 8 AM: python monitor_system.py
+  - Every evening at 8 PM: python monitor_system.py --watch (10 iterations = 5 minutes)
+
+Manual workflow:
+  - Before bed: python monitor_system.py --no-telegram (check status)
+  - Morning: python monitor_system.py (send alert to phone)
+  - During day: python monitor_system.py --watch (30-second updates for demo)
+
+
+DATA INTERPRETATION TIPS:
+------------------------
+
+High Request Count with Low Errors:
+  → Healthy system, working well
+
+Requests increasing, Errors at 0:
+  → System is progressing through the 500-company list efficiently
+
+Last Activity old (10+ minutes):
+  → Either: waiting for polling interval (60 sec), or stuck
+  → Check logs manually: tail -f logs/sgx_pipeline.log
+
+Companies Synced growing:
+  → System is processing companies in sequence (good!)
+
+Announcements Found growing slow but Database Size growing fast:
+  → Mostly caching existing announcements (expected after first session)
+
+================================================================================
