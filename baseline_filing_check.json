@@ -1,0 +1,443 @@
+{
+  "has_filing": [
+    {
+      "name": "OILTEK INTERNATIONAL LIMITED",
+      "code": "HQU"
+    },
+    {
+      "name": "LUM CHANG HOLDINGS LIMITED",
+      "code": "L19"
+    },
+    {
+      "name": "CNMC GOLDMINE HOLDINGS LIMITED",
+      "code": "5TP"
+    },
+    {
+      "name": "IX BIOPHARMA LTD",
+      "code": "42C"
+    },
+    {
+      "name": "MOOREAST HOLDINGS LTD",
+      "code": "1V3"
+    },
+    {
+      "name": "AEDGE GROUP LIMITED",
+      "code": "1LO"
+    },
+    {
+      "name": "TREK 2000 INTERNATIONAL LTD",
+      "code": "5AB"
+    },
+    {
+      "name": "JUSTCO HOLDINGS LIMITED",
+      "code": "41A"
+    },
+    {
+      "name": "SINGAPORE TECHNOLOGIES ENGINEERING",
+      "code": "S63"
+    },
+    {
+      "name": "ASCENDAS REIT",
+      "code": "A14U"
+    },
+    {
+      "name": "CAPITALAND INTEGRATED COMMERCIAL TRUST",
+      "code": "C38U"
+    },
+    {
+      "name": "CAPITALAND ASCENDAS REIT",
+      "code": "A17U"
+    },
+    {
+      "name": "CITY DEVELOPMENTS LIMITED",
+      "code": "C09"
+    },
+    {
+      "name": "WILMAR INTERNATIONAL LIMITED",
+      "code": "F34"
+    },
+    {
+      "name": "JUSTCO HOLDINGS LIMITED",
+      "code": "JCO"
+    },
+    {
+      "name": "MAPLETREE INDUSTRIAL TRUST",
+      "code": "ME8U"
+    },
+    {
+      "name": "AEDGE GROUP LIMITED",
+      "code": "XVG"
+    },
+    {
+      "name": "SEATRIUM LIMITED",
+      "code": "5E2"
+    },
+    {
+      "name": "FIRST REIT",
+      "code": "FIRST"
+    },
+    {
+      "name": "MAPLETREE COMMERCIAL TRUST",
+      "code": "MAPL"
+    },
+    {
+      "name": "MAPLETREE INDUSTRIAL TRUST",
+      "code": "MAPT"
+    },
+    {
+      "name": "MAPLETREE LOGISTICS TRUST",
+      "code": "MAPS"
+    },
+    {
+      "name": "WILMAR INTERNATIONAL LIMITED",
+      "code": "WLMR"
+    },
+    {
+      "name": "OVERSEA-CHINESE BANKING CORPORATION LIMITED",
+      "code": "OCBC"
+    },
+    {
+      "name": "CAPITALAND ASCENDAS REIT",
+      "code": "CLAR"
+    },
+    {
+      "name": "CITY DEVELOPMENTS LIMITED",
+      "code": "CDL"
+    },
+    {
+      "name": "JUSTCO HOLDINGS LIMITED",
+      "code": "JUST"
+    },
+    {
+      "name": "OILTEK INTERNATIONAL LIMITED",
+      "code": "OIL"
+    },
+    {
+      "name": "LUM CHANG HOLDINGS LIMITED",
+      "code": "LUM"
+    },
+    {
+      "name": "CNMC GOLDMINE HOLDINGS LIMITED",
+      "code": "CNMC"
+    },
+    {
+      "name": "IX BIOPHARMA LTD",
+      "code": "IX"
+    },
+    {
+      "name": "MOOREAST HOLDINGS LTD",
+      "code": "MOOR"
+    },
+    {
+      "name": "AEDGE GROUP LIMITED",
+      "code": "AEDGE"
+    },
+    {
+      "name": "TREK 2000 INTERNATIONAL LTD",
+      "code": "TREK"
+    },
+    {
+      "name": "SINGAPORE TECHNOLOGIES ENGINEERING",
+      "code": "STE"
+    }
+  ],
+  "no_filing": [
+    {
+      "name": "HYPHENS PHARMA INTERNATIONAL LIMITED",
+      "code": "1J5"
+    },
+    {
+      "name": "GRAND BANKS YACHTS LIMITED",
+      "code": "G50"
+    },
+    {
+      "name": "OLAM GROUP LIMITED",
+      "code": "VC2"
+    },
+    {
+      "name": "UNITED OVERSEAS BANK LIMITED",
+      "code": "U11"
+    },
+    {
+      "name": "SINGTEL",
+      "code": "Z74"
+    },
+    {
+      "name": "KEPPEL CORPORATION LIMITED",
+      "code": "K03"
+    },
+    {
+      "name": "GENTING SINGAPORE LIMITED",
+      "code": "G13"
+    },
+    {
+      "name": "JIUTIAN CHEMICAL GROUP LIMITED",
+      "code": "U14"
+    },
+    {
+      "name": "MULTIPLE",
+      "code": "7J1B"
+    },
+    {
+      "name": "MULTIPLE",
+      "code": "96HB"
+    },
+    {
+      "name": "CAPITALAND INVESTMENT LIMITED",
+      "code": "9CI"
+    },
+    {
+      "name": "JIUTIAN CHEMICAL GROUP LIMITED",
+      "code": "C8R"
+    },
+    {
+      "name": "GUOCOLAND LIMITED",
+      "code": "F17"
+    },
+    {
+      "name": "MULTIPLE",
+      "code": "FJJB"
+    },
+    {
+      "name": "MULTIPLE",
+      "code": "FJYB"
+    },
+    {
+      "name": "MULTIPLE",
+      "code": "VB9B"
+    },
+    {
+      "name": "SINGAPORE EXCHANGE LIMITED",
+      "code": "S68"
+    },
+    {
+      "name": "JIUTIAN CHEMICAL GROUP LIMITED",
+      "code": "JCG"
+    },
+    {
+      "name": "INNOPAC HOLDINGS LIMITED",
+      "code": "INNO"
+    },
+    {
+      "name": "ADVANCER GLOBAL LIMITED",
+      "code": "ADV"
+    },
+    {
+      "name": "REC LIMITED",
+      "code": "REC"
+    },
+    {
+      "name": "SIA ENGINEERING COMPANY LIMITED",
+      "code": "SIA"
+    },
+    {
+      "name": "FRASERS PROPERTY LIMITED",
+      "code": "FPL"
+    },
+    {
+      "name": "GUOCOLAND LIMITED",
+      "code": "GUOC"
+    },
+    {
+      "name": "BANGKOK BANK PUBLIC COMPANY LIMITED",
+      "code": "BBL"
+    },
+    {
+      "name": "CAPITALAND INVESTMENT LIMITED",
+      "code": "CLI"
+    },
+    {
+      "name": "SINGAPORE AIRLINES LIMITED",
+      "code": "SIA2"
+    },
+    {
+      "name": "HYPHENS PHARMA INTERNATIONAL LIMITED",
+      "code": "HYP"
+    },
+    {
+      "name": "GRAND BANKS YACHTS LIMITED",
+      "code": "YACHT"
+    },
+    {
+      "name": "OLAM GROUP LIMITED",
+      "code": "OLAM"
+    },
+    {
+      "name": "UNITED OVERSEAS BANK LIMITED",
+      "code": "UOB"
+    },
+    {
+      "name": "SINGTEL",
+      "code": "ST"
+    }
+  ],
+  "errors": [
+    {
+      "name": "CREATIONS FOOD COMPANY LIMITED",
+      "code": "5FO",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "DBS GROUP HOLDINGS LIMITED",
+      "code": "D05",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "CHINA PHARMA HOLDINGS INC",
+      "code": "CPHI",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "CHINA SOS LIMITED",
+      "code": "CHL",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "CHINA XD PLASTICS",
+      "code": "CXDC",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "AEM HOLDINGS LIMITED",
+      "code": "AWX",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "UOB S$750M3.58%PERPCAPSEC",
+      "code": "1N1B",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "SEATRIUM LTD",
+      "code": "5E2",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "SINGAPORE AIRLINES LTD",
+      "code": "C6L",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "CITY DEVELOPMENTS LTD NCCPS",
+      "code": "C70",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "SIA CNY1.5B2.38%N310630",
+      "code": "GURB",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "IX BIOPHARMA LTD. W260718",
+      "code": "HQXW",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "UOB US$35M Z460625",
+      "code": "HYXB",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "OLAM S$250M5.375% PERPSEC",
+      "code": "VT0B",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "UOB GBP1B F300225",
+      "code": "XXFB",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "UOB US$150M F280724",
+      "code": "XY4B",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "NETLINK NBN TRUST",
+      "code": "CJLU",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "UOB EUR500M3.342%B310908",
+      "code": "VRBB",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "UOB EUR500M3.118%B280908",
+      "code": "VXFB",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "HSTECH INVESTMENT LIMITED",
+      "code": "HSTECH",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "POWERTECH TECHNOLOGY CORP LIMITED",
+      "code": "46A",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "STAMFORD TYRES CORPORATION LTD",
+      "code": "STT",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "ASIA RARE EARTH LLC",
+      "code": "ARR",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "ASIA ENERGY CORP LIMITED",
+      "code": "AAE",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "CHINA SOS LIMITED",
+      "code": "CHL",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "MICRO-MECHANICS TECHNOLOGIES LIMITED",
+      "code": "MMT",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "SHENG SIONG GROUP LIMITED",
+      "code": "SSPL",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "NETLINK NBN TRUST",
+      "code": "NETL",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "THAI BEVERAGE PUBLIC COMPANY LIMITED",
+      "code": "TBP",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "UOB KAY HIAN HOLDINGS LIMITED",
+      "code": "UOBKH",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "SABADELL CAPITAL SECURITIES N.V.",
+      "code": "SABEL",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "CREATIONS FOOD COMPANY LIMITED",
+      "code": "FOOD",
+      "error": "object of type 'NoneType' has no len()"
+    },
+    {
+      "name": "DBS GROUP HOLDINGS LIMITED",
+      "code": "DBS",
+      "error": "object of type 'NoneType' has no len()"
+    }
+  ],
+  "total": 100,
+  "clean_ratio": 0.35
+}

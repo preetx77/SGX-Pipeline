@@ -1,3 +1,50 @@
+================================================================================
+STAGE 5 WATCHLIST INTEGRITY - EQUITY FILTER CORRECTION
+2026-10-08 09:00:00 UTC
+================================================================================
+
+CRITICAL FINDING: Stages 3-4.5 Validation Contamination
+
+Baseline verification (100 companies):
+  ✓ 35 companies with Form 1/3 insider filing history (genuine equities)
+  ✗ 32 companies with NO insider filings (bonds/REITs/non-equity securities)
+  ⚠ 33 companies with API errors (non-equity name patterns: %, PERP, USD, GBP, CNY, EUR, BOND, NOTE)
+  Equity ratio: 35% baseline validation integrity
+
+Stage 4.5 expansion verification (297 resolved companies):
+  Sample: 30 companies analyzed
+  Equities found: 0 (0%)
+  Bonds/REITs: 16 (53%)
+  Unknown/Unlisted: 14 (47%)
+  Extrapolation: ~85% non-equity in 297 expansion
+
+DECISION: Launch Stage 5 with equity-only watchlist (35 verified)
+  - Reject 297-company expansion (85% non-equity contamination)
+  - Reject remaining 65 baseline companies (no filing verification)
+  - Accept only 35 companies with confirmed Form 1/3 filing capability
+  - Scaling: 35 equities (down from 100 baseline) = 0.35x for Stage 5 measurement
+
+CORRECTION STATEMENT:
+  Stages 3-4.5 measured INFRASTRUCTURE STABILITY ONLY, NOT product signal coverage.
+  ~32% of test watchlist was non-equity (bonds/REITs), discovered retroactively.
+  
+  Infrastructure findings remain valid:
+    • DNS failure handling (0.5-1.5/hour)
+    • Connection drop handling (0.09-0.26/hour)
+    • Database concurrency (no SQLite errors under load)
+    • Request throttling (0/hour, no rate-limiting observed)
+  
+  Signal-coverage and market-relevance claims from Stages 3-4.5 should be DISREGARDED.
+  Stage 5 launches with equity-only basis, foundation for valid future expansion.
+
+BACKGROUND TASK INITIATED:
+  Build full SGX equity filter (all 4,299 companies)
+  Target: Identify 200-500 additional genuine equities for future expansion
+  Timeline: Post-Stage 5, non-blocking
+  Benefit: Reusable equity pool, increases Stage 6+ confidence
+
+================================================================================
+
 # Database Concurrency Fix - Audit Trail
 
 ## Problem Statement
