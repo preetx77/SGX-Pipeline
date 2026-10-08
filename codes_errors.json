@@ -1,0 +1,86 @@
+[
+  {
+    "name": "ABF SINGAPORE BOND INDEX FUND",
+    "placeholder_code": "SGX_REAL_0024",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "ADVANTA INDIA LIMITED",
+    "placeholder_code": "SGX_REAL_0071",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "ALAM SUTERA INTERNATIONAL PRIVATE LIMITED",
+    "placeholder_code": "SGX_REAL_0116",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "AMCOR LIMITED",
+    "placeholder_code": "SGX_REAL_0151",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "AMP BANK LIMITED",
+    "placeholder_code": "SGX_REAL_0157",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "AMP GROUP FINANCE SERVICES LIMITED",
+    "placeholder_code": "SGX_REAL_0158",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "AOZORA BANK, LTD.",
+    "placeholder_code": "SGX_REAL_0185",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "ARA LOGOS LOGISTICS TRUST MANAGEMENT LIMITED",
+    "placeholder_code": "SGX_REAL_0199",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "ASIA POWER CORPORATION LIMITED",
+    "placeholder_code": "SGX_REAL_0250",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "ASIA VETS HOLDINGS LTD.",
+    "placeholder_code": "SGX_REAL_0257",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "ASTREA III PTE. LTD.",
+    "placeholder_code": "SGX_REAL_0275",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "AUSNET SERVICES",
+    "placeholder_code": "SGX_REAL_0296",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "AUSNET SERVICES HOLDINGS PTY LTD",
+    "placeholder_code": "SGX_REAL_0297",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  },
+  {
+    "name": "AUSNET SERVICES LTD",
+    "placeholder_code": "SGX_REAL_0298",
+    "status": "ERROR",
+    "error": "object of type 'NoneType' has no len()"
+  }
+]

@@ -1,0 +1,530 @@
+[
+  {
+    "name": "1ST SOFTWARE CORPORATION LTD",
+    "placeholder_code": "SGX_REAL_0002",
+    "returned_name": "1ST SOFTWARE CORPORATION LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AACI REIT MTN PTE. LTD.",
+    "placeholder_code": "SGX_REAL_0015",
+    "returned_name": "AACI REIT MTN PTE. LTD.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AA INVESTMENTS COMPANY LIMITED",
+    "placeholder_code": "SGX_REAL_0017",
+    "returned_name": "AA INVESTMENTS COMPANY LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AANJANEYA LIFECARE LIMITED",
+    "placeholder_code": "SGX_REAL_0018",
+    "returned_name": "AANJANEYA LIFECARE LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AARVEE DENIMS",
+    "placeholder_code": "SGX_REAL_0019",
+    "returned_name": "AARVEE DENIMS",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ABAN LOYD CHILES OFFSHORE LIMITED",
+    "placeholder_code": "SGX_REAL_0022",
+    "returned_name": "ABAN LOYD CHILES OFFSHORE LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ABN AMRO BANK N.V.",
+    "placeholder_code": "SGX_REAL_0026",
+    "returned_name": "ABN AMRO BANK N.V.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ACCENTIA TECHNOLOGIES LIMITED",
+    "placeholder_code": "SGX_REAL_0031",
+    "returned_name": "ACCENTIA TECHNOLOGIES LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ACE DYNAMICS LIMITED",
+    "placeholder_code": "SGX_REAL_0035",
+    "returned_name": "ACE DYNAMICS LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ADAMPAK LIMITED",
+    "placeholder_code": "SGX_REAL_0048",
+    "returned_name": "ADAMPAK LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ADANI ENTERPRISES LIMITED",
+    "placeholder_code": "SGX_REAL_0050",
+    "returned_name": "ADANI ENTERPRISES LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ADARO FINANCE B.V. ",
+    "placeholder_code": "SGX_REAL_0057",
+    "returned_name": "ADARO FINANCE B.V. ",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ADROIT INNOVATIONS LIMITED ",
+    "placeholder_code": "SGX_REAL_0062",
+    "returned_name": "ADROIT INNOVATIONS LIMITED ",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ADVANCE AGRO PUBLIC COMPANY LIMITED",
+    "placeholder_code": "SGX_REAL_0063",
+    "returned_name": "ADVANCE AGRO PUBLIC COMPANY LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ADVANCE MODULES GROUP LIMITED",
+    "placeholder_code": "SGX_REAL_0069",
+    "returned_name": "ADVANCE MODULES GROUP LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AED OIL LIMITED",
+    "placeholder_code": "SGX_REAL_0076",
+    "returned_name": "AED OIL LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AEM-EVERTECH HOLDINGS LTD",
+    "placeholder_code": "SGX_REAL_0079",
+    "returned_name": "AEM-EVERTECH HOLDINGS LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AEON CREDIT SERVICE CO., LTD.",
+    "placeholder_code": "SGX_REAL_0082",
+    "returned_name": "AEON CREDIT SERVICE CO., LTD.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AEROSPACE SATELLITE CORPORATION HOLDING B.V.",
+    "placeholder_code": "SGX_REAL_0086",
+    "returned_name": "AEROSPACE SATELLITE CORPORATION HOLDING B.V.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AE ROTOR HOLDING B.V. NETHERLANDS",
+    "placeholder_code": "SGX_REAL_0088",
+    "returned_name": "AE ROTOR HOLDING B.V. NETHERLANDS",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AES CHINA GENERATING CO. LTD",
+    "placeholder_code": "SGX_REAL_0091",
+    "returned_name": "AES CHINA GENERATING CO. LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AFOR LIMITED",
+    "placeholder_code": "SGX_REAL_0096",
+    "returned_name": "AFOR LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AFP PROPERTIES LIMITED",
+    "placeholder_code": "SGX_REAL_0097",
+    "returned_name": "AFP PROPERTIES LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AGF CANADIAN GROWTH EQUITY FUND LIMITED",
+    "placeholder_code": "SGX_REAL_0100",
+    "returned_name": "AGF CANADIAN GROWTH EQUITY FUND LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AGVA CORPORATION LIMITED",
+    "placeholder_code": "SGX_REAL_0106",
+    "returned_name": "AGVA CORPORATION LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AI FINANCE B.V",
+    "placeholder_code": "SGX_REAL_0108",
+    "returned_name": "AI FINANCE B.V",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AIROCEAN GROUP LIMITED",
+    "placeholder_code": "SGX_REAL_0113",
+    "returned_name": "AIROCEAN GROUP LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AIR WATER INC.",
+    "placeholder_code": "SGX_REAL_0114",
+    "returned_name": "AIR WATER INC.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ALANTAC TECHNOLOGY LTD",
+    "placeholder_code": "SGX_REAL_0118",
+    "returned_name": "ALANTAC TECHNOLOGY LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ALLCO COMMERCIAL REAL ESTATE INVESTMENT TRUST",
+    "placeholder_code": "SGX_REAL_0125",
+    "returned_name": "ALLCO COMMERCIAL REAL ESTATE INVESTMENT TRUST",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ALLGREEN PROPERTIES LIMITED",
+    "placeholder_code": "SGX_REAL_0126",
+    "returned_name": "ALLGREEN PROPERTIES LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ALLIANCE GLOBAL GROUP CAYMAN ISLANDS , INC ",
+    "placeholder_code": "SGX_REAL_0128",
+    "returned_name": "ALLIANCE GLOBAL GROUP CAYMAN ISLANDS , INC ",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ALTUS CAPITAL PTE LTD.",
+    "placeholder_code": "SGX_REAL_0142",
+    "returned_name": "ALTUS CAPITAL PTE LTD.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ALUMINA FINANCE LIMITED",
+    "placeholder_code": "SGX_REAL_0143",
+    "returned_name": "ALUMINA FINANCE LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AMTEK AUTO LIMITED",
+    "placeholder_code": "SGX_REAL_0163",
+    "returned_name": "AMTEK AUTO LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AMTEK INDIA LIMITED",
+    "placeholder_code": "SGX_REAL_0165",
+    "returned_name": "AMTEK INDIA LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ANG AUTO LIMITED",
+    "placeholder_code": "SGX_REAL_0172",
+    "returned_name": "ANG AUTO LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ANGLOGOLD ASHANTI HOLDINGS FINANCE PLC",
+    "placeholder_code": "SGX_REAL_0173",
+    "returned_name": "ANGLOGOLD ASHANTI HOLDINGS FINANCE PLC",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ANKUR DRUGS AND PHARMA LIMITED",
+    "placeholder_code": "SGX_REAL_0175",
+    "returned_name": "ANKUR DRUGS AND PHARMA LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ANRITSU CORPORATION",
+    "placeholder_code": "SGX_REAL_0180",
+    "returned_name": "ANRITSU CORPORATION",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ANTAM FINANCE LIMITED",
+    "placeholder_code": "SGX_REAL_0182",
+    "returned_name": "ANTAM FINANCE LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "APEX-PAL INTERNATIONAL LTD",
+    "placeholder_code": "SGX_REAL_0189",
+    "returned_name": "APEX-PAL INTERNATIONAL LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "APOLLO ENTERPRISES LIMITED",
+    "placeholder_code": "SGX_REAL_0192",
+    "returned_name": "APOLLO ENTERPRISES LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AQUA-TERRA SUPPLY CO. LIMITED",
+    "placeholder_code": "SGX_REAL_0195",
+    "returned_name": "AQUA-TERRA SUPPLY CO. LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AREIF (SINGAPORE I) PTE. LTD.",
+    "placeholder_code": "SGX_REAL_0203",
+    "returned_name": "AREIF (SINGAPORE I) PTE. LTD.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ARIANECORP LIMITED",
+    "placeholder_code": "SGX_REAL_0204",
+    "returned_name": "ARIANECORP LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ARMF (WHITESANDS) PTE. LTD. ",
+    "placeholder_code": "SGX_REAL_0207",
+    "returned_name": "ARMF (WHITESANDS) PTE. LTD. ",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ARMSTRONG INDUSTRIAL CORP LTD",
+    "placeholder_code": "SGX_REAL_0208",
+    "returned_name": "ARMSTRONG INDUSTRIAL CORP LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ARPENI PRATAMA OCEAN LINE INVESTMENT B.V.",
+    "placeholder_code": "SGX_REAL_0209",
+    "returned_name": "ARPENI PRATAMA OCEAN LINE INVESTMENT B.V.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ARWEN INVESTMENT CORPORATION LIMITED",
+    "placeholder_code": "SGX_REAL_0211",
+    "returned_name": "ARWEN INVESTMENT CORPORATION LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASA GROUP HOLDINGS LTD",
+    "placeholder_code": "SGX_REAL_0212",
+    "returned_name": "ASA GROUP HOLDINGS LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASCOTT REIT MTN PTE LTD",
+    "placeholder_code": "SGX_REAL_0227",
+    "returned_name": "ASCOTT REIT MTN PTE LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASEAN CITY (BVI) LIMITED",
+    "placeholder_code": "SGX_REAL_0229",
+    "returned_name": "ASEAN CITY (BVI) LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA ALUMINUM HOLDINGS LIMITED",
+    "placeholder_code": "SGX_REAL_0231",
+    "returned_name": "ASIA ALUMINUM HOLDINGS LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA DEKOR HOLDINGS LIMITED",
+    "placeholder_code": "SGX_REAL_0234",
+    "returned_name": "ASIA DEKOR HOLDINGS LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA ENVIRONMENT HOLDINGS LTD",
+    "placeholder_code": "SGX_REAL_0236",
+    "returned_name": "ASIA ENVIRONMENT HOLDINGS LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA FOOD & PROPERTIES LIMITED",
+    "placeholder_code": "SGX_REAL_0238",
+    "returned_name": "ASIA FOOD & PROPERTIES LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA PACIFIC BREWERIES",
+    "placeholder_code": "SGX_REAL_0244",
+    "returned_name": "ASIA PACIFIC BREWERIES",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA PACIFIC BREWERIES LIMITED",
+    "placeholder_code": "SGX_REAL_0245",
+    "returned_name": "ASIA PACIFIC BREWERIES LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA PACIFIC PORTS DEVELOPMENT COMPANY LIMITED",
+    "placeholder_code": "SGX_REAL_0246",
+    "returned_name": "ASIA PACIFIC PORTS DEVELOPMENT COMPANY LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIAPHARM GROUP LTD.",
+    "placeholder_code": "SGX_REAL_0248",
+    "returned_name": "ASIAPHARM GROUP LTD.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA SILK HOLDINGS LIMITED",
+    "placeholder_code": "SGX_REAL_0251",
+    "returned_name": "ASIA SILK HOLDINGS LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIASONS WFG FINANCIAL LTD ",
+    "placeholder_code": "SGX_REAL_0253",
+    "returned_name": "ASIASONS WFG FINANCIAL LTD ",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA TIGER GROUP LIMITED",
+    "placeholder_code": "SGX_REAL_0255",
+    "returned_name": "ASIA TIGER GROUP LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASIA WATER TECHNOLOGY LTD",
+    "placeholder_code": "SGX_REAL_0258",
+    "returned_name": "ASIA WATER TECHNOLOGY LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "ASSAM COMPANY LIMITED",
+    "placeholder_code": "SGX_REAL_0268",
+    "returned_name": "ASSAM COMPANY LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AUROBINDO PHARMA LIMITED",
+    "placeholder_code": "SGX_REAL_0292",
+    "returned_name": "AUROBINDO PHARMA LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AUSSINO GROUP LTD",
+    "placeholder_code": "SGX_REAL_0299",
+    "returned_name": "AUSSINO GROUP LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AUSTON INTERNATIONAL GROUP LTD",
+    "placeholder_code": "SGX_REAL_0300",
+    "returned_name": "AUSTON INTERNATIONAL GROUP LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AUSTRALAND PROPERTY GROUP",
+    "placeholder_code": "SGX_REAL_0301",
+    "returned_name": "AUSTRALAND PROPERTY GROUP",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AUSWIN HOLDINGS LIMITED",
+    "placeholder_code": "SGX_REAL_0304",
+    "returned_name": "AUSWIN HOLDINGS LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AUTOMATED TOUCHSTONE MACHINES LIMITED",
+    "placeholder_code": "SGX_REAL_0306",
+    "returned_name": "AUTOMATED TOUCHSTONE MACHINES LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AUTRON CORPORATION LIMITED",
+    "placeholder_code": "SGX_REAL_0308",
+    "returned_name": "AUTRON CORPORATION LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AVAPLAS LTD",
+    "placeholder_code": "SGX_REAL_0309",
+    "returned_name": "AVAPLAS LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AVEO GROUP LIMITED",
+    "placeholder_code": "SGX_REAL_0313",
+    "returned_name": "AVEO GROUP LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AVIATION CAPITAL GROUP CORP.",
+    "placeholder_code": "SGX_REAL_0316",
+    "returned_name": "AVIATION CAPITAL GROUP CORP.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "AZTECH SYSTEMS LTD",
+    "placeholder_code": "SGX_REAL_0340",
+    "returned_name": "AZTECH SYSTEMS LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BABCOCK & BROWN GLOBAL INV LTD",
+    "placeholder_code": "SGX_REAL_0345",
+    "returned_name": "BABCOCK & BROWN GLOBAL INV LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BABCOCK&BROWN STRUC FIN FD LTD",
+    "placeholder_code": "SGX_REAL_0346",
+    "returned_name": "BABCOCK&BROWN STRUC FIN FD LTD",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BAKRIE TELECOM PTE. LTD.",
+    "placeholder_code": "SGX_REAL_0351",
+    "returned_name": "BAKRIE TELECOM PTE. LTD.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BALLARPUR INDUSTRIES LIMITED",
+    "placeholder_code": "SGX_REAL_0352",
+    "returned_name": "BALLARPUR INDUSTRIES LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BALLURPUR INTERNATIONAL GRAPHIC PAPER HOLDINGS B.V.",
+    "placeholder_code": "SGX_REAL_0354",
+    "returned_name": "BALLURPUR INTERNATIONAL GRAPHIC PAPER HOLDINGS B.V.",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BANCO DE ORO UNIVERSAL BANK",
+    "placeholder_code": "SGX_REAL_0358",
+    "returned_name": "BANCO DE ORO UNIVERSAL BANK",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BANCO SANTANDER TOTTA, S.A.,",
+    "placeholder_code": "SGX_REAL_0367",
+    "returned_name": "BANCO SANTANDER TOTTA, S.A.,",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BAN JOO & COMPANY LIMITED",
+    "placeholder_code": "SGX_REAL_0372",
+    "returned_name": "BAN JOO & COMPANY LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BANK OF AYUDHYA PUBLIC COMPANY LIMITED",
+    "placeholder_code": "SGX_REAL_0373",
+    "returned_name": "BANK OF AYUDHYA PUBLIC COMPANY LIMITED",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BANK OF CEYLON",
+    "placeholder_code": "SGX_REAL_0376",
+    "returned_name": "BANK OF CEYLON",
+    "status": "NO_CODE"
+  },
+  {
+    "name": "BARTRONICS INDIA LIMITED",
+    "placeholder_code": "SGX_REAL_0392",
+    "returned_name": "BARTRONICS INDIA LIMITED",
+    "status": "NO_CODE"
+  }
+]

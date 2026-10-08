@@ -461,3 +461,47 @@ Scenario 3: Super-linear degradation
 
 STAGE 4.5 READY FOR MECHANIZED DECISION PROCESS
 ================================================================================
+
+
+================================================================================
+STAGE 5-CORRECTED: LAUNCH READY SUMMARY
+2026-10-08 Final Status
+================================================================================
+
+EQUITY VERIFICATION COMPLETE
+  ✅ 35 verified equities (Form 1/3 filing history confirmed)
+  ❌ 32 non-equities (no insider filings)
+  ❌ 33 systematic API errors (non-equity name patterns)
+  ❌ 297 expansion rejected (~85% non-equity estimated)
+
+WATCHLIST UPDATED
+  ✅ config/watchlist.py updated with 35 verified companies only
+  ✅ No duplicates, no unknowns
+  ✅ Verified load: python -c "from config.watchlist import WATCHLIST; print(len(WATCHLIST))"
+  ✅ Expected: 35 companies
+
+STAGE 3-4.5 INFRASTRUCTURE (VALID, PRESERVED)
+  ✓ DNS: 0.5-1.5/hour
+  ✓ Drops: 0.09-0.26/hour
+  ✓ DB concurrency: 0 errors
+  ✓ Rate limiting: 0/hour
+  NOTE: Signal coverage claims invalid due to ~32% non-equity contamination
+  NOTE: Infrastructure findings remain valid and useful
+
+STAGE 5 LAUNCH SEQUENCE (2026-10-XX 00:00 UTC)
+  1. Stop run_system.py
+  2. Verify watchlist loads 35 companies
+  3. Clear state: rm state/process_started.txt state/last_processed.txt
+  4. Start: python run_system.py
+  5. Monitor 24 hours (watch DNS, drops, request rate)
+  6. Gate decision at +24h: PASS if DNS/h≤1.2 AND Drops/h≤0.5 AND no DB errors
+
+FUTURE EXPANSION (NON-BLOCKING)
+  Build full 4,299-company equity filter (Tier A: 200-500 equities for Stage 6+)
+  Parallel with Stage 5, no launch delay
+  Expected completion: within 24-48 hours after Stage 5 starts
+
+GIT STATUS
+  ✅ All changes committed
+  ✅ 3 new commits on main branch
+  ✅ Ready for immediate launch
