@@ -10,13 +10,14 @@ class Company:
 
 # Stage 5: Equity-only watchlist (Corrected baseline)
 # Filtered from original 100 baseline for companies with Form 1/3 insider filing history
-# 34 companies verified to have director-dealing disclosure capability (removed 1 duplicate)
-# All entries verified to be genuine equities (not bonds/REITs)
-# Codes validated against SGX announcements API (2026-10-09)
+# 34 companies verified to have director-dealing disclosure capability
+# All entries verified against SGX announcements API (2026-10-09)
 # Scaling: 34 equities vs Stage 4's 100 baseline = 0.34x (controlled reduction for measurement)
 # Previous stages (3-4.5) measured INFRASTRUCTURE, not signal coverage (~32% was non-equity)
 # See AUDIT_NOTES.md for correction details
-# NOTE: ASCENDAS REIT and CAPITALAND ASCENDAS REIT are the same entity (code A17U) - removed duplicate
+# NOTE: ASCENDAS REIT and CAPITALAND ASCENDAS REIT are the same entity - removed duplicate
+# NOTE: SINGTEL corrected from XCIB (bond) to Z74 (equity)
+# NOTE: SINGAPORE AIRLINES corrected from VB9B (aggregate) to C6L (equity)
 
 WATCHLIST = [
     Company(
@@ -93,7 +94,7 @@ WATCHLIST = [
     ),
     Company(
         name="SINGTEL",
-        code="XCIB",
+        code="Z74",
         priority="high",
         sector="Telecom",
     ),
@@ -219,7 +220,7 @@ WATCHLIST = [
     ),
     Company(
         name="SINGAPORE AIRLINES LIMITED",
-        code="VB9B",
+        code="C6L",
         priority="normal",
         sector="Unknown",
     ),
