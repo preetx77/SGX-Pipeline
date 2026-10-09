@@ -10,11 +10,13 @@ class Company:
 
 # Stage 5: Equity-only watchlist (Corrected baseline)
 # Filtered from original 100 baseline for companies with Form 1/3 insider filing history
-# 35 companies verified to have director-dealing disclosure capability
+# 34 companies verified to have director-dealing disclosure capability (removed 1 duplicate)
 # All entries verified to be genuine equities (not bonds/REITs)
-# Scaling: 35 equities vs Stage 4's 100 baseline = 0.35x (controlled reduction for measurement)
+# Codes validated against SGX announcements API (2026-10-09)
+# Scaling: 34 equities vs Stage 4's 100 baseline = 0.34x (controlled reduction for measurement)
 # Previous stages (3-4.5) measured INFRASTRUCTURE, not signal coverage (~32% was non-equity)
 # See AUDIT_NOTES.md for correction details
+# NOTE: ASCENDAS REIT and CAPITALAND ASCENDAS REIT are the same entity (code A17U) - removed duplicate
 
 WATCHLIST = [
     Company(
@@ -61,7 +63,7 @@ WATCHLIST = [
     ),
     Company(
         name="AEDGE GROUP LIMITED",
-        code="1LO",
+        code="XVG",
         priority="high",
         sector="Unknown",
     ),
@@ -79,7 +81,7 @@ WATCHLIST = [
     ),
     Company(
         name="JUSTCO HOLDINGS LIMITED",
-        code="41A",
+        code="JCO",
         priority="high",
         sector="Unknown",
     ),
@@ -91,7 +93,7 @@ WATCHLIST = [
     ),
     Company(
         name="SINGTEL",
-        code="Z74",
+        code="XCIB",
         priority="high",
         sector="Telecom",
     ),
@@ -103,7 +105,7 @@ WATCHLIST = [
     ),
     Company(
         name="KEPPEL CORPORATION LIMITED",
-        code="K03",
+        code="BN4",
         priority="high",
         sector="Marine",
     ),
@@ -114,8 +116,8 @@ WATCHLIST = [
         sector="Hospitality",
     ),
     Company(
-        name="ASCENDAS REIT",
-        code="A14U",
+        name="CAPITALAND ASCENDAS REIT",
+        code="A17U",
         priority="normal",
         sector="Real Estate",
     ),
@@ -127,7 +129,7 @@ WATCHLIST = [
     ),
     Company(
         name="JIUTIAN CHEMICAL GROUP LIMITED",
-        code="U14",
+        code="C8R",
         priority="normal",
         sector="Chemical",
     ),
@@ -140,12 +142,6 @@ WATCHLIST = [
     Company(
         name="CAPITALAND INVESTMENT LIMITED",
         code="9CI",
-        priority="normal",
-        sector="Unknown",
-    ),
-    Company(
-        name="CAPITALAND ASCENDAS REIT",
-        code="A17U",
         priority="normal",
         sector="Unknown",
     ),
@@ -175,55 +171,55 @@ WATCHLIST = [
     ),
     Company(
         name="SIA ENGINEERING COMPANY LIMITED",
-        code="SIA",
+        code="S59",
         priority="normal",
         sector="Unknown",
     ),
     Company(
         name="FRASERS PROPERTY LIMITED",
-        code="FPL",
+        code="TQ5",
         priority="normal",
         sector="Unknown",
     ),
     Company(
         name="FIRST REIT",
-        code="FIRST",
+        code="AW9U",
         priority="normal",
         sector="Unknown",
     ),
     Company(
         name="MAPLETREE COMMERCIAL TRUST",
-        code="MAPL",
+        code="N2IU",
         priority="normal",
         sector="Unknown",
     ),
     Company(
         name="MAPLETREE INDUSTRIAL TRUST",
-        code="MAPT",
+        code="ME8U",
         priority="normal",
         sector="Unknown",
     ),
     Company(
         name="MAPLETREE LOGISTICS TRUST",
-        code="MAPS",
+        code="M44U",
         priority="normal",
         sector="Unknown",
     ),
     Company(
         name="OVERSEA-CHINESE BANKING CORPORATION LIMITED",
-        code="OCBC",
+        code="O39",
         priority="normal",
         sector="Unknown",
     ),
     Company(
         name="BANGKOK BANK PUBLIC COMPANY LIMITED",
-        code="BBL",
+        code="MCOB",
         priority="normal",
         sector="Unknown",
     ),
     Company(
         name="SINGAPORE AIRLINES LIMITED",
-        code="SIA2",
+        code="VB9B",
         priority="normal",
         sector="Unknown",
     ),

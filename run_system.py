@@ -4,7 +4,7 @@ import time
 import atexit
 from pathlib import Path
 
-from config.watchlist_500 import WATCHLIST
+from config.watchlist import WATCHLIST
 from services.market_ingestor import MarketIngestor
 from utils.logger import setup_logger
 from watchers.sgx_watcher import SGXWatcher
