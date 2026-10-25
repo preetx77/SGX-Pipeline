@@ -55,3 +55,6 @@ data/processed/
 # Logs
 logs/
 *.log
+
+# Runtime state (avoid overwriting local checkpoints on pull)
+state/
