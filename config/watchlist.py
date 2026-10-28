@@ -8,17 +8,17 @@ class Company:
     priority: str = "normal"
     sector: str = "Unknown"
 
-# Stage 5+ Watchlist: 49 Companies (32 baseline + 17 expanded)
-# All 49 companies have confirmed insider filing activity in 24-month window
+# Stage 5 Expanded Watchlist: 48 Companies (32 baseline + 16 unique new)
+# All 48 companies have confirmed insider filing activity in 24-month window
 # Measured via iter_company_announcements (full pagination)
 # 
 # Baseline 32 (1-36 insider filings each):
 #   - 26 equities, 6 REITs/trusts
 # 
-# Expanded 17 (2-63 insider filings each):
-#   - Selected from SGX top 100
+# Expanded 16 (2-63 insider filings each):
+#   - Selected from SGX top 100 with insider filings
 #   - All with measurable insider activity
-#   - Range of company sizes and sectors
+#   - Covers range of company sizes and sectors
 
 WATCHLIST = [
     # BASELINE 32 VERIFIED (all with insider filings)
@@ -55,20 +55,20 @@ WATCHLIST = [
     Company(name="JARDINE CYCLE & CARRIAGE", code="C07", priority="normal", sector="Consumer"),
     Company(name="VENTURE CORPORATION", code="V03", priority="normal", sector="Tech"),
     
-    # EXPANDED 17 from SGX top 100 (all with insider filings)
+    # EXPANDED 16 from SGX top 100 (all with insider filings, 2-63 per company)
     Company(name="ACCRELIST LTD.", code="ACC", priority="high"),  # 63 insider filings
     Company(name="AEM HOLDINGS LTD.", code="AWX", priority="high"),  # 34 insider filings
     Company(name="ACROMETA GROUP LIMITED", code="ACM", priority="high"),  # 32 insider filings
-    Company(name="ACMA LTD", code="ACR", priority="normal"),  # 19 insider filings
-    Company(name="ABR HOLDINGS LIMITED", code="ABR", priority="normal"),  # 12 insider filings
+    Company(name="ACMA LTD", code="ACR", priority="normal"),  # 19 insider filings (deduplicated from "ACMA LTD.")
     Company(name="17LIVE GROUP LIMITED", code="17LI", priority="high"),  # 15 insider filings
-    Company(name="9R LIMITED", code="9RLI", priority="high"),  # 11 insider filings
     Company(name="ADDVALUE TECHNOLOGIES LTD", code="ADD", priority="high"),  # 13 insider filings
-    Company(name="5E RESOURCES LIMITED", code="5ER", priority="normal"),  # 2 insider filings
+    Company(name="ABR HOLDINGS LIMITED", code="ABR", priority="normal"),  # 12 insider filings
+    Company(name="9R LIMITED", code="9RLI", priority="high"),  # 11 insider filings
+    Company(name="ADVANCED SYSTEMS AUTOMATION LIMITED", code="ASA", priority="normal"),  # 5 insider filings
+    Company(name="ADVANCED HOLDINGS LTD.", code="ADH", priority="normal"),  # 4 insider filings
+    Company(name="ADVENTUS HOLDINGS LIMITED", code="ADV", priority="normal"),  # 4 insider filings
     Company(name="ABUNDANTE LIMITED", code="ABU", priority="normal"),  # 3 insider filings
+    Company(name="5E RESOURCES LIMITED", code="5ER", priority="normal"),  # 2 insider filings
     Company(name="ACESIAN PARTNERS LIMITED", code="ACS", priority="normal"),  # 2 insider filings
     Company(name="ACHIEVA LIMITED", code="ACH", priority="normal"),  # 2 insider filings
-    Company(name="ADVANCED HOLDINGS LTD.", code="ADH", priority="normal"),  # 4 insider filings
-    Company(name="ADVANCED SYSTEMS AUTOMATION LIMITED", code="ASA", priority="normal"),  # 5 insider filings
-    Company(name="ADVENTUS HOLDINGS LIMITED", code="ADV", priority="normal"),  # 4 insider filings
 ]
