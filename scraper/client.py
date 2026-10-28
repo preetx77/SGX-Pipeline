@@ -243,7 +243,7 @@ class SGXClient:
                 period_start = period_start,
                 period_end = period_end
             )
-            announcements = result["announcements"]
+            announcements = result["announcement"]
 
             if not announcements:
                 break
