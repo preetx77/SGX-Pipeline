@@ -1,0 +1,50 @@
+[
+  {
+    "name": "ACMA LTD.",
+    "total_anns": 50,
+    "insider_count": 19,
+    "category": "PASS"
+  },
+  {
+    "name": "ACROPHYTE HOSPITALITY TRUST MANAGEMENT PTE. LTD.",
+    "total_anns": 79,
+    "insider_count": 0,
+    "category": "HIGH_ACTIVITY"
+  },
+  {
+    "name": "AF GLOBAL LIMITED",
+    "total_anns": 50,
+    "insider_count": 0,
+    "category": "HIGH_ACTIVITY"
+  },
+  {
+    "name": "ADANI PORTS AND SPECIAL ECONOMIC ZONE LIMITED",
+    "total_anns": 49,
+    "insider_count": 0,
+    "category": "MEDIUM_ACTIVITY"
+  },
+  {
+    "name": "ABUNDANCE INTERNATIONAL LIMITED",
+    "total_anns": 40,
+    "insider_count": 0,
+    "category": "MEDIUM_ACTIVITY"
+  },
+  {
+    "name": "ADVANTEST CORPORATION",
+    "total_anns": 30,
+    "insider_count": 0,
+    "category": "MEDIUM_ACTIVITY"
+  },
+  {
+    "name": "ADVANCER GLOBAL LIMITED",
+    "total_anns": 28,
+    "insider_count": 0,
+    "category": "MEDIUM_ACTIVITY"
+  },
+  {
+    "name": "ABACUS CAPITAL (S) PTE LTD",
+    "total_anns": 25,
+    "insider_count": 0,
+    "category": "MEDIUM_ACTIVITY"
+  }
+]
