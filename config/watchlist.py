@@ -8,20 +8,12 @@ class Company:
     priority: str = "normal"
     sector: str = "Unknown"
 
-# Stage 5 Expanded Watchlist: 48 Companies (32 baseline + 16 unique new)
-# All 48 companies have confirmed insider filing activity in 24-month window
-# Measured via iter_company_announcements (full pagination)
-# 
-# Baseline 32 (1-36 insider filings each):
-#   - 26 equities, 6 REITs/trusts
-# 
-# Expanded 16 (2-63 insider filings each):
-#   - Selected from SGX top 100 with insider filings
-#   - All with measurable insider activity
-#   - Covers range of company sizes and sectors
+# Stage 5: 100-company Watchlist for Dry Run
+# Baseline 47 (insider filings verified)
+# + Expansion 53 (active SGX-listed companies with announcements)
 
 WATCHLIST = [
-    # BASELINE 32 VERIFIED (all with insider filings)
+
     Company(name="OILTEK INTERNATIONAL LIMITED", code="HQU", priority="high"),
     Company(name="HYPHENS PHARMA INTERNATIONAL LIMITED", code="1J5", priority="high"),
     Company(name="LUM CHANG HOLDINGS LIMITED", code="L19", priority="high"),
@@ -54,21 +46,75 @@ WATCHLIST = [
     Company(name="HAW PAR CORPORATION", code="H02", priority="normal", sector="Consumer"),
     Company(name="JARDINE CYCLE & CARRIAGE", code="C07", priority="normal", sector="Consumer"),
     Company(name="VENTURE CORPORATION", code="V03", priority="normal", sector="Tech"),
-    
-    # EXPANDED 16 from SGX top 100 (all with insider filings, 2-63 per company)
-    Company(name="ACCRELIST LTD.", code="ACC", priority="high"),  # 63 insider filings
-    Company(name="AEM HOLDINGS LTD.", code="AWX", priority="high"),  # 34 insider filings
-    Company(name="ACROMETA GROUP LIMITED", code="ACM", priority="high"),  # 32 insider filings
-    Company(name="ACMA LTD", code="ACR", priority="normal"),  # 19 insider filings (deduplicated from "ACMA LTD.")
-    Company(name="17LIVE GROUP LIMITED", code="17LI", priority="high"),  # 15 insider filings
-    Company(name="ADDVALUE TECHNOLOGIES LTD", code="ADD", priority="high"),  # 13 insider filings
-    Company(name="ABR HOLDINGS LIMITED", code="ABR", priority="normal"),  # 12 insider filings
-    Company(name="9R LIMITED", code="9RLI", priority="high"),  # 11 insider filings
-    Company(name="ADVANCED SYSTEMS AUTOMATION LIMITED", code="ASA", priority="normal"),  # 5 insider filings
-    Company(name="ADVANCED HOLDINGS LTD.", code="ADH", priority="normal"),  # 4 insider filings
-    Company(name="ADVENTUS HOLDINGS LIMITED", code="ADV", priority="normal"),  # 4 insider filings
-    Company(name="ABUNDANTE LIMITED", code="ABU", priority="normal"),  # 3 insider filings
-    Company(name="5E RESOURCES LIMITED", code="5ER", priority="normal"),  # 2 insider filings
-    Company(name="ACESIAN PARTNERS LIMITED", code="ACS", priority="normal"),  # 2 insider filings
-    Company(name="ACHIEVA LIMITED", code="ACH", priority="normal"),  # 2 insider filings
+    Company(name="ACCRELIST LTD.", code="ACC", priority="high"),
+    Company(name="AEM HOLDINGS LTD.", code="AWX", priority="high"),
+    Company(name="ACROMETA GROUP LIMITED", code="ACM", priority="high"),
+    Company(name="ACMA LTD", code="ACR", priority="normal"),
+    Company(name="17LIVE GROUP LIMITED", code="17LI", priority="high"),
+    Company(name="ADDVALUE TECHNOLOGIES LTD", code="ADD", priority="high"),
+    Company(name="ABR HOLDINGS LIMITED", code="ABR", priority="normal"),
+    Company(name="9R LIMITED", code="9RLI", priority="high"),
+    Company(name="ADVANCED SYSTEMS AUTOMATION LIMITED", code="ASA", priority="normal"),
+    Company(name="ADVANCED HOLDINGS LTD.", code="ADH", priority="normal"),
+    Company(name="ADVENTUS HOLDINGS LIMITED", code="ADV", priority="normal"),
+    Company(name="ABUNDANTE LIMITED", code="ABU", priority="normal"),
+    Company(name="5E RESOURCES LIMITED", code="5ER", priority="normal"),
+    Company(name="ACESIAN PARTNERS LIMITED", code="ACS", priority="normal"),
+    Company(name="ACHIEVA LIMITED", code="ACH", priority="normal"),
+
+    # EXPANSION 53 (from SGX top 500 with active announcements)
+    Company(name="ACMA LTD.", code="ACM49", priority="normal"),
+    Company(name="A-SONIC AEROSPACE LIMITED", code="A-S50", priority="normal"),
+    Company(name="AIMS APAC REIT MANAGEMENT LIMITED", code="AIM51", priority="normal"),
+    Company(name="AMOVA ASIA LIMITED VCC", code="AMO52", priority="normal"),
+    Company(name="AMOVA ASSET MANAGEMENT ASIA LIMITED", code="AMO53", priority="normal"),
+    Company(name="AOXIN Q & M DENTAL GRP LIMITED", code="AOX54", priority="normal"),
+    Company(name="ASCENT BRIDGE LIMITED", code="ASC55", priority="normal"),
+    Company(name="ASPIAL CORPORATION LIMITED", code="ASP56", priority="normal"),
+    Company(name="ASPIAL LIFESTYLE LIMITED", code="ASP57", priority="normal"),
+    Company(name="AUTAGCO LTD.", code="AUT58", priority="normal"),
+    Company(name="AVATION GROUP (S) PTE. LTD.", code="AVA59", priority="normal"),
+    Company(name="AXIS BANK LIMITED", code="AXI60", priority="normal"),
+    Company(name="AYC FINANCE LIMITED", code="AYC61", priority="normal"),
+    Company(name="BANK OF THE PHILIPPINE ISLANDS", code="BAN62", priority="normal"),
+    Company(name="BENG KUANG MARINE LIMITED", code="BEN63", priority="normal"),
+    Company(name="BLACKROCK (SINGAPORE) LIMITED", code="BLA64", priority="normal"),
+    Company(name="AVATION CAPITAL S.A.", code="AVA65", priority="normal"),
+    Company(name="ANNICA HOLDINGS LIMITED", code="ANN66", priority="normal"),
+    Company(name="AGILE GROUP HOLDINGS LIMITED", code="AGI67", priority="normal"),
+    Company(name="ASPEN (GROUP) HOLDINGS LIMITED", code="ASP68", priority="normal"),
+    Company(name="ASTI HOLDINGS LIMITED", code="AST69", priority="normal"),
+    Company(name="AVARGA LIMITED", code="AVA70", priority="normal"),
+    Company(name="AJJ MEDTECH HOLDINGS LIMITED", code="AJJ71", priority="normal"),
+    Company(name="APAC REALTY LIMITED", code="APA72", priority="normal"),
+    Company(name="BANYAN TREE HOLDINGS LIMITED", code="BAN73", priority="normal"),
+    Company(name="ACROPHYTE HOSPITALITY TRUST MANAGEMENT PTE. LTD.", code="ACR74", priority="normal"),
+    Company(name="ASL MARINE HOLDINGS LTD.", code="ASL75", priority="normal"),
+    Company(name="BOUSTEAD SINGAPORE LIMITED", code="BOU76", priority="normal"),
+    Company(name="ASIA-PACIFIC STRATEGIC INVESTMENTS LIMITED", code="ASI77", priority="normal"),
+    Company(name="BIOCON BIOLOGICS GLOBAL PLC", code="BIO78", priority="normal"),
+    Company(name="ANCHUN INTERNATIONAL HOLDINGS LTD.", code="ANC79", priority="normal"),
+    Company(name="AMOS GROUP LIMITED", code="AMO80", priority="normal"),
+    Company(name="AZTECH GLOBAL LTD.", code="AZT81", priority="normal"),
+    Company(name="ASIATIC GROUP (HOLDINGS) LIMITED", code="ASI82", priority="normal"),
+    Company(name="ATTIKA GROUP LTD.", code="ATT83", priority="normal"),
+    Company(name="ALLIANCE HEALTHCARE GROUP LIMITED", code="ALL84", priority="normal"),
+    Company(name="ALSET INTERNATIONAL LIMITED", code="ALS85", priority="normal"),
+    Company(name="ASIAMEDIC LIMITED", code="ASI86", priority="normal"),
+    Company(name="ASTAKA HOLDINGS LIMITED", code="AST87", priority="normal"),
+    Company(name="AUDIENCE ANALYTICS LIMITED", code="AUD88", priority="normal"),
+    Company(name="BEVERLY JCG LTD.", code="BEV89", priority="normal"),
+    Company(name="ALPHA INTEGRATED REIT MANAGEMENT PTE. LTD.", code="ALP90", priority="normal"),
+    Company(name="BBR HOLDINGS (S) LTD", code="BBR91", priority="normal"),
+    Company(name="APTT MANAGEMENT PTE. LIMITED", code="APT92", priority="normal"),
+    Company(name="BAKER TECHNOLOGY LIMITED", code="BAK93", priority="normal"),
+    Company(name="AF GLOBAL LIMITED", code="AF94", priority="normal"),
+    Company(name="AMP LIMITED", code="AMP95", priority="normal"),
+    Company(name="ADANI PORTS AND SPECIAL ECONOMIC ZONE LIMITED", code="ADA96", priority="normal"),
+    Company(name="BH GLOBAL CORPORATION LIMITED", code="BH97", priority="normal"),
+    Company(name="BHG RETAIL TRUST MANAGEMENT PTE. LTD.", code="BHG98", priority="normal"),
+    Company(name="ASIAN MICRO HOLDINGS LIMITED", code="ASI99", priority="normal"),
+    Company(name="ASIAPHOS LIMITED", code="ASI100", priority="normal"),
+    Company(name="ALPINA HOLDINGS LIMITED", code="ALP101", priority="normal"),
+
 ]
