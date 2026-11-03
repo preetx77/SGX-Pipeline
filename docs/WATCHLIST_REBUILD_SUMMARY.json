@@ -1,0 +1,267 @@
+{
+  "watchlist_rebuild": {
+    "timestamp": "2026-11-03T17:41:36.357766",
+    "baseline_companies": 32,
+    "all_have_director_filings": true,
+    "fake_codes_dropped": 49,
+    "unmeasured_dropped": 19
+  },
+  "baseline_companies": [
+    {
+      "code": "XVG",
+      "name": "AEDGE GROUP LIMITED",
+      "director_filings": 7,
+      "total_filings": 7,
+      "announcements_measured": 60,
+      "capped_at_100": false
+    },
+    {
+      "code": "A17U",
+      "name": "CAPITALAND ASCENDAS REIT",
+      "director_filings": 35,
+      "total_filings": 35,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "C38U",
+      "name": "CAPITALAND INTEGRATED COMMERCIAL TRUST",
+      "director_filings": 32,
+      "total_filings": 32,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "9CI",
+      "name": "CAPITALAND INVESTMENT LIMITED",
+      "director_filings": 14,
+      "total_filings": 14,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "C09",
+      "name": "CITY DEVELOPMENTS LIMITED",
+      "director_filings": 3,
+      "total_filings": 3,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "5TP",
+      "name": "CNMC GOLDMINE HOLDINGS LIMITED",
+      "director_filings": 36,
+      "total_filings": 36,
+      "announcements_measured": 89,
+      "capped_at_100": false
+    },
+    {
+      "code": "D05",
+      "name": "DBS GROUP HOLDINGS",
+      "director_filings": 18,
+      "total_filings": 18,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "AW9U",
+      "name": "FIRST REIT",
+      "director_filings": 9,
+      "total_filings": 9,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "G13",
+      "name": "GENTING SINGAPORE LIMITED",
+      "director_filings": 13,
+      "total_filings": 13,
+      "announcements_measured": 89,
+      "capped_at_100": false
+    },
+    {
+      "code": "G50",
+      "name": "GRAND BANKS YACHTS LIMITED",
+      "director_filings": 1,
+      "total_filings": 1,
+      "announcements_measured": 38,
+      "capped_at_100": false
+    },
+    {
+      "code": "G07",
+      "name": "GREAT EASTERN HOLDINGS",
+      "director_filings": 2,
+      "total_filings": 2,
+      "announcements_measured": 77,
+      "capped_at_100": false
+    },
+    {
+      "code": "F17",
+      "name": "GUOCOLAND LIMITED",
+      "director_filings": 17,
+      "total_filings": 17,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "H02",
+      "name": "HAW PAR CORPORATION",
+      "director_filings": 9,
+      "total_filings": 9,
+      "announcements_measured": 36,
+      "capped_at_100": false
+    },
+    {
+      "code": "1J5",
+      "name": "HYPHENS PHARMA INTERNATIONAL LIMITED",
+      "director_filings": 18,
+      "total_filings": 18,
+      "announcements_measured": 54,
+      "capped_at_100": false
+    },
+    {
+      "code": "42C",
+      "name": "IX BIOPHARMA LTD",
+      "director_filings": 17,
+      "total_filings": 17,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "C07",
+      "name": "JARDINE CYCLE & CARRIAGE",
+      "director_filings": 4,
+      "total_filings": 4,
+      "announcements_measured": 77,
+      "capped_at_100": false
+    },
+    {
+      "code": "JCO",
+      "name": "JUSTCO HOLDINGS LIMITED",
+      "director_filings": 15,
+      "total_filings": 15,
+      "announcements_measured": 29,
+      "capped_at_100": false
+    },
+    {
+      "code": "L19",
+      "name": "LUM CHANG HOLDINGS LIMITED",
+      "director_filings": 8,
+      "total_filings": 8,
+      "announcements_measured": 58,
+      "capped_at_100": false
+    },
+    {
+      "code": "ME8U",
+      "name": "MAPLETREE INDUSTRIAL TRUST",
+      "director_filings": 11,
+      "total_filings": 11,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "M44U",
+      "name": "MAPLETREE LOGISTICS TRUST",
+      "director_filings": 11,
+      "total_filings": 11,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "1V3",
+      "name": "MOOREAST HOLDINGS LTD",
+      "director_filings": 11,
+      "total_filings": 11,
+      "announcements_measured": 70,
+      "capped_at_100": false
+    },
+    {
+      "code": "HQU",
+      "name": "OILTEK INTERNATIONAL LIMITED",
+      "director_filings": 9,
+      "total_filings": 9,
+      "announcements_measured": 67,
+      "capped_at_100": false
+    },
+    {
+      "code": "VC2",
+      "name": "OLAM GROUP LIMITED",
+      "director_filings": 8,
+      "total_filings": 8,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "O39",
+      "name": "OVERSEA-CHINESE BANKING CORPORATION LIMITED",
+      "director_filings": 2,
+      "total_filings": 2,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "5E2",
+      "name": "SEATRIUM LIMITED",
+      "director_filings": 12,
+      "total_filings": 12,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "S59",
+      "name": "SIA ENGINEERING COMPANY LIMITED",
+      "director_filings": 2,
+      "total_filings": 2,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "C6L",
+      "name": "SINGAPORE AIRLINES LIMITED",
+      "director_filings": 23,
+      "total_filings": 23,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "S68",
+      "name": "SINGAPORE EXCHANGE LIMITED",
+      "director_filings": 4,
+      "total_filings": 4,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "S63",
+      "name": "SINGAPORE TECHNOLOGIES ENGINEERING",
+      "director_filings": 18,
+      "total_filings": 18,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "5AB",
+      "name": "TREK 2000 INTERNATIONAL LTD",
+      "director_filings": 5,
+      "total_filings": 5,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "V03",
+      "name": "VENTURE CORPORATION",
+      "director_filings": 29,
+      "total_filings": 29,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    },
+    {
+      "code": "F34",
+      "name": "WILMAR INTERNATIONAL LIMITED",
+      "director_filings": 16,
+      "total_filings": 16,
+      "announcements_measured": 100,
+      "capped_at_100": true
+    }
+  ]
+}
