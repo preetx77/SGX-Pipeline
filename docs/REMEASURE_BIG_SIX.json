@@ -1,0 +1,160 @@
+{
+  "remeasure_big_six": {
+    "timestamp": "2026-11-04T07:27:06.658040",
+    "period": {
+      "start": "2021-11-05T07:27:03.527926",
+      "end": "2026-11-04T07:27:03.527926"
+    },
+    "results": {
+      "United Overseas Bank Limited": {
+        "name": "United Overseas Bank Limited",
+        "code": "UNKNOWN",
+        "total_announcements": 0,
+        "director_count": 0,
+        "shareholder_count": 0,
+        "total_insider": 0,
+        "status": "FAIL",
+        "truncated": false,
+        "timestamp": "2026-11-04T07:27:04.434382"
+      },
+      "Singapore Telecommunications Limited": {
+        "name": "Singapore Telecommunications Limited",
+        "code": "UNKNOWN",
+        "total_announcements": 0,
+        "director_count": 0,
+        "shareholder_count": 0,
+        "total_insider": 0,
+        "status": "FAIL",
+        "truncated": false,
+        "timestamp": "2026-11-04T07:27:04.567373"
+      },
+      "Keppel Corporation Limited": {
+        "name": "Keppel Corporation Limited",
+        "code": "UNKNOWN",
+        "total_announcements": 0,
+        "director_count": 0,
+        "shareholder_count": 0,
+        "total_insider": 0,
+        "status": "FAIL",
+        "truncated": false,
+        "timestamp": "2026-11-04T07:27:05.085666"
+      },
+      "Frasers Property Limited": {
+        "name": "Frasers Property Limited",
+        "code": "UNKNOWN",
+        "total_announcements": 0,
+        "director_count": 0,
+        "shareholder_count": 0,
+        "total_insider": 0,
+        "status": "FAIL",
+        "truncated": false,
+        "timestamp": "2026-11-04T07:27:05.635720"
+      },
+      "Mapletree Commercial Trust": {
+        "name": "Mapletree Commercial Trust",
+        "code": "UNKNOWN",
+        "total_announcements": 0,
+        "director_count": 0,
+        "shareholder_count": 0,
+        "total_insider": 0,
+        "status": "FAIL",
+        "truncated": false,
+        "timestamp": "2026-11-04T07:27:06.115144"
+      },
+      "Prudential plc": {
+        "name": "Prudential plc",
+        "code": "UNKNOWN",
+        "total_announcements": 0,
+        "director_count": 0,
+        "shareholder_count": 0,
+        "total_insider": 0,
+        "status": "FAIL",
+        "truncated": false,
+        "timestamp": "2026-11-04T07:27:06.658040"
+      }
+    },
+    "passed": 0,
+    "failed": 6
+  },
+  "passed_companies": [],
+  "details": {
+    "United Overseas Bank Limited": {
+      "name": "United Overseas Bank Limited",
+      "code": "UNKNOWN",
+      "total_announcements": 0,
+      "director_count": 0,
+      "shareholder_count": 0,
+      "total_insider": 0,
+      "status": "FAIL",
+      "truncated": false,
+      "timestamp": "2026-11-04T07:27:04.434382",
+      "form1_sample": [],
+      "form3_sample": []
+    },
+    "Singapore Telecommunications Limited": {
+      "name": "Singapore Telecommunications Limited",
+      "code": "UNKNOWN",
+      "total_announcements": 0,
+      "director_count": 0,
+      "shareholder_count": 0,
+      "total_insider": 0,
+      "status": "FAIL",
+      "truncated": false,
+      "timestamp": "2026-11-04T07:27:04.567373",
+      "form1_sample": [],
+      "form3_sample": []
+    },
+    "Keppel Corporation Limited": {
+      "name": "Keppel Corporation Limited",
+      "code": "UNKNOWN",
+      "total_announcements": 0,
+      "director_count": 0,
+      "shareholder_count": 0,
+      "total_insider": 0,
+      "status": "FAIL",
+      "truncated": false,
+      "timestamp": "2026-11-04T07:27:05.085666",
+      "form1_sample": [],
+      "form3_sample": []
+    },
+    "Frasers Property Limited": {
+      "name": "Frasers Property Limited",
+      "code": "UNKNOWN",
+      "total_announcements": 0,
+      "director_count": 0,
+      "shareholder_count": 0,
+      "total_insider": 0,
+      "status": "FAIL",
+      "truncated": false,
+      "timestamp": "2026-11-04T07:27:05.635720",
+      "form1_sample": [],
+      "form3_sample": []
+    },
+    "Mapletree Commercial Trust": {
+      "name": "Mapletree Commercial Trust",
+      "code": "UNKNOWN",
+      "total_announcements": 0,
+      "director_count": 0,
+      "shareholder_count": 0,
+      "total_insider": 0,
+      "status": "FAIL",
+      "truncated": false,
+      "timestamp": "2026-11-04T07:27:06.115144",
+      "form1_sample": [],
+      "form3_sample": []
+    },
+    "Prudential plc": {
+      "name": "Prudential plc",
+      "code": "UNKNOWN",
+      "total_announcements": 0,
+      "director_count": 0,
+      "shareholder_count": 0,
+      "total_insider": 0,
+      "status": "FAIL",
+      "truncated": false,
+      "timestamp": "2026-11-04T07:27:06.658040",
+      "form1_sample": [],
+      "form3_sample": []
+    }
+  }
+}
