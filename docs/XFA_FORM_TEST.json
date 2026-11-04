@@ -1,0 +1,19 @@
+{
+  "test_date": "1793285426.0733607",
+  "hypothesis": "Adobe-wrapped \"cannot be displayed\" PDFs are XFA forms with XML datasets containing director data",
+  "sample_size": 3,
+  "results": [
+    {
+      "filename": "eFORM1V2-DR NG-01102026.pdf",
+      "error": "cryptography>=3.1 is required for AES algorithm"
+    },
+    {
+      "filename": "eFORM1V2-DR NG-02102026.pdf",
+      "error": "cryptography>=3.1 is required for AES algorithm"
+    },
+    {
+      "filename": "eFORM1V2-DR NG-05102026.pdf",
+      "error": "cryptography>=3.1 is required for AES algorithm"
+    }
+  ]
+}
