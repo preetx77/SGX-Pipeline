@@ -20,7 +20,6 @@ wheels/
 .installed.cfg
 *.egg
 
-__init__.py
 
 # Virtual environments
 venv/
