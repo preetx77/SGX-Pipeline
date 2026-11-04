@@ -1,0 +1,45 @@
+{
+  "remeasure_big_six_v2": {
+    "timestamp": "2026-11-04T07:34:41.446492",
+    "results": {},
+    "measurement_failures": [
+      {
+        "company": "UOB",
+        "reason": "Known major issuer returned zero announcements - measurement failed",
+        "expected_min": 100,
+        "actual": 0
+      },
+      {
+        "company": "SINGTEL",
+        "reason": "Known major issuer returned zero announcements - measurement failed",
+        "expected_min": 50,
+        "actual": 0
+      },
+      {
+        "company": "KEPPEL",
+        "reason": "Known major issuer returned zero announcements - measurement failed",
+        "expected_min": 50,
+        "actual": 0
+      },
+      {
+        "company": "FRASERS PROPERTY",
+        "reason": "Known major issuer returned zero announcements - measurement failed",
+        "expected_min": 30,
+        "actual": 0
+      },
+      {
+        "company": "MAPLETREE COMMERCIAL",
+        "reason": "Known major issuer returned zero announcements - measurement failed",
+        "expected_min": 30,
+        "actual": 0
+      },
+      {
+        "company": "PRUDENTIAL",
+        "reason": "Known major issuer returned zero announcements - measurement failed",
+        "expected_min": 30,
+        "actual": 0
+      }
+    ],
+    "note": "Zero announcements for known major issuers indicates measurement failure, not lack of insider activity"
+  }
+}
