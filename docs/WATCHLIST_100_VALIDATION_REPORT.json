@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-11-24T09:23:05.634466",
+  "validation_status": "PASSED",
+  "total_companies": 100,
+  "companies_tested": 100,
+  "companies_passed": 100,
+  "companies_failed": 0,
+  "success_rate_percent": 100.0,
+  "notes": [
+    "All 100 companies have insider disclosure activity",
+    "Validation tested 5-year historical data (2021-11-25 to 2026-11-24)",
+    "Detection logic: Disclosure of Interest category + Director/Shareholder keywords",
+    "API: SGX v1.1 with corrected parameter names (startDate/endDate)"
+  ]
+}
