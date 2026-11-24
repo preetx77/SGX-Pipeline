@@ -160,8 +160,8 @@ class SGXClient:
     ):
 
         params = {
-            "periodstart" : period_start,
-            "periodend" : period_end,
+            "startDate" : period_start,
+            "endDate" : period_end,
             "value" : company_name,
             "pagestart" : page_start,
             "pagesize" : page_size
@@ -198,8 +198,8 @@ class SGXClient:
         period_end=None
     ):
         params = {
-             "periodstart": period_start,
-            "periodend": period_end,
+             "startDate": period_start,
+            "endDate": period_end,
             "value": company_name,
             "pagestart": page_start,
             "pagesize": page_size
