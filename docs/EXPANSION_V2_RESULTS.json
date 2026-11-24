@@ -1,0 +1,154 @@
+{
+  "timestamp": "2024-11-24T07:40:00",
+  "period": {
+    "start": "2019-11-26T07:40:00",
+    "end": "2024-11-24T07:40:00"
+  },
+  "current_count": 32,
+  "target_count": 100,
+  "pass_count": 0,
+  "fail_count": 20,
+  "pass_candidates": [],
+  "fail_candidates": [
+    {
+      "name": "Singapore Exchange Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Genting Singapore Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Wilmar International Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "City Developments Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "CapitaLand Integration Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Singapore Airlines Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Oversea-Chinese Banking Corporation Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "United Overseas Bank Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Singapore Telecommunications Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Keppel Corporation Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Frasers Property Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Mapletree Commercial Trust",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Sheng Siong Group Ltd",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Golden Agri-Resources Ltd",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "United Test & Assembly Centre Ltd",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Seatrium Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Jiutian Chemical Group Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "China Jo-Jo Drugstores Inc",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "Stamford Tyres Corporation Ltd",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    },
+    {
+      "name": "ISIG Holdings Limited",
+      "code": "UNKNOWN",
+      "announcements": 0,
+      "director_filings": 0,
+      "status": "FAIL"
+    }
+  ]
+}
