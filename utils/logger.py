@@ -2,6 +2,7 @@ import sys
 import logging
 from pathlib import Path
 from logging.handlers import RotatingFileHandler
+import io
 
 # Add parent directory to path so imports work from any location
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -11,6 +12,8 @@ def setup_logger():
     """
     Setup comprehensive logging with both console and file output.
     Essential for 24/7 unattended operation.
+    
+    Handles Unicode/emoji characters on Windows by using UTF-8 encoding.
     """
     log_dir = Path(__file__).parent.parent / "logs"
     log_dir.mkdir(exist_ok=True)
@@ -22,7 +25,10 @@ def setup_logger():
     logger.setLevel(logging.DEBUG)
 
     # Console handler (INFO level and above)
-    console_handler = logging.StreamHandler(sys.stdout)
+    # Use UTF-8 encoding for emoji/Unicode support on Windows
+    console_handler = logging.StreamHandler(
+        io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+    )
     console_handler.setLevel(logging.INFO)
     console_formatter = logging.Formatter(
         "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s",
@@ -35,7 +41,8 @@ def setup_logger():
     file_handler = RotatingFileHandler(
         log_file,
         maxBytes=50*1024*1024,  # 50 MB
-        backupCount=3           # Keep 3 backup files
+        backupCount=3,          # Keep 3 backup files
+        encoding='utf-8'        # Use UTF-8 for file logging
     )
     file_handler.setLevel(logging.DEBUG)
     file_formatter = logging.Formatter(
