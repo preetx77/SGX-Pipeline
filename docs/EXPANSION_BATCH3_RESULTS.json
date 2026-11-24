@@ -1,0 +1,505 @@
+{
+  "batch": 3,
+  "timestamp": "2026-11-24T09:18:58.569806",
+  "tested": 200,
+  "pass_count": 62,
+  "fail_count": 138,
+  "pass_candidates": [
+    {
+      "name": "AOXIN Q & M DENTAL GRP LIMITED",
+      "code": "1D4",
+      "announcements": 100,
+      "director_filings": 40,
+      "shareholder_filings": 38,
+      "insider_filings": 78
+    },
+    {
+      "name": "ACCRELIST LTD.",
+      "code": "QZG",
+      "announcements": 100,
+      "director_filings": 57,
+      "shareholder_filings": 4,
+      "insider_filings": 61
+    },
+    {
+      "name": "ANCHUN INTERNATIONAL HOLDINGS LTD.",
+      "code": "BTX",
+      "announcements": 100,
+      "director_filings": 14,
+      "shareholder_filings": 37,
+      "insider_filings": 51
+    },
+    {
+      "name": "AEM HOLDINGS LTD.",
+      "code": "AWX",
+      "announcements": 100,
+      "director_filings": 12,
+      "shareholder_filings": 24,
+      "insider_filings": 36
+    },
+    {
+      "name": "ANNAIK LIMITED",
+      "code": "A52",
+      "announcements": 100,
+      "director_filings": 21,
+      "shareholder_filings": 14,
+      "insider_filings": 35
+    },
+    {
+      "name": "ARA-CWT TRUST MANAGEMENT (CACHE) LIMITED",
+      "code": "K2LU",
+      "announcements": 100,
+      "director_filings": 13,
+      "shareholder_filings": 19,
+      "insider_filings": 32
+    },
+    {
+      "name": "ACROMETA GROUP LIMITED",
+      "code": "43F",
+      "announcements": 100,
+      "director_filings": 17,
+      "shareholder_filings": 14,
+      "insider_filings": 31
+    },
+    {
+      "name": "AEI CORPORATION LTD.",
+      "code": "AWG",
+      "announcements": 100,
+      "director_filings": 13,
+      "shareholder_filings": 18,
+      "insider_filings": 31
+    },
+    {
+      "name": "ABR HOLDINGS LIMITED",
+      "code": "533",
+      "announcements": 100,
+      "director_filings": 26,
+      "shareholder_filings": 2,
+      "insider_filings": 28
+    },
+    {
+      "name": "ALL-LINK AIR & SEA LIMITED",
+      "code": "ALK",
+      "announcements": 36,
+      "director_filings": 27,
+      "shareholder_filings": 1,
+      "insider_filings": 28
+    },
+    {
+      "name": "ADVANCE SCT LIMITED",
+      "code": "5FH",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 25,
+      "insider_filings": 27
+    },
+    {
+      "name": "AMARA HOLDINGS LIMITED",
+      "code": "A34",
+      "announcements": 100,
+      "director_filings": 8,
+      "shareholder_filings": 16,
+      "insider_filings": 24
+    },
+    {
+      "name": "ANCHOR RESOURCES LIMITED",
+      "code": "43E",
+      "announcements": 100,
+      "director_filings": 3,
+      "shareholder_filings": 21,
+      "insider_filings": 24
+    },
+    {
+      "name": "ALPHA INTEGRATED REIT MANAGEMENT PTE. LTD.",
+      "code": "M1GU",
+      "announcements": 61,
+      "director_filings": 3,
+      "shareholder_filings": 20,
+      "insider_filings": 23
+    },
+    {
+      "name": "ALSET INTERNATIONAL LIMITED",
+      "code": "40V",
+      "announcements": 100,
+      "director_filings": 13,
+      "shareholder_filings": 10,
+      "insider_filings": 23
+    },
+    {
+      "name": "9R LIMITED",
+      "code": "1Y1",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 18,
+      "insider_filings": 22
+    },
+    {
+      "name": "ALBEDO LIMITED",
+      "code": "5IB",
+      "announcements": 100,
+      "director_filings": 9,
+      "shareholder_filings": 13,
+      "insider_filings": 22
+    },
+    {
+      "name": "ACESIAN PARTNERS LIMITED",
+      "code": "5FW",
+      "announcements": 100,
+      "director_filings": 5,
+      "shareholder_filings": 16,
+      "insider_filings": 21
+    },
+    {
+      "name": "AIMS AMP CAPITAL INDUSTRIAL REIT",
+      "code": "O5RU",
+      "announcements": 100,
+      "director_filings": 8,
+      "shareholder_filings": 13,
+      "insider_filings": 21
+    },
+    {
+      "name": "AIMS AMP CAPITAL INDUSTRIAL REIT MANAGEMENT LIMITED",
+      "code": "O5RU",
+      "announcements": 100,
+      "director_filings": 8,
+      "shareholder_filings": 13,
+      "insider_filings": 21
+    },
+    {
+      "name": "800 SUPER HOLDINGS LIMITED",
+      "code": "5TG",
+      "announcements": 100,
+      "director_filings": 13,
+      "shareholder_filings": 7,
+      "insider_filings": 20
+    },
+    {
+      "name": "ANNICA HOLDINGS LIMITED",
+      "code": "JFQ",
+      "announcements": 100,
+      "director_filings": 14,
+      "shareholder_filings": 6,
+      "insider_filings": 20
+    },
+    {
+      "name": "ACMA LTD",
+      "code": "AYV",
+      "announcements": 100,
+      "director_filings": 7,
+      "shareholder_filings": 12,
+      "insider_filings": 19
+    },
+    {
+      "name": "ACMA LTD.",
+      "code": "AYV",
+      "announcements": 100,
+      "director_filings": 7,
+      "shareholder_filings": 12,
+      "insider_filings": 19
+    },
+    {
+      "name": "ALLIANCE MINERAL ASSETS LIMITED",
+      "code": "40F",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 14,
+      "insider_filings": 18
+    },
+    {
+      "name": "APTT MANAGEMENT PTE. LIMITED",
+      "code": "S7OU",
+      "announcements": 100,
+      "director_filings": 18,
+      "shareholder_filings": 0,
+      "insider_filings": 18
+    },
+    {
+      "name": "AIMS APAC REIT MANAGEMENT LIMITED",
+      "code": "O5RU",
+      "announcements": 100,
+      "director_filings": 8,
+      "shareholder_filings": 9,
+      "insider_filings": 17
+    },
+    {
+      "name": "ARA ASSET MANAGEMENT LIMITED",
+      "code": "UFEB",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 13,
+      "insider_filings": 17
+    },
+    {
+      "name": "ABUNDANTE LIMITED",
+      "code": "570",
+      "announcements": 65,
+      "director_filings": 5,
+      "shareholder_filings": 11,
+      "insider_filings": 16
+    },
+    {
+      "name": "ACTION ASIA LIMITED",
+      "code": "A59",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 12,
+      "insider_filings": 16
+    },
+    {
+      "name": "ADDVALUE TECHNOLOGIES LTD",
+      "code": "A31",
+      "announcements": 100,
+      "director_filings": 11,
+      "shareholder_filings": 5,
+      "insider_filings": 16
+    },
+    {
+      "name": "AA GROUP HOLDINGS LTD.",
+      "code": "5GZ",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 11,
+      "insider_filings": 15
+    },
+    {
+      "name": "17LIVE GROUP LIMITED",
+      "code": "LVR",
+      "announcements": 100,
+      "director_filings": 6,
+      "shareholder_filings": 8,
+      "insider_filings": 14
+    },
+    {
+      "name": "ADVENTUS HOLDINGS LIMITED",
+      "code": "5EF",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 12,
+      "insider_filings": 14
+    },
+    {
+      "name": "ACCORDIA GOLF TRUST MANAGEMENT PTE. LTD.",
+      "code": "ADQU",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 13,
+      "insider_filings": 13
+    },
+    {
+      "name": "AJJ MEDTECH HOLDINGS LIMITED",
+      "code": "584",
+      "announcements": 100,
+      "director_filings": 13,
+      "shareholder_filings": 0,
+      "insider_filings": 13
+    },
+    {
+      "name": "ALPHA ENERGY HOLDINGS LIMITED",
+      "code": "5TS",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 13,
+      "insider_filings": 13
+    },
+    {
+      "name": "AMTEK ENGINEERING LTD",
+      "code": "M1P",
+      "announcements": 100,
+      "director_filings": 12,
+      "shareholder_filings": 1,
+      "insider_filings": 13
+    },
+    {
+      "name": "3CNERGY LIMITED",
+      "code": "PPC",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 10,
+      "insider_filings": 12
+    },
+    {
+      "name": "ACROMEC LIMITED",
+      "code": "43F",
+      "announcements": 100,
+      "director_filings": 5,
+      "shareholder_filings": 4,
+      "insider_filings": 9
+    },
+    {
+      "name": "ALLIED TECHNOLOGIES LIMITED",
+      "code": "A13",
+      "announcements": 100,
+      "director_filings": 3,
+      "shareholder_filings": 6,
+      "insider_filings": 9
+    },
+    {
+      "name": "APAC REALTY LIMITED",
+      "code": "CLN",
+      "announcements": 100,
+      "director_filings": 5,
+      "shareholder_filings": 4,
+      "insider_filings": 9
+    },
+    {
+      "name": "8TELECOM INTL HOLDINGS CO LTD",
+      "code": "AZG",
+      "announcements": 100,
+      "director_filings": 5,
+      "shareholder_filings": 3,
+      "insider_filings": 8
+    },
+    {
+      "name": "ACHIEVA LIMITED",
+      "code": "XHV",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 6,
+      "insider_filings": 8
+    },
+    {
+      "name": "ADVANCED HOLDINGS LTD.",
+      "code": "BLZ",
+      "announcements": 100,
+      "director_filings": 5,
+      "shareholder_filings": 3,
+      "insider_filings": 8
+    },
+    {
+      "name": "AMOS GROUP LIMITED",
+      "code": "49B",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 4,
+      "insider_filings": 8
+    },
+    {
+      "name": "5E RESOURCES LIMITED",
+      "code": "NLC",
+      "announcements": 85,
+      "director_filings": 4,
+      "shareholder_filings": 3,
+      "insider_filings": 7
+    },
+    {
+      "name": "ARA ASSET MANAGEMENT (FORTUNE) LIMITED",
+      "code": "F25U",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 7,
+      "insider_filings": 7
+    },
+    {
+      "name": "ADVANCED INTEGRATED MANUFACTURING CORP. LTD.",
+      "code": "AXH",
+      "announcements": 100,
+      "director_filings": 5,
+      "shareholder_filings": 1,
+      "insider_filings": 6
+    },
+    {
+      "name": "ADVANCED SYSTEMS AUTOMATION LIMITED",
+      "code": "WJ9",
+      "announcements": 100,
+      "director_filings": 5,
+      "shareholder_filings": 0,
+      "insider_filings": 5
+    },
+    {
+      "name": "ALPINA HOLDINGS LIMITED",
+      "code": "ZXY",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 3,
+      "insider_filings": 5
+    },
+    {
+      "name": "ABUNDANCE INTERNATIONAL LIMITED",
+      "code": "541",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 0,
+      "insider_filings": 4
+    },
+    {
+      "name": "ALLIANCE HEALTHCARE GROUP LIMITED",
+      "code": "MIJ",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 1,
+      "insider_filings": 2
+    },
+    {
+      "name": "ALPHA DX GROUP LIMITED",
+      "code": "VVL",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 2,
+      "insider_filings": 2
+    },
+    {
+      "name": "AAT CORPORATION LIMITED",
+      "code": "TF7",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 0,
+      "insider_filings": 1
+    },
+    {
+      "name": "ABTERRA LTD.",
+      "code": "L5I",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    },
+    {
+      "name": "ACE ACHIEVE INFOCOM LIMITED",
+      "code": "A75",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    },
+    {
+      "name": "ADVANCER GLOBAL LIMITED",
+      "code": "UNKNOWN",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 0,
+      "insider_filings": 1
+    },
+    {
+      "name": "AF GLOBAL LIMITED",
+      "code": "L38",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 0,
+      "insider_filings": 1
+    },
+    {
+      "name": "ALITA RESOURCES LIMITED",
+      "code": "40F",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    },
+    {
+      "name": "AMCORP GLOBAL LIMITED",
+      "code": "S9B",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    },
+    {
+      "name": "AMPLEFIELD LIMITED",
+      "code": "AOF",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    }
+  ]
+}
