@@ -1,0 +1,321 @@
+{
+  "batch": 4,
+  "timestamp": "2026-11-24T09:25:54.879278",
+  "tested": 200,
+  "pass_count": 39,
+  "fail_count": 161,
+  "pass_candidates": [
+    {
+      "name": "A-SONIC AEROSPACE LIMITED",
+      "code": "BTJ",
+      "announcements": 100,
+      "director_filings": 46,
+      "shareholder_filings": 33,
+      "insider_filings": 79
+    },
+    {
+      "name": "ASPIAL LIFESTYLE LIMITED",
+      "code": "5UF",
+      "announcements": 100,
+      "director_filings": 66,
+      "shareholder_filings": 2,
+      "insider_filings": 68
+    },
+    {
+      "name": "AUDIENCE ANALYTICS LIMITED",
+      "code": "1AZ",
+      "announcements": 100,
+      "director_filings": 24,
+      "shareholder_filings": 3,
+      "insider_filings": 27
+    },
+    {
+      "name": "AVI-TECH ELECTRONICS LIMITED",
+      "code": "BKY",
+      "announcements": 100,
+      "director_filings": 22,
+      "shareholder_filings": 2,
+      "insider_filings": 24
+    },
+    {
+      "name": "AURIC PACIFIC GROUP LIMITED",
+      "code": "A23",
+      "announcements": 100,
+      "director_filings": 20,
+      "shareholder_filings": 1,
+      "insider_filings": 21
+    },
+    {
+      "name": "BANYAN TREE HOLDINGS LIMITED",
+      "code": "B58",
+      "announcements": 100,
+      "director_filings": 3,
+      "shareholder_filings": 17,
+      "insider_filings": 20
+    },
+    {
+      "name": "ASL MARINE HOLDINGS LTD.",
+      "code": "A04",
+      "announcements": 100,
+      "director_filings": 8,
+      "shareholder_filings": 11,
+      "insider_filings": 19
+    },
+    {
+      "name": "A-SMART HOLDINGS LTD.",
+      "code": "BQC",
+      "announcements": 100,
+      "director_filings": 15,
+      "shareholder_filings": 3,
+      "insider_filings": 18
+    },
+    {
+      "name": "AVI-TECH HOLDINGS LIMITED",
+      "code": "1R6",
+      "announcements": 100,
+      "director_filings": 14,
+      "shareholder_filings": 3,
+      "insider_filings": 17
+    },
+    {
+      "name": "AZTECH GROUP LTD.",
+      "code": "AVZ",
+      "announcements": 100,
+      "director_filings": 16,
+      "shareholder_filings": 1,
+      "insider_filings": 17
+    },
+    {
+      "name": "BENG KUANG MARINE LIMITED",
+      "code": "BEZ",
+      "announcements": 100,
+      "director_filings": 8,
+      "shareholder_filings": 9,
+      "insider_filings": 17
+    },
+    {
+      "name": "ASIA VETS HOLDINGS LTD.",
+      "code": "UNKNOWN",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 12,
+      "insider_filings": 16
+    },
+    {
+      "name": "ATTIKA GROUP LTD.",
+      "code": "53W",
+      "announcements": 60,
+      "director_filings": 16,
+      "shareholder_filings": 0,
+      "insider_filings": 16
+    },
+    {
+      "name": "AVARGA LIMITED",
+      "code": "X5N",
+      "announcements": 100,
+      "director_filings": 9,
+      "shareholder_filings": 6,
+      "insider_filings": 15
+    },
+    {
+      "name": "BAKER TECHNOLOGY LIMITED",
+      "code": "BTP",
+      "announcements": 100,
+      "director_filings": 6,
+      "shareholder_filings": 9,
+      "insider_filings": 15
+    },
+    {
+      "name": "BEVERLY JCG LTD.",
+      "code": "9QX",
+      "announcements": 100,
+      "director_filings": 10,
+      "shareholder_filings": 5,
+      "insider_filings": 15
+    },
+    {
+      "name": "ASIATIC GROUP (HOLDINGS) LIMITED",
+      "code": "5CR",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 12,
+      "insider_filings": 13
+    },
+    {
+      "name": "AUTAGCO LTD.",
+      "code": "WNH",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 11,
+      "insider_filings": 13
+    },
+    {
+      "name": "AXCELASIA INC.",
+      "code": "42U",
+      "announcements": 95,
+      "director_filings": 12,
+      "shareholder_filings": 1,
+      "insider_filings": 13
+    },
+    {
+      "name": "BBR HOLDINGS (S) LTD",
+      "code": "KJ5",
+      "announcements": 100,
+      "director_filings": 3,
+      "shareholder_filings": 10,
+      "insider_filings": 13
+    },
+    {
+      "name": "ASPIAL CORPORATION LIMITED",
+      "code": "A30",
+      "announcements": 100,
+      "director_filings": 11,
+      "shareholder_filings": 1,
+      "insider_filings": 12
+    },
+    {
+      "name": "BAN LEONG TECHNOLOGIES LIMITED",
+      "code": "B26",
+      "announcements": 100,
+      "director_filings": 5,
+      "shareholder_filings": 7,
+      "insider_filings": 12
+    },
+    {
+      "name": "AZTECH GLOBAL LTD.",
+      "code": "8AZ",
+      "announcements": 100,
+      "director_filings": 5,
+      "shareholder_filings": 6,
+      "insider_filings": 11
+    },
+    {
+      "name": "BIOLIDICS LIMITED",
+      "code": "8YY",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 9,
+      "insider_filings": 11
+    },
+    {
+      "name": "ASTI HOLDINGS LIMITED",
+      "code": "575",
+      "announcements": 100,
+      "director_filings": 8,
+      "shareholder_filings": 2,
+      "insider_filings": 10
+    },
+    {
+      "name": "ASIASONS CAPITAL LIMITED",
+      "code": "5ET",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 7,
+      "insider_filings": 9
+    },
+    {
+      "name": "Ayondo Ltd.",
+      "code": "1I5",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 8,
+      "insider_filings": 8
+    },
+    {
+      "name": "BHG RETAIL TRUST MANAGEMENT PTE. LTD.",
+      "code": "BMGU",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 7,
+      "insider_filings": 7
+    },
+    {
+      "name": "BEST WORLD INTERNATIONAL LIMITED",
+      "code": "CGN",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 2,
+      "insider_filings": 6
+    },
+    {
+      "name": "ASJ HOLDINGS LIMITED",
+      "code": "538",
+      "announcements": 100,
+      "director_filings": 3,
+      "shareholder_filings": 2,
+      "insider_filings": 5
+    },
+    {
+      "name": "ATTILAN GROUP LIMITED",
+      "code": "5ET",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 3,
+      "insider_filings": 5
+    },
+    {
+      "name": "AVIC INTERNATIONAL MARITIME HOLDINGS LIMITED",
+      "code": "O2I",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 5,
+      "insider_filings": 5
+    },
+    {
+      "name": "BACUI TECHNOLOGIES INTERNATIONAL LTD.",
+      "code": "YYB",
+      "announcements": 76,
+      "director_filings": 1,
+      "shareholder_filings": 4,
+      "insider_filings": 5
+    },
+    {
+      "name": "AUSGROUP LIMITED",
+      "code": "18WB",
+      "announcements": 100,
+      "director_filings": 3,
+      "shareholder_filings": 1,
+      "insider_filings": 4
+    },
+    {
+      "name": "BEVERLY WILSHIRE LTD.",
+      "code": "9QX",
+      "announcements": 40,
+      "director_filings": 0,
+      "shareholder_filings": 4,
+      "insider_filings": 4
+    },
+    {
+      "name": "BH GLOBAL CORPORATION LIMITED",
+      "code": "BQN",
+      "announcements": 100,
+      "director_filings": 2,
+      "shareholder_filings": 1,
+      "insider_filings": 3
+    },
+    {
+      "name": "ATLANTIC NAVIGATION HOLDINGS (SINGAPORE) LIMITED",
+      "code": "5UL",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 1,
+      "insider_filings": 2
+    },
+    {
+      "name": "AXINGTON INC.",
+      "code": "XHV",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 2,
+      "insider_filings": 2
+    },
+    {
+      "name": "AZEUS SYSTEMS HOLDINGS LTD.",
+      "code": "BBW",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 0,
+      "insider_filings": 1
+    }
+  ]
+}

@@ -1,0 +1,1108 @@
+{
+  "timestamp": "2026-11-24T09:34:21.095080",
+  "total_companies": 200,
+  "baseline_count": 100,
+  "expansion_count": 100,
+  "companies": [
+    {
+      "name": "AEDGE GROUP LIMITED",
+      "code": "XVG",
+      "type": "baseline_100"
+    },
+    {
+      "name": "CAPITALAND ASCENDAS REIT",
+      "code": "A17U",
+      "type": "baseline_100"
+    },
+    {
+      "name": "CAPITALAND INTEGRATED COMMERCIAL TRUST",
+      "code": "C38U",
+      "type": "baseline_100"
+    },
+    {
+      "name": "CAPITALAND INVESTMENT LIMITED",
+      "code": "9CI",
+      "type": "baseline_100"
+    },
+    {
+      "name": "CITY DEVELOPMENTS LIMITED",
+      "code": "C09",
+      "type": "baseline_100"
+    },
+    {
+      "name": "CNMC GOLDMINE HOLDINGS LIMITED",
+      "code": "5TP",
+      "type": "baseline_100"
+    },
+    {
+      "name": "DBS GROUP HOLDINGS",
+      "code": "D05",
+      "type": "baseline_100"
+    },
+    {
+      "name": "FIRST REIT",
+      "code": "AW9U",
+      "type": "baseline_100"
+    },
+    {
+      "name": "GENTING SINGAPORE LIMITED",
+      "code": "G13",
+      "type": "baseline_100"
+    },
+    {
+      "name": "GRAND BANKS YACHTS LIMITED",
+      "code": "G50",
+      "type": "baseline_100"
+    },
+    {
+      "name": "GREAT EASTERN HOLDINGS",
+      "code": "G07",
+      "type": "baseline_100"
+    },
+    {
+      "name": "GUOCOLAND LIMITED",
+      "code": "F17",
+      "type": "baseline_100"
+    },
+    {
+      "name": "HAW PAR CORPORATION",
+      "code": "H02",
+      "type": "baseline_100"
+    },
+    {
+      "name": "HYPHENS PHARMA INTERNATIONAL LIMITED",
+      "code": "1J5",
+      "type": "baseline_100"
+    },
+    {
+      "name": "IX BIOPHARMA LTD",
+      "code": "42C",
+      "type": "baseline_100"
+    },
+    {
+      "name": "JARDINE CYCLE & CARRIAGE",
+      "code": "C07",
+      "type": "baseline_100"
+    },
+    {
+      "name": "JUSTCO HOLDINGS LIMITED",
+      "code": "JCO",
+      "type": "baseline_100"
+    },
+    {
+      "name": "LUM CHANG HOLDINGS LIMITED",
+      "code": "L19",
+      "type": "baseline_100"
+    },
+    {
+      "name": "MAPLETREE INDUSTRIAL TRUST",
+      "code": "ME8U",
+      "type": "baseline_100"
+    },
+    {
+      "name": "MAPLETREE LOGISTICS TRUST",
+      "code": "M44U",
+      "type": "baseline_100"
+    },
+    {
+      "name": "MOOREAST HOLDINGS LTD",
+      "code": "1V3",
+      "type": "baseline_100"
+    },
+    {
+      "name": "OILTEK INTERNATIONAL LIMITED",
+      "code": "HQU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "OLAM GROUP LIMITED",
+      "code": "VC2",
+      "type": "baseline_100"
+    },
+    {
+      "name": "OVERSEA-CHINESE BANKING CORPORATION LIMITED",
+      "code": "O39",
+      "type": "baseline_100"
+    },
+    {
+      "name": "SEATRIUM LIMITED",
+      "code": "5E2",
+      "type": "baseline_100"
+    },
+    {
+      "name": "SIA ENGINEERING COMPANY LIMITED",
+      "code": "S59",
+      "type": "baseline_100"
+    },
+    {
+      "name": "SINGAPORE AIRLINES LIMITED",
+      "code": "C6L",
+      "type": "baseline_100"
+    },
+    {
+      "name": "SINGAPORE EXCHANGE LIMITED",
+      "code": "S68",
+      "type": "baseline_100"
+    },
+    {
+      "name": "SINGAPORE TECHNOLOGIES ENGINEERING",
+      "code": "S63",
+      "type": "baseline_100"
+    },
+    {
+      "name": "TREK 2000 INTERNATIONAL LTD",
+      "code": "5AB",
+      "type": "baseline_100"
+    },
+    {
+      "name": "VENTURE CORPORATION",
+      "code": "V03",
+      "type": "baseline_100"
+    },
+    {
+      "name": "WILMAR INTERNATIONAL LIMITED",
+      "code": "F34",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AOXIN Q & M DENTAL GRP LIMITED",
+      "code": "1D4",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ACCRELIST LTD.",
+      "code": "QZG",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ANCHUN INTERNATIONAL HOLDINGS LTD.",
+      "code": "BTX",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AEM HOLDINGS LTD.",
+      "code": "AWX",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ANNAIK LIMITED",
+      "code": "A52",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ARA-CWT TRUST MANAGEMENT (CACHE) LIMITED",
+      "code": "K2LU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ACROMETA GROUP LIMITED",
+      "code": "43F",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AEI CORPORATION LTD.",
+      "code": "AWG",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Capitaland Ascendas REIT",
+      "code": "UNKNOWN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ABR HOLDINGS LIMITED",
+      "code": "533",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ALL-LINK AIR & SEA LIMITED",
+      "code": "ALK",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ADVANCE SCT LIMITED",
+      "code": "5FH",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Sheng Siong Group Ltd",
+      "code": "OV8",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AMARA HOLDINGS LIMITED",
+      "code": "A34",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ANCHOR RESOURCES LIMITED",
+      "code": "43E",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ALPHA INTEGRATED REIT MANAGEMENT PTE. LTD.",
+      "code": "M1GU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ALSET INTERNATIONAL LIMITED",
+      "code": "40V",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Singapore Airlines Limited",
+      "code": "VB9B",
+      "type": "baseline_100"
+    },
+    {
+      "name": "9R LIMITED",
+      "code": "1Y1",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ALBEDO LIMITED",
+      "code": "5IB",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ACESIAN PARTNERS LIMITED",
+      "code": "5FW",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AIMS AMP CAPITAL INDUSTRIAL REIT",
+      "code": "O5RU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AIMS AMP CAPITAL INDUSTRIAL REIT MANAGEMENT LIMITED",
+      "code": "O5RU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "800 SUPER HOLDINGS LIMITED",
+      "code": "5TG",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ANNICA HOLDINGS LIMITED",
+      "code": "JFQ",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Mapletree Commercial Trust",
+      "code": "N2IU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ACMA LTD",
+      "code": "AYV",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ACMA LTD.",
+      "code": "AYV",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ALLIANCE MINERAL ASSETS LIMITED",
+      "code": "40F",
+      "type": "baseline_100"
+    },
+    {
+      "name": "APTT MANAGEMENT PTE. LIMITED",
+      "code": "S7OU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Wilmar International Limited",
+      "code": "UNKNOWN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AIMS APAC REIT",
+      "code": "O5RU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AIMS Apac REIT",
+      "code": "O5RU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AIMS APAC REIT MANAGEMENT LIMITED",
+      "code": "O5RU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ARA ASSET MANAGEMENT LIMITED",
+      "code": "UFEB",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Singapore Telecommunications Limited",
+      "code": "Z74",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ABUNDANTE LIMITED",
+      "code": "570",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ACTION ASIA LIMITED",
+      "code": "A59",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ADDVALUE TECHNOLOGIES LTD",
+      "code": "A31",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AA GROUP HOLDINGS LTD.",
+      "code": "5GZ",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Genting Singapore Limited",
+      "code": "UNKNOWN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "17LIVE GROUP LIMITED",
+      "code": "LVR",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ADVENTUS HOLDINGS LIMITED",
+      "code": "5EF",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ACCORDIA GOLF TRUST MANAGEMENT PTE. LTD.",
+      "code": "ADQU",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AJJ MEDTECH HOLDINGS LIMITED",
+      "code": "584",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ALPHA ENERGY HOLDINGS LIMITED",
+      "code": "5TS",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AMTEK ENGINEERING LTD",
+      "code": "M1P",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Seatrium Limited",
+      "code": "UNKNOWN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "3CNERGY LIMITED",
+      "code": "PPC",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Golden Agri-Resources Ltd",
+      "code": "E5H",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ACROMEC LIMITED",
+      "code": "43F",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ALLIED TECHNOLOGIES LIMITED",
+      "code": "A13",
+      "type": "baseline_100"
+    },
+    {
+      "name": "APAC REALTY LIMITED",
+      "code": "CLN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "8TELECOM INTL HOLDINGS CO LTD",
+      "code": "AZG",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ACHIEVA LIMITED",
+      "code": "XHV",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ADVANCED HOLDINGS LTD.",
+      "code": "BLZ",
+      "type": "baseline_100"
+    },
+    {
+      "name": "AMOS GROUP LIMITED",
+      "code": "49B",
+      "type": "baseline_100"
+    },
+    {
+      "name": "5E RESOURCES LIMITED",
+      "code": "NLC",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ARA ASSET MANAGEMENT (FORTUNE) LIMITED",
+      "code": "F25U",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Mapletree Logistics Trust",
+      "code": "UNKNOWN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ADVANCED INTEGRATED MANUFACTURING CORP. LTD.",
+      "code": "AXH",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Mapletree Industrial Trust",
+      "code": "UNKNOWN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "First REIT",
+      "code": "UNKNOWN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ADVANCED SYSTEMS AUTOMATION LIMITED",
+      "code": "WJ9",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ALPINA HOLDINGS LIMITED",
+      "code": "ZXY",
+      "type": "baseline_100"
+    },
+    {
+      "name": "ABUNDANCE INTERNATIONAL LIMITED",
+      "code": "541",
+      "type": "baseline_100"
+    },
+    {
+      "name": "Singapore Exchange Limited",
+      "code": "UNKNOWN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "City Developments Limited",
+      "code": "UNKNOWN",
+      "type": "baseline_100"
+    },
+    {
+      "name": "A-SONIC AEROSPACE LIMITED",
+      "code": "BTJ",
+      "type": "expansion_100",
+      "insider_filings": 79
+    },
+    {
+      "name": "ASPIAL LIFESTYLE LIMITED",
+      "code": "5UF",
+      "type": "expansion_100",
+      "insider_filings": 68
+    },
+    {
+      "name": "CHINA FLEXIBLE PACKAGING HOLDINGS LIMITED",
+      "code": "BCX",
+      "type": "expansion_100",
+      "insider_filings": 45
+    },
+    {
+      "name": "ARA TRUST MANAGEMENT (CACHE) LIMITED",
+      "code": "K2LU",
+      "type": "expansion_100",
+      "insider_filings": 41
+    },
+    {
+      "name": "CHALLENGER TECHNOLOGIES LIMITED",
+      "code": "573",
+      "type": "expansion_100",
+      "insider_filings": 41
+    },
+    {
+      "name": "ASIAMEDIC LIMITED",
+      "code": "505",
+      "type": "expansion_100",
+      "insider_filings": 32
+    },
+    {
+      "name": "CHEMICAL INDUSTRIES (FAR EAST) LIMITED.",
+      "code": "C05",
+      "type": "expansion_100",
+      "insider_filings": 32
+    },
+    {
+      "name": "ARION ENTERTAINMENT SINGAPORE LIMITED",
+      "code": "YYB",
+      "type": "expansion_100",
+      "insider_filings": 31
+    },
+    {
+      "name": "ASCENDAS PROPERTY FUND TRUSTEE PTE. LTD.",
+      "code": "CY6U",
+      "type": "expansion_100",
+      "insider_filings": 31
+    },
+    {
+      "name": "ARMARDA GROUP LIMITED",
+      "code": "5EK",
+      "type": "expansion_100",
+      "insider_filings": 29
+    },
+    {
+      "name": "ASIAN HEALTHCARE SPECIALISTS LIMITED",
+      "code": "1J3",
+      "type": "expansion_100",
+      "insider_filings": 29
+    },
+    {
+      "name": "AUDIENCE ANALYTICS LIMITED",
+      "code": "1AZ",
+      "type": "expansion_100",
+      "insider_filings": 27
+    },
+    {
+      "name": "ASCENDAS FUNDS MANAGEMENT (S) LIMITED",
+      "code": "A17U",
+      "type": "expansion_100",
+      "insider_filings": 27
+    },
+    {
+      "name": "ASCENDAS HOSPITALITY FUND MANAGEMENT PTE. LTD.",
+      "code": "Q1P",
+      "type": "expansion_100",
+      "insider_filings": 27
+    },
+    {
+      "name": "CHOSEN HOLDINGS LIMITED",
+      "code": "C10",
+      "type": "expansion_100",
+      "insider_filings": 26
+    },
+    {
+      "name": "AVI-TECH ELECTRONICS LIMITED",
+      "code": "BKY",
+      "type": "expansion_100",
+      "insider_filings": 24
+    },
+    {
+      "name": "CLEARBRIDGE HEALTH LIMITED",
+      "code": "1H3",
+      "type": "expansion_100",
+      "insider_filings": 24
+    },
+    {
+      "name": "ASIAN MICRO HOLDINGS LIMITED",
+      "code": "585",
+      "type": "expansion_100",
+      "insider_filings": 23
+    },
+    {
+      "name": "CHINA JINJIANG ENVIRONMENT HOLDING COMPANY LIMITED",
+      "code": "BWM",
+      "type": "expansion_100",
+      "insider_filings": 22
+    },
+    {
+      "name": "AURIC PACIFIC GROUP LIMITED",
+      "code": "A23",
+      "type": "expansion_100",
+      "insider_filings": 21
+    },
+    {
+      "name": "ARA LOGOS LOGISTICS TRUST MANAGEMENT LIMITED",
+      "code": "UNKNOWN",
+      "type": "expansion_100",
+      "insider_filings": 21
+    },
+    {
+      "name": "CHINA PRINT POWER GROUP LTD",
+      "code": "B3C",
+      "type": "expansion_100",
+      "insider_filings": 21
+    },
+    {
+      "name": "BANYAN TREE HOLDINGS LIMITED",
+      "code": "B58",
+      "type": "expansion_100",
+      "insider_filings": 20
+    },
+    {
+      "name": "ASL MARINE HOLDINGS LTD.",
+      "code": "A04",
+      "type": "expansion_100",
+      "insider_filings": 19
+    },
+    {
+      "name": "A-SMART HOLDINGS LTD.",
+      "code": "BQC",
+      "type": "expansion_100",
+      "insider_filings": 18
+    },
+    {
+      "name": "CHINA MEDICAL (INTERNATIONAL) GROUP LIMITED",
+      "code": "VFP",
+      "type": "expansion_100",
+      "insider_filings": 18
+    },
+    {
+      "name": "CMC INFOCOMM LIMITED",
+      "code": "42F",
+      "type": "expansion_100",
+      "insider_filings": 18
+    },
+    {
+      "name": "AVI-TECH HOLDINGS LIMITED",
+      "code": "1R6",
+      "type": "expansion_100",
+      "insider_filings": 17
+    },
+    {
+      "name": "AZTECH GROUP LTD.",
+      "code": "AVZ",
+      "type": "expansion_100",
+      "insider_filings": 17
+    },
+    {
+      "name": "BENG KUANG MARINE LIMITED",
+      "code": "BEZ",
+      "type": "expansion_100",
+      "insider_filings": 17
+    },
+    {
+      "name": "ASIA VETS HOLDINGS LTD.",
+      "code": "UNKNOWN",
+      "type": "expansion_100",
+      "insider_filings": 16
+    },
+    {
+      "name": "ATTIKA GROUP LTD.",
+      "code": "53W",
+      "type": "expansion_100",
+      "insider_filings": 16
+    },
+    {
+      "name": "ASIA FASHION HOLDINGS LIMITED",
+      "code": "BQI",
+      "type": "expansion_100",
+      "insider_filings": 16
+    },
+    {
+      "name": "CHIP ENG SENG CORPORATION LTD.",
+      "code": "C29",
+      "type": "expansion_100",
+      "insider_filings": 16
+    },
+    {
+      "name": "AVARGA LIMITED",
+      "code": "X5N",
+      "type": "expansion_100",
+      "insider_filings": 15
+    },
+    {
+      "name": "BAKER TECHNOLOGY LIMITED",
+      "code": "BTP",
+      "type": "expansion_100",
+      "insider_filings": 15
+    },
+    {
+      "name": "BEVERLY JCG LTD.",
+      "code": "9QX",
+      "type": "expansion_100",
+      "insider_filings": 15
+    },
+    {
+      "name": "ARA TRUST MANAGEMENT (USH) PTE. LTD.",
+      "code": "XZL",
+      "type": "expansion_100",
+      "insider_filings": 15
+    },
+    {
+      "name": "ASCOTT RESIDENCE TRUST MANAGEMENT LIMITED",
+      "code": "HMN",
+      "type": "expansion_100",
+      "insider_filings": 15
+    },
+    {
+      "name": "CHIWAYLAND INTERNATIONAL LIMITED",
+      "code": "ACW",
+      "type": "expansion_100",
+      "insider_filings": 15
+    },
+    {
+      "name": "ASIAPHOS LIMITED",
+      "code": "5WV",
+      "type": "expansion_100",
+      "insider_filings": 14
+    },
+    {
+      "name": "CHINA POWERPLUS LIMITED",
+      "code": "Z02",
+      "type": "expansion_100",
+      "insider_filings": 14
+    },
+    {
+      "name": "CHINA STAR FOOD GROUP LIMITED",
+      "code": "42W",
+      "type": "expansion_100",
+      "insider_filings": 14
+    },
+    {
+      "name": "CH OFFSHORE LTD.",
+      "code": "C13",
+      "type": "expansion_100",
+      "insider_filings": 14
+    },
+    {
+      "name": "ASIATIC GROUP (HOLDINGS) LIMITED",
+      "code": "5CR",
+      "type": "expansion_100",
+      "insider_filings": 13
+    },
+    {
+      "name": "AUTAGCO LTD.",
+      "code": "WNH",
+      "type": "expansion_100",
+      "insider_filings": 13
+    },
+    {
+      "name": "AXCELASIA INC.",
+      "code": "42U",
+      "type": "expansion_100",
+      "insider_filings": 13
+    },
+    {
+      "name": "BBR HOLDINGS (S) LTD",
+      "code": "KJ5",
+      "type": "expansion_100",
+      "insider_filings": 13
+    },
+    {
+      "name": "ARA TRUST MANAGEMENT (SUNTEC) LIMITED",
+      "code": "T82U",
+      "type": "expansion_100",
+      "insider_filings": 13
+    },
+    {
+      "name": "CHEW'S GROUP LIMITED",
+      "code": "5SY",
+      "type": "expansion_100",
+      "insider_filings": 13
+    },
+    {
+      "name": "ASPIAL CORPORATION LIMITED",
+      "code": "A30",
+      "type": "expansion_100",
+      "insider_filings": 12
+    },
+    {
+      "name": "BAN LEONG TECHNOLOGIES LIMITED",
+      "code": "B26",
+      "type": "expansion_100",
+      "insider_filings": 12
+    },
+    {
+      "name": "ASCENT BRIDGE LIMITED",
+      "code": "AWG",
+      "type": "expansion_100",
+      "insider_filings": 12
+    },
+    {
+      "name": "CITYNEON HOLDINGS LIMITED",
+      "code": "5HJ",
+      "type": "expansion_100",
+      "insider_filings": 12
+    },
+    {
+      "name": "AZTECH GLOBAL LTD.",
+      "code": "8AZ",
+      "type": "expansion_100",
+      "insider_filings": 11
+    },
+    {
+      "name": "BIOLIDICS LIMITED",
+      "code": "8YY",
+      "type": "expansion_100",
+      "insider_filings": 11
+    },
+    {
+      "name": "CHINA AUTO ELECTRONICS GRP LTD",
+      "code": "T42",
+      "type": "expansion_100",
+      "insider_filings": 11
+    },
+    {
+      "name": "CHINA BEARING (SINGAPORE) LTD.",
+      "code": "STP",
+      "type": "expansion_100",
+      "insider_filings": 11
+    },
+    {
+      "name": "CITIC ENVIROTECH LTD.",
+      "code": "82IB",
+      "type": "expansion_100",
+      "insider_filings": 11
+    },
+    {
+      "name": "ASTI HOLDINGS LIMITED",
+      "code": "575",
+      "type": "expansion_100",
+      "insider_filings": 10
+    },
+    {
+      "name": "CHINA HONGCHENG HOLDINGS LTD",
+      "code": "C0Z",
+      "type": "expansion_100",
+      "insider_filings": 10
+    },
+    {
+      "name": "CIVMEC LIMITED",
+      "code": "P9D",
+      "type": "expansion_100",
+      "insider_filings": 10
+    },
+    {
+      "name": "ASIASONS CAPITAL LIMITED",
+      "code": "5ET",
+      "type": "expansion_100",
+      "insider_filings": 9
+    },
+    {
+      "name": "ARTIVISION TECHNOLOGIES LTD.",
+      "code": "TVV",
+      "type": "expansion_100",
+      "insider_filings": 9
+    },
+    {
+      "name": "Ayondo Ltd.",
+      "code": "1I5",
+      "type": "expansion_100",
+      "insider_filings": 8
+    },
+    {
+      "name": "CHEUNG WOH TECHNOLOGIES LTD",
+      "code": "UNKNOWN",
+      "type": "expansion_100",
+      "insider_filings": 8
+    },
+    {
+      "name": "CHINA ENERGY LIMITED",
+      "code": "A0G",
+      "type": "expansion_100",
+      "insider_filings": 8
+    },
+    {
+      "name": "CHINA SHENSHAN ORCHARD HOLDINGS CO. LTD.",
+      "code": "UNKNOWN",
+      "type": "expansion_100",
+      "insider_filings": 8
+    },
+    {
+      "name": "BHG RETAIL TRUST MANAGEMENT PTE. LTD.",
+      "code": "BMGU",
+      "type": "expansion_100",
+      "insider_filings": 7
+    },
+    {
+      "name": "CHINA DAIRY GROUP LTD.",
+      "code": "T16",
+      "type": "expansion_100",
+      "insider_filings": 7
+    },
+    {
+      "name": "CHINA INTERNATIONAL HOLDINGS LIMITED",
+      "code": "BEH",
+      "type": "expansion_100",
+      "insider_filings": 7
+    },
+    {
+      "name": "CHINA MINZHONG FOOD CORPORATION LIMITED",
+      "code": "K2N",
+      "type": "expansion_100",
+      "insider_filings": 7
+    },
+    {
+      "name": "BEST WORLD INTERNATIONAL LIMITED",
+      "code": "CGN",
+      "type": "expansion_100",
+      "insider_filings": 6
+    },
+    {
+      "name": "ASIA ENTERPRISES HOLDING LIMITED",
+      "code": "A55",
+      "type": "expansion_100",
+      "insider_filings": 6
+    },
+    {
+      "name": "CHANGTIAN PLASTIC & CHEM LTD",
+      "code": "AXV",
+      "type": "expansion_100",
+      "insider_filings": 6
+    },
+    {
+      "name": "CHASEN HOLDINGS LIMITED",
+      "code": "5NV",
+      "type": "expansion_100",
+      "insider_filings": 6
+    },
+    {
+      "name": "CHINA MERCHANTS HOLDINGS (PACIFIC) LIMITED",
+      "code": "2LEB",
+      "type": "expansion_100",
+      "insider_filings": 6
+    },
+    {
+      "name": "CHINA SKY CHEMICAL FIBRE CO., LTD.",
+      "code": "E90",
+      "type": "expansion_100",
+      "insider_filings": 6
+    },
+    {
+      "name": "ASJ HOLDINGS LIMITED",
+      "code": "538",
+      "type": "expansion_100",
+      "insider_filings": 5
+    },
+    {
+      "name": "ATTILAN GROUP LIMITED",
+      "code": "5ET",
+      "type": "expansion_100",
+      "insider_filings": 5
+    },
+    {
+      "name": "AVIC INTERNATIONAL MARITIME HOLDINGS LIMITED",
+      "code": "O2I",
+      "type": "expansion_100",
+      "insider_filings": 5
+    },
+    {
+      "name": "BACUI TECHNOLOGIES INTERNATIONAL LTD.",
+      "code": "YYB",
+      "type": "expansion_100",
+      "insider_filings": 5
+    },
+    {
+      "name": "CHARISMA ENERGY SERVICES LIMITED",
+      "code": "YSV",
+      "type": "expansion_100",
+      "insider_filings": 5
+    },
+    {
+      "name": "CHINA GAOXIAN FIBRE FABRIC HOLDINGS LTD.",
+      "code": "AZZ",
+      "type": "expansion_100",
+      "insider_filings": 5
+    },
+    {
+      "name": "CHINA GREAT LAND HOLDINGS LTD.",
+      "code": "D50",
+      "type": "expansion_100",
+      "insider_filings": 5
+    },
+    {
+      "name": "CHINA JISHAN HOLDINGS LIMITED",
+      "code": "J18",
+      "type": "expansion_100",
+      "insider_filings": 5
+    },
+    {
+      "name": "AUSGROUP LIMITED",
+      "code": "18WB",
+      "type": "expansion_100",
+      "insider_filings": 4
+    },
+    {
+      "name": "BEVERLY WILSHIRE LTD.",
+      "code": "9QX",
+      "type": "expansion_100",
+      "insider_filings": 4
+    },
+    {
+      "name": "CHEMOIL ENERGY LIMITED",
+      "code": "UNKNOWN",
+      "type": "expansion_100",
+      "insider_filings": 4
+    },
+    {
+      "name": "CHINA KUNDA TECHNOLOGY HOLDINGS LIMITED",
+      "code": "GU5",
+      "type": "expansion_100",
+      "insider_filings": 4
+    },
+    {
+      "name": "CHINA SUNSINE CHEMICAL HOLDINGS LTD.",
+      "code": "QES",
+      "type": "expansion_100",
+      "insider_filings": 4
+    },
+    {
+      "name": "Sim Leisure Group",
+      "code": "URR",
+      "type": "expansion_100",
+      "insider_filings": 3
+    },
+    {
+      "name": "BH GLOBAL CORPORATION LIMITED",
+      "code": "BQN",
+      "type": "expansion_100",
+      "insider_filings": 3
+    },
+    {
+      "name": "CHINA FISHERY GROUP LIMITED",
+      "code": "B0Z",
+      "type": "expansion_100",
+      "insider_filings": 3
+    },
+    {
+      "name": "CHINA REAL ESTATE GRP LTD.",
+      "code": "5RA",
+      "type": "expansion_100",
+      "insider_filings": 3
+    },
+    {
+      "name": "CHUAN HUP HOLDINGS LIMITED",
+      "code": "C33",
+      "type": "expansion_100",
+      "insider_filings": 3
+    },
+    {
+      "name": "CITICODE LTD.",
+      "code": "5FH",
+      "type": "expansion_100",
+      "insider_filings": 3
+    },
+    {
+      "name": "Oversea-Chinese Banking Corporation Limited",
+      "code": "UNKNOWN",
+      "type": "expansion_100",
+      "insider_filings": 2
+    },
+    {
+      "name": "ALLIANCE HEALTHCARE GROUP LIMITED",
+      "code": "MIJ",
+      "type": "expansion_100",
+      "insider_filings": 2
+    },
+    {
+      "name": "ALPHA DX GROUP LIMITED",
+      "code": "VVL",
+      "type": "expansion_100",
+      "insider_filings": 2
+    }
+  ]
+}

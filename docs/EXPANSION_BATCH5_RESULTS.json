@@ -1,0 +1,233 @@
+{
+  "batch": 5,
+  "timestamp": "2026-11-24T09:27:49.143951",
+  "tested": 250,
+  "pass_count": 28,
+  "fail_count": 222,
+  "pass_candidates": [
+    {
+      "name": "ARA TRUST MANAGEMENT (CACHE) LIMITED",
+      "code": "K2LU",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 37,
+      "insider_filings": 41
+    },
+    {
+      "name": "ASIAMEDIC LIMITED",
+      "code": "505",
+      "announcements": 100,
+      "director_filings": 9,
+      "shareholder_filings": 23,
+      "insider_filings": 32
+    },
+    {
+      "name": "ARION ENTERTAINMENT SINGAPORE LIMITED",
+      "code": "YYB",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 27,
+      "insider_filings": 31
+    },
+    {
+      "name": "ASCENDAS PROPERTY FUND TRUSTEE PTE. LTD.",
+      "code": "CY6U",
+      "announcements": 100,
+      "director_filings": 11,
+      "shareholder_filings": 20,
+      "insider_filings": 31
+    },
+    {
+      "name": "ARMARDA GROUP LIMITED",
+      "code": "5EK",
+      "announcements": 100,
+      "director_filings": 13,
+      "shareholder_filings": 16,
+      "insider_filings": 29
+    },
+    {
+      "name": "ASIAN HEALTHCARE SPECIALISTS LIMITED",
+      "code": "1J3",
+      "announcements": 100,
+      "director_filings": 4,
+      "shareholder_filings": 25,
+      "insider_filings": 29
+    },
+    {
+      "name": "ASCENDAS FUNDS MANAGEMENT (S) LIMITED",
+      "code": "A17U",
+      "announcements": 100,
+      "director_filings": 6,
+      "shareholder_filings": 21,
+      "insider_filings": 27
+    },
+    {
+      "name": "ASCENDAS HOSPITALITY FUND MANAGEMENT PTE. LTD.",
+      "code": "Q1P",
+      "announcements": 100,
+      "director_filings": 6,
+      "shareholder_filings": 21,
+      "insider_filings": 27
+    },
+    {
+      "name": "ASIAN MICRO HOLDINGS LIMITED",
+      "code": "585",
+      "announcements": 100,
+      "director_filings": 15,
+      "shareholder_filings": 8,
+      "insider_filings": 23
+    },
+    {
+      "name": "ARA LOGOS LOGISTICS TRUST MANAGEMENT LIMITED",
+      "code": "UNKNOWN",
+      "announcements": 100,
+      "director_filings": 3,
+      "shareholder_filings": 18,
+      "insider_filings": 21
+    },
+    {
+      "name": "ASIA FASHION HOLDINGS LIMITED",
+      "code": "BQI",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 16,
+      "insider_filings": 16
+    },
+    {
+      "name": "ARA TRUST MANAGEMENT (USH) PTE. LTD.",
+      "code": "XZL",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 14,
+      "insider_filings": 15
+    },
+    {
+      "name": "ASCOTT RESIDENCE TRUST MANAGEMENT LIMITED",
+      "code": "HMN",
+      "announcements": 100,
+      "director_filings": 6,
+      "shareholder_filings": 9,
+      "insider_filings": 15
+    },
+    {
+      "name": "ASIAPHOS LIMITED",
+      "code": "5WV",
+      "announcements": 100,
+      "director_filings": 8,
+      "shareholder_filings": 6,
+      "insider_filings": 14
+    },
+    {
+      "name": "ARA TRUST MANAGEMENT (SUNTEC) LIMITED",
+      "code": "T82U",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 13,
+      "insider_filings": 13
+    },
+    {
+      "name": "ASCENT BRIDGE LIMITED",
+      "code": "AWG",
+      "announcements": 100,
+      "director_filings": 3,
+      "shareholder_filings": 9,
+      "insider_filings": 12
+    },
+    {
+      "name": "ARTIVISION TECHNOLOGIES LTD.",
+      "code": "TVV",
+      "announcements": 100,
+      "director_filings": 3,
+      "shareholder_filings": 6,
+      "insider_filings": 9
+    },
+    {
+      "name": "ASIA ENTERPRISES HOLDING LIMITED",
+      "code": "A55",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 5,
+      "insider_filings": 6
+    },
+    {
+      "name": "ALLIANCE HEALTHCARE GROUP LIMITED",
+      "code": "MIJ",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 1,
+      "insider_filings": 2
+    },
+    {
+      "name": "ALPHA DX GROUP LIMITED",
+      "code": "VVL",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 2,
+      "insider_filings": 2
+    },
+    {
+      "name": "AAT CORPORATION LIMITED",
+      "code": "TF7",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 0,
+      "insider_filings": 1
+    },
+    {
+      "name": "ABTERRA LTD.",
+      "code": "L5I",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    },
+    {
+      "name": "ACE ACHIEVE INFOCOM LIMITED",
+      "code": "A75",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    },
+    {
+      "name": "ADVANCER GLOBAL LIMITED",
+      "code": "UNKNOWN",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 0,
+      "insider_filings": 1
+    },
+    {
+      "name": "AF GLOBAL LIMITED",
+      "code": "L38",
+      "announcements": 100,
+      "director_filings": 1,
+      "shareholder_filings": 0,
+      "insider_filings": 1
+    },
+    {
+      "name": "ALITA RESOURCES LIMITED",
+      "code": "40F",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    },
+    {
+      "name": "AMCORP GLOBAL LIMITED",
+      "code": "S9B",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    },
+    {
+      "name": "AMPLEFIELD LIMITED",
+      "code": "AOF",
+      "announcements": 100,
+      "director_filings": 0,
+      "shareholder_filings": 1,
+      "insider_filings": 1
+    }
+  ]
+}
