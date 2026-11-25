@@ -1,0 +1,141 @@
+{
+  "batch": 8,
+  "timestamp": "2026-11-25T15:17:25.185165",
+  "tested": 400,
+  "pass_count": 22,
+  "fail_count": 378,
+  "pass_candidates": [
+    {
+      "name": "BOWSPRIT CAPITAL CORPORATION LIMITED",
+      "code": "AW9U",
+      "insider_filings": 42,
+      "announcements": 100
+    },
+    {
+      "name": "BONVESTS HOLDINGS LIMITED",
+      "code": "B28",
+      "insider_filings": 37,
+      "announcements": 100
+    },
+    {
+      "name": "BIOSENSORS INTERNATIONAL GROUP, LTD.",
+      "code": "B20",
+      "insider_filings": 27,
+      "announcements": 100
+    },
+    {
+      "name": "BOARDROOM LIMITED",
+      "code": "B10",
+      "insider_filings": 14,
+      "announcements": 100
+    },
+    {
+      "name": "BOUSTEAD PROJECTS LIMITED",
+      "code": "AVM",
+      "insider_filings": 13,
+      "announcements": 100
+    },
+    {
+      "name": "BOUSTEAD SINGAPORE LIMITED",
+      "code": "F9D",
+      "insider_filings": 11,
+      "announcements": 100
+    },
+    {
+      "name": "BLUMONT GROUP LTD.",
+      "code": "A33",
+      "insider_filings": 8,
+      "announcements": 100
+    },
+    {
+      "name": "BREADTALK GROUP LIMITED",
+      "code": "8EVB",
+      "insider_filings": 8,
+      "announcements": 100
+    },
+    {
+      "name": "BM MOBILITY LTD.",
+      "code": "CQEW",
+      "insider_filings": 4,
+      "announcements": 100
+    },
+    {
+      "name": "BRC ASIA LIMITED",
+      "code": "BEC",
+      "insider_filings": 4,
+      "announcements": 100
+    },
+    {
+      "name": "BLACKGOLD NATURAL RESOURCES LIMITED",
+      "code": "41H",
+      "insider_filings": 3,
+      "announcements": 100
+    },
+    {
+      "name": "ATLANTIC NAVIGATION HOLDINGS (SINGAPORE) LIMITED",
+      "code": "5UL",
+      "insider_filings": 2,
+      "announcements": 100
+    },
+    {
+      "name": "AXINGTON INC.",
+      "code": "XHV",
+      "insider_filings": 2,
+      "announcements": 100
+    },
+    {
+      "name": "AAT CORPORATION LIMITED",
+      "code": "TF7",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "ABTERRA LTD.",
+      "code": "L5I",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "ACE ACHIEVE INFOCOM LIMITED",
+      "code": "A75",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "ADVANCER GLOBAL LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "AF GLOBAL LIMITED",
+      "code": "L38",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "ALITA RESOURCES LIMITED",
+      "code": "40F",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "AMCORP GLOBAL LIMITED",
+      "code": "S9B",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "AMPLEFIELD LIMITED",
+      "code": "AOF",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "AZEUS SYSTEMS HOLDINGS LTD.",
+      "code": "BBW",
+      "insider_filings": 1,
+      "announcements": 100
+    }
+  ]
+}

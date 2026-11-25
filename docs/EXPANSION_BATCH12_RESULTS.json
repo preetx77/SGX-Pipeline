@@ -1,0 +1,477 @@
+{
+  "batch": 12,
+  "tested": 400,
+  "pass_count": 94,
+  "pass_candidates": [
+    {
+      "name": "LINC ENERGY LTD",
+      "code": "BRE",
+      "insider_filings": 51
+    },
+    {
+      "name": "LION TECK CHIANG LIMITED",
+      "code": "L17",
+      "insider_filings": 44
+    },
+    {
+      "name": "KEPPEL REIT MANAGEMENT LIMITED",
+      "code": "K71U",
+      "insider_filings": 43
+    },
+    {
+      "name": "KATRINA GROUP LTD.",
+      "code": "UNKNOWN",
+      "insider_filings": 37
+    },
+    {
+      "name": "KEPPEL DC REIT MANAGEMENT PTE. LTD.",
+      "code": "AJBU",
+      "insider_filings": 36
+    },
+    {
+      "name": "KEPPEL-KBS US REIT MANAGEMENT PTE. LTD.",
+      "code": "CMOU",
+      "insider_filings": 35
+    },
+    {
+      "name": "LMS COMPLIANCE LTD.",
+      "code": "LMS",
+      "insider_filings": 35
+    },
+    {
+      "name": "KIM HENG OFFSHORE & MARINE HOLDINGS LIMITED",
+      "code": "5G2",
+      "insider_filings": 33
+    },
+    {
+      "name": "LCD GLOBAL INVESTMENTS LTD.",
+      "code": "L38",
+      "insider_filings": 33
+    },
+    {
+      "name": "KEPPEL PACIFIC OAK US REIT MANAGEMENT PTE. LTD.",
+      "code": "CMOU",
+      "insider_filings": 32
+    },
+    {
+      "name": "KBS US PRIME PROPERTY MANAGEMENT PTE. LTD.",
+      "code": "OXMU",
+      "insider_filings": 30
+    },
+    {
+      "name": "LENDLEASE GLOBAL COMMERCIAL TRUST MANAGEMENT PTE. LTD. ",
+      "code": "JYEU",
+      "insider_filings": 29
+    },
+    {
+      "name": "LHT HOLDINGS LIMITED",
+      "code": "BEI",
+      "insider_filings": 28
+    },
+    {
+      "name": "MACQUARIE APTT MANAGEMENT PTE. LIMITED",
+      "code": "S7OU",
+      "insider_filings": 24
+    },
+    {
+      "name": "MAPLETREE GREATER CHINA COMMERCIAL TRUST MANAGEMENT LTD.",
+      "code": "RW0U",
+      "insider_filings": 24
+    },
+    {
+      "name": "LINCOTRADE & ASSOCIATES HOLDINGS LIMITED",
+      "code": "BFT",
+      "insider_filings": 22
+    },
+    {
+      "name": "LOYZ ENERGY LIMITED",
+      "code": "594",
+      "insider_filings": 21
+    },
+    {
+      "name": "LUM CHANG CREATIONS LIMITED",
+      "code": "LCC",
+      "insider_filings": 21
+    },
+    {
+      "name": "MANHATTAN RESOURCES LIMITED",
+      "code": "L02",
+      "insider_filings": 21
+    },
+    {
+      "name": "MAPLETREE COMMERCIAL TRUST MANAGEMENT LTD.",
+      "code": "N2IU",
+      "insider_filings": 21
+    },
+    {
+      "name": "LEONG GUAN HOLDINGS LIMITED",
+      "code": "LGH",
+      "insider_filings": 20
+    },
+    {
+      "name": "LIONGOLD CORP LTD",
+      "code": "A78",
+      "insider_filings": 20
+    },
+    {
+      "name": "M1 LIMITED",
+      "code": "B2F",
+      "insider_filings": 20
+    },
+    {
+      "name": "KIN GLOBAL LIMITED",
+      "code": "KIN",
+      "insider_filings": 19
+    },
+    {
+      "name": "LIAN BENG GROUP LTD",
+      "code": "L03",
+      "insider_filings": 19
+    },
+    {
+      "name": "KIM HENG LTD.",
+      "code": "5G2",
+      "insider_filings": 18
+    },
+    {
+      "name": "LH GROUP LIMITED",
+      "code": "H27",
+      "insider_filings": 18
+    },
+    {
+      "name": "LIVINGSTONE HEALTH HOLDINGS LIMITED",
+      "code": "PRH",
+      "insider_filings": 18
+    },
+    {
+      "name": "MANUFACTURING INTEGRATION TECHNOLOGY LTD.",
+      "code": "M11",
+      "insider_filings": 18
+    },
+    {
+      "name": "JUMBO GROUP LIMITED",
+      "code": "42R",
+      "insider_filings": 17
+    },
+    {
+      "name": "KORE US REIT MANAGEMENT PTE. LTD.",
+      "code": "CMOU",
+      "insider_filings": 17
+    },
+    {
+      "name": "KEPPEL INFRASTRUCTURE FUND MANAGEMENT PTE LTD",
+      "code": "A7RU",
+      "insider_filings": 16
+    },
+    {
+      "name": "LANTROVISION (S) LTD",
+      "code": "BJK",
+      "insider_filings": 16
+    },
+    {
+      "name": "LUZHOU BIO-CHEM TECHNOLOGY LIMITED",
+      "code": "L46",
+      "insider_filings": 16
+    },
+    {
+      "name": "KODA LTD",
+      "code": "BJZ",
+      "insider_filings": 15
+    },
+    {
+      "name": "LIFEBRANDZ LTD.",
+      "code": "1D3",
+      "insider_filings": 15
+    },
+    {
+      "name": "KIAN HO BEARINGS LTD",
+      "code": "K22",
+      "insider_filings": 14
+    },
+    {
+      "name": "K1 VENTURES LIMITED",
+      "code": "BLT",
+      "insider_filings": 13
+    },
+    {
+      "name": "LERENO BIO-CHEM LTD.",
+      "code": "XCF",
+      "insider_filings": 13
+    },
+    {
+      "name": "LONGCHEER HOLDINGS LIMITED",
+      "code": "BJL",
+      "insider_filings": 12
+    },
+    {
+      "name": "KEPPEL LAND LIMITED",
+      "code": "OXHB",
+      "insider_filings": 11
+    },
+    {
+      "name": "KEPPEL TELECOMMUNICATIONS & TRANSPORTATION LTD",
+      "code": "7U5B",
+      "insider_filings": 11
+    },
+    {
+      "name": "KOUFU GROUP LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 11
+    },
+    {
+      "name": "LTC CORPORATION LIMITED",
+      "code": "L17",
+      "insider_filings": 11
+    },
+    {
+      "name": "LY CORPORATION LIMITED",
+      "code": "1H8",
+      "insider_filings": 11
+    },
+    {
+      "name": "KOH BROTHERS GROUP LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 10
+    },
+    {
+      "name": "LEY CHOON GROUP HOLDINGS LIMITED",
+      "code": "Q0X",
+      "insider_filings": 10
+    },
+    {
+      "name": "LOW KENG HUAT (SINGAPORE) LIMITED",
+      "code": "F1E",
+      "insider_filings": 10
+    },
+    {
+      "name": "KEONG HONG HOLDINGS LIMITED",
+      "code": "5TT",
+      "insider_filings": 9
+    },
+    {
+      "name": "KOP LIMITED",
+      "code": "5I1",
+      "insider_filings": 9
+    },
+    {
+      "name": "LEADER ENVIRONMENTAL TECHNOLOGIES LIMITED",
+      "code": "LS9",
+      "insider_filings": 9
+    },
+    {
+      "name": "LHN LOGISTICS LIMITED",
+      "code": "GIH",
+      "insider_filings": 9
+    },
+    {
+      "name": "KSH HOLDINGS LIMITED",
+      "code": "ER0",
+      "insider_filings": 8
+    },
+    {
+      "name": "LIZHONG WHEEL GROUP LTD.",
+      "code": "E94",
+      "insider_filings": 8
+    },
+    {
+      "name": "LUXKING GROUP HOLDINGS LIMITED",
+      "code": "BKK",
+      "insider_filings": 8
+    },
+    {
+      "name": "JUNMA TYRE CORD COMPANY LTD",
+      "code": "5TF",
+      "insider_filings": 7
+    },
+    {
+      "name": "KHONG GUAN LIMITED",
+      "code": "K03",
+      "insider_filings": 7
+    },
+    {
+      "name": "KLW HOLDINGS LIMITED",
+      "code": "504",
+      "insider_filings": 7
+    },
+    {
+      "name": "KORI HOLDINGS LIMITED",
+      "code": "5VC",
+      "insider_filings": 7
+    },
+    {
+      "name": "LAFE CORPORATION LIMITED",
+      "code": "AYB",
+      "insider_filings": 7
+    },
+    {
+      "name": "LHN LIMITED",
+      "code": "41O",
+      "insider_filings": 7
+    },
+    {
+      "name": "LMIRT MANAGEMENT LTD.",
+      "code": "4V0B",
+      "insider_filings": 7
+    },
+    {
+      "name": "LUMINOR FINANCIAL HOLDINGS LIMITED",
+      "code": "5UA",
+      "insider_filings": 7
+    },
+    {
+      "name": "KINGSMEN CREATIVES LTD.",
+      "code": "5MZ",
+      "insider_filings": 6
+    },
+    {
+      "name": "LEE METAL GROUP LTD",
+      "code": "593",
+      "insider_filings": 6
+    },
+    {
+      "name": "LINAIR TECHNOLOGIES LIMITED",
+      "code": "5FW",
+      "insider_filings": 6
+    },
+    {
+      "name": "JOYAS INTERNATIONAL HLDGS LTD",
+      "code": "E9L",
+      "insider_filings": 5
+    },
+    {
+      "name": "KTMG LIMITED",
+      "code": "XCF",
+      "insider_filings": 5
+    },
+    {
+      "name": "LASSETERS INTERNATIONAL HOLDINGS LIMITED",
+      "code": "5EL",
+      "insider_filings": 5
+    },
+    {
+      "name": "LCT HOLDINGS LIMITED",
+      "code": "BJL",
+      "insider_filings": 5
+    },
+    {
+      "name": "JUBILEE INDUSTRIES HOLDINGS LTD.",
+      "code": "NHD",
+      "insider_filings": 4
+    },
+    {
+      "name": "KARIN TECHNOLOGY HLDGS LIMITED",
+      "code": "K29",
+      "insider_filings": 4
+    },
+    {
+      "name": "KINGBOARD COPPER FOIL HDGS LTD",
+      "code": "K14",
+      "insider_filings": 4
+    },
+    {
+      "name": "KOH BROTHERS ECO ENGINEERING LIMITED",
+      "code": "5HV",
+      "insider_filings": 4
+    },
+    {
+      "name": "KTL GLOBAL LIMITED",
+      "code": "EB7",
+      "insider_filings": 4
+    },
+    {
+      "name": "LEE KIM TAH HOLDINGS LIMITED",
+      "code": "L25",
+      "insider_filings": 4
+    },
+    {
+      "name": "LE TREE HOLDINGS LIMITED",
+      "code": "E6R",
+      "insider_filings": 4
+    },
+    {
+      "name": "KHONG GUAN FLOUR MILLING LTD.",
+      "code": "K03",
+      "insider_filings": 3
+    },
+    {
+      "name": "LANDMARK REIT MANAGEMENT LTD.",
+      "code": "D5IU",
+      "insider_filings": 3
+    },
+    {
+      "name": "LIBRA GROUP LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 3
+    },
+    {
+      "name": "LOTTVISION LIMITED",
+      "code": "AZT",
+      "insider_filings": 3
+    },
+    {
+      "name": "MACQUARIE INT'L INFRA FUND LTD",
+      "code": "M41",
+      "insider_filings": 3
+    },
+    {
+      "name": "KIMLY LIMITED",
+      "code": "1D0",
+      "insider_filings": 2
+    },
+    {
+      "name": "KING WAN CORPORATION LIMITED",
+      "code": "554",
+      "insider_filings": 2
+    },
+    {
+      "name": "KOON HOLDINGS LIMITED",
+      "code": "5DL",
+      "insider_filings": 2
+    },
+    {
+      "name": "KOYO INTERNATIONAL LIMITED",
+      "code": "5OC",
+      "insider_filings": 2
+    },
+    {
+      "name": "LI HENG CHEM FIBRE TECH LTD",
+      "code": "AXZ",
+      "insider_filings": 2
+    },
+    {
+      "name": "LS 2 HOLDINGS LIMITED",
+      "code": "ENV",
+      "insider_filings": 2
+    },
+    {
+      "name": "MANN SENG METAL INTERNATIONAL LIMITED",
+      "code": "5QR",
+      "insider_filings": 2
+    },
+    {
+      "name": "MANULIFE US REAL ESTATE MANAGEMENT PTE. LTD.",
+      "code": "BTOU",
+      "insider_filings": 2
+    },
+    {
+      "name": "KENCANA AGRI LIMITED",
+      "code": "BNE",
+      "insider_filings": 1
+    },
+    {
+      "name": "KEPPEL CORPORATION LIMITED",
+      "code": "BN4",
+      "insider_filings": 1
+    },
+    {
+      "name": "KEPPEL LTD.",
+      "code": "BN4",
+      "insider_filings": 1
+    },
+    {
+      "name": "MAGNUS ENERGY GROUP LTD.",
+      "code": "41S",
+      "insider_filings": 1
+    }
+  ]
+}

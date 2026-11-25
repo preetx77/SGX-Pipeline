@@ -1,0 +1,247 @@
+{
+  "batch": 9,
+  "tested": 400,
+  "pass_count": 48,
+  "pass_candidates": [
+    {
+      "name": "CAPITALAND RETAIL CHINA TRUST MANAGEMENT LIMITED",
+      "code": "AU8U",
+      "insider_filings": 55
+    },
+    {
+      "name": "CAPITALAND INDIA TRUST MANAGEMENT PTE. LTD.",
+      "code": "CY6U",
+      "insider_filings": 46
+    },
+    {
+      "name": "CENTURION ASSET MANAGEMENT PTE. LTD.",
+      "code": "8C8U",
+      "insider_filings": 41
+    },
+    {
+      "name": "CAPITALAND ASCENDAS REIT MANAGEMENT LIMITED",
+      "code": "A17U",
+      "insider_filings": 37
+    },
+    {
+      "name": "CAPITARETAIL CHINA TRUST MANAGEMENT LIMITED",
+      "code": "AU8U",
+      "insider_filings": 36
+    },
+    {
+      "name": "CENTURION CORPORATION LIMITED",
+      "code": "OU8",
+      "insider_filings": 36
+    },
+    {
+      "name": "CAPITALAND INTEGRATED COMMERCIAL TRUST MANAGEMENT LIMITED",
+      "code": "C38U",
+      "insider_filings": 34
+    },
+    {
+      "name": "CAMBRIDGE INDUSTRIAL TRUST MANAGEMENT LIMITED",
+      "code": "J91U",
+      "insider_filings": 31
+    },
+    {
+      "name": "CAPITALAND CHINA TRUST MANAGEMENT LIMITED",
+      "code": "AU8U",
+      "insider_filings": 31
+    },
+    {
+      "name": "CAPITAMALL TRUST MANAGEMENT LIMITED",
+      "code": "TY6Z",
+      "insider_filings": 31
+    },
+    {
+      "name": "CEDAR STRATEGIC HOLDINGS LTD.",
+      "code": "1C0",
+      "insider_filings": 30
+    },
+    {
+      "name": "CAPITALAND ASCOTT TRUST MANAGEMENT LIMITED",
+      "code": "HMN",
+      "insider_filings": 29
+    },
+    {
+      "name": "CAPITAMALLS ASIA LIMITED",
+      "code": "PW3Z",
+      "insider_filings": 29
+    },
+    {
+      "name": "CORTINA HOLDINGS LIMITED",
+      "code": "C41",
+      "insider_filings": 24
+    },
+    {
+      "name": "CEI LIMITED",
+      "code": "AVV",
+      "insider_filings": 22
+    },
+    {
+      "name": "CDW HOLDING LIMITED",
+      "code": "BXE",
+      "insider_filings": 19
+    },
+    {
+      "name": "CASA HOLDINGS LIMITED",
+      "code": "C04",
+      "insider_filings": 17
+    },
+    {
+      "name": "COLEX HOLDINGS LIMITED",
+      "code": "567",
+      "insider_filings": 17
+    },
+    {
+      "name": "COMMUNICATION DESIGN INTERNATIONAL LIMITED",
+      "code": "5HT",
+      "insider_filings": 17
+    },
+    {
+      "name": "CAMSING HEALTHCARE LIMITED",
+      "code": "BAC",
+      "insider_filings": 16
+    },
+    {
+      "name": "COMPACT METAL INDUSTRIES LTD",
+      "code": "T4E",
+      "insider_filings": 15
+    },
+    {
+      "name": "CAPITALAND COMMERCIAL TRUST MANAGEMENT LIMITED",
+      "code": "C61U",
+      "insider_filings": 14
+    },
+    {
+      "name": "CEI CONTRACT MANUFACTURING LIMITED",
+      "code": "AVV",
+      "insider_filings": 14
+    },
+    {
+      "name": "COMFORTDELGRO CORPORATION LIMITED",
+      "code": "C52",
+      "insider_filings": 13
+    },
+    {
+      "name": "CNA GROUP LTD.",
+      "code": "5GC",
+      "insider_filings": 12
+    },
+    {
+      "name": "CAPITALAND LIMITED",
+      "code": "C31",
+      "insider_filings": 11
+    },
+    {
+      "name": "CAPITAL WORLD LIMITED.",
+      "code": "1D5",
+      "insider_filings": 11
+    },
+    {
+      "name": "CACOLA FURNITURE INTL LIMITED",
+      "code": "D2U",
+      "insider_filings": 10
+    },
+    {
+      "name": "CAPITACOMMERCIAL TRUST MANAGEMENT LIMITED",
+      "code": "2HNB",
+      "insider_filings": 10
+    },
+    {
+      "name": "CAPITALAND MALL TRUST MANAGEMENT LIMITED",
+      "code": "C38U",
+      "insider_filings": 10
+    },
+    {
+      "name": "COGENT HOLDINGS LIMITED",
+      "code": "KJ9",
+      "insider_filings": 6
+    },
+    {
+      "name": "COLIWOO HOLDINGS LIMITED",
+      "code": "W8W",
+      "insider_filings": 6
+    },
+    {
+      "name": "CEFC INTERNATIONAL LIMITED",
+      "code": "Y35",
+      "insider_filings": 5
+    },
+    {
+      "name": "CAPTII LIMITED",
+      "code": "AWV",
+      "insider_filings": 4
+    },
+    {
+      "name": "CAPALLIANZ HOLDINGS LIMITED",
+      "code": "594",
+      "insider_filings": 3
+    },
+    {
+      "name": "CCFH LTD.",
+      "code": "5RF",
+      "insider_filings": 3
+    },
+    {
+      "name": "CHINA ESSENCE GROUP LTD.",
+      "code": "G54",
+      "insider_filings": 2
+    },
+    {
+      "name": "CHINA MINING INTERNATIONAL LTD",
+      "code": "BHD",
+      "insider_filings": 2
+    },
+    {
+      "name": "CHINA OILFIELD TEC SVCS GRP LTD",
+      "code": "DT2",
+      "insider_filings": 2
+    },
+    {
+      "name": "CHINA SPORTS INTERNATIONAL LIMITED",
+      "code": "FQ8",
+      "insider_filings": 2
+    },
+    {
+      "name": "CHOO CHIANG HOLDINGS LTD.",
+      "code": "42E",
+      "insider_filings": 2
+    },
+    {
+      "name": "COMBINE WILL INTL HLDGS LTD",
+      "code": "N0Z",
+      "insider_filings": 2
+    },
+    {
+      "name": "C&G ENV PROTECT HLDGS LTD",
+      "code": "D79",
+      "insider_filings": 1
+    },
+    {
+      "name": "CHINA AVIATION OIL (SINGAPORE) CORPORATION LTD",
+      "code": "G92",
+      "insider_filings": 1
+    },
+    {
+      "name": "CHINA FIBRETECH LTD.",
+      "code": "UNKNOWN",
+      "insider_filings": 1
+    },
+    {
+      "name": "CORDLIFE GROUP LIMITED",
+      "code": "P8A",
+      "insider_filings": 1
+    },
+    {
+      "name": "COSCO CORPORATION (SINGAPORE) LIMITED",
+      "code": "F83",
+      "insider_filings": 1
+    },
+    {
+      "name": "COSCO SHIPPING INTERNATIONAL (SINGAPORE) CO., LTD.",
+      "code": "F83",
+      "insider_filings": 1
+    }
+  ]
+}
