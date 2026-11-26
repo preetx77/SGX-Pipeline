@@ -1,30 +1,32 @@
 """
 Date override for environments with incorrect system time.
 
-The SGX Pipeline was tested in an environment where system date is set to Nov 2026,
-but the SGX API only has historical data up to October 2026.
+The SGX environment runs on Nov 2026 clock, but the measurement data
+was collected in Oct 2026. The SGX API validates that:
+  - period_end <= system_now
+  - period_start < period_end
 
-This module provides corrected dates for API queries.
+Solution: Use the system's current time for API queries (Nov 2026).
+The API will accept it even though historical data only goes to Oct 2026.
 """
 
 from datetime import datetime, timedelta
 
-# Actual current date (approximate)
-# In production, this should be actual current date
-CORRECTED_NOW = datetime(2024, 11, 24, 7, 40, 0)
-
 def get_api_query_dates(lookback_days=1825):
     """
-    Get date range for SGX API queries using corrected dates.
+    Get date range for SGX API queries using SYSTEM dates.
+    
+    The system date is in the future (Nov 2026), but SGX API requires
+    dates to be <= system_now. We use system time for valid API requests.
     
     Args:
         lookback_days: How many days back to query (default: 5 years = 1825 days)
     
     Returns:
-        dict with 'start' and 'end' as datetime objects
-        dict with 'period_start' and 'period_end' as unix timestamps
+        dict with timestamps and datetime objects for API queries
     """
-    end_date = CORRECTED_NOW
+    # Use actual system time (Nov 2026 on this machine)
+    end_date = datetime.utcnow()
     start_date = end_date - timedelta(days=lookback_days)
     
     return {
@@ -35,12 +37,4 @@ def get_api_query_dates(lookback_days=1825):
         'end_date': end_date,
         'start_date': start_date,
     }
-
-def use_corrected_dates():
-    """
-    Returns True if date override is active.
-    Can be disabled by setting environment variable DISABLE_DATE_OVERRIDE=1
-    """
-    import os
-    return os.getenv('DISABLE_DATE_OVERRIDE', '0') != '1'
 
