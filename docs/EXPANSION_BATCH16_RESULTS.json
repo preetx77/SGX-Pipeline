@@ -1,0 +1,182 @@
+{
+  "batch": 16,
+  "tested": 400,
+  "pass_count": 35,
+  "pass_candidates": [
+    {
+      "name": "MEGACHEM LIMITED",
+      "code": "5DS",
+      "insider_filings": 37
+    },
+    {
+      "name": "MAXI-CASH FINANCIAL SERVICES CORPORATION LTD.",
+      "code": "5UF",
+      "insider_filings": 36
+    },
+    {
+      "name": "MARCO POLO MARINE LTD.",
+      "code": "5LY",
+      "insider_filings": 32
+    },
+    {
+      "name": "MDR LIMITED",
+      "code": "Y3D",
+      "insider_filings": 32
+    },
+    {
+      "name": "M&C REIT MANAGEMENT LIMITED",
+      "code": "J85",
+      "insider_filings": 29
+    },
+    {
+      "name": "MENCAST HOLDINGS LTD.",
+      "code": "5NF",
+      "insider_filings": 23
+    },
+    {
+      "name": "MEMTECH INTERNATIONAL LTD.",
+      "code": "BOL",
+      "insider_filings": 21
+    },
+    {
+      "name": "MEDI LIFESTYLE LIMITED",
+      "code": "Z4D",
+      "insider_filings": 19
+    },
+    {
+      "name": "MAPLETREE NORTH ASIA COMMERCIAL TRUST MANAGEMENT LTD.",
+      "code": "RW0U",
+      "insider_filings": 17
+    },
+    {
+      "name": "MAPLETREE INDUSTRIAL TRUST MANAGEMENT LTD.",
+      "code": "ME8U",
+      "insider_filings": 12
+    },
+    {
+      "name": "MAPLETREE LOGISTICS TRUST MANAGEMENT LTD.",
+      "code": "M44U",
+      "insider_filings": 12
+    },
+    {
+      "name": "MEMORIES GROUP LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 12
+    },
+    {
+      "name": "MERCATOR LINES (SINGAPORE) LIMITED",
+      "code": "EE6",
+      "insider_filings": 10
+    },
+    {
+      "name": "MERMAID MARITIME PUBLIC CO LTD",
+      "code": "DU4",
+      "insider_filings": 10
+    },
+    {
+      "name": "MARY CHIA HOLDINGS LIMITED",
+      "code": "5OX",
+      "insider_filings": 9
+    },
+    {
+      "name": "MC PAYMENT LIMITED",
+      "code": "TVV",
+      "insider_filings": 9
+    },
+    {
+      "name": "MEMIONTEC HOLDINGS LTD.",
+      "code": "TWL",
+      "insider_filings": 9
+    },
+    {
+      "name": "MEGROUP LTD.",
+      "code": "SJY",
+      "insider_filings": 8
+    },
+    {
+      "name": "MEDINEX LIMITED",
+      "code": "OTX",
+      "insider_filings": 7
+    },
+    {
+      "name": "MATEX INTERNATIONAL LIMITED",
+      "code": "M15",
+      "insider_filings": 4
+    },
+    {
+      "name": "KIMLY LIMITED",
+      "code": "1D0",
+      "insider_filings": 2
+    },
+    {
+      "name": "KING WAN CORPORATION LIMITED",
+      "code": "554",
+      "insider_filings": 2
+    },
+    {
+      "name": "KOON HOLDINGS LIMITED",
+      "code": "5DL",
+      "insider_filings": 2
+    },
+    {
+      "name": "KOYO INTERNATIONAL LIMITED",
+      "code": "5OC",
+      "insider_filings": 2
+    },
+    {
+      "name": "LI HENG CHEM FIBRE TECH LTD",
+      "code": "AXZ",
+      "insider_filings": 2
+    },
+    {
+      "name": "LS 2 HOLDINGS LIMITED",
+      "code": "ENV",
+      "insider_filings": 2
+    },
+    {
+      "name": "MANN SENG METAL INTERNATIONAL LIMITED",
+      "code": "5QR",
+      "insider_filings": 2
+    },
+    {
+      "name": "MANULIFE US REAL ESTATE MANAGEMENT PTE. LTD.",
+      "code": "BTOU",
+      "insider_filings": 2
+    },
+    {
+      "name": "MEDTECS INTERNATIONAL CORP LTD",
+      "code": "546",
+      "insider_filings": 2
+    },
+    {
+      "name": "MERCURIUS CAP INVESTMENT LTD",
+      "code": "5RF",
+      "insider_filings": 2
+    },
+    {
+      "name": "KENCANA AGRI LIMITED",
+      "code": "BNE",
+      "insider_filings": 1
+    },
+    {
+      "name": "KEPPEL CORPORATION LIMITED",
+      "code": "BN4",
+      "insider_filings": 1
+    },
+    {
+      "name": "KEPPEL LTD.",
+      "code": "BN4",
+      "insider_filings": 1
+    },
+    {
+      "name": "MAGNUS ENERGY GROUP LTD.",
+      "code": "41S",
+      "insider_filings": 1
+    },
+    {
+      "name": "MEGHMANI ORGANICS LIMITED",
+      "code": "M30",
+      "insider_filings": 1
+    }
+  ]
+}

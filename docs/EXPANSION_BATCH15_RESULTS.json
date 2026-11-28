@@ -1,0 +1,137 @@
+{
+  "batch": 15,
+  "tested": 400,
+  "pass_count": 26,
+  "pass_candidates": [
+    {
+      "name": "IWOW TECHNOLOGY LIMITED",
+      "code": "NXR",
+      "insider_filings": 53
+    },
+    {
+      "name": "JB FOODS LIMITED",
+      "code": "BEW",
+      "insider_filings": 42
+    },
+    {
+      "name": "JEP HOLDINGS LTD.",
+      "code": "1J4",
+      "insider_filings": 41
+    },
+    {
+      "name": "JAPAN RESIDENTIAL ASSETS MANAGER LIMITED",
+      "code": "T8JU",
+      "insider_filings": 31
+    },
+    {
+      "name": "ISOTEAM LTD.",
+      "code": "5WF",
+      "insider_filings": 25
+    },
+    {
+      "name": "JACKS INTERNATIONAL LIMITED",
+      "code": "BAC",
+      "insider_filings": 24
+    },
+    {
+      "name": "ISR CAPITAL LIMITED",
+      "code": "5EC",
+      "insider_filings": 23
+    },
+    {
+      "name": "JAPAN FOODS HOLDING LTD.",
+      "code": "5OI",
+      "insider_filings": 20
+    },
+    {
+      "name": "JCG INVESTMENT HOLDINGS LTD.",
+      "code": "VFP",
+      "insider_filings": 18
+    },
+    {
+      "name": "JASPER INVESTMENTS LIMITED",
+      "code": "FQ7",
+      "insider_filings": 16
+    },
+    {
+      "name": "IX BIOPHARMA LTD.",
+      "code": "42C",
+      "insider_filings": 15
+    },
+    {
+      "name": "JK TECH HOLDINGS LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 14
+    },
+    {
+      "name": "JAPFA LTD.",
+      "code": "UD2",
+      "insider_filings": 13
+    },
+    {
+      "name": "ITE ELECTRIC CO LTD",
+      "code": "581",
+      "insider_filings": 11
+    },
+    {
+      "name": "JADASON ENTERPRISES LTD",
+      "code": "J03",
+      "insider_filings": 11
+    },
+    {
+      "name": "JARDINE CYCLE & CARRIAGE LIMITED",
+      "code": "C07",
+      "insider_filings": 11
+    },
+    {
+      "name": "JASON MARINE GROUP LIMITED",
+      "code": "5PF",
+      "insider_filings": 9
+    },
+    {
+      "name": "JASON HOLDINGS LIMITED",
+      "code": "5I3",
+      "insider_filings": 5
+    },
+    {
+      "name": "JISHAN HOLDINGS LIMITED",
+      "code": "J18",
+      "insider_filings": 5
+    },
+    {
+      "name": "JAYA HOLDINGS LIMITED",
+      "code": "BJE",
+      "insider_filings": 4
+    },
+    {
+      "name": "HC SURGICAL SPECIALISTS LIMITED",
+      "code": "1B1",
+      "insider_filings": 2
+    },
+    {
+      "name": "HOTUNG INVESTMENT HLDGS LTD",
+      "code": "BLS",
+      "insider_filings": 2
+    },
+    {
+      "name": "HOR KEW CORPORATION LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 1
+    },
+    {
+      "name": "HS OPTIMUS HOLDINGS LIMITED",
+      "code": "504",
+      "insider_filings": 1
+    },
+    {
+      "name": "IPC CORPORATION LTD",
+      "code": "AZA",
+      "insider_filings": 1
+    },
+    {
+      "name": "JES INTERNATIONAL HOLDINGS LIMITED",
+      "code": "EG0",
+      "insider_filings": 1
+    }
+  ]
+}

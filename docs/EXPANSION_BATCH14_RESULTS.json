@@ -1,0 +1,167 @@
+{
+  "batch": 14,
+  "tested": 400,
+  "pass_count": 32,
+  "pass_candidates": [
+    {
+      "name": "GOODLAND GROUP LIMITED",
+      "code": "5PC",
+      "insider_filings": 55
+    },
+    {
+      "name": "G. K. GOH HOLDINGS LIMITED",
+      "code": "G41",
+      "insider_filings": 46
+    },
+    {
+      "name": "GLOBAL PREMIUM HOTELS LIMITED",
+      "code": "P9J",
+      "insider_filings": 36
+    },
+    {
+      "name": "GL LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 35
+    },
+    {
+      "name": "GLOBAL LOGISTIC PROPERTIES LIMITED",
+      "code": "30TB",
+      "insider_filings": 30
+    },
+    {
+      "name": "GLOBAL YELLOW PAGES LIMITED",
+      "code": "AWS",
+      "insider_filings": 23
+    },
+    {
+      "name": "GENTING SINGAPORE PLC",
+      "code": "UNKNOWN",
+      "insider_filings": 20
+    },
+    {
+      "name": "GMG GLOBAL LTD",
+      "code": "AXJ",
+      "insider_filings": 20
+    },
+    {
+      "name": "GKE CORPORATION LIMITED",
+      "code": "595",
+      "insider_filings": 16
+    },
+    {
+      "name": "GP BATTERIES INTERNATIONAL LIMITED",
+      "code": "G08",
+      "insider_filings": 16
+    },
+    {
+      "name": "GIKEN SAKATA (S) LIMITED",
+      "code": "542",
+      "insider_filings": 15
+    },
+    {
+      "name": "GLOBAL DRAGON LIMITED",
+      "code": "586",
+      "insider_filings": 15
+    },
+    {
+      "name": "GEO ENERGY RESOURCES LIMITED",
+      "code": "RE4",
+      "insider_filings": 11
+    },
+    {
+      "name": "GOLDEN AGRI-RESOURCES LTD",
+      "code": "E5H",
+      "insider_filings": 11
+    },
+    {
+      "name": "GLOBAL INVACOM GROUP LIMITED",
+      "code": "QS9",
+      "insider_filings": 6
+    },
+    {
+      "name": "GOODWILL ENTERTAINMENT HOLDING LIMITED",
+      "code": "GEH",
+      "insider_filings": 6
+    },
+    {
+      "name": "GLOBAL INVESTMENTS LIMITED",
+      "code": "B73",
+      "insider_filings": 5
+    },
+    {
+      "name": "GOLDEN ENERGY AND RESOURCES LIMITED",
+      "code": "WRQB",
+      "insider_filings": 5
+    },
+    {
+      "name": "GEMS TV HOLDINGS LIMITED",
+      "code": "AM3",
+      "insider_filings": 4
+    },
+    {
+      "name": "GLOBAL PALM RESOURCES HOLDINGS LIMITED",
+      "code": "BLW",
+      "insider_filings": 4
+    },
+    {
+      "name": "GLOBAL TESTING CORPORATION LIMITED",
+      "code": "AYN",
+      "insider_filings": 4
+    },
+    {
+      "name": "DELUGE CORPORATION LIMITED",
+      "code": "9DC",
+      "insider_filings": 2
+    },
+    {
+      "name": "ELEC & ELTEK INTERNATIONAL COMPANY LIMITED.",
+      "code": "E16",
+      "insider_filings": 2
+    },
+    {
+      "name": "Fujian Zhenyun Plastics Industry Co., Ltd",
+      "code": "5KT",
+      "insider_filings": 2
+    },
+    {
+      "name": "FUJIAN ZHENYUN PLASTICS INDUSTRY CO., LTD",
+      "code": "5KT",
+      "insider_filings": 2
+    },
+    {
+      "name": "GP INDUSTRIES LIMITED",
+      "code": "G20",
+      "insider_filings": 2
+    },
+    {
+      "name": "GRC LIMITED",
+      "code": "S3N",
+      "insider_filings": 2
+    },
+    {
+      "name": "GREAT EASTERN HOLDINGS LIMITED",
+      "code": "G07",
+      "insider_filings": 2
+    },
+    {
+      "name": "DAPAI INTL HLDG CO. LTD.",
+      "code": "FP1",
+      "insider_filings": 1
+    },
+    {
+      "name": "DON AGRO INTERNATIONAL LIMITED",
+      "code": "GRQ",
+      "insider_filings": 1
+    },
+    {
+      "name": "EMS ENERGY LIMITED",
+      "code": "42O",
+      "insider_filings": 1
+    },
+    {
+      "name": "FRASERS CENTREPOINT LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 1
+    }
+  ]
+}

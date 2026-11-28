@@ -1,0 +1,382 @@
+{
+  "batch": 18,
+  "tested": 400,
+  "pass_count": 75,
+  "pass_candidates": [
+    {
+      "name": "ROXY-PACIFIC HOLDINGS LIMITED",
+      "code": "E8Z",
+      "insider_filings": 62
+    },
+    {
+      "name": "RAFFLES EDUCATION CORPORATION LIMITED",
+      "code": "NR7",
+      "insider_filings": 56
+    },
+    {
+      "name": "SASSEUR ASSET MANAGEMENT PTE. LTD.",
+      "code": "CRPU",
+      "insider_filings": 55
+    },
+    {
+      "name": "Q & M DENTAL GROUP (SINGAPORE) LIMITED",
+      "code": "QC7",
+      "insider_filings": 51
+    },
+    {
+      "name": "PSC CORPORATION LTD",
+      "code": "DM0",
+      "insider_filings": 45
+    },
+    {
+      "name": "PSC CORPORATION LTD.",
+      "code": "DM0",
+      "insider_filings": 45
+    },
+    {
+      "name": "QAF LIMITED",
+      "code": "Q01",
+      "insider_filings": 37
+    },
+    {
+      "name": "ROWSLEY LTD.",
+      "code": "CSIW",
+      "insider_filings": 37
+    },
+    {
+      "name": "QUANTUM HEALTHCARE LIMITED",
+      "code": "V8Y",
+      "insider_filings": 31
+    },
+    {
+      "name": "SALT INVESTMENTS LIMITED",
+      "code": "FQ7",
+      "insider_filings": 30
+    },
+    {
+      "name": "SAN TEH LTD",
+      "code": "S46",
+      "insider_filings": 30
+    },
+    {
+      "name": "SEVAK LIMITED",
+      "code": "BAI",
+      "insider_filings": 25
+    },
+    {
+      "name": "SILKROAD NICKEL LTD.",
+      "code": "STP",
+      "insider_filings": 25
+    },
+    {
+      "name": "SHENG SIONG GROUP LTD.",
+      "code": "OV8",
+      "insider_filings": 24
+    },
+    {
+      "name": "QT VASCULAR LTD.",
+      "code": "5I0",
+      "insider_filings": 23
+    },
+    {
+      "name": "RAMBA ENERGY LIMITED",
+      "code": "R14",
+      "insider_filings": 23
+    },
+    {
+      "name": "RELIGARE HEALTH TRUST TRUSTEE MANAGER PTE. LTD.",
+      "code": "RF1U",
+      "insider_filings": 23
+    },
+    {
+      "name": "RAFFLES MEDICAL GROUP LTD",
+      "code": "BSL",
+      "insider_filings": 22
+    },
+    {
+      "name": "RE&S HOLDINGS LIMITED",
+      "code": "1G1",
+      "insider_filings": 22
+    },
+    {
+      "name": "RAFFLES UNITED HOLDINGS LTD.",
+      "code": "K22",
+      "insider_filings": 21
+    },
+    {
+      "name": "SB REIT MANAGEMENT PTE. LTD.",
+      "code": "SV3U",
+      "insider_filings": 21
+    },
+    {
+      "name": "SEMBCORP INDUSTRIES LTD",
+      "code": "U96",
+      "insider_filings": 21
+    },
+    {
+      "name": "SHEFFIELD GREEN LTD.",
+      "code": "SGR",
+      "insider_filings": 21
+    },
+    {
+      "name": "SHINVEST HOLDING LTD.",
+      "code": "BJW",
+      "insider_filings": 20
+    },
+    {
+      "name": "RAFFLES EDUCATION LIMITED",
+      "code": "NR7",
+      "insider_filings": 19
+    },
+    {
+      "name": "REVEZ CORPORATION LTD.",
+      "code": "RCU",
+      "insider_filings": 17
+    },
+    {
+      "name": "SATS LTD.",
+      "code": "S58",
+      "insider_filings": 17
+    },
+    {
+      "name": "ROTARY ENGINEERING LIMITED.",
+      "code": "R07",
+      "insider_filings": 16
+    },
+    {
+      "name": "RICH CAPITAL HOLDINGS LIMITED",
+      "code": "1U8",
+      "insider_filings": 14
+    },
+    {
+      "name": "PROPNEX LIMITED",
+      "code": "OYY",
+      "insider_filings": 13
+    },
+    {
+      "name": "SCORPIO EAST HOLDINGS LTD.",
+      "code": "UNKNOWN",
+      "insider_filings": 13
+    },
+    {
+      "name": "SEMBCORP MARINE LTD",
+      "code": "S51",
+      "insider_filings": 13
+    },
+    {
+      "name": "RECLAIMS GLOBAL LIMITED",
+      "code": "NEX",
+      "insider_filings": 12
+    },
+    {
+      "name": "RICKMERS TRUST MANAGEMENT PTE. LTD.",
+      "code": "3N8B",
+      "insider_filings": 12
+    },
+    {
+      "name": "SELECT GROUP LIMITED",
+      "code": "5FQ",
+      "insider_filings": 12
+    },
+    {
+      "name": "SHANAYA LIMITED",
+      "code": "SES",
+      "insider_filings": 12
+    },
+    {
+      "name": "PSL HOLDINGS LIMITED",
+      "code": "BLL",
+      "insider_filings": 11
+    },
+    {
+      "name": "QIAN HU CORPORATION LIMITED",
+      "code": "BCV",
+      "insider_filings": 11
+    },
+    {
+      "name": "SAMKO TIMBER LIMITED",
+      "code": "E6R",
+      "insider_filings": 11
+    },
+    {
+      "name": "SILVERLAKE AXIS LTD",
+      "code": "5CP",
+      "insider_filings": 11
+    },
+    {
+      "name": "SILVERLAKE AXIS LTD.",
+      "code": "5CP",
+      "insider_filings": 11
+    },
+    {
+      "name": "PROSPERA GLOBAL LIMITED",
+      "code": "5HH",
+      "insider_filings": 10
+    },
+    {
+      "name": "SBS TRANSIT LTD",
+      "code": "S61",
+      "insider_filings": 10
+    },
+    {
+      "name": "SAMUDERA SHIPPING LINE LTD",
+      "code": "S56",
+      "insider_filings": 9
+    },
+    {
+      "name": "SECOND CHANCE PROPERTIES LTD",
+      "code": "528",
+      "insider_filings": 9
+    },
+    {
+      "name": "SANLI ENVIRONMENTAL LIMITED",
+      "code": "1E3",
+      "insider_filings": 8
+    },
+    {
+      "name": "SEN YUE HOLDINGS LIMITED",
+      "code": "5BS",
+      "insider_filings": 8
+    },
+    {
+      "name": "SERRANO LIMITED",
+      "code": "40R",
+      "insider_filings": 8
+    },
+    {
+      "name": "SHC CAPITAL ASIA LIMITED",
+      "code": "1H4",
+      "insider_filings": 8
+    },
+    {
+      "name": "SHS HOLDINGS LTD.",
+      "code": "566",
+      "insider_filings": 8
+    },
+    {
+      "name": "RENEWABLE ENERGY ASIA GRP LTD",
+      "code": "5DW",
+      "insider_filings": 7
+    },
+    {
+      "name": "RIVERSTONE HOLDINGS LIMITED",
+      "code": "AP4",
+      "insider_filings": 7
+    },
+    {
+      "name": "SANTAK HOLDINGS LIMITED",
+      "code": "580",
+      "insider_filings": 7
+    },
+    {
+      "name": "PS GROUP HOLDINGS LTD.",
+      "code": "5WD",
+      "insider_filings": 5
+    },
+    {
+      "name": "SABANA REAL ESTATE INVESTMENT MANAGEMENT PTE. LTD.",
+      "code": "M1GU",
+      "insider_filings": 5
+    },
+    {
+      "name": "SERIAL ACHIEVA LIMITED",
+      "code": "XHV",
+      "insider_filings": 5
+    },
+    {
+      "name": "REX INTERNATIONAL HOLDING LIMITED",
+      "code": "5WH",
+      "insider_filings": 4
+    },
+    {
+      "name": "R H ENERGY LTD.",
+      "code": "ACW",
+      "insider_filings": 4
+    },
+    {
+      "name": "SAPPHIRE CORPORATION LIMITED",
+      "code": "BRD",
+      "insider_filings": 4
+    },
+    {
+      "name": "SHOPPER360 LIMITED",
+      "code": "1F0",
+      "insider_filings": 4
+    },
+    {
+      "name": "PROSPERCAP CORPORATION LIMITED",
+      "code": "PPC",
+      "insider_filings": 3
+    },
+    {
+      "name": "PTERIS GLOBAL LIMITED",
+      "code": "UD3",
+      "insider_filings": 3
+    },
+    {
+      "name": "RESOURCES GLOBAL DEVELOPMENT LIMITED",
+      "code": "V7R",
+      "insider_filings": 3
+    },
+    {
+      "name": "SEROJA INVESTMENTS LIMITED",
+      "code": "IW5",
+      "insider_filings": 3
+    },
+    {
+      "name": "SHANGHAI TURBO ENTERPRISES LTD",
+      "code": "AWM",
+      "insider_filings": 3
+    },
+    {
+      "name": "S I2I LIMITED",
+      "code": "BAI",
+      "insider_filings": 3
+    },
+    {
+      "name": "QINGMEI GROUP HOLDINGS LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 2
+    },
+    {
+      "name": "RAFFLES INFRASTRUCTURE HOLDINGS LIMITED",
+      "code": "LUY",
+      "insider_filings": 2
+    },
+    {
+      "name": "RH PETROGAS LIMITED",
+      "code": "T13",
+      "insider_filings": 2
+    },
+    {
+      "name": "RYOBI KISO HOLDINGS LTD.",
+      "code": "BDN",
+      "insider_filings": 2
+    },
+    {
+      "name": "SAMURAI 2K AEROSOL LIMITED",
+      "code": "Y8E",
+      "insider_filings": 2
+    },
+    {
+      "name": "SCINTRONIX CORPORATION LTD.",
+      "code": "T20",
+      "insider_filings": 2
+    },
+    {
+      "name": "SEE HUP SENG LIMITED",
+      "code": "566",
+      "insider_filings": 2
+    },
+    {
+      "name": "PROSPER CAP CORPORATION LIMITED",
+      "code": "PPC",
+      "insider_filings": 1
+    },
+    {
+      "name": "SHEN YAO HOLDINGS LIMITED",
+      "code": "A78",
+      "insider_filings": 1
+    }
+  ]
+}

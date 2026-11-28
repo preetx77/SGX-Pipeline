@@ -1,0 +1,207 @@
+{
+  "batch": 13,
+  "timestamp": "2026-11-28T02:26:49.368266",
+  "tested": 800,
+  "pass_count": 33,
+  "fail_count": 767,
+  "pass_candidates": [
+    {
+      "name": "CROESUS RETAIL ASSET MANAGEMENT PTE. LTD.",
+      "code": "3X4B",
+      "insider_filings": 39,
+      "announcements": 100
+    },
+    {
+      "name": "COURTS ASIA LIMITED",
+      "code": "RE2",
+      "insider_filings": 31,
+      "announcements": 100
+    },
+    {
+      "name": "BRITISH AND MALAYAN TRUSTEES LIMITED",
+      "code": "B08",
+      "insider_filings": 27,
+      "announcements": 100
+    },
+    {
+      "name": "CSC HOLDINGS LIMITED",
+      "code": "C06",
+      "insider_filings": 25,
+      "announcements": 100
+    },
+    {
+      "name": "BROADWAY INDUSTRIAL GROUP LIMITED",
+      "code": "B69",
+      "insider_filings": 21,
+      "announcements": 100
+    },
+    {
+      "name": "COSMOSTEEL HOLDINGS LIMITED",
+      "code": "B9S",
+      "insider_filings": 17,
+      "announcements": 100
+    },
+    {
+      "name": "CRAFT PRINT INTERNATIONAL LIMITED.",
+      "code": "541",
+      "insider_filings": 17,
+      "announcements": 100
+    },
+    {
+      "name": "CROMWELL EREIT MANAGEMENT PTE. LTD.",
+      "code": "CWBU",
+      "insider_filings": 16,
+      "announcements": 100
+    },
+    {
+      "name": "CPH LTD.",
+      "code": "UNKNOWN",
+      "insider_filings": 12,
+      "announcements": 100
+    },
+    {
+      "name": "BUKIT SEMBAWANG ESTATES LIMITED",
+      "code": "B61",
+      "insider_filings": 7,
+      "announcements": 100
+    },
+    {
+      "name": "CREDIT BUREAU ASIA LIMITED",
+      "code": "TCU",
+      "insider_filings": 7,
+      "announcements": 100
+    },
+    {
+      "name": "BROOKE ASIA LIMITED",
+      "code": "5OY",
+      "insider_filings": 6,
+      "announcements": 81
+    },
+    {
+      "name": "BROMAT HOLDINGS LTD",
+      "code": "9I7",
+      "insider_filings": 5,
+      "announcements": 100
+    },
+    {
+      "name": "CREATIVE TECHNOLOGY LTD.",
+      "code": "C76",
+      "insider_filings": 5,
+      "announcements": 100
+    },
+    {
+      "name": "BROOK CROMPTON HOLDINGS LTD.",
+      "code": "AWC",
+      "insider_filings": 3,
+      "announcements": 100
+    },
+    {
+      "name": "BUMITAMA AGRI LTD.",
+      "code": "P8Z",
+      "insider_filings": 3,
+      "announcements": 100
+    },
+    {
+      "name": "CHOO CHIANG HOLDINGS LTD.",
+      "code": "42E",
+      "insider_filings": 2,
+      "announcements": 100
+    },
+    {
+      "name": "COMBINE WILL INTL HLDGS LTD",
+      "code": "N0Z",
+      "insider_filings": 2,
+      "announcements": 100
+    },
+    {
+      "name": "AAT CORPORATION LIMITED",
+      "code": "TF7",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "ABTERRA LTD.",
+      "code": "L5I",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "ACE ACHIEVE INFOCOM LIMITED",
+      "code": "A75",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "ADVANCER GLOBAL LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "AF GLOBAL LIMITED",
+      "code": "L38",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "ALITA RESOURCES LIMITED",
+      "code": "40F",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "AMCORP GLOBAL LIMITED",
+      "code": "S9B",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "AMPLEFIELD LIMITED",
+      "code": "AOF",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "AZEUS SYSTEMS HOLDINGS LTD.",
+      "code": "BBW",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "C&G ENV PROTECT HLDGS LTD",
+      "code": "D79",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "CHINA AVIATION OIL (SINGAPORE) CORPORATION LTD",
+      "code": "G92",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "CHINA FIBRETECH LTD.",
+      "code": "UNKNOWN",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "CORDLIFE GROUP LIMITED",
+      "code": "P8A",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "COSCO CORPORATION (SINGAPORE) LIMITED",
+      "code": "F83",
+      "insider_filings": 1,
+      "announcements": 100
+    },
+    {
+      "name": "COSCO SHIPPING INTERNATIONAL (SINGAPORE) CO., LTD.",
+      "code": "F83",
+      "insider_filings": 1,
+      "announcements": 100
+    }
+  ]
+}

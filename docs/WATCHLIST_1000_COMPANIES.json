@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-11-28T02:54:38.659442",
+  "total_companies": 935,
+  "baseline_count": 500,
+  "expansion_count": 435,
+  "coverage_percent": 21.7,
+  "sgx_total": 4305,
+  "measurement_batches": 8,
+  "companies_tested": 3200
+}

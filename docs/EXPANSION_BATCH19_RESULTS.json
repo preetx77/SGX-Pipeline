@@ -1,0 +1,482 @@
+{
+  "batch": 19,
+  "tested": 400,
+  "pass_count": 95,
+  "pass_candidates": [
+    {
+      "name": "SUNMOON FOOD COMPANY LIMITED",
+      "code": "AAJ",
+      "insider_filings": 68
+    },
+    {
+      "name": "SINGAPORE EDEVELOPMENT LIMITED",
+      "code": "40V",
+      "insider_filings": 62
+    },
+    {
+      "name": "SK JEWELLERY GROUP LIMITED",
+      "code": "42G",
+      "insider_filings": 49
+    },
+    {
+      "name": "SINOSTAR PEC HOLDINGS LIMITED",
+      "code": "C9Q",
+      "insider_filings": 46
+    },
+    {
+      "name": "SINOTEL TECHNOLOGIES LTD.",
+      "code": "D3W",
+      "insider_filings": 46
+    },
+    {
+      "name": "STAMFORD LAND CORPORATION LTD",
+      "code": "H07",
+      "insider_filings": 46
+    },
+    {
+      "name": "SWING MEDIA TECHNOLOGY GRP LTD",
+      "code": "BEV",
+      "insider_filings": 43
+    },
+    {
+      "name": "SINGAPORE SHIPPING CORPORATION LIMITED",
+      "code": "S19",
+      "insider_filings": 41
+    },
+    {
+      "name": "SINGHAIYI GROUP LTD.",
+      "code": "5H0",
+      "insider_filings": 39
+    },
+    {
+      "name": "STAR PHARMACEUTICAL LIMITED",
+      "code": "AYL",
+      "insider_filings": 39
+    },
+    {
+      "name": "TAI SIN ELECTRIC LIMITED",
+      "code": "500",
+      "insider_filings": 36
+    },
+    {
+      "name": "SUNPOWER GROUP LTD.",
+      "code": "UNKNOWN",
+      "insider_filings": 33
+    },
+    {
+      "name": "SUPER GROUP LTD.",
+      "code": "S10",
+      "insider_filings": 33
+    },
+    {
+      "name": "STRACO CORPORATION LIMITED",
+      "code": "S85",
+      "insider_filings": 31
+    },
+    {
+      "name": "TAT SENG PACKAGING GROUP LTD",
+      "code": "T12",
+      "insider_filings": 29
+    },
+    {
+      "name": "SINOCLOUD GROUP LIMITED",
+      "code": "LYY",
+      "insider_filings": 28
+    },
+    {
+      "name": "SING INVESTMENTS & FINANCE LIMITED",
+      "code": "S35",
+      "insider_filings": 27
+    },
+    {
+      "name": "Starhub LTD.",
+      "code": "WNOB",
+      "insider_filings": 27
+    },
+    {
+      "name": "STARHUB LTD.",
+      "code": "WNOB",
+      "insider_filings": 27
+    },
+    {
+      "name": "SINGAPORE LAND LIMITED",
+      "code": "S30",
+      "insider_filings": 26
+    },
+    {
+      "name": "SINO CONSTRUCTION LIMITED",
+      "code": "F3V",
+      "insider_filings": 26
+    },
+    {
+      "name": "SUNNINGDALE TECH LTD.",
+      "code": "BHQ",
+      "insider_filings": 26
+    },
+    {
+      "name": "TELECHOICE INTERNATIONAL LIMITED",
+      "code": "T41",
+      "insider_filings": 26
+    },
+    {
+      "name": "SING HOLDINGS LIMITED",
+      "code": "5IC",
+      "insider_filings": 25
+    },
+    {
+      "name": "SUTL ENTERPRISE LIMITED",
+      "code": "BHU",
+      "insider_filings": 25
+    },
+    {
+      "name": "SINGAPORE INSTITUTE OF ADVANCED MEDICINE HOLDINGS LTD.",
+      "code": "9G2",
+      "insider_filings": 24
+    },
+    {
+      "name": "SOO KEE GROUP LTD.",
+      "code": "42G",
+      "insider_filings": 24
+    },
+    {
+      "name": "THAI BEVERAGE PUBLIC CO LTD",
+      "code": "Y92",
+      "insider_filings": 23
+    },
+    {
+      "name": "SPH REIT MANAGEMENT PTE. LTD.",
+      "code": "SK6U",
+      "insider_filings": 21
+    },
+    {
+      "name": "SKY ONE HOLDINGS LIMITED",
+      "code": "5MM",
+      "insider_filings": 20
+    },
+    {
+      "name": "TEE LAND LIMITED",
+      "code": "S9B",
+      "insider_filings": 20
+    },
+    {
+      "name": "SINGAPORE TECHNOLOGIES ENGINEERING LTD",
+      "code": "S63",
+      "insider_filings": 18
+    },
+    {
+      "name": "SIN GHEE HUAT CORPORATION LTD.",
+      "code": "B7K",
+      "insider_filings": 18
+    },
+    {
+      "name": "SYNAGIE CORPORATION LTD.",
+      "code": "V2Y",
+      "insider_filings": 18
+    },
+    {
+      "name": "SOUTHERN ALLIANCE MINING LTD. ",
+      "code": "QNS",
+      "insider_filings": 17
+    },
+    {
+      "name": "SINGAPORE POST LIMITED",
+      "code": "S08",
+      "insider_filings": 15
+    },
+    {
+      "name": "SINGAPORE TELECOMMUNICATIONS LIMITED",
+      "code": "Z74",
+      "insider_filings": 15
+    },
+    {
+      "name": "SINJIA LAND LIMITED",
+      "code": "5HH",
+      "insider_filings": 15
+    },
+    {
+      "name": "SKYLINK HOLDINGS LIMITED",
+      "code": "XZB",
+      "insider_filings": 15
+    },
+    {
+      "name": "SOILBUILD CONSTRUCTION GROUP LTD.",
+      "code": "ZQM",
+      "insider_filings": 15
+    },
+    {
+      "name": "SUNRISE SHARES HOLDINGS LTD.",
+      "code": "581",
+      "insider_filings": 14
+    },
+    {
+      "name": "TAT HONG HOLDINGS LTD",
+      "code": "2YCB",
+      "insider_filings": 14
+    },
+    {
+      "name": "SIM LIAN GROUP LIMITED",
+      "code": "S05",
+      "insider_filings": 13
+    },
+    {
+      "name": "SINARMAS LAND LIMITED",
+      "code": "A26",
+      "insider_filings": 13
+    },
+    {
+      "name": "TECKWAH INDUSTRIAL CORPORATION LTD",
+      "code": "561",
+      "insider_filings": 13
+    },
+    {
+      "name": "SOUTHERN PACKAGING GROUP LIMITED",
+      "code": "BQP",
+      "insider_filings": 12
+    },
+    {
+      "name": "TERRATECH GROUP LIMITED",
+      "code": "1D5",
+      "insider_filings": 12
+    },
+    {
+      "name": "SINGAPORE REINSURANCE CORPORATION LIMITED",
+      "code": "S49",
+      "insider_filings": 11
+    },
+    {
+      "name": "STARBURST HOLDINGS LIMITED",
+      "code": "40D",
+      "insider_filings": 11
+    },
+    {
+      "name": "SINGAPORE O&G LTD.",
+      "code": "1D8",
+      "insider_filings": 10
+    },
+    {
+      "name": "SIN HENG HEAVY MACHINERY LIMITED",
+      "code": "BKA",
+      "insider_filings": 10
+    },
+    {
+      "name": "SOON HOCK ENTERPRISE HOLDING LIMITED",
+      "code": "SHE",
+      "insider_filings": 10
+    },
+    {
+      "name": "ST. JAMES HOLDINGS LIMITED",
+      "code": "5NH",
+      "insider_filings": 10
+    },
+    {
+      "name": "SUPERBOWL HOLDINGS LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 10
+    },
+    {
+      "name": "SWEE HONG LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 10
+    },
+    {
+      "name": "SMI VANTAGE LIMITED",
+      "code": "Y45",
+      "insider_filings": 9
+    },
+    {
+      "name": "SMJ INTERNATIONAL HOLDINGS LTD.",
+      "code": "40B",
+      "insider_filings": 9
+    },
+    {
+      "name": "SMRT CORPORATION LTD",
+      "code": "S53",
+      "insider_filings": 9
+    },
+    {
+      "name": "SOUP RESTAURANT GROUP LIMITED",
+      "code": "5KI",
+      "insider_filings": 9
+    },
+    {
+      "name": "SUNTEC TRUST MANAGEMENT LIMITED",
+      "code": "T82U",
+      "insider_filings": 9
+    },
+    {
+      "name": "SYSMA HOLDINGS LIMITED",
+      "code": "5UO",
+      "insider_filings": 9
+    },
+    {
+      "name": "THE ASSEMBLY PLACE HOLDINGS LTD.",
+      "code": "TAP",
+      "insider_filings": 9
+    },
+    {
+      "name": "SINCAP GROUP LIMITED",
+      "code": "XZB",
+      "insider_filings": 8
+    },
+    {
+      "name": "SITRA HOLDINGS (INTERNATIONAL) LIMITED",
+      "code": "5LE",
+      "insider_filings": 8
+    },
+    {
+      "name": "SUNLIGHT GROUP HLDG LTD",
+      "code": "5AI",
+      "insider_filings": 8
+    },
+    {
+      "name": "TA CORPORATION LTD.",
+      "code": "PA3",
+      "insider_filings": 8
+    },
+    {
+      "name": "TEHO INTERNATIONAL INC LTD.",
+      "code": "5OQ",
+      "insider_filings": 8
+    },
+    {
+      "name": "SINGAPORE MEDICAL GROUP LIMITED",
+      "code": "1N6B",
+      "insider_filings": 7
+    },
+    {
+      "name": "SOUP HOLDINGS LIMITED",
+      "code": "5KI",
+      "insider_filings": 7
+    },
+    {
+      "name": "STAMFORD TYRES CORPORATION LIMITED",
+      "code": "S29",
+      "insider_filings": 7
+    },
+    {
+      "name": "STONEWEG EREIT MANAGEMENT PTE. LTD.",
+      "code": "SET",
+      "insider_filings": 7
+    },
+    {
+      "name": "TECHNICS OIL & GAS LIMITED",
+      "code": "5CQ",
+      "insider_filings": 7
+    },
+    {
+      "name": "TEST ISSUER",
+      "code": "UNKNOWN",
+      "insider_filings": 7
+    },
+    {
+      "name": "SINGAPORE MYANMAR INVESTCO LIMITED",
+      "code": "Y45",
+      "insider_filings": 6
+    },
+    {
+      "name": "SINGAPORE PRESS HOLDINGS LIMITED",
+      "code": "T39",
+      "insider_filings": 6
+    },
+    {
+      "name": "SINWA LIMITED",
+      "code": "5CN",
+      "insider_filings": 6
+    },
+    {
+      "name": "STRATECH SYSTEMS LIMITED",
+      "code": "S73",
+      "insider_filings": 6
+    },
+    {
+      "name": "THAKRAL CORPORATION LTD",
+      "code": "AWI",
+      "insider_filings": 6
+    },
+    {
+      "name": "SINGAPORE WINDSOR HOLDINGS LIMITED",
+      "code": "Y45",
+      "insider_filings": 5
+    },
+    {
+      "name": "SPACKMAN ENTERTAINMENT GROUP LIMITED",
+      "code": "9VW",
+      "insider_filings": 5
+    },
+    {
+      "name": "SINGAPURA FINANCE LTD",
+      "code": "S23",
+      "insider_filings": 4
+    },
+    {
+      "name": "SLB DEVELOPMENT LTD.",
+      "code": "1J0",
+      "insider_filings": 4
+    },
+    {
+      "name": "SMARTFLEX HOLDINGS LTD.",
+      "code": "5RE",
+      "insider_filings": 4
+    },
+    {
+      "name": "STARLAND HOLDINGS LIMITED",
+      "code": "5UA",
+      "insider_filings": 4
+    },
+    {
+      "name": "STATS CHIPPAC LTD.",
+      "code": "2RJB",
+      "insider_filings": 4
+    },
+    {
+      "name": "TELEDATA (SINGAPORE) LIMITED.",
+      "code": "T28",
+      "insider_filings": 4
+    },
+    {
+      "name": "SIM LEISURE GROUP LTD.",
+      "code": "URR",
+      "insider_filings": 3
+    },
+    {
+      "name": "ST GROUP FOOD INDUSTRIES HOLDINGS LIMITED",
+      "code": "DRX",
+      "insider_filings": 3
+    },
+    {
+      "name": "SUNVIC CHEMICAL HOLDINGS LIMITED",
+      "code": "A7S",
+      "insider_filings": 3
+    },
+    {
+      "name": "TALKMED GROUP LIMITED",
+      "code": "5G3",
+      "insider_filings": 2
+    },
+    {
+      "name": "SINGAPORE LAND GROUP LIMITED",
+      "code": "U06",
+      "insider_filings": 1
+    },
+    {
+      "name": "SOUTHERN ARCHIPELAGO LTD.",
+      "code": "A33",
+      "insider_filings": 1
+    },
+    {
+      "name": "SUNMART HOLDINGS LIMITED",
+      "code": "C2J",
+      "insider_filings": 1
+    },
+    {
+      "name": "SUNTAR ECO-CITY LIMITED",
+      "code": "BKZ",
+      "insider_filings": 1
+    },
+    {
+      "name": "TEXCHEM-PACK HOLDINGS (S) LTD.",
+      "code": "AI1",
+      "insider_filings": 1
+    }
+  ]
+}

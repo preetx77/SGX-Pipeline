@@ -1,0 +1,467 @@
+{
+  "batch": 17,
+  "tested": 400,
+  "pass_count": 92,
+  "pass_candidates": [
+    {
+      "name": "NERA TELECOMMUNICATIONS LTD",
+      "code": "N01",
+      "insider_filings": 78
+    },
+    {
+      "name": "NAM CHEONG LIMITED",
+      "code": "1MZ",
+      "insider_filings": 76
+    },
+    {
+      "name": "MULTI-CHEM LIMITED",
+      "code": "AWZ",
+      "insider_filings": 70
+    },
+    {
+      "name": "PEGASUS ASIA",
+      "code": "PGS",
+      "insider_filings": 62
+    },
+    {
+      "name": "PC PARTNER GROUP LIMITED",
+      "code": "PCT",
+      "insider_filings": 58
+    },
+    {
+      "name": "NOBEL DESIGN HOLDINGS LTD",
+      "code": "547",
+      "insider_filings": 50
+    },
+    {
+      "name": "OSSIA INTERNATIONAL LIMITED",
+      "code": "O08",
+      "insider_filings": 50
+    },
+    {
+      "name": "PARKWAY TRUST MANAGEMENT LIMITED",
+      "code": "C2PU",
+      "insider_filings": 40
+    },
+    {
+      "name": "NIKS PROFESSIONAL LTD.",
+      "code": "NPL",
+      "insider_filings": 38
+    },
+    {
+      "name": "OTS HOLDINGS LIMITED",
+      "code": "OTS",
+      "insider_filings": 33
+    },
+    {
+      "name": "OLS ENTERPRISE LTD.",
+      "code": "ADJ",
+      "insider_filings": 32
+    },
+    {
+      "name": "PLATO CAPITAL LIMITED",
+      "code": "YYN",
+      "insider_filings": 31
+    },
+    {
+      "name": "PROCURRI CORPORATION LIMITED",
+      "code": "BVQ",
+      "insider_filings": 28
+    },
+    {
+      "name": "NTT DC REIT MANAGER PTE. LTD.",
+      "code": "NTDU",
+      "insider_filings": 27
+    },
+    {
+      "name": "OUE HOSPITALITY REIT MANAGEMENT PTE. LTD.",
+      "code": "SK7",
+      "insider_filings": 24
+    },
+    {
+      "name": "PERENNIAL REAL ESTATE HOLDINGS LIMITED",
+      "code": "8EMB",
+      "insider_filings": 24
+    },
+    {
+      "name": "NEO GROUP LIMITED",
+      "code": "5UJ",
+      "insider_filings": 22
+    },
+    {
+      "name": "OSIM INTERNATIONAL LTD",
+      "code": "16EB",
+      "insider_filings": 22
+    },
+    {
+      "name": "NOVO TELLUS ALPHA ACQUISITION",
+      "code": "NTA",
+      "insider_filings": 21
+    },
+    {
+      "name": "NTEGRATOR INTERNATIONAL LTD.",
+      "code": "WVJ",
+      "insider_filings": 21
+    },
+    {
+      "name": "PNE MICRON HOLDINGS LTD",
+      "code": "5BS",
+      "insider_filings": 21
+    },
+    {
+      "name": "NH CERAMICS LTD",
+      "code": "41H",
+      "insider_filings": 20
+    },
+    {
+      "name": "OCTOPUS (APAC) HOLDINGS LIMITED",
+      "code": "43A",
+      "insider_filings": 20
+    },
+    {
+      "name": "PARAGON REIT MANAGEMENT PTE. LTD.",
+      "code": "SK6U",
+      "insider_filings": 20
+    },
+    {
+      "name": "PETRA FOODS LIMITED",
+      "code": "P34",
+      "insider_filings": 20
+    },
+    {
+      "name": "PACIFIC RADIANCE LTD.",
+      "code": "UNKNOWN",
+      "insider_filings": 18
+    },
+    {
+      "name": "PROGEN HOLDINGS LTD",
+      "code": "583",
+      "insider_filings": 17
+    },
+    {
+      "name": "NOEL GIFTS INTERNATIONAL LTD.",
+      "code": "543",
+      "insider_filings": 16
+    },
+    {
+      "name": "OIO HOLDINGS LIMITED",
+      "code": "KUX",
+      "insider_filings": 16
+    },
+    {
+      "name": "OLIVE TREE ESTATES LIMITED",
+      "code": "1H2",
+      "insider_filings": 16
+    },
+    {
+      "name": "PACC OFFSHORE SERVICES HOLDINGS LTD.",
+      "code": "U6C",
+      "insider_filings": 16
+    },
+    {
+      "name": "NETLINK NBN MANAGEMENT PTE. LTD.",
+      "code": "CJLU",
+      "insider_filings": 15
+    },
+    {
+      "name": "OLAM INTERNATIONAL LIMITED",
+      "code": "VT0B",
+      "insider_filings": 15
+    },
+    {
+      "name": "PNE INDUSTRIES LTD",
+      "code": "BDA",
+      "insider_filings": 15
+    },
+    {
+      "name": "PRIME US REIT MANAGEMENT PTE. LTD.",
+      "code": "OXMU",
+      "insider_filings": 15
+    },
+    {
+      "name": "OKH GLOBAL LTD.",
+      "code": "UNKNOWN",
+      "insider_filings": 14
+    },
+    {
+      "name": "OCEANUS GROUP LIMITED",
+      "code": "579",
+      "insider_filings": 13
+    },
+    {
+      "name": "OTTO MARINE LIMITED",
+      "code": "13RB",
+      "insider_filings": 13
+    },
+    {
+      "name": "P5 CAPITAL HOLDINGS LTD.",
+      "code": "5AI",
+      "insider_filings": 13
+    },
+    {
+      "name": "PAN-UNITED CORPORATION LTD.",
+      "code": "P52",
+      "insider_filings": 13
+    },
+    {
+      "name": "PERENNIAL CHINA RETAIL TRUST MANAGEMENT PTE. LTD.",
+      "code": "2XWB",
+      "insider_filings": 13
+    },
+    {
+      "name": "POH TIONG CHOON LOGISTICS LIMITED",
+      "code": "P01",
+      "insider_filings": 13
+    },
+    {
+      "name": "MTQ CORPORATION LIMITED",
+      "code": "M05",
+      "insider_filings": 12
+    },
+    {
+      "name": "NEXT-GENERATION SATELLITE COMMUNICATIONS LIMITED",
+      "code": "B07",
+      "insider_filings": 12
+    },
+    {
+      "name": "PAN ASIAN HOLDINGS LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 12
+    },
+    {
+      "name": "OUE COMMERCIAL REIT MANAGEMENT PTE. LTD.",
+      "code": "TS0U",
+      "insider_filings": 11
+    },
+    {
+      "name": "PHARMESIS INTERNATIONAL LTD.",
+      "code": "BFK",
+      "insider_filings": 11
+    },
+    {
+      "name": "MPACT MANAGEMENT LTD.",
+      "code": "N2IU",
+      "insider_filings": 10
+    },
+    {
+      "name": "OKP HOLDINGS LIMITED",
+      "code": "5CF",
+      "insider_filings": 10
+    },
+    {
+      "name": "OVERSEAS EDUCATION LIMITED",
+      "code": "RQ1",
+      "insider_filings": 10
+    },
+    {
+      "name": "NSL LTD.",
+      "code": "N02",
+      "insider_filings": 9
+    },
+    {
+      "name": "NAM LEE PRESSED METAL INDUSTRIES LIMITED",
+      "code": "G0I",
+      "insider_filings": 8
+    },
+    {
+      "name": "NICO STEEL HOLDINGS LIMITED",
+      "code": "5GF",
+      "insider_filings": 8
+    },
+    {
+      "name": "NOVO GROUP LTD.",
+      "code": "MR8",
+      "insider_filings": 8
+    },
+    {
+      "name": "OLD CHANG KEE LTD.",
+      "code": "5ML",
+      "insider_filings": 8
+    },
+    {
+      "name": "PAN HONG HOLDINGS GROUP LIMITED",
+      "code": "P36",
+      "insider_filings": 8
+    },
+    {
+      "name": "PEC LTD.",
+      "code": "IX2",
+      "insider_filings": 8
+    },
+    {
+      "name": "NANOFILM TECHNOLOGIES INTERNATIONAL LIMITED",
+      "code": "MZH",
+      "insider_filings": 7
+    },
+    {
+      "name": "NEPTUNE ORIENT LINES LIMITED",
+      "code": "4WQB",
+      "insider_filings": 7
+    },
+    {
+      "name": "NOONTALK MEDIA LIMITED",
+      "code": "SEJ",
+      "insider_filings": 7
+    },
+    {
+      "name": "OUE HEALTHCARE LIMITED",
+      "code": "5WA",
+      "insider_filings": 7
+    },
+    {
+      "name": "OXPAY FINANCIAL LIMITED",
+      "code": "TVV",
+      "insider_filings": 7
+    },
+    {
+      "name": "PENGUIN INTERNATIONAL LIMITED",
+      "code": "BTM",
+      "insider_filings": 7
+    },
+    {
+      "name": "NO SIGNBOARD HOLDINGS LTD",
+      "code": "9I7",
+      "insider_filings": 6
+    },
+    {
+      "name": "OUE REIT MANAGEMENT PTE. LTD.",
+      "code": "TS0U",
+      "insider_filings": 6
+    },
+    {
+      "name": "POLLUX PROPERTIES LTD.",
+      "code": "5AE",
+      "insider_filings": 6
+    },
+    {
+      "name": "NEW WAVE HOLDINGS LTD.",
+      "code": "5FX",
+      "insider_filings": 5
+    },
+    {
+      "name": "OUE LIPPO HEALTHCARE LIMITED",
+      "code": "5WA",
+      "insider_filings": 5
+    },
+    {
+      "name": "PASTURE HOLDINGS LTD.",
+      "code": "UUK",
+      "insider_filings": 5
+    },
+    {
+      "name": "PAVILLON HOLDINGS LTD.",
+      "code": "596",
+      "insider_filings": 5
+    },
+    {
+      "name": "PCI LIMITED",
+      "code": "P19",
+      "insider_filings": 5
+    },
+    {
+      "name": "POPULAR HOLDINGS LIMITED",
+      "code": "P29",
+      "insider_filings": 5
+    },
+    {
+      "name": "MUN SIONG ENGINEERING LIMITED",
+      "code": "MF6",
+      "insider_filings": 4
+    },
+    {
+      "name": "NTEGRATOR HOLDINGS LIMITED",
+      "code": "WVJ",
+      "insider_filings": 4
+    },
+    {
+      "name": "MSM INTERNATIONAL LIMITED",
+      "code": "51O",
+      "insider_filings": 3
+    },
+    {
+      "name": "OCEAN SKY INTERNATIONAL LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 3
+    },
+    {
+      "name": "PACIFIC CENTURY REGIONAL DEVELOPMENTS LIMITED",
+      "code": "P15",
+      "insider_filings": 3
+    },
+    {
+      "name": "MOYA HOLDINGS ASIA LIMITED",
+      "code": "5WE",
+      "insider_filings": 2
+    },
+    {
+      "name": "NATURAL COOL HOLDINGS LIMITED",
+      "code": "5IF",
+      "insider_filings": 2
+    },
+    {
+      "name": "NEW TOYO INTERNATIONAL HOLDINGS LTD",
+      "code": "N08",
+      "insider_filings": 2
+    },
+    {
+      "name": "ORIENTAL GROUP LTD.",
+      "code": "5FI",
+      "insider_filings": 2
+    },
+    {
+      "name": "PACIFIC STAR DEVELOPMENT LIMITED",
+      "code": "1C5",
+      "insider_filings": 2
+    },
+    {
+      "name": "PINE CAPITAL GROUP LIMITED",
+      "code": "1J1W",
+      "insider_filings": 2
+    },
+    {
+      "name": "MYP LTD.",
+      "code": "F86",
+      "insider_filings": 1
+    },
+    {
+      "name": "NOBLE GROUP LIMITED",
+      "code": "CGP",
+      "insider_filings": 1
+    },
+    {
+      "name": "NORDIC GROUP LIMITED",
+      "code": "MR7",
+      "insider_filings": 1
+    },
+    {
+      "name": "OEL (HOLDINGS) LIMITED",
+      "code": "584",
+      "insider_filings": 1
+    },
+    {
+      "name": "OUHUA ENERGY HOLDINGS LIMITED",
+      "code": "AJ2",
+      "insider_filings": 1
+    },
+    {
+      "name": "P99 HOLDINGS LIMITED",
+      "code": "5UV",
+      "insider_filings": 1
+    },
+    {
+      "name": "PACIFIC ANDES RESOURCES DEVELOPMENT LIMITED",
+      "code": "P11",
+      "insider_filings": 1
+    },
+    {
+      "name": "PACIFIC HEALTHCARE HOLDINGS LTD.",
+      "code": "P47",
+      "insider_filings": 1
+    },
+    {
+      "name": "PARKSON RETAIL ASIA LIMITED",
+      "code": "O9E",
+      "insider_filings": 1
+    }
+  ]
+}

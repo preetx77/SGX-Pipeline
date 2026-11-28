@@ -1,0 +1,242 @@
+{
+  "batch": 20,
+  "tested": 245,
+  "pass_count": 47,
+  "pass_candidates": [
+    {
+      "name": "WING TAI HOLDINGS LIMITED",
+      "code": "W05",
+      "insider_filings": 84
+    },
+    {
+      "name": "ZAGRO ASIA LIMITED",
+      "code": "Z01",
+      "insider_filings": 60
+    },
+    {
+      "name": "WE HOLDINGS LTD.",
+      "code": "5RJ",
+      "insider_filings": 58
+    },
+    {
+      "name": "XMH HOLDINGS LTD.",
+      "code": "9PQ",
+      "insider_filings": 44
+    },
+    {
+      "name": "VGO CORPORATION LIMITED",
+      "code": "PH0",
+      "insider_filings": 41
+    },
+    {
+      "name": "VIVIDTHREE HOLDINGS LTD.",
+      "code": "OMK",
+      "insider_filings": 27
+    },
+    {
+      "name": "YINDA INFOCOMM LIMITED",
+      "code": "42F",
+      "insider_filings": 27
+    },
+    {
+      "name": "ZIXIN GROUP HOLDINGS LIMITED",
+      "code": "42W",
+      "insider_filings": 26
+    },
+    {
+      "name": "YKGI LIMITED",
+      "code": "YK9",
+      "insider_filings": 23
+    },
+    {
+      "name": "ZIWO HOLDINGS LTD.",
+      "code": "I9T",
+      "insider_filings": 22
+    },
+    {
+      "name": "VIKING OFFSHORE AND MARINE LIMITED",
+      "code": "1Y1",
+      "insider_filings": 21
+    },
+    {
+      "name": "VINS HOLDINGS LTD",
+      "code": "VIN",
+      "insider_filings": 21
+    },
+    {
+      "name": "YANGZIJIANG SHIPBUILDING (HOLDINGS) LTD.",
+      "code": "BS6",
+      "insider_filings": 21
+    },
+    {
+      "name": "VICPLAS INTERNATIONAL LTD",
+      "code": "569",
+      "insider_filings": 19
+    },
+    {
+      "name": "YOMA STRATEGIC HOLDINGS LTD.",
+      "code": "Z59",
+      "insider_filings": 18
+    },
+    {
+      "name": "VIVA INDUSTRIAL TRUST MANAGEMENT PTE. LTD.",
+      "code": "T8B",
+      "insider_filings": 17
+    },
+    {
+      "name": "ZICO HOLDINGS INC.",
+      "code": "40W",
+      "insider_filings": 15
+    },
+    {
+      "name": "YONGMAO HOLDINGS LIMITED",
+      "code": "BKX",
+      "insider_filings": 14
+    },
+    {
+      "name": "WORLD CLASS GLOBAL LIMITED",
+      "code": "1E6",
+      "insider_filings": 13
+    },
+    {
+      "name": "XINREN ALUMINUM HOLDINGS LIMITED",
+      "code": "MN5",
+      "insider_filings": 12
+    },
+    {
+      "name": "YHI INTERNATIONAL LIMITED",
+      "code": "BPF",
+      "insider_filings": 12
+    },
+    {
+      "name": "Y VENTURES GROUP LTD.",
+      "code": "1F1",
+      "insider_filings": 12
+    },
+    {
+      "name": "WINKING STUDIOS LIMITED",
+      "code": "WKS",
+      "insider_filings": 11
+    },
+    {
+      "name": "XYEC HOLDINGS CO., LTD.",
+      "code": "5WR",
+      "insider_filings": 11
+    },
+    {
+      "name": "XPRESS HOLDINGS LTD",
+      "code": "BQC",
+      "insider_filings": 10
+    },
+    {
+      "name": "YEO HIAP SENG LTD",
+      "code": "Y03",
+      "insider_filings": 10
+    },
+    {
+      "name": "ZHONGMIN BAIHUI RETAIL GROUP LTD.",
+      "code": "5SR",
+      "insider_filings": 10
+    },
+    {
+      "name": "WEE HUR HOLDINGS LTD.",
+      "code": "E3B",
+      "insider_filings": 9
+    },
+    {
+      "name": "WILLAS-ARRAY ELEC (HLDGS) LTD",
+      "code": "BDR",
+      "insider_filings": 9
+    },
+    {
+      "name": "YTL STARHILL GLOBAL REIT MANAGEMENT LIMITED",
+      "code": "P40U",
+      "insider_filings": 8
+    },
+    {
+      "name": "WHEELOCK PROPERTIES (SINGAPORE) LIMITED",
+      "code": "M35",
+      "insider_filings": 7
+    },
+    {
+      "name": "WILTON RESOURCES CORPORATION LIMITED",
+      "code": "5F7",
+      "insider_filings": 7
+    },
+    {
+      "name": "WEIYE HOLDINGS LIMITED",
+      "code": "BMA",
+      "insider_filings": 6
+    },
+    {
+      "name": "YAMADA GREEN RESOURCES LIMITED",
+      "code": "BJV",
+      "insider_filings": 6
+    },
+    {
+      "name": "YANGZIJIANG MARITIME DEVELOPMENT LTD.",
+      "code": "UNKNOWN",
+      "insider_filings": 5
+    },
+    {
+      "name": "YUUZOO CORPORATION LIMITED",
+      "code": "AFC",
+      "insider_filings": 5
+    },
+    {
+      "name": "VIBROPOWER CORPORATION LIMITED",
+      "code": "BJD",
+      "insider_filings": 4
+    },
+    {
+      "name": "WATCHES.COM LIMITED",
+      "code": "WVJ",
+      "insider_filings": 4
+    },
+    {
+      "name": "YANLORD LAND GROUP LIMITED",
+      "code": "Z25",
+      "insider_filings": 4
+    },
+    {
+      "name": "ZHENENG JINJIANG ENVIRONMENT HOLDING COMPANY LIMITED",
+      "code": "BWM",
+      "insider_filings": 4
+    },
+    {
+      "name": "ZICO HOLDINGS INC. ",
+      "code": "40W",
+      "insider_filings": 4
+    },
+    {
+      "name": "WONG FONG INDUSTRIES LTD",
+      "code": "1A1",
+      "insider_filings": 3
+    },
+    {
+      "name": "YANGZIJIANG FINANCIAL HOLDING LTD.",
+      "code": "YF8",
+      "insider_filings": 3
+    },
+    {
+      "name": "VIBRANT GROUP LIMITED",
+      "code": "BIP",
+      "insider_filings": 2
+    },
+    {
+      "name": "YING LI INTERNATIONAL REAL ESTATE LIMITED",
+      "code": "5DM",
+      "insider_filings": 2
+    },
+    {
+      "name": "YOUYUE INTERNATIONAL LIMITED",
+      "code": "Y06",
+      "insider_filings": 2
+    },
+    {
+      "name": "W CORPORATION LIMITED",
+      "code": "UNKNOWN",
+      "insider_filings": 1
+    }
+  ]
+}
